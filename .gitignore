@@ -1,4 +1,4 @@
 .idea/
-.db/
+db/
 wordpress/*
 !wordpress/wp-content/themes/*
