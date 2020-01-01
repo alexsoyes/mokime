@@ -128,6 +128,7 @@ require get_template_directory() . '/inc/customizer.php';
 
 require get_template_directory() . '/classes/class-mokime-separator-control.php';
 require get_template_directory() . '/classes/class-mokime-customize.php';
+require get_template_directory() . '/classes/class-mokime-walker-menu.php';
 
 /**
  * Register and Enqueue Styles.

@@ -33,7 +33,6 @@ get_header();
 			the_post();
 
 			get_template_part( 'template-parts/content', get_post_type() );
-
 		}
 
 		$recent_posts = wp_get_recent_posts(array(
@@ -45,7 +44,6 @@ get_header();
 			<li>
 				<a href="<?php echo get_permalink($post['ID']) ?>">
 					<?php echo get_the_post_thumbnail($post['ID'], 'full'); ?>
-					//Assuming that the slider support captions
 					<p class="slider-caption-class"><?php echo $post['post_title'] ?></p>
 				</a>
 			</li>

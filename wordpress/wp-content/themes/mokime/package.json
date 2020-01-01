@@ -1,0 +1,26 @@
+{
+  "name": "mokime",
+  "version": "1.0.0",
+  "description": "Mokime theme for WordPress.",
+  "main": "index.js",
+  "scripts": {
+    "run-sass": "./node_modules/node-sass/bin/node-sass --watch --output-style=compressed ./assets/css/main.scss ./assets/css/main.css --source-map-embed",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dinath/mokime.git"
+  },
+  "keywords": [
+    "WordPress",
+    "Theme",
+    "SEO",
+    "Performance"
+  ],
+  "author": "Dinath",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Dinath/mokime/issues"
+  },
+  "homepage": "https://github.com/Dinath/mokime#readme"
+}

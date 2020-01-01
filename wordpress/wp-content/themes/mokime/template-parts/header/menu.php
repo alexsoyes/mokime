@@ -1,33 +1,40 @@
-<div class="header-navigation-wrapper">
+<nav class="navbar" role="navigation" aria-label="main navigation">
 
-	<?php
-	if ( has_nav_menu( 'primary' ) ) {
-		?>
+    <div class="navbar-brand">
 
-		<nav class="primary-menu-wrapper" aria-label="<?php esc_attr_e( 'Horizontal', 'twentytwenty' ); ?>" role="navigation">
+		<?php if ( has_custom_logo() ) :
+			$image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
+			$site_name = get_bloginfo( 'name' );
+			?>
 
-			<ul class="primary-menu reset-list-style">
+            <a class="navbar-item" href="<?php get_site_url(); ?>">
+                <img src="<?php echo $image[0]; ?>" alt="<?php echo $site_name; ?>" title="<?php echo $site_name; ?>" />
+            </a>
 
-				<?php
-				if ( has_nav_menu( 'primary' ) ) {
+		<?php endif; ?>
 
-					wp_nav_menu(
-						array(
-							'container'  => '',
-							'items_wrap' => '%3$s',
-							'theme_location' => 'primary',
-						)
-					);
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
 
-				}
-				?>
-
-			</ul>
-
-		</nav><!-- .primary-menu-wrapper -->
+    <div id="navbarBasicExample" class="navbar-menu">
 
 		<?php
-	}
-	?>
+		if ( has_nav_menu( 'primary' ) ) {
 
-</div>
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'primary',
+					'menu'            => '',
+					'walker'          => new Mokime_Walker_Nav_Menu(),
+					'container'       => false,
+					'items_wrap'      => '<div class="navbar-end">%3$s</div>',
+				)
+			);
+		}
+		?>
+    </div>
+</nav>

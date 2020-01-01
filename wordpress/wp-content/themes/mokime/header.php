@@ -22,18 +22,9 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'mokime' ); ?></a>
 
     <header id="masthead" class="site-header">
-		<?php
-		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
-			the_custom_logo();
-		} else {
-			echo get_bloginfo( 'name' );
-        }
-		?>
-
 		<?php get_template_part( 'template-parts/header/menu' ); ?>
-    </header><!-- #masthead -->
+    </header>
 
     <div id="content" class="site-content">
