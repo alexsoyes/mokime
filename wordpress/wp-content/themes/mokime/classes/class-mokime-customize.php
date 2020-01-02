@@ -196,7 +196,8 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			 * Theme Options
 			 */
 
-			self::add_panel_homepage( $wp_customize );
+			self::add_section_homepage( $wp_customize );
+			self::add_section_header( $wp_customize );
 
 			$wp_customize->add_panel(
 				'options',
@@ -206,18 +207,57 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 					'capability' => 'edit_theme_options',
 				)
 			);
+		}
 
+		/**
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		public static function add_section_header( &$wp_customize ) {
+
+			// Add section
+			$wp_customize->add_section(
+				'options_header',
+				array(
+					'title'    => __( 'Header', 'mokime' ),
+					'priority' => 10,
+					'panel'    => 'options'
+				)
+			);
+
+			// Add setting
+			$wp_customize->add_setting(
+				'header_image',
+				array(
+					'transport' => 'refresh',
+					'height'    => 325,
+				)
+			);
+
+			// Add control
+			$wp_customize->add_control(
+				new WP_Customize_Image_Control(
+					$wp_customize,
+					'logo',
+					array(
+						'label'    => __( 'Header image', 'mokime' ),
+						'section'  => 'options_header',
+						'settings' => 'header_image'
+					)
+				)
+			);
 
 		}
 
 		/**
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public static function add_panel_homepage( &$wp_customize ) {
+		public static function add_section_homepage( &$wp_customize ) {
+
+			// Add section
 			$wp_customize->add_section(
-				'options_homepage' ,
+				'options_homepage',
 				array(
-					'title'    => __('Homepage','mokime'),
+					'title'    => __( 'Homepage', 'mokime' ),
 					'priority' => 10,
 					'panel'    => 'options'
 				)
