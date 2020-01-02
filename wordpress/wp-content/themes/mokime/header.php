@@ -23,22 +23,47 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 
-    <div class="container is-fluid"
+    <div class="container is-widescreen site-header"
          style="background-image: url('<?php echo esc_url( get_theme_mod( 'header_image' ) ); ?>');">
 
-        <header id="masthead" class="site-header">
-			<?php get_template_part( 'template-parts/header/menu' ); ?>
-        </header>
+        <div class="container">
 
-        <section class="hero is-medium">
-            <div class="hero-body">
-                <div class="container">
-                    <p><?php echo get_theme_mod( 'homepage_title' ); ?></p>
-                    <p><?php echo get_theme_mod( 'homepage_description' ); ?></p>
+            <header id="masthead">
+				<?php get_template_part( 'template-parts/header/menu' ); ?>
+            </header>
+
+            <section class="hero is-medium">
+                <div class="hero-body">
+                    <div class="container">
+                        <div class="columns">
+                            <div class="column is-9 is-offset-1">
+
+                                <p><?php echo get_theme_mod( 'homepage_title' ); ?></p>
+                                <p><?php echo get_theme_mod( 'homepage_description' ); ?></p>
+
+                                <div class="control has-icons-right">
+                                    <form role="search" method="get" class="search-form"
+                                          action="<?php esc_url( home_url( '/' ) ); ?>">
+                                        <label class="label">
+                                            <span class="screen-reader-text"><?php _x( 'Search for:', 'label' ) ?></span>
+                                            <input type="search" class="input is-medium search-field"
+                                                   placeholder="<?php esc_attr_x( 'Search &hellip;', 'placeholder' ) ?>"
+                                                   value="<?php get_search_query() ?>" name="s"/>
+                                            <span class="icon is-right">
+                                        <img src="/wp-content/themes/mokime/assets/img/icons/search-24px.svg" alt=""
+                                             class="hover">
+                                    </span>
+                                        </label>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
     </div>
 
-    <div id="content" class="site-content">
+    <div id="content" class="container site-content">

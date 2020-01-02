@@ -1,16 +1,35 @@
 @import "../../node_modules/bulma/sass/utilities/_all.sass";
+
+/** Bulma Layout builder **/
+@import "../../node_modules/bulma/sass/elements/container";
 @import "../../node_modules/bulma/sass/grid/columns.sass";
 
+/** Bulma components **/
 @import "../../node_modules/bulma/sass/components/navbar";
 
+/** Bulma layouts **/
 @import "../../node_modules/bulma/sass/layout/hero";
 
+@import '../../node_modules/bulma/sass/form/all';
 
-/** HEADER SECTION **/
+/** **/
+@import '../../node_modules/normalize.css/normalize.css';
+
+/** Bulma additionnals **/
 .navbar {
   &.is-transparent {
     background: transparent;
   }
 }
 
-.
+/** Compatibility **/
+img {
+  max-width: 100%;
+}
+
+/** Customize design :) **/
+.site-header {
+  //border-radius: 0px 0px 60% 60%;
+  background-position: center center;
+  background-size: cover;
+}
