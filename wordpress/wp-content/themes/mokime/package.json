@@ -22,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/Dinath/mokime/issues"
   },
-  "homepage": "https://github.com/Dinath/mokime#readme"
+  "homepage": "https://github.com/Dinath/mokime#readme",
+  "dependencies": {
+    "bulma": "^0.8.0",
+    "bulma-helper-spacing": "0.0.2",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.0"
+  }
 }

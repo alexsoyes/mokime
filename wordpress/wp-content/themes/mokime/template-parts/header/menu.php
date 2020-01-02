@@ -7,10 +7,9 @@
 			$site_name = get_bloginfo( 'name' );
 			?>
 
-            <a class="navbar-item" href="<?php get_site_url(); ?>">
-                <img src="<?php echo $image[0]; ?>" alt="<?php echo $site_name; ?>" title="<?php echo $site_name; ?>" />
+			<a class="navbar-item" href="/">
+				<img src="<?php echo $image[0]; ?>" alt="<?php echo $site_name; ?>" title="<?php echo $site_name; ?>" />
             </a>
-
 		<?php endif; ?>
 
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

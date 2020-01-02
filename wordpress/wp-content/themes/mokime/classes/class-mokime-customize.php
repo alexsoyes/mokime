@@ -271,10 +271,30 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			) );
 
 			$wp_customize->add_setting(
-				'homepage_description', array(
-				'default'           => '',
-				'sanitize_callback' => 'sanitize_textarea_field'
-			) );
+				'homepage_description',
+				array(
+					'default'           => '',
+					'sanitize_callback' => 'sanitize_textarea_field'
+				)
+			);
+
+			$wp_customize->add_setting(
+				'homepage_header_search',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => true,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'homepage_last_posts',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => true,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
 
 			// Add control
 			$wp_customize->add_control(
@@ -300,6 +320,27 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 						'settings' => 'homepage_description',
 						'type'     => 'textarea'
 					)
+				)
+			);
+
+			$wp_customize->add_control(
+				'homepage_header_search',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options_homepage',
+					'priority' => 10,
+					'label'    => __( 'Show search in header', 'mokime' ),
+				)
+			);
+
+
+			$wp_customize->add_control(
+				'homepage_last_posts',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options_homepage',
+					'priority' => 10,
+					'label'    => __( 'Show last posts in the hompeage', 'mokime' ),
 				)
 			);
 		}
