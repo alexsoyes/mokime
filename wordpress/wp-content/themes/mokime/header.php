@@ -16,6 +16,7 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="profile" href="https://gmpg.org/xfn/11"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,900&display=swap" rel="stylesheet">
 	<?php wp_head(); ?>
 </head>
 
@@ -23,7 +24,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 
-    <div class="container is-widescreen site-header"
+    <div class="container is-fluid site-header has-padding-0"
          style="background-image: url('<?php echo esc_url( get_theme_mod( 'header_image' ) ); ?>');">
 
         <div class="container">
