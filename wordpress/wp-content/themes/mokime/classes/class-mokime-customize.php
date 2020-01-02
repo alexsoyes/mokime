@@ -196,6 +196,8 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			 * Theme Options
 			 */
 
+			self::add_panel_homepage( $wp_customize );
+
 			$wp_customize->add_panel(
 				'options',
 				array(
@@ -205,6 +207,13 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				)
 			);
 
+
+		}
+
+		/**
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		public static function add_panel_homepage( &$wp_customize ) {
 			$wp_customize->add_section(
 				'options_homepage' ,
 				array(
@@ -251,209 +260,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 						'settings' => 'homepage_description',
 						'type'     => 'textarea'
 					)
-				)
-			);
-
-			/* Enable Header Search ----------------------------------------------- */
-
-			$wp_customize->add_setting(
-				'enable_header_search',
-				array(
-					'capability'        => 'edit_theme_options',
-					'default'           => true,
-					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
-				)
-			);
-
-			$wp_customize->add_control(
-				'enable_header_search',
-				array(
-					'type'     => 'checkbox',
-					'section'  => 'options',
-					'priority' => 10,
-					'label'    => __( 'Show search in header', 'mokime' ),
-				)
-			);
-
-			/* Show author bio ---------------------------------------------------- */
-
-			$wp_customize->add_setting(
-				'show_author_bio',
-				array(
-					'capability'        => 'edit_theme_options',
-					'default'           => true,
-					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
-				)
-			);
-
-			$wp_customize->add_control(
-				'show_author_bio',
-				array(
-					'type'     => 'checkbox',
-					'section'  => 'options',
-					'priority' => 10,
-					'label'    => __( 'Show author bio', 'mokime' ),
-				)
-			);
-
-			/* Display full content or excerpts on the blog and archives --------- */
-
-			$wp_customize->add_setting(
-				'blog_content',
-				array(
-					'capability'        => 'edit_theme_options',
-					'default'           => 'full',
-					'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
-				)
-			);
-
-			$wp_customize->add_control(
-				'blog_content',
-				array(
-					'type'     => 'radio',
-					'section'  => 'options',
-					'priority' => 10,
-					'label'    => __( 'On archive pages, posts show:', 'mokime' ),
-					'choices'  => array(
-						'full'    => __( 'Full text', 'mokime' ),
-						'summary' => __( 'Summary', 'mokime' ),
-					),
-				)
-			);
-
-			/**
-			 * Template: Cover Template.
-			 */
-			$wp_customize->add_section(
-				'cover_template_options',
-				array(
-					'title'       => __( 'Cover Template', 'mokime' ),
-					'capability'  => 'edit_theme_options',
-					'description' => __( 'Settings for the "Cover Template" page template. Add a featured image to use as background.', 'mokime' ),
-					'priority'    => 42,
-				)
-			);
-
-			/* Overlay Fixed Background ------ */
-
-			$wp_customize->add_setting(
-				'cover_template_fixed_background',
-				array(
-					'capability'        => 'edit_theme_options',
-					'default'           => true,
-					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
-					'transport'         => 'postMessage',
-				)
-			);
-
-			$wp_customize->add_control(
-				'cover_template_fixed_background',
-				array(
-					'type'        => 'checkbox',
-					'section'     => 'cover_template_options',
-					'label'       => __( 'Fixed Background Image', 'mokime' ),
-					'description' => __( 'Creates a parallax effect when the visitor scrolls.', 'mokime' ),
-				)
-			);
-
-			$wp_customize->selective_refresh->add_partial(
-				'cover_template_fixed_background',
-				array(
-					'selector' => '.cover-header',
-					'type'     => 'cover_fixed',
-				)
-			);
-
-			/* Separator --------------------- */
-
-			$wp_customize->add_setting(
-				'cover_template_separator_1',
-				array(
-					'sanitize_callback' => 'wp_filter_nohtml_kses',
-				)
-			);
-
-			$wp_customize->add_control(
-				new MokiMe_Separator_Control(
-					$wp_customize,
-					'cover_template_separator_1',
-					array(
-						'section' => 'cover_template_options',
-					)
-				)
-			);
-
-			/* Overlay Background Color ------ */
-
-			$wp_customize->add_setting(
-				'cover_template_overlay_background_color',
-				array(
-					'default'           => mokime_get_color_for_area( 'content', 'accent' ),
-					'sanitize_callback' => 'sanitize_hex_color',
-				)
-			);
-
-			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
-					$wp_customize,
-					'cover_template_overlay_background_color',
-					array(
-						'label'       => __( 'Overlay Background Color', 'mokime' ),
-						'description' => __( 'The color used for the overlay. Defaults to the accent color.', 'mokime' ),
-						'section'     => 'cover_template_options',
-					)
-				)
-			);
-
-			/* Overlay Text Color ------------ */
-
-			$wp_customize->add_setting(
-				'cover_template_overlay_text_color',
-				array(
-					'default'           => '#ffffff',
-					'sanitize_callback' => 'sanitize_hex_color',
-				)
-			);
-
-			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
-					$wp_customize,
-					'cover_template_overlay_text_color',
-					array(
-						'label'       => __( 'Overlay Text Color', 'mokime' ),
-						'description' => __( 'The color used for the text in the overlay.', 'mokime' ),
-						'section'     => 'cover_template_options',
-					)
-				)
-			);
-
-			/* Overlay Color Opacity --------- */
-
-			$wp_customize->add_setting(
-				'cover_template_overlay_opacity',
-				array(
-					'default'           => 80,
-					'sanitize_callback' => 'absint',
-					'transport'         => 'postMessage',
-				)
-			);
-
-			$wp_customize->add_control(
-				'cover_template_overlay_opacity',
-				array(
-					'label'       => __( 'Overlay Opacity', 'mokime' ),
-					'description' => __( 'Make sure that the contrast is high enough so that the text is readable.', 'mokime' ),
-					'section'     => 'cover_template_options',
-					'type'        => 'range',
-					'input_attrs' => mokime_customize_opacity_range(),
-				)
-			);
-
-			$wp_customize->selective_refresh->add_partial(
-				'cover_template_overlay_opacity',
-				array(
-					'selector' => '.cover-color-overlay',
-					'type'     => 'cover_opacity',
 				)
 			);
 		}
