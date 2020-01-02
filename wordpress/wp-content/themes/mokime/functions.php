@@ -12,6 +12,9 @@ function mokime_theme_support() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
+	// Add theme support for selective refresh for widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
 	// Custom background color.
 	add_theme_support(
 		'custom-background',
@@ -118,6 +121,31 @@ function mokime_theme_support() {
 }
 
 add_action( 'after_setup_theme', 'mokime_theme_support' );
+
+function mokime_sidebar_registration() {
+
+	// Arguments used in all register_sidebar() calls.
+	$shared_args = array(
+		'before_title'  => '<h2 class="widget-title subheading heading-size-3">',
+		'after_title'   => '</h2>',
+		'before_widget' => '<div class="widget %2$s column">',
+		'after_widget'  => '</div>',
+	);
+
+	// Footer #1.
+	register_sidebar(
+		array_merge(
+			$shared_args,
+			array(
+				'name'        => __( 'Footer', 'mokime' ),
+				'id'          => 'sidebar-footer',
+				'description' => __( 'Widgets in this area will be displayed in columns..', 'mokime' ),
+			)
+		)
+	);
+}
+
+add_action( 'widgets_init', 'mokime_sidebar_registration' );
 
 /**
  * REQUIRED FILES
