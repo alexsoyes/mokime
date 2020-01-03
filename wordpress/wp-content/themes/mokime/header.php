@@ -25,7 +25,8 @@
 <div id="page" class="site">
 
     <div class="container is-fluid site-header has-padding-0"
-         style="background-image: url('<?php echo esc_url( get_theme_mod( 'header_image' ) ); ?>');">
+	     <?php $header_image = get_theme_mod( 'header_image' );
+	     if ( $header_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
 
         <div class="container">
 
@@ -33,7 +34,7 @@
 				<?php get_template_part( 'template-parts/header/menu' ); ?>
             </header>
 
-            <section class="hero is-medium">
+            <div class="hero is-medium">
                 <div class="hero-body">
                     <div class="container">
                         <div class="columns">
@@ -51,7 +52,7 @@
 
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
 
     </div>

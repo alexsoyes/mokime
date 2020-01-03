@@ -126,20 +126,45 @@ function mokime_sidebar_registration() {
 
 	// Arguments used in all register_sidebar() calls.
 	$shared_args = array(
-		'before_title'  => '<h2 class="widget-title subheading heading-size-3">',
-		'after_title'   => '</h2>',
-		'before_widget' => '<div class="widget %2$s column">',
+		'before_title'  => '<p class="widget-title is-3">',
+		'after_title'   => '</p>',
+		'before_widget' => '<div class="widget %2$s">',
 		'after_widget'  => '</div>',
 	);
 
-	// Footer #1.
+
+	for ( $i = 1; $i <= 4; $i ++ ) {
+		register_sidebar(
+			array_merge(
+				$shared_args,
+				array(
+					'name'        => __( 'Footer #' . $i, 'mokime' ),
+					'id'          => 'sidebar-footer-' . $i,
+					'description' => __( 'Widgets in this area will be displayed in columns.', 'mokime' ),
+				)
+			)
+		);
+	}
+
+
 	register_sidebar(
 		array_merge(
 			$shared_args,
 			array(
-				'name'        => __( 'Footer', 'mokime' ),
-				'id'          => 'sidebar-footer',
-				'description' => __( 'Widgets in this area will be displayed in columns..', 'mokime' ),
+				'name'        => __( 'Pre-footer', 'mokime' ),
+				'id'          => 'sidebar-pre-footer',
+				'description' => __( 'Widgets will be displayed just before the footer.', 'mokime' ),
+			)
+		)
+	);
+
+	register_sidebar(
+		array_merge(
+			$shared_args,
+			array(
+				'name'        => __( 'Articles', 'mokime' ),
+				'id'          => 'sidebar-article',
+				'description' => __( 'Widgets in this area will be display next to content in article.', 'mokime' ),
 			)
 		)
 	);

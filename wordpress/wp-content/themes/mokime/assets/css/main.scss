@@ -19,6 +19,16 @@
 @import '../../node_modules/normalize.css/normalize.css';
 
 
+$primary: $turquoise;
+$link: $blue;
+$info: $cyan;
+$success: $green;
+$warning: $yellow;
+$danger: $red;
+$dark: $grey-darker;
+$text: $grey-dark;
+
+
 /** Bulma additionnals **/
 .navbar {
   &.is-transparent {
@@ -46,6 +56,10 @@
   color: $light;
 }
 
+.has-background-darker {
+  background: #0a0a0a;
+}
+
 /** Compatibility **/
 
 body {
@@ -61,6 +75,7 @@ a {
 }
 
 /** Customize design :) **/
+
 .site-header {
   //border-radius: 0px 0px 60% 60%;
   background-position: center center;
