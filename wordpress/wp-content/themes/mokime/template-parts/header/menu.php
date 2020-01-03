@@ -2,17 +2,12 @@
 
     <div class="navbar-brand">
 
-		<?php if ( has_custom_logo() ) :
-			$image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
-			$site_name = get_bloginfo( 'name' );
-			?>
+		<?php if ( has_custom_logo() ) {
+			the_custom_logo();
+		} ?>
 
-			<a class="navbar-item" href="/">
-				<img src="<?php echo $image[0]; ?>" alt="<?php echo $site_name; ?>" title="<?php echo $site_name; ?>" />
-            </a>
-		<?php endif; ?>
-
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+           data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>

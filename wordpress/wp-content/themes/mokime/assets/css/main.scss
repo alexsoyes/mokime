@@ -2,6 +2,8 @@
 
 /** Bulma Layout builder **/
 @import "../../node_modules/bulma/sass/elements/container";
+@import "../../node_modules/bulma/sass/elements/title";
+@import "../../node_modules/bulma/sass/elements/tag";
 @import "../../node_modules/bulma/sass/grid/columns.sass";
 
 /** Bulma components **/
@@ -13,7 +15,7 @@
 /** Bulma layouts **/
 @import "../../node_modules/bulma/sass/layout/hero";
 
-@import "../../node_modules/bulma-helper-spacing/spacing";
+//@import "../../node_modules/bulma-helper-spacing/spacing";
 
 /** **/
 @import '../../node_modules/normalize.css/normalize.css';
@@ -57,16 +59,44 @@ $text: $grey-dark;
   color: $white;
 }
 
+.has-margin-top-1 {
+  margin-top: 1rem;
+}
+
+.has-margin-right-1 {
+  margin-right: 1rem;
+}
+
+.has-text-weight-light {
+  font-weight: 300 !important;
+}
+
+.has-text-weight-bold {
+  font-weight: 700 !important;
+}
+
+.has-text-grey-dark {
+  color: $grey-dark;
+}
+
+.has-text-justified {
+  text-align: justify !important;
+}
+
 .has-text-black {
   color: $black;
 }
 
-.has-text-grey-dark {
-  color: $light;
-}
-
 .has-background-darker {
   background: #0a0a0a;
+}
+
+.has-margin-0 {
+  margin: 0px !important;
+}
+
+.has-padding-0 {
+  padding: 0px !important;
 }
 
 /** Compatibility **/

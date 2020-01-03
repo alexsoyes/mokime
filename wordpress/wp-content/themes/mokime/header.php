@@ -31,20 +31,20 @@
         <div class="container">
 
             <header id="masthead">
-				<?php get_template_part( 'template-parts/header/menu' ); ?>
+		        <?php get_template_part( 'template-parts/header/menu' ); ?>
             </header>
 
-            <div class="hero is-medium">
+            <div class="hero is-large">
                 <div class="hero-body">
                     <div class="container">
                         <div class="columns">
                             <div class="column is-9 is-offset-1">
-                                <p><?php echo get_theme_mod( 'homepage_title' ); ?></p>
-                                <p><?php echo get_theme_mod( 'homepage_description' ); ?></p>
+                                <p class="title is-white is-2"><?php echo get_theme_mod( 'homepage_title' ); ?></p>
+                                <p class="subtitle is-white is-6"><?php echo get_theme_mod( 'homepage_description' ); ?></p>
 
 						        <?php
 						        if ( (bool) get_theme_mod( 'homepage_header_search', true ) ) {
-							        get_template_part( 'template-parts/search-form' );
+							        get_template_part( 'template-parts/header/search-form' );
 						        }
 						        ?>
                             </div>

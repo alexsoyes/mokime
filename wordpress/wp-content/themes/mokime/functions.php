@@ -57,8 +57,7 @@ function mokime_theme_support() {
 		array(
 			'height'      => $logo_height,
 			'width'       => $logo_width,
-			'flex-height' => true,
-			'flex-width'  => true,
+			'flex-height' => true
 		)
 	);
 
