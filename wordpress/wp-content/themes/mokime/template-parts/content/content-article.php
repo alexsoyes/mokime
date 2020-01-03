@@ -27,12 +27,12 @@
             <div class="card-footer">
                 <div class="card-footer-item">
                     <img src="/wp-content/themes/mokime/assets/img/icons/_ionicons_svg_md-person.svg" alt="Utilisateur"
-                         class="hover" width="16">
+                         class="hover has-margin-right-05" width="16">
                     <small><?php the_author(); ?></small>
                 </div>
                 <div class="card-footer-item">
                     <img src="/wp-content/themes/mokime/assets/img/icons/_ionicons_svg_md-calendar.svg" alt="Date"
-                         class="hover" width="16">
+                         class="hover has-margin-right-05" width="16">
                     <time class="is-small-text has-text-grey-dark" datetime="<?php echo get_the_date( 'c' ); ?>"
                           itemprop="datePublished">
                         <small><?php echo get_the_date( 'j F Y' ); ?></small>

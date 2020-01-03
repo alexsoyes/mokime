@@ -1,5 +1,18 @@
 @import "../../node_modules/bulma/sass/utilities/_all.sass";
 
+$primary: $turquoise;
+$link: $blue;
+$info: $cyan;
+$success: $green;
+$warning: $yellow;
+$danger: $red;
+$dark: $grey-darker;
+$text: $grey-dark;
+
+$navbar-item-color: $white;
+$navbar-item-hover-color: #aaa;
+$navbar-item-active-color: $primary;
+
 /** Bulma Layout builder **/
 @import "../../node_modules/bulma/sass/elements/container";
 @import "../../node_modules/bulma/sass/elements/title";
@@ -20,21 +33,20 @@
 /** **/
 @import '../../node_modules/normalize.css/normalize.css';
 
-
-$primary: $turquoise;
-$link: $blue;
-$info: $cyan;
-$success: $green;
-$warning: $yellow;
-$danger: $red;
-$dark: $grey-darker;
-$text: $grey-dark;
-
+@import 'elements/color';
+@import 'elements/padding';
+@import 'elements/typography';
 
 /** Bulma additionnals **/
 .navbar {
   &.is-transparent {
     background: transparent;
+  }
+
+  .navbar-dropdown {
+    a.navbar-item {
+      color: $dark;
+    }
   }
 }
 
@@ -46,58 +58,6 @@ $text: $grey-dark;
   background-color: #eee;
 }
 
-.is-uppercase {
-  text-transform: uppercase;
-}
-
-.is-active {
-  border-bottom: 2px solid $white;
-}
-
-.is-active,
-.is-white {
-  color: $white;
-}
-
-.has-margin-top-1 {
-  margin-top: 1rem;
-}
-
-.has-margin-right-1 {
-  margin-right: 1rem;
-}
-
-.has-text-weight-light {
-  font-weight: 300 !important;
-}
-
-.has-text-weight-bold {
-  font-weight: 700 !important;
-}
-
-.has-text-grey-dark {
-  color: $grey-dark;
-}
-
-.has-text-justified {
-  text-align: justify !important;
-}
-
-.has-text-black {
-  color: $black;
-}
-
-.has-background-darker {
-  background: #0a0a0a;
-}
-
-.has-margin-0 {
-  margin: 0px !important;
-}
-
-.has-padding-0 {
-  padding: 0px !important;
-}
 
 /** Compatibility **/
 
@@ -117,6 +77,7 @@ a {
 
 .site-header {
   //border-radius: 0px 0px 60% 60%;
-  background-position: center center;
+  //background-attachment: fixed;
+  background-position: top center;
   background-size: cover;
 }

@@ -34,7 +34,7 @@
 		        <?php get_template_part( 'template-parts/header/menu' ); ?>
             </header>
 
-            <div class="hero is-large">
+            <div class="hero is-medium has-padding-bottom-5">
                 <div class="hero-body">
                     <div class="container">
                         <div class="columns">
@@ -57,4 +57,4 @@
 
     </div>
 
-    <div id="content" class="container site-content">
+    <div id="content" class="container site-content has-padding-y-3">

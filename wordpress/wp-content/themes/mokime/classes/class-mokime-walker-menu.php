@@ -53,14 +53,14 @@ class Mokime_Walker_Nav_Menu extends Walker {
 
 	public function getLinkButton($item) {
 		$url         = $item->url ?? '';
-		$classes     = empty($item->classes) ? array() : (array) $item->classes;
+		$classes     = empty( $item->classes ) ? array() : (array) $item->classes;
 		$class_names = '';
 
-		if (in_array('current-menu-item', $classes)) {
-			$class_names .= 'is-active';
+		if ( in_array( 'current-menu-item', $classes ) ) {
+			$class_names .= 'is-active has-text-weight-bold';
 		}
 
-		$button = sprintf("<a href='%s' class='navbar-item is-white %s'>%s</a>", $url, $class_names, $item->title);
+		$button = sprintf( "<a href='%s' class='navbar-item %s'>%s</a>", $url, $class_names, $item->title );
 
 		return $button;
 	}
@@ -71,7 +71,7 @@ class Mokime_Walker_Nav_Menu extends Walker {
 		$class_names = '';
 
 		if (in_array('current-menu-item', $classes)) {
-			$class_names .= 'is-active';
+			$class_names .= 'is-active has-text-weight-bold';
 		}
 
 		$button = sprintf("<a href='%s' class='navbar-link %s is-white'>%s</a>", $url, $class_names, $item->title);
