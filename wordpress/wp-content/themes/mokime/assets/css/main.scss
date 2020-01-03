@@ -48,6 +48,15 @@ $text: $grey-dark;
   text-transform: uppercase;
 }
 
+.is-active {
+  border-bottom: 2px solid $white;
+}
+
+.is-active,
+.is-white {
+  color: $white;
+}
+
 .has-text-black {
   color: $black;
 }
