@@ -3,7 +3,7 @@
 /**
  * Display the content from the static page
  */
-if ( is_home() && !is_front_page() && have_posts() ) {
+if ( ! is_home() && is_front_page() && have_posts() ) {
 	the_post();
 	the_content();
 }
@@ -11,7 +11,7 @@ if ( is_home() && !is_front_page() && have_posts() ) {
 /**
  * Display the last articles
  */
-if ( is_home() || (bool) get_theme_mod( 'homepage_header_search', true ) ) {
+if ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_posts', true ) ) {
 
 	$recent_posts = get_posts( array(
 		'posts_per_page' => 12,
@@ -23,7 +23,7 @@ if ( is_home() || (bool) get_theme_mod( 'homepage_header_search', true ) ) {
 
 		echo '<h2 class="title has-text-weight-light">' . __( 'Nos derniers articles', 'mokime' ) . '</h2>';
 
-		echo '<div class="has-margin-top-3 columns">';
+		echo '<div class="has-margin-top-3 row">';
 
 		foreach ( $recent_posts as $post ) {
 			setup_postdata( $post );

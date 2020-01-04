@@ -24,7 +24,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 
-    <div class="container is-fluid site-header has-padding-0"
+    <div class="wrapper is-fluid site-header has-padding-0"
 	     <?php $header_image = get_theme_mod( 'header_image' );
 	     if ( $header_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
 
@@ -39,9 +39,9 @@
                     <div class="container">
                         <div class="columns">
                             <div class="column is-9 is-offset-1">
-								<?php if ( is_home() ) : ?>
-                                    <p class="title is-white is-2"><?php echo get_theme_mod( 'homepage_title' ); ?></p>
-                                    <p class="subtitle is-white is-6"><?php echo get_theme_mod( 'homepage_description' ); ?></p>
+								<?php if ( is_home() || is_front_page() ) : ?>
+                                    <p class="h2 is-white"><?php echo get_theme_mod( 'homepage_title' ); ?></p>
+                                    <p class="is-white h6"><?php echo get_theme_mod( 'homepage_description' ); ?></p>
 
 									<?php
 									if ( (bool) get_theme_mod( 'homepage_header_search', true ) ) {

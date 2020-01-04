@@ -1,5 +1,15 @@
 @import "../../node_modules/bulma/sass/utilities/all.sass";
 
+$color-initial: #fff;
+$color-primary: $cyan;
+$color-secondary: #606c76;
+$color-tertiary: #f4f5f6;
+$color-quaternary: #d1d1d1;
+$color-quinary: #e1e1e1;
+
+@import "../../node_modules/milligram/src/milligram";
+@import "milligram/Typography";
+
 $primary: #e9862b;
 $secondary: #1c3146;
 
@@ -11,16 +21,16 @@ $navbar-item-hover-color: $secondary;
 $navbar-item-active-color: $primary;
 
 /** Bulma Layout builder **/
-@import "../../node_modules/bulma/sass/elements/container";
-@import "../../node_modules/bulma/sass/elements/title";
+//@import "../../node_modules/bulma/sass/elements/container";
+//@import "../../node_modules/bulma/sass/elements/title";
 @import "../../node_modules/bulma/sass/elements/tag";
-@import "../../node_modules/bulma/sass/grid/columns.sass";
+//@import "../../node_modules/bulma/sass/grid/columns.sass";
 
 /** Bulma components **/
 @import "../../node_modules/bulma/sass/components/navbar";
 @import "../../node_modules/bulma/sass/components/card";
-@import '../../node_modules/bulma/sass/form/all';
-@import '../../node_modules/bulma/sass/elements/button';
+//@import '../../node_modules/bulma/sass/form/all';
+//@import '../../node_modules/bulma/sass/elements/button';
 
 /** Bulma layouts **/
 @import "../../node_modules/bulma/sass/layout/hero";

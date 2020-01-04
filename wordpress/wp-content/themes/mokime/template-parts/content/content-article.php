@@ -1,5 +1,4 @@
-
-<article class="column is-4" id="post-<?php the_ID(); ?>" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="column column-33" id="post-<?php the_ID(); ?>" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="card">
 		<?php
 		$the_post_image = '';

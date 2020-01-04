@@ -1,7 +1,7 @@
 </div>
 
 <footer id="site-footer" role="contentinfo"
-        class="header-footer-group container is-fluid has-padding-top-5 has-margin-top-5 has-margin-x-0 has-padding-x-0 has-background-darker">
+        class="header-footer-group wrapper has-padding-top-5 has-margin-top-5 has-margin-x-0 has-padding-x-0 has-background-darker">
 
 	<?php get_template_part( 'template-parts/footer/menus-widgets' ); ?>
 
