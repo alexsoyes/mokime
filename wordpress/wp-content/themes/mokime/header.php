@@ -31,7 +31,7 @@
         <div class="container">
 
             <header id="masthead">
-		        <?php get_template_part( 'template-parts/header/menu' ); ?>
+				<?php get_template_part( 'template-parts/header/menu' ); ?>
             </header>
 
             <div class="hero is-medium has-padding-bottom-5">
@@ -39,14 +39,16 @@
                     <div class="container">
                         <div class="columns">
                             <div class="column is-9 is-offset-1">
-                                <p class="title is-white is-2"><?php echo get_theme_mod( 'homepage_title' ); ?></p>
-                                <p class="subtitle is-white is-6"><?php echo get_theme_mod( 'homepage_description' ); ?></p>
+								<?php if ( is_home() ) : ?>
+                                    <p class="title is-white is-2"><?php echo get_theme_mod( 'homepage_title' ); ?></p>
+                                    <p class="subtitle is-white is-6"><?php echo get_theme_mod( 'homepage_description' ); ?></p>
 
-						        <?php
-						        if ( (bool) get_theme_mod( 'homepage_header_search', true ) ) {
-							        get_template_part( 'template-parts/header/search-form' );
-						        }
-						        ?>
+									<?php
+									if ( (bool) get_theme_mod( 'homepage_header_search', true ) ) {
+										get_template_part( 'template-parts/header/search-form' );
+									}
+									?>
+								<?php endif; ?>
                             </div>
                         </div>
 
@@ -57,4 +59,4 @@
 
     </div>
 
-    <div id="content" class="container site-content has-padding-y-3">
+    <div id="content" class="container site-content has-padding-y-3 has-padding-x-2 has-padding-x-0-desktop">

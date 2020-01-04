@@ -125,12 +125,11 @@ function mokime_sidebar_registration() {
 
 	// Arguments used in all register_sidebar() calls.
 	$shared_args = array(
-		'before_title'  => '<p class="widget-title is-3">',
+		'before_title'  => '<p class="title is-5 is-white is-uppercase">',
 		'after_title'   => '</p>',
-		'before_widget' => '<div class="widget %2$s">',
+		'before_widget' => '<div class="%2$s">',
 		'after_widget'  => '</div>',
 	);
-
 
 	for ( $i = 1; $i <= 4; $i ++ ) {
 		register_sidebar(

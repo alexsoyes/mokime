@@ -1,16 +1,13 @@
-@import "../../node_modules/bulma/sass/utilities/_all.sass";
+@import "../../node_modules/bulma/sass/utilities/all.sass";
 
-$primary: $turquoise;
-$link: $blue;
-$info: $cyan;
-$success: $green;
-$warning: $yellow;
-$danger: $red;
-$dark: $grey-darker;
-$text: $grey-dark;
+$primary: #e9862b;
+$secondary: #1c3146;
+
+$info: $cyan !default$success: $green !default$warning: $yellow !default$danger: $red !default$grey: #aeaeae !default;
+$light: #dcdcdc !default$dark: #101010 !default$white: #fefefe !default;
 
 $navbar-item-color: $white;
-$navbar-item-hover-color: #aaa;
+$navbar-item-hover-color: $secondary;
 $navbar-item-active-color: $primary;
 
 /** Bulma Layout builder **/
@@ -58,7 +55,6 @@ $navbar-item-active-color: $primary;
   background-color: #eee;
 }
 
-
 /** Compatibility **/
 
 body {
@@ -80,4 +76,19 @@ a {
   //background-attachment: fixed;
   background-position: top center;
   background-size: cover;
+}
+
+#site-footer {
+  a {
+    color: $light;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0px;
+
+    &.sub-menu {
+      padding-left: 1rem;
+    }
+  }
 }
