@@ -30,16 +30,7 @@ if ( is_singular() ) {
 //		$show_categories = apply_filters( 'twentytwenty_show_categories_in_entry_header', true );
 
 		if ( has_category() ) {
-			?>
-
-			<div class="entry-categories">
-<!--				<span class="screen-reader-text">--><?php //_e( 'Categories', 'twentytwenty' ); ?><!--</span>-->
-				<div class="entry-categories-inner">
-					<?php the_category( ' ' ); ?>
-				</div><!-- .entry-categories-inner -->
-			</div><!-- .entry-categories -->
-
-			<?php
+			get_template_part( 'template-parts/content/content-article-categories' );
 		}
 
 		if ( is_singular() ) {

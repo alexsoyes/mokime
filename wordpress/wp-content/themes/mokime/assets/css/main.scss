@@ -1,14 +1,16 @@
 @import "../../node_modules/bulma/sass/utilities/all.sass";
 
 $color-initial: #fff;
-$color-primary: $cyan;
-$color-secondary: #606c76;
-$color-tertiary: #f4f5f6;
-$color-quaternary: #d1d1d1;
-$color-quinary: #e1e1e1;
+$color-primary: #e9862b;
+$color-secondary: #1c3146;
+$color-tertiary: #dcdcdc;
+$color-quaternary: #fefefe;
+$color-quinary: #fff;
 
 @import "../../node_modules/milligram/src/milligram";
 @import "milligram/Typography";
+@import "milligram/Grid";
+
 
 $primary: #e9862b;
 $secondary: #1c3146;
@@ -20,26 +22,16 @@ $navbar-item-color: $white;
 $navbar-item-hover-color: $secondary;
 $navbar-item-active-color: $primary;
 
-/** Bulma Layout builder **/
-//@import "../../node_modules/bulma/sass/elements/container";
-//@import "../../node_modules/bulma/sass/elements/title";
-@import "../../node_modules/bulma/sass/elements/tag";
-//@import "../../node_modules/bulma/sass/grid/columns.sass";
-
 /** Bulma components **/
+@import "../../node_modules/bulma/sass/elements/tag";
 @import "../../node_modules/bulma/sass/components/navbar";
 @import "../../node_modules/bulma/sass/components/card";
-//@import '../../node_modules/bulma/sass/form/all';
-//@import '../../node_modules/bulma/sass/elements/button';
-
-/** Bulma layouts **/
 @import "../../node_modules/bulma/sass/layout/hero";
 
-//@import "../../node_modules/bulma-helper-spacing/spacing";
-
-/** **/
+/** External libs **/
 @import '../../node_modules/normalize.css/normalize.css';
 
+/** Custom elements **/
 @import 'elements/color';
 @import 'elements/padding';
 @import 'elements/typography';
@@ -65,11 +57,13 @@ $navbar-item-active-color: $primary;
   background-color: #eee;
 }
 
-/** Compatibility **/
-
-body {
-  font-family: 'Roboto', sans-serif;
+.tags {
+  .tag {
+    font-size: 1.5rem;
+  }
 }
+
+/** Compatibility **/
 
 img {
   max-width: 100%;
@@ -86,6 +80,15 @@ a {
   //background-attachment: fixed;
   background-position: top center;
   background-size: cover;
+}
+
+.filtered-black {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.8),
+          transparent);
 }
 
 #site-footer {

@@ -26,37 +26,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 			$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
-			$wp_customize->selective_refresh->add_partial(
-				'blogname',
-				array(
-					'selector'        => '.site-title a',
-					'render_callback' => 'mokime_customize_partial_blogname',
-				)
-			);
-
-			$wp_customize->selective_refresh->add_partial(
-				'blogdescription',
-				array(
-					'selector'        => '.site-description',
-					'render_callback' => 'mokime_customize_partial_blogdescription',
-				)
-			);
-
-			$wp_customize->selective_refresh->add_partial(
-				'custom_logo',
-				array(
-					'selector'        => '.header-titles [class*=site-]:not(.site-description)',
-					'render_callback' => 'mokime_customize_partial_site_logo',
-				)
-			);
-
-			$wp_customize->selective_refresh->add_partial(
-				'retina_logo',
-				array(
-					'selector'        => '.header-titles [class*=site-]:not(.site-description)',
-					'render_callback' => 'mokime_customize_partial_site_logo',
-				)
-			);
+			self::add_selective_refreshes( $wp_customize );
 
 			/**
 			 * Site Identity
@@ -198,6 +168,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 
 			self::add_section_homepage( $wp_customize );
 			self::add_section_header( $wp_customize );
+			self::add_section_single( $wp_customize );
 
 			$wp_customize->add_panel(
 				'options',
@@ -205,6 +176,43 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 					'title'      => __( 'Theme Options', 'mokime' ),
 					'priority'   => 40,
 					'capability' => 'edit_theme_options',
+				)
+			);
+		}
+
+		/**
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		public static function add_section_single( &$wp_customize ) {
+
+			// Add section
+			$wp_customize->add_section(
+				'options_single',
+				array(
+					'title'    => __( 'Single', 'mokime' ),
+					'priority' => 10,
+					'panel'    => 'options'
+				)
+			);
+
+			// Add setting
+			$wp_customize->add_setting(
+				'single_author_bio',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => true,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
+			// Add control
+			$wp_customize->add_control(
+				'single_author_bio',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options_single',
+					'settings' => 'single_author_bio',
+					'label'    => __( 'Show the author bio in single pages.', 'mokime' ),
 				)
 			);
 		}
@@ -344,6 +352,45 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				)
 			);
 		}
+
+		/**
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		public static function add_selective_refreshes( &$wp_customize ) {
+
+			$wp_customize->selective_refresh->add_partial(
+				'blogname',
+				array(
+					'selector'        => '.site-title a',
+					'render_callback' => 'mokime_customize_partial_blogname',
+				)
+			);
+
+			$wp_customize->selective_refresh->add_partial(
+				'blogdescription',
+				array(
+					'selector'        => '.site-description',
+					'render_callback' => 'mokime_customize_partial_blogdescription',
+				)
+			);
+
+			$wp_customize->selective_refresh->add_partial(
+				'custom_logo',
+				array(
+					'selector'        => '.header-titles [class*=site-]:not(.site-description)',
+					'render_callback' => 'mokime_customize_partial_site_logo',
+				)
+			);
+
+			$wp_customize->selective_refresh->add_partial(
+				'retina_logo',
+				array(
+					'selector'        => '.header-titles [class*=site-]:not(.site-description)',
+					'render_callback' => 'mokime_customize_partial_site_logo',
+				)
+			);
+		}
+
 
 		/**
 		 * Sanitization callback for the "accent_accessible_colors" setting.

@@ -125,7 +125,7 @@ function mokime_sidebar_registration() {
 
 	// Arguments used in all register_sidebar() calls.
 	$shared_args = array(
-		'before_title'  => '<p class="title is-5 is-white is-uppercase">',
+		'before_title'  => '<p class="h5 is-white is-uppercase has-text-weight-bold">',
 		'after_title'   => '</p>',
 		'before_widget' => '<div class="%2$s">',
 		'after_widget'  => '</div>',
@@ -176,8 +176,10 @@ add_action( 'widgets_init', 'mokime_sidebar_registration' );
  */
 require get_template_directory() . '/inc/menu.php';
 require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/template-tags.php';
 
 require get_template_directory() . '/classes/class-mokime-separator-control.php';
+require get_template_directory() . '/classes/class-mokime-walker-comment.php';
 require get_template_directory() . '/classes/class-mokime-customize.php';
 require get_template_directory() . '/classes/class-mokime-walker-menu.php';
 

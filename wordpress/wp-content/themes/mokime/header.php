@@ -24,34 +24,49 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 
+	<?php
+	if ( is_single() && has_post_thumbnail() ) {
+		$header_image       = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' )[0];
+		$header_title       = get_the_title();
+		$header_description = get_the_excerpt();
+	} else {
+		$header_image       = get_theme_mod( 'header_image' );
+		$header_title       = get_theme_mod( 'homepage_title' );
+		$header_description = get_theme_mod( 'homepage_description' );
+	}
+	?>
+
     <div class="wrapper is-fluid site-header has-padding-0"
-	     <?php $header_image = get_theme_mod( 'header_image' );
-	     if ( $header_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
+	     <?php if ( $header_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
 
-        <div class="container">
+        <div class="filtered-black">
 
-            <header id="masthead">
-				<?php get_template_part( 'template-parts/header/menu' ); ?>
-            </header>
 
-            <div class="hero is-medium has-padding-bottom-5">
-                <div class="hero-body">
-                    <div class="container">
-                        <div class="columns">
-                            <div class="column is-9 is-offset-1">
-								<?php if ( is_home() || is_front_page() ) : ?>
-                                    <p class="h2 is-white"><?php echo get_theme_mod( 'homepage_title' ); ?></p>
-                                    <p class="is-white h6"><?php echo get_theme_mod( 'homepage_description' ); ?></p>
+            <div class="container">
+
+                <header id="masthead">
+					<?php get_template_part( 'template-parts/header/menu' ); ?>
+                </header>
+
+                <div class="hero is-medium has-padding-bottom-5">
+                    <div class="hero-body">
+                        <div class="container">
+                            <div class="columns">
+                                <div class="column is-9 is-offset-1">
+                                    <p class="h2 is-white"><?php echo $header_title; ?></p>
+                                    <p class="is-white h6"><?php echo $header_description; ?></p>
 
 									<?php
-									if ( (bool) get_theme_mod( 'homepage_header_search', true ) ) {
+									if ( is_home() || is_front_page() && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
 										get_template_part( 'template-parts/header/search-form' );
+									} else if ( is_single() ) {
+										get_template_part( 'template-parts/content/content-article-categories' );
 									}
 									?>
-								<?php endif; ?>
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -59,4 +74,4 @@
 
     </div>
 
-    <div id="content" class="container site-content has-padding-y-3 has-padding-x-2 has-padding-x-0-desktop">
+    <div id="content" class="site-content has-padding-y-3 has-padding-x-2 has-padding-x-0-desktop">
