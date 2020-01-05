@@ -173,6 +173,7 @@ add_action( 'widgets_init', 'mokime_sidebar_registration' );
 
 function mokime_widgets_registration() {
 	register_widget( 'MokiMe_Widget_CTA_Post' );
+	register_widget( 'MokiMe_Widget_Recent_Posts' );
 }
 
 add_action( 'widgets_init', 'mokime_widgets_registration' );
@@ -191,6 +192,7 @@ require get_template_directory() . '/classes/class-mokime-walker-comment.php';
 require get_template_directory() . '/classes/class-mokime-customize.php';
 require get_template_directory() . '/classes/class-mokime-walker-menu.php';
 require get_template_directory() . '/classes/class-mokime-widget-cta-post.php';
+require get_template_directory() . '/classes/class-mokime-widget-recent-posts.php';
 
 /**
  * Register and Enqueue Styles.

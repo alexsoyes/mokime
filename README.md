@@ -1,3 +1,29 @@
+
+
+
+
+
+
+
+
+
+
+## Installation
+
+For dev environment, I am using Docker-Compose.
+
+* Download the latest version of [WordPress](https://wordpress.org/download/)
+* Create a directory and unzip WordPress in there
+** Create directory `db`
+```
+.
+├── db
+├── docker-compose.yaml
+└── wordpress
+```
+* Add the following `docker-compose.yaml` file
+
+```yaml
 version: '3.1'
 
 services:
@@ -29,3 +55,7 @@ services:
 volumes:
   wordpress:
   db:
+```
+
+* Start it!
+

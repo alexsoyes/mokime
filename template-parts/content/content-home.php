@@ -25,7 +25,8 @@ if ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_post
 		echo '<div class="row">';
 
 		foreach ( $recent_posts as $index => $post ) {
-			if ( ( $index !== 0 && fmod( $index, 3 ) == 0 ) ) {
+
+			if ( $index !== 0 && ( $index % 3 ) === 0 ) {
 				echo '</div><div class="has-margin-top-3 row">';
 			}
 

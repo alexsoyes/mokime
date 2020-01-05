@@ -1,4 +1,3 @@
+node_modules/
+npm-debug.log
 .idea/
-db/
-wordpress/*
-!wordpress/wp-content/themes/mokime
