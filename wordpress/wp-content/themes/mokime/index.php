@@ -15,7 +15,8 @@ if ( is_home() || is_front_page() ) { ?>
     </div>
 	<?php
 } else if ( is_single() ) { ?>
-    <div class="container">
+    <div class="container<?php if ( is_active_sidebar( 'sidebar-single' ) )
+		echo ' container-hd' ?>">
 		<?php
 		the_post();
 		get_template_part( 'template-parts/content/content-single' ); ?>

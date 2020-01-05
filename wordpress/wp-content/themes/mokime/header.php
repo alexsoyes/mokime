@@ -26,7 +26,7 @@
 
 	<?php
 	if ( is_single() && has_post_thumbnail() ) {
-		$header_image       = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' )[0];
+		$header_image       = mokime_get_post_thumbnail_url( get_post() );
 		$header_title       = get_the_title();
 		$header_description = get_the_excerpt();
 	} else {
@@ -45,7 +45,7 @@
             <div class="container">
 
                 <header id="masthead">
-					<?php get_template_part( 'template-parts/header/menu' ); ?>
+		            <?php get_template_part( 'template-parts/header/menu' ); ?>
                 </header>
 
                 <div class="hero is-medium has-padding-bottom-5">
@@ -53,16 +53,16 @@
                         <div class="container">
                             <div class="columns">
                                 <div class="column is-9 is-offset-1">
-                                    <p class="h2 is-white"><?php echo $header_title; ?></p>
+                                    <p class="h2 is-white has-margin-bottom-0"><?php echo $header_title; ?></p>
                                     <p class="is-white h6"><?php echo $header_description; ?></p>
 
-									<?php
-									if ( is_home() || is_front_page() && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
-										get_template_part( 'template-parts/header/search-form' );
-									} else if ( is_single() ) {
-										get_template_part( 'template-parts/content/content-article-categories' );
-									}
-									?>
+						            <?php
+						            if ( is_home() || is_front_page() && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
+							            get_template_part( 'template-parts/header/search-form' );
+						            } else if ( is_single() ) {
+							            get_template_part( 'template-parts/content/content-article-categories' );
+						            }
+						            ?>
                                 </div>
                             </div>
 

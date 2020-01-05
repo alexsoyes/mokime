@@ -160,8 +160,8 @@ function mokime_sidebar_registration() {
 		array_merge(
 			$shared_args,
 			array(
-				'name'        => __( 'Articles', 'mokime' ),
-				'id'          => 'sidebar-article',
+				'name'        => __( 'Single pages', 'mokime' ),
+				'id'          => 'sidebar-single',
 				'description' => __( 'Widgets in this area will be display next to content in article.', 'mokime' ),
 			)
 		)
@@ -169,6 +169,14 @@ function mokime_sidebar_registration() {
 }
 
 add_action( 'widgets_init', 'mokime_sidebar_registration' );
+
+
+function mokime_widgets_registration() {
+	register_widget( 'MokiMe_Widget_CTA_Post' );
+}
+
+add_action( 'widgets_init', 'mokime_widgets_registration' );
+
 
 /**
  * REQUIRED FILES
@@ -182,6 +190,7 @@ require get_template_directory() . '/classes/class-mokime-separator-control.php'
 require get_template_directory() . '/classes/class-mokime-walker-comment.php';
 require get_template_directory() . '/classes/class-mokime-customize.php';
 require get_template_directory() . '/classes/class-mokime-walker-menu.php';
+require get_template_directory() . '/classes/class-mokime-widget-cta-post.php';
 
 /**
  * Register and Enqueue Styles.

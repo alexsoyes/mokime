@@ -11,12 +11,16 @@ $color-quinary: #fff;
 @import "milligram/Typography";
 @import "milligram/Grid";
 
-
 $primary: #e9862b;
 $secondary: #1c3146;
 
-$info: $cyan !default$success: $green !default$warning: $yellow !default$danger: $red !default$grey: #aeaeae !default;
-$light: #dcdcdc !default$dark: #101010 !default$white: #fefefe !default;
+$info: $cyan !default;
+$success: $green !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$grey: #aeaeae !default;
+$light: #dcdcdc !default$dark: #101010 !default;
+$white: #fefefe !default;
 
 $navbar-item-color: $white;
 $navbar-item-hover-color: $secondary;
@@ -32,8 +36,9 @@ $navbar-item-active-color: $primary;
 @import '../../node_modules/normalize.css/normalize.css';
 
 /** Custom elements **/
+@import 'elements/helpers';
 @import 'elements/color';
-@import 'elements/padding';
+@import 'elements/sizing';
 @import 'elements/typography';
 
 /** Bulma additionnals **/
@@ -49,12 +54,20 @@ $navbar-item-active-color: $primary;
   }
 }
 
-.card-image {
-  height: 150px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: left center;
-  background-color: #eee;
+.card {
+
+  .card-image {
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center;
+    background-color: #eee;
+  }
+
+  .card-content {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 }
 
 .tags {

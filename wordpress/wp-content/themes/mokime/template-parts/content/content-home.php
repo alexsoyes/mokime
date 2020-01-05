@@ -22,10 +22,13 @@ if ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_post
 	if ( $recent_posts ) {
 
 		echo '<h2 class="title has-text-weight-light">' . __( 'Nos derniers articles', 'mokime' ) . '</h2>';
+		echo '<div class="row">';
 
-		echo '<div class="has-margin-top-3 row">';
+		foreach ( $recent_posts as $index => $post ) {
+			if ( ( $index !== 0 && fmod( $index, 3 ) == 0 ) ) {
+				echo '</div><div class="has-margin-top-3 row">';
+			}
 
-		foreach ( $recent_posts as $post ) {
 			setup_postdata( $post );
 			get_template_part( 'template-parts/content/content-article' );
 		}
