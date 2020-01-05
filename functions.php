@@ -144,6 +144,8 @@ function mokime_sidebar_registration() {
 		);
 	}
 
+	unset( $shared_args['before_title'] );
+	unset( $shared_args['after_title'] );
 
 	register_sidebar(
 		array_merge(
@@ -160,9 +162,11 @@ function mokime_sidebar_registration() {
 		array_merge(
 			$shared_args,
 			array(
-				'name'        => __( 'Single pages', 'mokime' ),
-				'id'          => 'sidebar-single',
-				'description' => __( 'Widgets in this area will be display next to content in article.', 'mokime' ),
+				'before_title' => '<p class="has-margin-top-3 h4 has-text-grey-dark is-uppercase has-text-weight-bold">',
+				'after_title'  => '</p>',
+				'name'         => __( 'Single pages', 'mokime' ),
+				'id'           => 'sidebar-single',
+				'description'  => __( 'Widgets in this area will be display next to content in article.', 'mokime' ),
 			)
 		)
 	);

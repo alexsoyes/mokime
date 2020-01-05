@@ -110,6 +110,10 @@ a {
   top: 1rem;
 }
 
+ul.unstyled {
+  list-style: none;
+}
+
 #site-footer {
   a {
     color: $light;

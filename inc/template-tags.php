@@ -2,6 +2,31 @@
 
 
 /**
+ * @param $post_id int The post ID to look categories into
+ *
+ * @return WP_Term|null The primary category ID or null is none
+ */
+function get_post_category_primary( $post_id ) {
+
+	$term_list = wp_get_post_terms( $post_id, 'category', [ 'fields' => 'all' ] );
+
+	/** @var WP_Term $term */
+	foreach ( $term_list as $term ) {
+		// Yoast SEO main category
+		if ( get_post_meta( $post_id, '_yoast_wpseo_primary_category', true ) == $term->term_id ) {
+			return $term;
+		}
+	}
+
+	// get the first one if at least one exists
+	if ( ! empty( $term_list ) ) {
+		return $term_list[0];
+	}
+
+	return null;
+}
+
+/**
  * @param $post WP_Post the post ID to use
  * @param string $size the thumbnail size to use
  *
@@ -205,7 +230,7 @@ function twentytwenty_edit_post_link( $link, $post_id, $text ) {
 
 	$text = sprintf(
 		wp_kses(
-			/* translators: %s: Post title. Only visible to screen readers. */
+		/* translators: %s: Post title. Only visible to screen readers. */
 			__( 'Edit <span class="screen-reader-text">%s</span>', 'twentytwenty' ),
 			array(
 				'span' => array(
@@ -256,19 +281,20 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 	// Get the post meta settings for the location specified.
 	if ( 'single-top' === $location ) {
 		/**
-		* Filters post meta info visibility
-		*
-		* Use this filter to hide post meta information like Author, Post date, Comments, Is sticky status
-		*
-		* @since 1.0.0
-		*
-		* @param array $args {
-		*  @type string 'author'
-		*  @type string 'post-date'
-		*  @type string 'comments'
-		*  @type string 'sticky'
-		* }
-		*/
+		 * Filters post meta info visibility
+		 *
+		 * Use this filter to hide post meta information like Author, Post date, Comments, Is sticky status
+		 *
+		 * @param array $args {
+		 *
+		 * @type string 'author'
+		 * @type string 'post-date'
+		 * @type string 'comments'
+		 * @type string 'sticky'
+		 * }
+		 * @since 1.0.0
+		 *
+		 */
 		$post_meta = apply_filters(
 			'twentytwenty_post_meta_location_single_top',
 			array(
@@ -284,16 +310,16 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 	} elseif ( 'single-bottom' === $location ) {
 
 		/**
-		* Filters post tags visibility
-		*
-		* Use this filter to hide post tags
-		*
-		* @since 1.0.0
-		*
-		* @param array $args {
-		*   @type string 'tags'
-		* }
-		*/
+		 * Filters post tags visibility
+		 *
+		 * Use this filter to hide post tags
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param array $args {
+		 * @type string 'tags'
+		 * }
+		 */
 		$post_meta = apply_filters(
 			'twentytwenty_post_meta_location_single_bottom',
 			array(
@@ -319,9 +345,9 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 
 		?>
 
-		<div class="post-meta-wrapper<?php echo esc_attr( $post_meta_wrapper_classes ); ?>">
+        <div class="post-meta-wrapper<?php echo esc_attr( $post_meta_wrapper_classes ); ?>">
 
-			<ul class="post-meta<?php echo esc_attr( $post_meta_classes ); ?>">
+            <ul class="post-meta<?php echo esc_attr( $post_meta_classes ); ?>">
 
 				<?php
 
@@ -345,21 +371,21 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 
 					$has_meta = true;
 					?>
-					<li class="post-author meta-wrapper">
+                    <li class="post-author meta-wrapper">
 						<span class="meta-icon">
 							<span class="screen-reader-text"><?php _e( 'Post author', 'twentytwenty' ); ?></span>
 							<?php twentytwenty_the_theme_svg( 'user' ); ?>
 						</span>
-						<span class="meta-text">
+                        <span class="meta-text">
 							<?php
 							printf(
-								/* translators: %s: Author name */
+							/* translators: %s: Author name */
 								__( 'By %s', 'twentytwenty' ),
 								'<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author_meta( 'display_name' ) ) . '</a>'
 							);
 							?>
 						</span>
-					</li>
+                    </li>
 					<?php
 
 				}
@@ -369,15 +395,15 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 
 					$has_meta = true;
 					?>
-					<li class="post-date meta-wrapper">
+                    <li class="post-date meta-wrapper">
 						<span class="meta-icon">
 							<span class="screen-reader-text"><?php _e( 'Post date', 'twentytwenty' ); ?></span>
 							<?php twentytwenty_the_theme_svg( 'calendar' ); ?>
 						</span>
-						<span class="meta-text">
+                        <span class="meta-text">
 							<a href="<?php the_permalink(); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a>
 						</span>
-					</li>
+                    </li>
 					<?php
 
 				}
@@ -387,15 +413,15 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 
 					$has_meta = true;
 					?>
-					<li class="post-categories meta-wrapper">
+                    <li class="post-categories meta-wrapper">
 						<span class="meta-icon">
 							<span class="screen-reader-text"><?php _e( 'Categories', 'twentytwenty' ); ?></span>
 							<?php twentytwenty_the_theme_svg( 'folder' ); ?>
 						</span>
-						<span class="meta-text">
+                        <span class="meta-text">
 							<?php _ex( 'In', 'A string that is output before one or more categories', 'twentytwenty' ); ?> <?php the_category( ', ' ); ?>
 						</span>
-					</li>
+                    </li>
 					<?php
 
 				}
@@ -405,15 +431,15 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 
 					$has_meta = true;
 					?>
-					<li class="post-tags meta-wrapper">
+                    <li class="post-tags meta-wrapper">
 						<span class="meta-icon">
 							<span class="screen-reader-text"><?php _e( 'Tags', 'twentytwenty' ); ?></span>
 							<?php twentytwenty_the_theme_svg( 'tag' ); ?>
 						</span>
-						<span class="meta-text">
+                        <span class="meta-text">
 							<?php the_tags( '', ', ', '' ); ?>
 						</span>
-					</li>
+                    </li>
 					<?php
 
 				}
@@ -423,14 +449,14 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 
 					$has_meta = true;
 					?>
-					<li class="post-comment-link meta-wrapper">
+                    <li class="post-comment-link meta-wrapper">
 						<span class="meta-icon">
 							<?php twentytwenty_the_theme_svg( 'comment' ); ?>
 						</span>
-						<span class="meta-text">
+                        <span class="meta-text">
 							<?php comments_popup_link(); ?>
 						</span>
-					</li>
+                    </li>
 					<?php
 
 				}
@@ -440,14 +466,14 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 
 					$has_meta = true;
 					?>
-					<li class="post-sticky meta-wrapper">
+                    <li class="post-sticky meta-wrapper">
 						<span class="meta-icon">
 							<?php twentytwenty_the_theme_svg( 'bookmark' ); ?>
 						</span>
-						<span class="meta-text">
+                        <span class="meta-text">
 							<?php _e( 'Sticky post', 'twentytwenty' ); ?>
 						</span>
-					</li>
+                    </li>
 					<?php
 
 				}
@@ -469,9 +495,9 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 
 				?>
 
-			</ul><!-- .post-meta -->
+            </ul><!-- .post-meta -->
 
-		</div><!-- .post-meta-wrapper -->
+        </div><!-- .post-meta-wrapper -->
 
 		<?php
 
@@ -611,7 +637,7 @@ add_filter( 'walker_nav_menu_start_el', 'twentytwenty_nav_menu_social_icons', 10
 function twentytwenty_no_js_class() {
 
 	?>
-	<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
+    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
 	<?php
 
 }

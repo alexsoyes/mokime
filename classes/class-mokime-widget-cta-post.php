@@ -38,14 +38,14 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 			if ( $post ) {
 				ob_start();
 				?>
-                <div class="cta-single is-white sticky"<?php if ( $post_image ): ?> style="<?php echo sprintf( " background-image: url('%s')", $post_image) ?>"<?php endif ?>>
+                <div class="cta-single is-white"<?php if ( $post_image ): ?> style="<?php echo sprintf( " background-image: url('%s')", $post_image ) ?>"<?php endif ?>>
                     <div class="filtered-black has-padding-x-5 has-padding-y-3">
                         <p class="title h2 has-margin-bottom-0"><?php echo $post->post_title; ?></p>
                         <p class="description"><?php echo $post->post_excerpt; ?></p>
                         <a href="<?php echo get_the_permalink( $id ) ?>"
                            class="button has-margin-bottom-0"
-                           title="<?php echo __('Read now', 'mokime') . " : $post->post_title"; ?>">
-							<?php _e('Read now', 'mokime') ?>
+                           title="<?php echo __( 'Read now', 'mokime' ) . " : $post->post_title"; ?>">
+							<?php _e( 'Read now', 'mokime' ) ?>
                         </a>
                     </div>
                 </div>

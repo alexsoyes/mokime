@@ -48,8 +48,10 @@
 	</article><!-- .post -->
 
 	<?php if  ( is_active_sidebar( 'sidebar-single' ) ) :  ?>
-		<aside id="widget" class="widget-single column column-33">
-			<?php dynamic_sidebar('sidebar-single'); ?>
+		<aside id="widget" class="widget-single column column-33 ">
+			<div class="sticky">
+				<?php dynamic_sidebar( 'sidebar-single' ); ?>
+			</div>
 		</aside><!-- widget-single -->
 	<?php endif; ?>
 

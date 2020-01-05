@@ -3,7 +3,7 @@
  * Customizer Separator Control settings for this theme.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * @subpackage MokiMe
  * @since 1.0.0
  */
 

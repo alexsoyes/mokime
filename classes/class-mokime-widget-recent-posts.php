@@ -1,11 +1,4 @@
 <?php
-/**
- * Widget API: WP_Widget_Recent_Posts class
- *
- * @package WordPress
- * @subpackage Widgets
- * @since 4.4.0
- */
 
 /**
  * Core class used to implement a Recent Posts widget.
@@ -48,7 +41,7 @@ class MokiMe_Widget_Recent_Posts extends WP_Widget {
 			$args['widget_id'] = $this->id;
 		}
 
-		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Recent Posts' );
+		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Posts from category %s', 'mokime' );
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
@@ -59,47 +52,53 @@ class MokiMe_Widget_Recent_Posts extends WP_Widget {
 		}
 		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
 
+
+		/** @var WP_Post $current_post */
+		$current_post = get_queried_object();
+
+		if ( $current_post ) {
+			/** @var WP_Term $post_category */
+			$post_category = get_post_category_primary( $current_post->ID );
+
+			$title = sprintf( $title, $post_category->name );
+		}
+
 		/**
 		 * Filters the arguments for the Recent Posts widget.
+		 *
+		 * @param array $args An array of arguments used to retrieve the recent posts.
+		 * @param array $instance Array of settings for the current widget.
+		 *
+		 * @see WP_Query::get_posts()
 		 *
 		 * @since 3.4.0
 		 * @since 4.9.0 Added the `$instance` parameter.
 		 *
-		 * @see WP_Query::get_posts()
-		 *
-		 * @param array $args     An array of arguments used to retrieve the recent posts.
-		 * @param array $instance Array of settings for the current widget.
 		 */
-		$r = new WP_Query(
-			apply_filters(
-				'widget_posts_args',
-				array(
-					'posts_per_page'      => $number,
-					'no_found_rows'       => true,
-					'post_status'         => 'publish',
-					'ignore_sticky_posts' => true,
-				),
-				$instance
-			)
+		$wp_query_args = array(
+			'posts_per_page'      => $number,
+			'no_found_rows'       => true,
+			'post_status'         => 'publish',
+			'ignore_sticky_posts' => true,
 		);
+
+		if ( isset( $post_category ) ) {
+			$wp_query_args['cat'] = $post_category->term_id;
+		}
+
+		$r = new WP_Query( apply_filters( 'widget_posts_args', $wp_query_args, $instance ) );
 
 		if ( ! $r->have_posts() ) {
 			return;
 		}
-		?>
-		<?php echo $args['before_widget']; ?>
-		<?php
+
+		echo $args['before_widget'];
+
 		if ( $title ) {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
-		$queried_object = get_queried_object();
-
-		if ( $queried_object ) {
-			$post_id = $queried_object->ID;
-			echo $post_id;
-		}
 		?>
-		<ul>
+        <ul class="unstyled">
 			<?php foreach ( $r->posts as $recent_post ) : ?>
 				<?php
 				$post_title   = get_the_title( $recent_post->ID );
@@ -117,7 +116,8 @@ class MokiMe_Widget_Recent_Posts extends WP_Widget {
 					<?php endif; ?>
 				</li>
 			<?php endforeach; ?>
-		</ul>
+        </ul>
+
 		<?php
 		echo $args['after_widget'];
 	}
