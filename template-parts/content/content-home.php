@@ -21,13 +21,13 @@ if ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_post
 
 	if ( $recent_posts ) {
 
-		echo '<h2 class="title has-text-weight-light">' . __( 'Nos derniers articles', 'mokime' ) . '</h2>';
-		echo '<div class="row">';
+		echo '<h2 class="title has-text-weight-light has-margin-bottom-0">' . __( 'Nos derniers articles', 'mokime' ) . '</h2>';
+		echo '<div class="row is-flex">';
 
 		foreach ( $recent_posts as $index => $post ) {
 
 			if ( $index !== 0 && ( $index % 3 ) === 0 ) {
-				echo '</div><div class="has-margin-top-3 row">';
+				echo '</div><div class="has-margin-top-3 row is-flex">';
 			}
 
 			setup_postdata( $post );

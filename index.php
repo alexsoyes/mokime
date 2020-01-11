@@ -3,24 +3,24 @@
 get_header();
 
 if ( is_home() || is_front_page() ) { ?>
-    <div class="container">
+    <div class="is-home container">
 		<?php get_template_part( 'template-parts/content/content-home' ); ?>
-    </div>
+    </div><!-- .is-home -->
 	<?php
 } else if ( is_page() ) { ?>
-    <div class="container">
+    <div class="is-page container">
 		<?php
 		the_post();
 		get_template_part( 'template-parts/content/content-page' ); ?>
-    </div>
+    </div><!-- .is-page -->
 	<?php
 } else if ( is_single() ) { ?>
-    <div class="container<?php if ( is_active_sidebar( 'sidebar-single' ) )
+    <div class="is-single container<?php if ( is_active_sidebar( 'sidebar-single' ) )
 		echo ' container-hd' ?>">
 		<?php
 		the_post();
 		get_template_part( 'template-parts/content/content-single' ); ?>
-    </div>
+    </div><!-- .is-single -->
 	<?php
 
 }

@@ -3,7 +3,7 @@
 $categories = get_the_category();
 
 if ( $categories ) {
-	echo '<div class="tags">';
+	echo '<div class="tags categories">';
 }
 
 foreach ( $categories as $category ) {
@@ -17,5 +17,5 @@ foreach ( $categories as $category ) {
 }
 
 if ( $categories ) {
-	echo '</div>';
+	echo '</div><!-- .categories -->';
 }

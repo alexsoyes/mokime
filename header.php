@@ -45,7 +45,7 @@
             <div class="container">
 
                 <header id="masthead">
-		            <?php get_template_part( 'template-parts/header/menu' ); ?>
+					<?php get_template_part( 'template-parts/header/menu' ); ?>
                 </header>
 
                 <div class="hero is-medium has-padding-bottom-5">
@@ -53,16 +53,18 @@
                         <div class="container">
                             <div class="columns">
                                 <div class="column is-9 is-offset-1">
-                                    <p class="h2 is-white has-margin-bottom-0"><?php echo $header_title; ?></p>
-                                    <p class="is-white h6"><?php echo $header_description; ?></p>
 
-						            <?php
-						            if ( is_home() || is_front_page() && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
-							            get_template_part( 'template-parts/header/search-form' );
-						            } else if ( is_single() ) {
-							            get_template_part( 'template-parts/content/content-article-categories' );
-						            }
-						            ?>
+									<?php
+									if ( is_home() || is_front_page() && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
+										echo '<p class="h2 is-white has-margin-bottom-0">' . $header_title . '</p>';
+										echo '<p class="is-white h6">' . $header_description . '</p>';
+										get_template_part( 'template-parts/header/search-form' );
+									} else if ( is_single() ) {
+										echo '<h1 class="is-white has-text-centered">' . $header_title . '</h1>';
+										get_template_part( 'template-parts/content/content-article-categories' );
+										echo '<p class="is-white h6 has-text-centered">' . $header_description . '</p>';
+									}
+									?>
                                 </div>
                             </div>
 

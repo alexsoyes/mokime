@@ -55,4 +55,4 @@
 		</aside><!-- widget-single -->
 	<?php endif; ?>
 
-</div>
+</div><!-- .row -->

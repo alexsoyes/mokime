@@ -22,6 +22,8 @@ $grey: #aeaeae !default;
 $light: #dcdcdc !default$dark: #101010 !default;
 $white: #fefefe !default;
 
+$radius-large: 6px;
+
 $navbar-item-color: $white;
 $navbar-item-hover-color: $secondary;
 $navbar-item-active-color: $primary;
@@ -41,6 +43,9 @@ $navbar-item-active-color: $primary;
 @import 'elements/sizing';
 @import 'elements/typography';
 
+/** Pages **/
+@import 'pages/single';
+
 /** Bulma additionnals **/
 .navbar {
   &.is-transparent {
@@ -55,6 +60,8 @@ $navbar-item-active-color: $primary;
 }
 
 .card {
+
+  width: 100%;
 
   .card-image {
     height: 150px;
@@ -72,7 +79,7 @@ $navbar-item-active-color: $primary;
 
 .tags {
   .tag {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -112,6 +119,15 @@ a {
 
 ul.unstyled {
   list-style: none;
+}
+
+.has-text-overflowed {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3;
 }
 
 #site-footer {
