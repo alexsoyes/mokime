@@ -4,8 +4,9 @@ $color-initial: #fff;
 $color-primary: #e9862b;
 $color-secondary: #1c3146;
 $color-tertiary: #dcdcdc;
-$color-quaternary: #fefefe;
 $color-quinary: #fff;
+
+$radius-large: 6px;
 
 @import "../../node_modules/milligram/src/milligram";
 @import "milligram/Typography";
@@ -22,8 +23,6 @@ $grey: #aeaeae !default;
 $light: #dcdcdc !default$dark: #101010 !default;
 $white: #fefefe !default;
 
-$radius-large: 6px;
-
 $navbar-item-color: $white;
 $navbar-item-hover-color: $secondary;
 $navbar-item-active-color: $primary;
@@ -33,6 +32,7 @@ $navbar-item-active-color: $primary;
 @import "../../node_modules/bulma/sass/components/navbar";
 @import "../../node_modules/bulma/sass/components/card";
 @import "../../node_modules/bulma/sass/layout/hero";
+@import "../../node_modules/bulma/sass/elements/box";
 
 /** External libs **/
 @import '../../node_modules/normalize.css/normalize.css';
@@ -106,9 +106,7 @@ a {
   position: relative;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom,
-          rgba(0, 0, 0, 0.8),
-          transparent);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
 }
 
 .sticky {

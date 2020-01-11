@@ -8,26 +8,35 @@
  */
 
 if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'single_author_bio', true ) ) : ?>
-<div class="author-bio">
-	<div class="author-title-wrapper">
-		<div class="author-avatar vcard">
-			<?php echo get_avatar( get_the_author_meta( 'ID' ), 160 ); ?>
-		</div>
-		<h2 class="author-title heading-size-4">
-			<?php
-			printf(
-				/* translators: %s: Author name */
-				__( 'By %s', 'twentytwenty' ),
-				esc_html( get_the_author() )
-			);
-			?>
-		</h2>
-	</div><!-- .author-name -->
-	<div class="author-description">
-		<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
-		<a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-			<?php _e( 'View Archive <span aria-hidden="true">&rarr;</span>', 'twentytwenty' ); ?>
-		</a>
-	</div><!-- .author-description -->
-</div><!-- .author-bio -->
+    <div class="box author-box">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64">
+					<?php echo get_avatar( get_the_author_meta( 'ID' ), 160, '', '', array( 'class' => 'is-circle' ) ); ?>
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content has-padding-bottom-1">
+                    <p class="h3 has-text-weight-bold has-margin-bottom-0"><?php echo esc_html( get_the_author() ); ?></p>
+                    <div class="author-description">
+						<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
+                        <a class="author-link"
+                           href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"
+                           rel="author">
+							<?php _e( 'View Archive <span aria-hidden="true">&rarr;</span>', 'mokime' ); ?>
+                        </a>
+                    </div>
+                </div>
+                <nav class="level is-mobile">
+                    <div class="level-left">
+                        <a class="level-item" aria-label="reply">
+				            <span class="icon is-small">
+				              <i class="fas fa-reply" aria-hidden="true"></i>
+				            </span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </article>
+    </div><!-- .author-box -->
 <?php endif; ?>
