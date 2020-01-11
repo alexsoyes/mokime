@@ -61,7 +61,7 @@
 										get_template_part( 'template-parts/header/search-form' );
 									} else if ( is_single() ) {
 										echo '<h1 class="is-white has-text-centered">' . $header_title . '</h1>';
-										get_template_part( 'template-parts/content/content-article-categories' );
+										get_template_part( 'template-parts/entry/entry-article-categories' );
 										echo '<p class="is-white h6 has-text-centered">' . $header_description . '</p>';
 									}
 									?>

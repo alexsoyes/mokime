@@ -31,7 +31,7 @@ if ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_post
 			}
 
 			setup_postdata( $post );
-			get_template_part( 'template-parts/content/content-article' );
+			get_template_part( 'template-parts/entry/entry-article' );
 		}
 
 		wp_reset_postdata();

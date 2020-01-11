@@ -30,7 +30,7 @@ if ( is_singular() ) {
 //		$show_categories = apply_filters( 'twentytwenty_show_categories_in_entry_header', true );
 
 		if ( has_category() ) {
-			get_template_part( 'template-parts/content/content-article-categories' );
+			get_template_part( 'template-parts/entry/entry-article-categories' );
 		}
 
 		if ( is_singular() ) {

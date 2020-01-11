@@ -7,13 +7,13 @@
         <div class="card-content">
             <h3 class="title is-4 has-text-weight-bold has-margin-top-1 has-margin-bottom-075" itemprop="headline">
                 <a href="<?php the_permalink() ?>" class="has-text-black has-text-900">
-					<?php the_title(); ?>
+				    <?php the_title(); ?>
                 </a>
             </h3><!-- .title -->
 
             <p class="subtitle is-6 has-text-justified has-text-overflowed"><?php echo get_the_excerpt(); ?></p>
 
-			<?php get_template_part( 'template-parts/content/content-article-categories' ); ?>
+		    <?php get_template_part( 'template-parts/content/entry-article-categories' ); ?>
 
             <div class="card-footer">
                 <div class="card-footer-item">
