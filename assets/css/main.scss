@@ -53,7 +53,7 @@ $navbar-item-active-color: $primary;
 @import "../../node_modules/bulma/sass/components/media";
 
 /** External libs **/
-@import '../../node_modules/normalize.css/normalize.css';
+@import '../../node_modules/normalize.css/normalize';
 
 /** Custom elements **/
 @import 'elements/helpers';
@@ -64,6 +64,7 @@ $navbar-item-active-color: $primary;
 /** Pages **/
 @import 'pages/single';
 @import "pagelayout";
+
 
 /** Bulma additionnals **/
 @import "bulma/card";
