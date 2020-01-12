@@ -11,9 +11,9 @@
                 </a>
             </h3><!-- .title -->
 
-            <p class="subtitle is-6 has-text-justified has-text-overflowed"><?php echo get_the_excerpt(); ?></p>
+            <p class="subtitle is-6 has-text-justified has-text-overflowed has-margin-bottom-1"><?php echo get_the_excerpt(); ?></p>
 
-		    <?php get_template_part( 'template-parts/content/entry-article-categories' ); ?>
+		    <?php get_template_part( 'template-parts/entry/entry-article-categories' ); ?>
 
             <div class="card-footer">
                 <div class="card-footer-item">

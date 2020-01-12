@@ -107,15 +107,12 @@ function mokime_theme_support() {
 //		add_theme_support( 'starter-content', mokime_get_starter_content() );
 //	}
 
-	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
-
 	/*
 	 * Adds `async` and `defer` support for scripts registered or enqueued
 	 * by the theme.
 	 */
-//	$loader = new mokime_Script_Loader();
-//	add_filter( 'script_loader_tag', array( $loader, 'filter_script_loader_tag' ), 10, 2 );
+	$loader = new MokiMe_Script_Loader();
+	add_filter( 'script_loader_tag', array( $loader, 'filter_script_loader_tag' ), 10, 2 );
 
 }
 
@@ -197,6 +194,7 @@ require get_template_directory() . '/classes/class-mokime-customize.php';
 require get_template_directory() . '/classes/class-mokime-walker-menu.php';
 require get_template_directory() . '/classes/class-mokime-widget-cta-post.php';
 require get_template_directory() . '/classes/class-mokime-widget-recent-posts.php';
+require get_template_directory() . '/classes/class-mokime-script-loader.php';
 
 /**
  * Register and Enqueue Styles.
@@ -207,13 +205,6 @@ function mokime_register_styles() {
 
 	wp_enqueue_style( 'mokime-style', get_stylesheet_uri(), array(), $theme_version );
 	wp_style_add_data( 'mokime-style', 'rtl', 'replace' );
-
-	// Add output of Customizer settings as inline style.
-//	wp_add_inline_style( 'mokime-style', mokime_get_customizer_css( 'front-end' ) );
-
-	// Add print CSS.
-	wp_enqueue_style( 'mokime-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
-
 }
 
 add_action( 'wp_enqueue_scripts', 'mokime_register_styles' );
@@ -231,8 +222,8 @@ function mokime_register_scripts() {
 
 	wp_enqueue_script( 'mokime-js', get_template_directory_uri() . '/assets/js/menu.js', array(), $theme_version, false );
 	wp_enqueue_script( 'mokime-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
-	wp_script_add_data( 'mokime-js', 'async', true );
 
+	wp_script_add_data( 'mokime-js', 'async', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'mokime_register_scripts' );
