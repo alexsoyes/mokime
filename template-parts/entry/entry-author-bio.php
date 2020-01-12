@@ -9,13 +9,13 @@
 
 if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'single_author_bio', true ) ) : ?>
     <div class="box author-box">
-        <article class="media">
-            <div class="media-left">
+        <article class="has-text-centered">
+            <div>
                 <figure class="image is-64x64">
 					<?php echo get_avatar( get_the_author_meta( 'ID' ), 160, '', '', array( 'class' => 'is-circle' ) ); ?>
                 </figure>
             </div>
-            <div class="media-content">
+            <div class="media-content-center">
                 <div class="content has-padding-bottom-1">
                     <p class="h3 has-text-weight-bold has-margin-bottom-0"><?php echo esc_html( get_the_author() ); ?></p>
                     <div class="author-description">

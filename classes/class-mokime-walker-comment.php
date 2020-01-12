@@ -3,16 +3,16 @@
  * Custom comment walker for this theme.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * @subpackage MokiMe
  * @since 1.0.0
  */
 
-if ( ! class_exists( 'TwentyTwenty_Walker_Comment' ) ) {
+if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 	/**
 	 * CUSTOM COMMENT WALKER
 	 * A custom walker for comments, based on the walker in Twenty Nineteen.
 	 */
-	class TwentyTwenty_Walker_Comment extends Walker_Comment {
+	class MokiMe_Walker_Comment extends Walker_Comment {
 
 		/**
 		 * Outputs a comment in the HTML5 format.
@@ -36,9 +36,9 @@ if ( ! class_exists( 'TwentyTwenty_Walker_Comment' ) ) {
             <<?php echo $tag; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 
             <article id="div-comment-<?php comment_ID(); ?>" class="media comment-body vcard">
-                <figure class="media-left">
+                <figure class="media-left has-margin-left-0 has-margin-top-0">
                     <p class="image is-64x64">
-						<?php
+			            <?php
 						$avatar = get_avatar( $comment, $args['avatar_size'] );
 
 						if ( 0 !== $args['avatar_size'] ) {
@@ -62,7 +62,7 @@ if ( ! class_exists( 'TwentyTwenty_Walker_Comment' ) ) {
 					}
 
 					printf(
-						'<p class="strong has-margin-bottom-1"><a href="%1$s">#</a> <span class="fn">%2$s</span>%3$s</p>',
+						'<p class="strong has-margin-bottom-0"><a href="%1$s">#</a> <span class="fn">%2$s</span>%3$s</p>',
 						esc_url( get_comment_link( $comment, $args ) ),
 						! empty( $comment_author_url ) ? esc_html( $comment_author ) : sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', $comment_author_url, $comment_author ),
 						$post_author

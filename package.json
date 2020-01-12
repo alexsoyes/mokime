@@ -4,7 +4,9 @@
   "description": "Mokime theme for WordPress.",
   "main": "index.js",
   "scripts": {
-    "run-sass": "./node_modules/node-sass/bin/node-sass --watch --output-style=compressed ./assets/css/main.scss ./assets/css/main.css --source-map-embed",
+    "css-size": "du -hs assets/css/main.css",
+    "sass-dev": "./node_modules/node-sass/bin/node-sass --watch --output-style=compressed ./assets/css/main.scss ./assets/css/main.css --source-map-embed",
+    "sass-prod": "./node_modules/node-sass/bin/node-sass --output-style=compressed ./assets/css/main.scss ./assets/css/main.css --source-map-embed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

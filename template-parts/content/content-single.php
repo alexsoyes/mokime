@@ -19,17 +19,17 @@
 				)
 			);
 
-			get_template_part( 'template-parts/entry/author-bio' ); ?>
-		</div><!-- .section-inner -->
+			get_template_part( 'template-parts/entry/entry-author-bio' ); ?>
+        </div><!-- .section-inner -->
 
 		<?php
 		get_template_part( 'template-parts/navigation' );
 
 		if ( ( comments_open() || get_comments_number() ) && ! post_password_required() ) {
 			?>
-			<div class="comments-wrapper section-inner">
+            <div class="comments-wrapper section-inner">
 				<?php comments_template(); ?>
-			</div><!-- .comments-wrapper -->
+            </div><!-- .comments-wrapper -->
 			<?php
 		}
 		?>

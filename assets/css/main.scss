@@ -8,7 +8,24 @@ $color-quinary: #fff;
 
 $radius-large: 6px;
 
-@import "../../node_modules/milligram/src/milligram";
+/* Milligram import */
+@import "../../node_modules/milligram/src/Color";
+@import "../../node_modules/milligram/src/Base";
+@import "../../node_modules/milligram/src/Blockquote";
+@import "../../node_modules/milligram/src/Button";
+@import "../../node_modules/milligram/src/Code";
+@import "../../node_modules/milligram/src/Divider";
+@import "../../node_modules/milligram/src/Form";
+@import "../../node_modules/milligram/src/Grid";
+@import "../../node_modules/milligram/src/Link";
+@import "../../node_modules/milligram/src/List";
+//@import "../../node_modules/milligram/src/Spacing";
+@import "../../node_modules/milligram/src/Table";
+@import "../../node_modules/milligram/src/Typography";
+@import "../../node_modules/milligram/src/Image";
+//@import "../../node_modules/milligram/src/Utility";
+
+/* Custom Milligram */
 @import "milligram/Typography";
 @import "milligram/Grid";
 
@@ -46,63 +63,14 @@ $navbar-item-active-color: $primary;
 
 /** Pages **/
 @import 'pages/single';
+@import "pagelayout";
 
 /** Bulma additionnals **/
-.navbar {
-  &.is-transparent {
-    background: transparent;
-  }
-
-  .navbar-dropdown {
-    a.navbar-item {
-      color: $dark;
-    }
-  }
-}
-
-.card {
-
-  width: 100%;
-
-  .card-image {
-    height: 150px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: left center;
-    background-color: #eee;
-  }
-
-  .card-content {
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
-}
-
-.tags {
-  .tag {
-    font-size: 1.2rem;
-  }
-}
-
-/** Compatibility **/
-
-img {
-  max-width: 100%;
-}
-
-a {
-  text-decoration: none;
-}
+@import "bulma/card";
+@import "bulma/navbar";
+@import "bulma/tags";
 
 /** Customize design :) **/
-
-.site-header {
-  //border-radius: 0px 0px 60% 60%;
-  //background-attachment: fixed;
-  background-position: top center;
-  background-size: cover;
-}
-
 .filtered-black {
   position: relative;
   width: 100%;
@@ -120,26 +88,3 @@ ul.unstyled {
   list-style: none;
 }
 
-.has-text-overflowed {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; /* number of lines to show */
-  line-clamp: 3;
-}
-
-#site-footer {
-  a {
-    color: $light;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0px;
-
-    &.sub-menu {
-      padding-left: 1rem;
-    }
-  }
-}

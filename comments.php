@@ -27,8 +27,8 @@ if ( $comments ) {
 			<?php
 			wp_list_comments(
 				array(
-					'walker'      => new TwentyTwenty_Walker_Comment(),
-					'avatar_size' => 120,
+					'walker'      => new MokiMe_Walker_Comment(),
+					'avatar_size' => 64,
 					'style'       => 'div',
 				)
 			);
@@ -76,8 +76,8 @@ if ( comments_open() || pings_open() ) {
 	comment_form(
 		array(
 			'class_form'         => 'section-inner thin max-percentage',
-			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
-			'title_reply_after'  => '</h2>',
+			'title_reply_before' => '<p id="reply-title" class="h2 comment-reply-title">',
+			'title_reply_after'  => '</p>',
 		)
 	);
 
