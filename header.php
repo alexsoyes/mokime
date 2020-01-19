@@ -29,6 +29,10 @@
 		$header_image       = mokime_get_post_thumbnail_url( get_post() );
 		$header_title       = get_the_title();
 		$header_description = get_the_excerpt();
+	} elseif ( is_archive() ) {
+		$header_image       = get_theme_mod( 'header_image' );
+		$header_title       = get_the_archive_title();
+		$header_description = get_the_archive_description();
 	} else {
 		$header_image       = get_theme_mod( 'header_image' );
 		$header_title       = get_theme_mod( 'homepage_title' );
@@ -40,7 +44,6 @@
 	     <?php if ( $header_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
 
         <div class="filtered-black">
-
 
             <div class="container">
 
@@ -59,10 +62,12 @@
 										echo '<p class="h2 is-white has-margin-bottom-0">' . $header_title . '</p>';
 										echo '<p class="is-white h6">' . $header_description . '</p>';
 										get_template_part( 'template-parts/header/search-form' );
-									} else if ( is_single() ) {
+									} elseif ( is_single() || is_archive() ) {
 										echo '<h1 class="is-white has-text-centered">' . $header_title . '</h1>';
-										get_template_part( 'template-parts/entry/entry-article-categories' );
-										echo '<p class="is-white h6 has-text-centered">' . $header_description . '</p>';
+										if ( is_single() ) {
+											get_template_part( 'template-parts/entry/entry-article-categories' );
+										}
+										echo '<div class="is-white h6 has-text-centered">' . $header_description . '</div>';
 									}
 									?>
                                 </div>

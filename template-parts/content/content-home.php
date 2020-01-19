@@ -13,11 +13,7 @@ if ( ! is_home() && is_front_page() && have_posts() ) {
  */
 if ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_posts', true ) ) {
 
-	$recent_posts = get_posts( array(
-		'posts_per_page' => 12,
-		'offset'         => 0,
-		'post_status'    => 'publish'
-	) );
+	$recent_posts = get_the_last_posts();
 
 	if ( $recent_posts ) {
 

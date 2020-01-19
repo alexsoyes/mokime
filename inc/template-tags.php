@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * @param $limit int
+ *
+ * @return int[]|WP_Post[]
+ */
+function get_the_last_posts( $limit = 12 ) {
+
+	return get_posts( array(
+		'posts_per_page' => 12,
+		'offset'         => 0,
+		'post_status'    => 'publish'
+	) );
+}
 
 /**
  * @param $post_id int The post ID to look categories into
