@@ -8,7 +8,7 @@
 function get_the_last_posts( $limit = 12 ) {
 
 	return get_posts( array(
-		'posts_per_page' => 12,
+		'posts_per_page' => $limit,
 		'offset'         => 0,
 		'post_status'    => 'publish'
 	) );

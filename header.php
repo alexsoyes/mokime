@@ -33,6 +33,10 @@
 		$header_image       = get_theme_mod( 'header_image' );
 		$header_title       = get_the_archive_title();
 		$header_description = get_the_archive_description();
+	} elseif ( is_404() ) {
+		$header_image       = get_theme_mod( 'header_image' );
+		$header_title       = __( 'Page Not Found', 'mokime' );
+		$header_description = __( 'The page you were looking for could not be found. It might have been removed, renamed, or did not exist in the first place.', 'mokime' );
 	} else {
 		$header_image       = get_theme_mod( 'header_image' );
 		$header_title       = get_theme_mod( 'homepage_title' );
@@ -68,6 +72,9 @@
 											get_template_part( 'template-parts/entry/entry-article-categories' );
 										}
 										echo '<div class="is-white h6 has-text-centered">' . $header_description . '</div>';
+									} elseif ( is_404() ) {
+										echo '<h1 class="h2 is-white">' . $header_title . '</h1>';
+										echo '<p class="is-white h6">' . $header_description . '</p>';
 									}
 									?>
                                 </div>
