@@ -1,13 +1,7 @@
 <?php
 /**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
  * @package WordPress
- * @subpackage Twenty_Nineteen
+ * @subpackage MokiMe
  * @since 1.0.0
  */
 ?><!doctype html>
@@ -23,7 +17,6 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-
 	<?php
 	if ( is_single() && has_post_thumbnail() ) {
 		$header_image       = mokime_get_post_thumbnail_url( get_post() );
@@ -46,11 +39,8 @@
 
     <div class="wrapper is-fluid site-header has-padding-0"
 	     <?php if ( $header_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
-
         <div class="filtered-black">
-
             <div class="container">
-
                 <header id="masthead">
 					<?php get_template_part( 'template-parts/header/menu' ); ?>
                 </header>
@@ -60,7 +50,6 @@
                         <div class="container">
                             <div class="columns">
                                 <div class="column is-9 is-offset-1">
-
 									<?php
 									if ( is_home() || is_front_page() && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
 										echo '<p class="h2 is-white has-margin-bottom-0">' . $header_title . '</p>';
@@ -77,15 +66,13 @@
 										echo '<p class="is-white h6">' . $header_description . '</p>';
 									}
 									?>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
+                                </div><!-- .column -->
+                            </div><!-- .columns -->
+                        </div><!-- .container -->
+                    </div><!-- .hero-body -->
+                </div><!-- .hero -->
+            </div><!-- .container -->
+        </div><!-- .filtered-black -->
+    </div><!--.wrapper -->
 
     <div id="content" class="site-content has-padding-y-3 has-padding-x-2 has-padding-x-0-desktop">
