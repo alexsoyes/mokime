@@ -1,20 +1,15 @@
-
-
-
-
-
-
-
-
-
-
 ## Installation
 
-For dev environment, I am using Docker-Compose.
+For dev environment, I am using [docker-compose](https://docs.docker.com/compose/).
 
-* Download the latest version of [WordPress](https://wordpress.org/download/)
+* Create a `mokime` directoy and go in there
+* Create the directories `mkdir -vp mokime/db mokime/wordpress`
 * Create a directory and unzip WordPress in there
-** Create directory `db`
+  * `wget https://wordpress.org/latest.tar.gz`
+  * `tar -xzvf latest.tar.gz `
+  * `rm -v latest.tar.gz`
+* Get the theme : `cd wordpress/wp-content/themes && git clone git@github.com:Dinath/mokime.git`
+
 ```
 .
 ├── db
@@ -57,5 +52,15 @@ volumes:
   db:
 ```
 
-* Start it!
+* Start it! 
+
+```sh
+docker-compose up --build
+```
+* Simple log into your WordPress admin panel.
+
+## Access
+
+* WordPress Administration : http://localhost:8080/wp-admin/install.php
+* WordPress Front-Office : http://localhost:8080
 
