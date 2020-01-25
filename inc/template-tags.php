@@ -224,43 +224,6 @@ function twentytwenty_the_post_meta( $post_id = null, $location = 'single-top' )
 }
 
 /**
- * Filters the edit post link to add an icon and use the post meta structure.
- *
- * @param string $link    Anchor tag for the edit link.
- * @param int    $post_id Post ID.
- * @param string $text    Anchor text.
- */
-function twentytwenty_edit_post_link( $link, $post_id, $text ) {
-	if ( is_admin() ) {
-		return $link;
-	}
-
-	$edit_url = get_edit_post_link( $post_id );
-
-	if ( ! $edit_url ) {
-		return;
-	}
-
-	$text = sprintf(
-		wp_kses(
-		/* translators: %s: Post title. Only visible to screen readers. */
-			__( 'Edit <span class="screen-reader-text">%s</span>', 'twentytwenty' ),
-			array(
-				'span' => array(
-					'class' => array(),
-				),
-			)
-		),
-		get_the_title( $post_id )
-	);
-
-	return '<div class="post-meta-wrapper post-meta-edit-link-wrapper"><ul class="post-meta"><li class="post-edit meta-wrapper"><span class="meta-icon">' . twentytwenty_get_theme_svg( 'edit' ) . '</span><span class="meta-text"><a href="' . esc_url( $edit_url ) . '">' . $text . '</a></span></li></ul><!-- .post-meta --></div><!-- .post-meta-wrapper -->';
-
-}
-
-add_filter( 'edit_post_link', 'twentytwenty_edit_post_link', 10, 3 );
-
-/**
  * Get the post meta.
  *
  * @param int    $post_id The ID of the post.

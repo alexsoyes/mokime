@@ -3,7 +3,7 @@
 $categories = get_the_category();
 
 if ( $categories ) {
-	echo '<div class="tags categories">';
+	echo '<div class="tags categories" itemscope itemtype =http://schema.org/CreativeWork>';
 }
 
 foreach ( $categories as $category ) {
