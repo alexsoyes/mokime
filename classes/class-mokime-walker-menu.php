@@ -98,8 +98,8 @@ class Mokime_Walker_Nav_Menu extends Walker {
 
 	public function end_el(&$output, $item, $depth = 0, $args = array()) {
 
-		if ($args->walker->has_children) {
-			$output .= $this->endDropdownButton($item);
+		if ( $args->walker->has_children || $this->hasChildren( $item ) ) {
+			$output .= $this->endDropdownButton( $item );
 		} else {
 			$output .= '';
 		}
