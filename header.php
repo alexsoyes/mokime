@@ -84,4 +84,4 @@
         </div><!-- .filtered-black -->
     </div><!--.wrapper -->
 
-    <main id="content" class="site-content has-padding-y-3 has-padding-x-2 has-padding-x-0-desktop">
+    <main id="content" class="site-content">

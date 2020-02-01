@@ -23,7 +23,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
-    max-width: 75rem;
+    max-width: 120rem;
     width: calc(100% - 4rem);
 }
 
