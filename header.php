@@ -22,6 +22,9 @@
 		$header_image       = mokime_get_post_thumbnail_url( get_post() );
 		$header_title       = get_the_title();
 		$header_description = get_the_excerpt();
+	} elseif ( is_page() && ( ! is_home() && ! is_front_page() ) ) {
+		$header_title = get_the_title();
+		$header_image = mokime_get_post_thumbnail_url( get_post() );
 	} elseif ( is_archive() ) {
 		$header_image       = get_theme_mod( 'header_image' );
 		$header_title       = get_the_archive_title();
@@ -59,12 +62,12 @@
 										echo '<p class="h2 is-white has-margin-bottom-0">' . $header_title . '</p>';
 										echo '<p class="is-white h6">' . $header_description . '</p>';
 										get_template_part( 'template-parts/header/search-form' );
-									} elseif ( is_single() || is_archive() || is_search() ) {
+									} elseif ( is_single() || is_page() || is_archive() || is_search() ) {
 										echo '<h1 class="is-white has-text-centered">' . $header_title . '</h1>';
 										if ( is_single() ) {
 											get_template_part( 'template-parts/entry/entry-article-categories' );
 										}
-										if ( $header_description ) {
+										if ( isset( $header_description ) && $header_description ) {
 											echo '<div class="is-white h6 has-text-centered">' . $header_description . '</div>';
 										}
 									} elseif ( is_404() ) {
@@ -81,4 +84,4 @@
         </div><!-- .filtered-black -->
     </div><!--.wrapper -->
 
-    <div id="content" class="site-content has-padding-y-3 has-padding-x-2 has-padding-x-0-desktop">
+    <main id="content" class="site-content has-padding-y-3 has-padding-x-2 has-padding-x-0-desktop">

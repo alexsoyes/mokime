@@ -9,25 +9,7 @@ if ( ! is_home() && is_front_page() && have_posts() ) {
 }
 
 if ( is_front_page() && is_home() || is_home() && ! is_front_page() ) {
-	if ( have_posts() ) {
-
-		$i = 0;
-		echo '<div class="row is-flex">';
-
-		while ( have_posts() ) {
-			if ( $i !== 0 && ( $i % 3 ) === 0 ) {
-				echo '</div><div class="has-margin-top-3 row is-flex">';
-			}
-			$i ++;
-			the_post();
-
-			get_template_part( 'template-parts/entry/entry-article' );
-		}
-
-		echo '</div>';
-
-		get_template_part( 'template-parts/pagination' );
-	}
+	get_template_part( 'template-parts/entry/entry-posts' );
 } /**
  * Display the last articles
  */
@@ -38,12 +20,12 @@ elseif ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_
 	if ( $recent_posts ) {
 
 		echo '<h2 class="title has-text-weight-light has-margin-bottom-0">' . __( 'Nos derniers articles', 'mokime' ) . '</h2>';
-		echo '<div class="row is-flex">';
+		echo '<div class="wp-block-columns">';
 
 		foreach ( $recent_posts as $index => $post ) {
 
 			if ( $index !== 0 && ( $index % 3 ) === 0 ) {
-				echo '</div><div class="has-margin-top-3 row is-flex">';
+				echo '</div><div class="has-margin-top-3 wp-block-columns">';
 			}
 
 			setup_postdata( $post );

@@ -1,7 +1,20 @@
 <?php get_header(); ?>
 
-<div class="is-search container<?php if ( is_active_sidebar( 'sidebar-single' ) )
+<div class="is-search entry-content<?php if ( is_active_sidebar( 'sidebar-single' ) )
 	echo ' container-hd' ?>">
+
+    <div class="no-search-results-form section-inner thin">
+
+		<?php
+		get_search_form(
+			array(
+				'label' => __( 'search again', 'mokime' ),
+			)
+		);
+		?>
+
+    </div>
+
 	<?php
 	global $wp_query;
 
@@ -25,41 +38,16 @@
 
 		?>
 
-        <div class="no-search-results-form section-inner thin">
-
-			<?php
-			get_search_form(
-				array(
-					'label' => __( 'search again', 'mokime' ),
-				)
-			);
-			?>
-
-        </div>
-
 		<?php
 
-		echo '<div class="row is-flex">';
+		get_template_part( 'template-parts/entry/entry-posts' );
 
-		$i = 0;
-
-		while ( have_posts() ) {
-			$i ++;
-			if ( $i > 1 ) {
-				echo '<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true" />';
-			}
-			the_post();
-
-			get_template_part( 'template-parts/entry/entry-article' );
-
-		}
-		echo '</div>';
 	} else {
 		echo __( 'We could not find any results for your search. You can give it another try through the search form below.', 'mokime' );
 	}
 
 	?>
 
-</div><!-- .is-single -->
+</div><!-- .entry-content -->
 
 <?php get_footer(); ?>

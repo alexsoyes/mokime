@@ -1,4 +1,4 @@
-</div>
+</main><!-- #content -->
 
 <footer id="site-footer" role="contentinfo">
 

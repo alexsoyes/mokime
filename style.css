@@ -16,6 +16,35 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 @import url('assets/css/main.css');
 
+.entry-content > * {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.25em;
+}
+
+.entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+    max-width: 68rem;
+    width: calc(100% - 4rem);
+}
+
+.alignfull {
+    margin-top: 5rem;
+    margin-right: auto;
+    margin-bottom: 5rem;
+    margin-left: auto;
+    max-width: 100vw;
+    position: relative;
+    width: 100%;
+}
+
+body.template-full-width .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+    width: calc(100% - 8rem);
+}
+
+body.template-full-width .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide), body.template-full-width [class*="__inner-container"] > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+    max-width: 120rem;
+}
+
 
 /* =WordPress Core
 -------------------------------------------------------------- */
