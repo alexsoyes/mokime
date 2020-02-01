@@ -47,9 +47,9 @@
     <div class="wrapper is-fluid site-header has-padding-0"
 	     <?php if ( $header_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
         <div class="filtered-black">
-            <div class="container">
+            <div class="entry-content">
                 <header id="masthead">
-					<?php get_template_part( 'template-parts/header/menu' ); ?>
+				    <?php get_template_part( 'template-parts/header/menu' ); ?>
                 </header>
 
                 <div class="hero is-medium has-padding-bottom-5">

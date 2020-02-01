@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
-    <div class="is-single entry-content<?php if ( is_active_sidebar( 'sidebar-single' ) )
-		echo ' container-hd' ?>">
+    <div class="is-single entry-content">
 		<?php
 		the_post();
 		get_template_part( 'template-parts/content/content-single' ); ?>

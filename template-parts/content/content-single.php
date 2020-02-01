@@ -1,6 +1,6 @@
-<div class="row">
+<div class="wp-block-columns">
 
-    <article <?php post_class( 'column column-66 post' ); ?> id="post-<?php the_ID(); ?>">
+    <article <?php post_class( 'wp-block-column wp-block-column-66' ); ?> id="post-<?php the_ID(); ?>">
 
         <div class="post-inner">
             <div class="entry-content">
@@ -26,10 +26,9 @@
 		?>
 	</article><!-- .post -->
 
-
 	<?php if  ( is_active_sidebar( 'sidebar-single' ) ) :  ?>
-		<aside id="widget" class="widget-single column column-33 ">
-			<div class="sticky">
+        <aside id="widget" class="widget-single wp-block-column wp-block-column-33">
+            <div class="sticky">
 				<?php dynamic_sidebar( 'sidebar-single' ); ?>
 			</div>
 		</aside><!-- widget-single -->

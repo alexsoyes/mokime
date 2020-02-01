@@ -23,8 +23,16 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
-    max-width: 68rem;
+    max-width: 75rem;
     width: calc(100% - 4rem);
+}
+
+.wp-block-column-33 {
+    flex-basis: 33.33%
+}
+
+.wp-block-column-66 {
+    flex-basis: 66.66%
 }
 
 .alignfull {

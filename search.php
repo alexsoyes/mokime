@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
-<div class="is-search entry-content<?php if ( is_active_sidebar( 'sidebar-single' ) )
-	echo ' container-hd' ?>">
+<div class="is-search entry-content">
 
     <div class="no-search-results-form section-inner thin">
 
