@@ -84,4 +84,4 @@
         </div><!-- .filtered-black -->
     </div><!--.wrapper -->
 
-    <main id="content" class="site-content">
+    <main id="site-content" role="main">

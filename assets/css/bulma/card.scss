@@ -1,6 +1,7 @@
 .card {
 
   width: 100%;
+  position: relative;
 
   .card-image {
     height: 20rem;
@@ -13,5 +14,15 @@
   .card-content {
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+
+  .card-date {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    display: inline-block;
+    background-color: $color-dark;
+    color: $color-light;
+    padding: 0.2rem 0.5rem;
   }
 }

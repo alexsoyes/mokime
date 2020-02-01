@@ -15,23 +15,17 @@
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
+    <div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
 
-		<div class="entry-content">
+        <div class="entry-content">
 
-			<?php
-			if ( is_search() || ! is_singular() && 'summary' === get_theme_mod( 'blog_content', 'full' ) ) {
-				the_excerpt();
-			} else {
-				the_content( __( 'Continue reading', 'mokime' ) );
-			}
-			?>
+			<?php the_content( __( 'Continue reading', 'mokime' ) ); ?>
 
-		</div><!-- .entry-content -->
+        </div><!-- .entry-content -->
 
-	</div><!-- .post-inner -->
+    </div><!-- .post-inner -->
 
-	<div class="section-inner">
+    <div class="section-inner">
 		<?php
 		wp_link_pages(
 			array(
@@ -41,26 +35,10 @@
 				'link_after'  => '</span>',
 			)
 		);
-
-		edit_post_link();
-
-		if ( is_single() ) {
-
-			get_template_part( 'template-parts/entry/entry-author-bio' );
-
-		}
 		?>
-
 	</div><!-- .section-inner -->
 
 	<?php
-
-	if ( is_single() ) {
-
-		get_template_part( 'template-parts/navigation' );
-
-	}
-
 	/**
 	 *  Output comments wrapper if it's a post, or if comments are open,
 	 * or if there's a comment number – and check for password.

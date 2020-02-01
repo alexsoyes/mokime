@@ -8,11 +8,10 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 * Pass Google Pagespeed
 * Pass Schema.org validator from Google
 * **OK** W3C validator
-* Theme Check
+* <del>Theme Check</del>
 * SEO online check
-** Screaming frog
-** https://www.seoptimer.com/www.security-helpzone.com
-** 
+  * Screaming frog
+  * https://www.seoptimer.com/www.security-helpzone.com 
 
 ### Theming
 
@@ -21,7 +20,7 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 * <del>Search page</del>
 * <del>Menu with social icons (footer + header)</del>
 * PO/MO files... 
-* Style.css
+* Configuration Theme in Style.css
   * Tags
   * Options 
   * Include screenshot.png or screenshot.jpg.

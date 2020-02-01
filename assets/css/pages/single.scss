@@ -1,7 +1,14 @@
-.single {
+.single-post {
   .hero {
     .categories {
       justify-content: center;
+    }
+  }
+
+  .is-single {
+    .entry-content a {
+      color: $color-link;
+      text-decoration: underline;
     }
   }
 }
