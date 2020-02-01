@@ -16,6 +16,7 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 
 ### Theming
 
+* Menu navigation ko with Bulma
 * Search page
 * Menu with social icons (footer + header)
 * PO/MO files... 

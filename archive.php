@@ -20,7 +20,6 @@
 		}
 		echo '</div>';
 	}
-
 	?>
 
 </div><!-- .is-archive -->

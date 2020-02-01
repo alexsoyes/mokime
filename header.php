@@ -30,6 +30,10 @@
 		$header_image       = get_theme_mod( 'header_image' );
 		$header_title       = __( 'Page Not Found', 'mokime' );
 		$header_description = __( 'The page you were looking for could not be found. It might have been removed, renamed, or did not exist in the first place.', 'mokime' );
+	} elseif ( is_search() ) {
+		$header_image       = get_theme_mod( 'header_image' );
+		$header_title       = sprintf( __( '<span class="has-text-weight-bold">Searching for</span> "%s"', 'mokime' ), get_search_query() );
+		$header_description = '';
 	} else {
 		$header_image       = get_theme_mod( 'header_image' );
 		$header_title       = get_theme_mod( 'homepage_title' );
@@ -55,12 +59,14 @@
 										echo '<p class="h2 is-white has-margin-bottom-0">' . $header_title . '</p>';
 										echo '<p class="is-white h6">' . $header_description . '</p>';
 										get_template_part( 'template-parts/header/search-form' );
-									} elseif ( is_single() || is_archive() ) {
+									} elseif ( is_single() || is_archive() || is_search() ) {
 										echo '<h1 class="is-white has-text-centered">' . $header_title . '</h1>';
 										if ( is_single() ) {
 											get_template_part( 'template-parts/entry/entry-article-categories' );
 										}
-										echo '<div class="is-white h6 has-text-centered">' . $header_description . '</div>';
+										if ( $header_description ) {
+											echo '<div class="is-white h6 has-text-centered">' . $header_description . '</div>';
+										}
 									} elseif ( is_404() ) {
 										echo '<h1 class="h2 is-white">' . $header_title . '</h1>';
 										echo '<p class="is-white h6">' . $header_description . '</p>';
