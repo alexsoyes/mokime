@@ -60,7 +60,13 @@ class MokiMe_Widget_Recent_Posts extends WP_Widget {
 			/** @var WP_Term $post_category */
 			$post_category = get_post_category_primary( $current_post->ID );
 
-			$title = sprintf( $title, $post_category->name );
+			if ( $post_category ) {
+				$title = sprintf( $title, $post_category->name );
+			} else {
+				return;
+			}
+		} else {
+			return;
 		}
 
 		/**
