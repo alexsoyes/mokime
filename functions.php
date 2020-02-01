@@ -221,6 +221,15 @@ function mokime_register_styles() {
 add_action( 'wp_enqueue_scripts', 'mokime_register_styles' );
 
 /**
+ * Include a skip to content link at the top of the page so that users can bypass the menu.
+ */
+function mokime_skip_link() {
+	echo '<a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'mokime' ) . '</a>';
+}
+
+add_action( 'wp_body_open', 'mokime_skip_link', 5 );
+
+/**
  * Register and Enqueue Scripts.
  */
 function mokime_register_scripts() {
