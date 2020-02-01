@@ -1,4 +1,5 @@
 
+WordPress best pratices : https://make.wordpress.org/themes/handbook/review/resources/
 
 ### Testing
 
@@ -22,7 +23,11 @@
   * Tags
   * Options 
   * Include screenshot.png or screenshot.jpg.
-  
+* Add skip links in header
+* Search bar in header : must have visible label https://make.wordpress.org/themes/handbook/review/accessibility/required/#forms
+* Add roles for navigation : https://make.wordpress.org/themes/handbook/review/accessibility/required/#aria-landmark-roles
+* 
+
 #### More
 
 * Check on SHZ others elements that could be implemented
@@ -49,3 +54,11 @@
 ### Customizer
 
 * Include post navigation : checkbox
+
+
+
+
+# Version 1.1
+
+* 100% theme accessibility : https://make.wordpress.org/themes/handbook/review/accessibility/
+* 

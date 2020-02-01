@@ -18,8 +18,11 @@
 
                 <p class="footer-copyright has-margin-0 has-padding-y-2 has-text-align-center">
                     <small class="is-white">
-						<?php _e( 'Theme made by ', 'mokime' ) ?> <a href="https://www.security-helpzone.com"
-                                                                     target="_blank" class="is-white">SHZ</a>
+                        <a href="https://moki.me" title="Theme MokiMe" target="_blank" class="is-white">
+							<?php _e( 'High performance theme', 'mokime' ) ?>
+                        </a>
+						<?php _e( 'made by ', 'mokime' ) ?>
+                        <a href="https://www.security-helpzone.com" target="_blank" class="is-white">SHZ</a>.
                     </small>
                 </p>
 

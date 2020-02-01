@@ -97,15 +97,25 @@ function mokime_theme_support() {
 	// Add support for full and wide align images.
 	add_theme_support( 'align-wide' );
 
-	/*
-	 * Adds starter content to highlight the theme on fresh sites.
-	 * This is done conditionally to avoid loading the starter content on every
-	 * page load, as it is a one-off operation only needed once in the customizer.
-	 */
-//	if ( is_customize_preview() ) {
-//		require get_template_directory() . '/inc/starter-content.php';
-//		add_theme_support( 'starter-content', mokime_get_starter_content() );
-//	}
+	// Add support for custom header image
+	add_theme_support( 'custom-header', array(
+//	    'default-image'      => get_template_directory_uri() . 'img/default-image.jpg',
+		'default-text-color' => '000',
+		'width'              => 1000,
+		'height'             => 250,
+		'flex-width'         => true,
+		'flex-height'        => true,
+	) );
+
+	// Custom background color.
+	add_theme_support(
+		'custom-background',
+		array(
+			'default-color' => 'ffffff',
+		)
+	);
+
+	add_editor_style();
 
 	/*
 	 * Adds `async` and `defer` support for scripts registered or enqueued
@@ -113,7 +123,6 @@ function mokime_theme_support() {
 	 */
 	$loader = new MokiMe_Script_Loader();
 	add_filter( 'script_loader_tag', array( $loader, 'filter_script_loader_tag' ), 10, 2 );
-
 }
 
 add_action( 'after_setup_theme', 'mokime_theme_support' );
@@ -133,7 +142,7 @@ function mokime_sidebar_registration() {
 			array_merge(
 				$shared_args,
 				array(
-					'name'        => __( 'Footer #' . $i, 'mokime' ),
+					'name'        => __( 'Footer', 'mokime' ) . " $i",
 					'id'          => 'sidebar-footer-' . $i,
 					'description' => __( 'Widgets in this area will be displayed in columns.', 'mokime' ),
 				)
