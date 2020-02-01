@@ -70,7 +70,7 @@ function mokime_get_post_thumbnail_url( $post, $size = 'full' ) {
  *
  * @return string $html Compiled HTML based on our arguments.
  */
-function twentytwenty_site_logo( $args = array(), $echo = true ) {
+function mokime_site_logo( $args = array(), $echo = true ) {
 	$logo       = get_custom_logo();
 	$site_title = get_bloginfo( 'name' );
 	$contents   = '';
@@ -89,12 +89,12 @@ function twentytwenty_site_logo( $args = array(), $echo = true ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	/**
-	 * Filters the arguments for `twentytwenty_site_logo()`.
+	 * Filters the arguments for `mokime_site_logo()`.
 	 *
-	 * @param array  $args     Parsed arguments.
-	 * @param array  $defaults Function's default arguments.
+	 * @param array $args Parsed arguments.
+	 * @param array $defaults Function's default arguments.
 	 */
-	$args = apply_filters( 'twentytwenty_site_logo_args', $args, $defaults );
+	$args = apply_filters( 'mokime_site_logo_args', $args, $defaults );
 
 	if ( has_custom_logo() ) {
 		$contents  = sprintf( $args['logo'], $logo, esc_html( $site_title ) );
@@ -109,14 +109,14 @@ function twentytwenty_site_logo( $args = array(), $echo = true ) {
 	$html = sprintf( $args[ $wrap ], $classname, $contents );
 
 	/**
-	 * Filters the arguments for `twentytwenty_site_logo()`.
+	 * Filters the arguments for `mokime_site_logo()`.
 	 *
-	 * @param string $html      Compiled html based on our arguments.
-	 * @param array  $args      Parsed arguments.
+	 * @param string $html Compiled html based on our arguments.
+	 * @param array $args Parsed arguments.
 	 * @param string $classname Class name based on current view, home or single.
-	 * @param string $contents  HTML for site title or logo.
+	 * @param string $contents HTML for site title or logo.
 	 */
-	$html = apply_filters( 'twentytwenty_site_logo', $html, $args, $classname, $contents );
+	$html = apply_filters( 'mokime_site_logo', $html, $args, $classname, $contents );
 
 	if ( ! $echo ) {
 		return $html;
@@ -133,7 +133,7 @@ function twentytwenty_site_logo( $args = array(), $echo = true ) {
  *
  * @return string $html The HTML to display.
  */
-function twentytwenty_site_description( $echo = true ) {
+function mokime_site_description( $echo = true ) {
 	$description = get_bloginfo( 'description' );
 
 	if ( ! $description ) {
@@ -147,13 +147,14 @@ function twentytwenty_site_description( $echo = true ) {
 	/**
 	 * Filters the html for the site description.
 	 *
+	 * @param string $html The HTML to display.
+	 * @param string $description Site description via `bloginfo()`.
+	 * @param string $wrapper The format used in case you want to reuse it in a `sprintf()`.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $html         The HTML to display.
-	 * @param string $description  Site description via `bloginfo()`.
-	 * @param string $wrapper      The format used in case you want to reuse it in a `sprintf()`.
 	 */
-	$html = apply_filters( 'twentytwenty_site_description', $html, $description, $wrapper );
+	$html = apply_filters( 'mokime_site_description', $html, $description, $wrapper );
 
 	if ( ! $echo ) {
 		return $html;
@@ -172,7 +173,7 @@ function twentytwenty_site_description( $echo = true ) {
  *
  * @return bool
  */
-function twentytwenty_is_comment_by_post_author( $comment = null ) {
+function mokime_is_comment_by_post_author( $comment = null ) {
 
 	if ( is_object( $comment ) && $comment->user_id > 0 ) {
 
@@ -198,14 +199,15 @@ function twentytwenty_is_comment_by_post_author( $comment = null ) {
  *
  * @return string $link Link to the top of the page.
  */
-function twentytwenty_filter_comment_reply_link( $link ) {
+function mokime_filter_comment_reply_link( $link ) {
 
 	$link = str_replace( 'class=\'', 'class=\'do-not-scroll ', $link );
+
 	return $link;
 
 }
 
-add_filter( 'comment_reply_link', 'twentytwenty_filter_comment_reply_link' );
+add_filter( 'comment_reply_link', 'mokime_filter_comment_reply_link' );
 
 /**
  * Post Meta
@@ -217,9 +219,9 @@ add_filter( 'comment_reply_link', 'twentytwenty_filter_comment_reply_link' );
  * @param int    $post_id The ID of the post for which the post meta should be output.
  * @param string $location Which post meta location to output – single or preview.
  */
-function twentytwenty_the_post_meta( $post_id = null, $location = 'single-top' ) {
+function mokime_the_post_meta( $post_id = null, $location = 'single-top' ) {
 
-	echo twentytwenty_get_post_meta( $post_id, $location ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in twentytwenty_get_post_meta().
+	echo mokime_get_post_meta( $post_id, $location ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in mokime_get_post_meta().
 
 }
 
@@ -229,7 +231,7 @@ function twentytwenty_the_post_meta( $post_id = null, $location = 'single-top' )
  * @param int    $post_id The ID of the post.
  * @param string $location The location where the meta is shown.
  */
-function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' ) {
+function mokime_get_post_meta( $post_id = null, $location = 'single-top' ) {
 
 	// Require post ID.
 	if ( ! $post_id ) {
@@ -241,11 +243,12 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 	 *
 	 * This filter can be used to hide post meta information of post, page or custom post type registerd by child themes or plugins
 	 *
+	 * @param array Array of post types
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param array Array of post types
 	 */
-	$disallowed_post_types = apply_filters( 'twentytwenty_disallowed_post_types_for_meta_output', array( 'page' ) );
+	$disallowed_post_types = apply_filters( 'mokime_disallowed_post_types_for_meta_output', array( 'page' ) );
 	// Check whether the post type is allowed to output post meta.
 	if ( in_array( get_post_type( $post_id ), $disallowed_post_types, true ) ) {
 		return;
@@ -272,7 +275,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 		 *
 		 */
 		$post_meta = apply_filters(
-			'twentytwenty_post_meta_location_single_top',
+			'mokime_post_meta_location_single_top',
 			array(
 				'author',
 				'post-date',
@@ -297,7 +300,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 		 * }
 		 */
 		$post_meta = apply_filters(
-			'twentytwenty_post_meta_location_single_bottom',
+			'mokime_post_meta_location_single_bottom',
 			array(
 				'tags',
 			)
@@ -335,12 +338,12 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 				 * @since 1.0.0
 				 * @since Twenty Twenty 1.1 Added the `$post_meta` and `$location` parameters.
 				 *
-				 * @param int    $post_id   Post ID.
-				 * @param array  $post_meta An array of post meta information.
-				 * @param string $location  The location where the meta is shown.
+				 * @param int $post_id Post ID.
+				 * @param array $post_meta An array of post meta information.
+				 * @param string $location The location where the meta is shown.
 				 *                          Accepts 'single-top' or 'single-bottom'.
 				 */
-				do_action( 'twentytwenty_start_of_post_meta_list', $post_id, $post_meta, $location );
+				do_action( 'mokime_start_of_post_meta_list', $post_id, $post_meta, $location );
 
 				// Author.
 				if ( in_array( 'author', $post_meta, true ) ) {
@@ -349,14 +352,14 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					?>
                     <li class="post-author meta-wrapper">
 						<span class="meta-icon">
-							<span class="screen-reader-text"><?php _e( 'Post author', 'twentytwenty' ); ?></span>
-							<?php twentytwenty_the_theme_svg( 'user' ); ?>
+							<span class="screen-reader-text"><?php _e( 'Post author', 'mokime' ); ?></span>
+							<?php mokime_the_theme_svg( 'user' ); ?>
 						</span>
                         <span class="meta-text">
 							<?php
 							printf(
 							/* translators: %s: Author name */
-								__( 'By %s', 'twentytwenty' ),
+								__( 'By %s', 'mokime' ),
 								'<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author_meta( 'display_name' ) ) . '</a>'
 							);
 							?>
@@ -373,8 +376,8 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					?>
                     <li class="post-date meta-wrapper">
 						<span class="meta-icon">
-							<span class="screen-reader-text"><?php _e( 'Post date', 'twentytwenty' ); ?></span>
-							<?php twentytwenty_the_theme_svg( 'calendar' ); ?>
+							<span class="screen-reader-text"><?php _e( 'Post date', 'mokime' ); ?></span>
+							<?php mokime_the_theme_svg( 'calendar' ); ?>
 						</span>
                         <span class="meta-text">
 							<a href="<?php the_permalink(); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a>
@@ -391,11 +394,11 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					?>
                     <li class="post-categories meta-wrapper">
 						<span class="meta-icon">
-							<span class="screen-reader-text"><?php _e( 'Categories', 'twentytwenty' ); ?></span>
-							<?php twentytwenty_the_theme_svg( 'folder' ); ?>
+							<span class="screen-reader-text"><?php _e( 'Categories', 'mokime' ); ?></span>
+							<?php mokime_the_theme_svg( 'folder' ); ?>
 						</span>
                         <span class="meta-text">
-							<?php _ex( 'In', 'A string that is output before one or more categories', 'twentytwenty' ); ?> <?php the_category( ', ' ); ?>
+							<?php _ex( 'In', 'A string that is output before one or more categories', 'mokime' ); ?><?php the_category( ', ' ); ?>
 						</span>
                     </li>
 					<?php
@@ -409,8 +412,8 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					?>
                     <li class="post-tags meta-wrapper">
 						<span class="meta-icon">
-							<span class="screen-reader-text"><?php _e( 'Tags', 'twentytwenty' ); ?></span>
-							<?php twentytwenty_the_theme_svg( 'tag' ); ?>
+							<span class="screen-reader-text"><?php _e( 'Tags', 'mokime' ); ?></span>
+							<?php mokime_the_theme_svg( 'tag' ); ?>
 						</span>
                         <span class="meta-text">
 							<?php the_tags( '', ', ', '' ); ?>
@@ -427,7 +430,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					?>
                     <li class="post-comment-link meta-wrapper">
 						<span class="meta-icon">
-							<?php twentytwenty_the_theme_svg( 'comment' ); ?>
+							<?php mokime_the_theme_svg( 'comment' ); ?>
 						</span>
                         <span class="meta-text">
 							<?php comments_popup_link(); ?>
@@ -444,10 +447,10 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					?>
                     <li class="post-sticky meta-wrapper">
 						<span class="meta-icon">
-							<?php twentytwenty_the_theme_svg( 'bookmark' ); ?>
+							<?php mokime_the_theme_svg( 'bookmark' ); ?>
 						</span>
                         <span class="meta-text">
-							<?php _e( 'Sticky post', 'twentytwenty' ); ?>
+							<?php _e( 'Sticky post', 'mokime' ); ?>
 						</span>
                     </li>
 					<?php
@@ -462,12 +465,12 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 				 * @since 1.0.0
 				 * @since Twenty Twenty 1.1 Added the `$post_meta` and `$location` parameters.
 				 *
-				 * @param int    $post_id   Post ID.
-				 * @param array  $post_meta An array of post meta information.
-				 * @param string $location  The location where the meta is shown.
+				 * @param int $post_id Post ID.
+				 * @param array $post_meta An array of post meta information.
+				 * @param string $location The location where the meta is shown.
 				 *                          Accepts 'single-top' or 'single-bottom'.
 				 */
-				do_action( 'twentytwenty_end_of_post_meta_list', $post_id, $post_meta, $location );
+				do_action( 'mokime_end_of_post_meta_list', $post_id, $post_meta, $location );
 
 				?>
 
@@ -507,7 +510,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
  *
  * @return array $css_class CSS Class names.
  */
-function twentytwenty_filter_wp_list_pages_item_classes( $css_class, $item, $depth, $args, $current_page ) {
+function mokime_filter_wp_list_pages_item_classes( $css_class, $item, $depth, $args, $current_page ) {
 
 	// Only apply to wp_list_pages() calls with match_menu_classes set to true.
 	$match_menu_classes = isset( $args['match_menu_classes'] );
@@ -530,7 +533,7 @@ function twentytwenty_filter_wp_list_pages_item_classes( $css_class, $item, $dep
 
 }
 
-add_filter( 'page_css_class', 'twentytwenty_filter_wp_list_pages_item_classes', 10, 5 );
+add_filter( 'page_css_class', 'mokime_filter_wp_list_pages_item_classes', 10, 5 );
 
 /**
  * Add a Sub Nav Toggle to the Expanded Menu and Mobile Menu.
@@ -541,7 +544,7 @@ add_filter( 'page_css_class', 'twentytwenty_filter_wp_list_pages_item_classes', 
  *
  * @return stdClass $args An object of wp_nav_menu() arguments.
  */
-function twentytwenty_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
+function mokime_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 
 	// Add sub menu toggles to the Expanded Menu with toggles.
 	if ( isset( $args->show_toggles ) && $args->show_toggles ) {
@@ -554,10 +557,10 @@ function twentytwenty_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
 
 			$toggle_target_string = '.menu-modal .menu-item-' . $item->ID . ' > .sub-menu';
-			$toggle_duration      = twentytwenty_toggle_duration();
+			$toggle_duration      = mokime_toggle_duration();
 
 			// Add the sub menu toggle.
-			$args->after .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false"><span class="screen-reader-text">' . __( 'Show sub menu', 'twentytwenty' ) . '</span>' . twentytwenty_get_theme_svg( 'chevron-down' ) . '</button>';
+			$args->after .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false"><span class="screen-reader-text">' . __( 'Show sub menu', 'mokime' ) . '</span>' . mokime_get_theme_svg( 'chevron-down' ) . '</button>';
 
 		}
 
@@ -577,7 +580,7 @@ function twentytwenty_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 
 }
 
-add_filter( 'nav_menu_item_args', 'twentytwenty_add_sub_toggles_to_main_menu', 10, 3 );
+add_filter( 'nav_menu_item_args', 'mokime_add_sub_toggles_to_main_menu', 10, 3 );
 
 /**
  * Display SVG icons in social links menu.
@@ -588,12 +591,12 @@ add_filter( 'nav_menu_item_args', 'twentytwenty_add_sub_toggles_to_main_menu', 1
  * @param  array   $args        wp_nav_menu() arguments.
  * @return string  $item_output The menu item output with social icon.
  */
-function twentytwenty_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
+function mokime_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	// Change SVG icon inside social links menu if there is supported URL.
 	if ( 'social' === $args->theme_location ) {
-		$svg = TwentyTwenty_SVG_Icons::get_social_link_svg( $item->url );
+		$svg = MokiMe_SVG_Icons::get_social_link_svg( $item->url );
 		if ( empty( $svg ) ) {
-			$svg = twentytwenty_get_theme_svg( 'link' );
+			$svg = mokime_get_theme_svg( 'link' );
 		}
 		$item_output = str_replace( $args->link_after, '</span>' . $svg, $item_output );
 	}
@@ -601,7 +604,7 @@ function twentytwenty_nav_menu_social_icons( $item_output, $item, $depth, $args 
 	return $item_output;
 }
 
-add_filter( 'walker_nav_menu_start_el', 'twentytwenty_nav_menu_social_icons', 10, 4 );
+add_filter( 'walker_nav_menu_start_el', 'mokime_nav_menu_social_icons', 10, 4 );
 
 /**
  * Classes
@@ -610,7 +613,7 @@ add_filter( 'walker_nav_menu_start_el', 'twentytwenty_nav_menu_social_icons', 10
  * Add No-JS Class.
  * If we're missing JavaScript support, the HTML element will have a no-js class.
  */
-function twentytwenty_no_js_class() {
+function mokime_no_js_class() {
 
 	?>
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
@@ -618,7 +621,7 @@ function twentytwenty_no_js_class() {
 
 }
 
-add_action( 'wp_head', 'twentytwenty_no_js_class' );
+add_action( 'wp_head', 'mokime_no_js_class' );
 
 /**
  * Add conditional body classes.
@@ -627,7 +630,7 @@ add_action( 'wp_head', 'twentytwenty_no_js_class' );
  *
  * @return array $classes Classes added to the body tag.
  */
-function twentytwenty_body_classes( $classes ) {
+function mokime_body_classes( $classes ) {
 
 	global $post;
 	$post_type = isset( $post ) ? $post->post_type : false;
@@ -716,7 +719,7 @@ function twentytwenty_body_classes( $classes ) {
 
 }
 
-add_filter( 'body_class', 'twentytwenty_body_classes' );
+add_filter( 'body_class', 'mokime_body_classes' );
 
 /**
  * Archives
@@ -728,10 +731,10 @@ add_filter( 'body_class', 'twentytwenty_body_classes' );
  *
  * @return string $title Current archive title.
  */
-function twentytwenty_get_the_archive_title( $title ) {
+function mokime_get_the_archive_title( $title ) {
 
 	$regex = apply_filters(
-		'twentytwenty_get_the_archive_title_regex',
+		'mokime_get_the_archive_title_regex',
 		array(
 			'pattern'     => '/(\A[^\:]+\:)/',
 			'replacement' => '<span class="color-accent">$1</span>',
@@ -748,7 +751,7 @@ function twentytwenty_get_the_archive_title( $title ) {
 
 }
 
-add_filter( 'get_the_archive_title', 'twentytwenty_get_the_archive_title' );
+add_filter( 'get_the_archive_title', 'mokime_get_the_archive_title' );
 
 /**
  * Miscellaneous
@@ -758,15 +761,16 @@ add_filter( 'get_the_archive_title', 'twentytwenty_get_the_archive_title' );
  *
  * @return integer Duration in milliseconds
  */
-function twentytwenty_toggle_duration() {
+function mokime_toggle_duration() {
 	/**
 	 * Filters the animation duration/speed used usually for submenu toggles.
 	 *
+	 * @param integer $duration Duration in milliseconds.
+	 *
 	 * @since 1.0
 	 *
-	 * @param integer $duration Duration in milliseconds.
 	 */
-	$duration = apply_filters( 'twentytwenty_toggle_duration', 250 );
+	$duration = apply_filters( 'mokime_toggle_duration', 250 );
 
 	return $duration;
 }
@@ -786,10 +790,11 @@ function twentytwenty_toggle_duration() {
  * @param string $prefix Prefix for the returned ID.
  * @return string Unique ID.
  */
-function twentytwenty_unique_id( $prefix = '' ) {
+function mokime_unique_id( $prefix = '' ) {
 	static $id_counter = 0;
 	if ( function_exists( 'wp_unique_id' ) ) {
 		return wp_unique_id( $prefix );
 	}
-	return $prefix . (string) ++$id_counter;
+
+	return $prefix . (string) ++ $id_counter;
 }

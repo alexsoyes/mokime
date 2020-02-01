@@ -38,8 +38,8 @@ if ( $comments ) {
 					'echo'      => false,
 					'end_size'  => 0,
 					'mid_size'  => 0,
-					'next_text' => __( 'Newer Comments', 'twentytwenty' ) . ' <span aria-hidden="true">&rarr;</span>',
-					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __( 'Older Comments', 'twentytwenty' ),
+					'next_text' => __( 'Newer Comments', 'mokime' ) . ' <span aria-hidden="true">&rarr;</span>',
+					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __( 'Older Comments', 'mokime' ),
 				)
 			);
 
@@ -52,9 +52,10 @@ if ( $comments ) {
 				}
 				?>
 
-				<nav class="comments-pagination pagination<?php echo $pagination_classes; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>" aria-label="<?php esc_attr_e( 'Comments', 'twentytwenty' ); ?>">
+                <nav class="comments-pagination pagination<?php echo $pagination_classes; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>"
+                     aria-label="<?php esc_attr_e( 'Comments', 'mokime' ); ?>">
 					<?php echo wp_kses_post( $comment_pagination ); ?>
-				</nav>
+                </nav>
 
 				<?php
 			}
@@ -89,11 +90,11 @@ if ( comments_open() || pings_open() ) {
 
 	?>
 
-	<div class="comment-respond" id="respond">
+    <div class="comment-respond" id="respond">
 
-		<p class="comments-closed"><?php _e( 'Comments are closed.', 'twentytwenty' ); ?></p>
+        <p class="comments-closed"><?php _e( 'Comments are closed.', 'mokime' ); ?></p>
 
-	</div><!-- #respond -->
+    </div><!-- #respond -->
 
 	<?php
 }

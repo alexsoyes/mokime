@@ -20,15 +20,6 @@ if ( is_singular() ) {
 	<div class="entry-header-inner section-inner medium">
 
 		<?php
-			/**
-			 * Allow child themes and plugins to filter the display of the categories in the entry header.
-			 *
-			 * @since 1.0.0
-			 *
-			 * @param bool   Whether to show the categories in header, Default true.
-			 */
-//		$show_categories = apply_filters( 'twentytwenty_show_categories_in_entry_header', true );
-
 		if ( has_category() ) {
 			get_template_part( 'template-parts/entry/entry-article-categories' );
 		}
@@ -56,9 +47,6 @@ if ( is_singular() ) {
 
 			<?php
 		}
-
-		// Default to displaying the post meta.
-//		twentytwenty_the_post_meta( get_the_ID(), 'single-top' );
 		?>
 
 	</div><!-- .entry-header-inner -->

@@ -50,22 +50,22 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 
                 <div class="media-content">
 
-					<?php
-					$comment_author_url = get_comment_author_url( $comment );
-					$comment_author     = get_comment_author( $comment );
+		            <?php
+		            $comment_author_url = get_comment_author_url( $comment );
+		            $comment_author     = get_comment_author( $comment );
 
-					$post_author    = '';
-					$by_post_author = twentytwenty_is_comment_by_post_author( $comment );
+		            $post_author    = '';
+		            $by_post_author = mokime_is_comment_by_post_author( $comment );
 
-					if ( $by_post_author ) {
-						$post_author = ' <span class="by-post-author tag">' . __( 'Post Author', 'mokime' ) . '</span>';
-					}
+		            if ( $by_post_author ) {
+			            $post_author = ' <span class="by-post-author tag">' . __( 'Post Author', 'mokime' ) . '</span>';
+		            }
 
-					printf(
-						'<p class="strong has-margin-bottom-0"><a href="%1$s">#</a> <span class="fn">%2$s</span>%3$s</p>',
-						esc_url( get_comment_link( $comment, $args ) ),
-						! empty( $comment_author_url ) ? esc_html( $comment_author ) : sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', $comment_author_url, $comment_author ),
-						$post_author
+		            printf(
+			            '<p class="strong has-margin-bottom-0"><a href="%1$s">#</a> <span class="fn">%2$s</span>%3$s</p>',
+			            esc_url( get_comment_link( $comment, $args ) ),
+			            ! empty( $comment_author_url ) ? esc_html( $comment_author ) : sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', $comment_author_url, $comment_author ),
+			            $post_author
 					);
 
 					comment_text();
