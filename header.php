@@ -48,36 +48,30 @@
 	     <?php if ( $header_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
         <div class="filtered-black">
             <div class="entry-content">
-                <header id="masthead">
-				    <?php get_template_part( 'template-parts/header/menu' ); ?>
+                <header id="masthead" role="banner">
+					<?php get_template_part( 'template-parts/header/menu' ); ?>
                 </header>
 
                 <div class="hero is-medium has-padding-bottom-5">
-                    <div class="hero-body">
-                        <div class="container">
-                            <div class="columns">
-                                <div class="column is-9 is-offset-1">
-									<?php
-									if ( is_home() || is_front_page() && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
-										echo '<p class="h2 is-white has-margin-bottom-0">' . $header_title . '</p>';
-										echo '<p class="is-white h6">' . $header_description . '</p>';
-										get_template_part( 'template-parts/header/search-form' );
-									} elseif ( is_single() || is_page() || is_archive() || is_search() ) {
-										echo '<h1 class="is-white has-text-centered">' . $header_title . '</h1>';
-										if ( is_single() ) {
-											get_template_part( 'template-parts/entry/entry-article-categories' );
-										}
-										if ( isset( $header_description ) && $header_description ) {
-											echo '<div class="is-white h6 has-text-centered">' . $header_description . '</div>';
-										}
-									} elseif ( is_404() ) {
-										echo '<h1 class="h2 is-white">' . $header_title . '</h1>';
-										echo '<p class="is-white h6">' . $header_description . '</p>';
-									}
-									?>
-                                </div><!-- .column -->
-                            </div><!-- .columns -->
-                        </div><!-- .container -->
+                    <div class="hero-body has-text-align-center">
+						<?php
+						if ( is_home() || is_front_page() && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
+							echo '<h1 class="has-huge-font-size is-white has-margin-bottom-0">' . $header_title . '</h1>';
+							echo '<p class="is-white h6">' . $header_description . '</p>';
+							get_template_part( 'template-parts/header/search-form' );
+						} elseif ( is_single() || is_page() || is_archive() || is_search() ) {
+							echo '<h1 class="is-white has-text-centered">' . $header_title . '</h1>';
+							if ( is_single() ) {
+								get_template_part( 'template-parts/entry/entry-article-categories' );
+							}
+							if ( isset( $header_description ) && $header_description ) {
+								echo '<div class="is-white h6 has-text-centered">' . $header_description . '</div>';
+							}
+						} elseif ( is_404() ) {
+							echo '<h1 class="h2 is-white">' . $header_title . '</h1>';
+							echo '<p class="is-white h6">' . $header_description . '</p>';
+						}
+						?>
                     </div><!-- .hero-body -->
                 </div><!-- .hero -->
             </div><!-- .container -->

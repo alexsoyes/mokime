@@ -32,9 +32,9 @@
 
     </div>
 
-</footer>
+</footer><!-- #site-footer -->
 
-</div>
+</div><!-- #page -->
 
 <?php wp_footer(); ?>
 

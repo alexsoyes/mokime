@@ -24,8 +24,8 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
   * Tags
   * Options 
   * Include screenshot.png or screenshot.jpg.
-* Add skip links in header
-* Search bar in header : must have visible label https://make.wordpress.org/themes/handbook/review/accessibility/required/#forms
+* <del>Add skip links in header</del>
+* <del>Search bar in header : must have visible label https://make.wordpress.org/themes/handbook/review/accessibility/required/#forms</del>
 * Add roles for navigation : https://make.wordpress.org/themes/handbook/review/accessibility/required/#aria-landmark-roles
 * Remove custom header from theme, use wordpress on instead
 

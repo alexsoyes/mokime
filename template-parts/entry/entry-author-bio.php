@@ -27,15 +27,6 @@ if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'singl
                         </a>
                     </div>
                 </div>
-                <nav class="level is-mobile">
-                    <div class="level-left">
-                        <a class="level-item" aria-label="reply">
-				            <span class="icon is-small">
-				              <i class="fas fa-reply" aria-hidden="true"></i>
-				            </span>
-                        </a>
-                    </div>
-                </nav>
             </div>
         </article>
     </div><!-- .author-box -->

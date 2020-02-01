@@ -2,16 +2,8 @@
 
 <div class="is-search entry-content">
 
-    <div class="no-search-results-form section-inner thin">
-
-		<?php
-		get_search_form(
-			array(
-				'label' => __( 'search again', 'mokime' ),
-			)
-		);
-		?>
-
+    <div class="section-inner thin">
+		<?php get_search_form( array( 'label' => __( 'search again', 'mokime' ) ) ); ?>
     </div>
 
 	<?php

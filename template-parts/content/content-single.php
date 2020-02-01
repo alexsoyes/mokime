@@ -27,8 +27,8 @@
 	</article><!-- .post -->
 
 	<?php if  ( is_active_sidebar( 'sidebar-single' ) ) :  ?>
-        <aside id="widget" class="widget-single wp-block-column wp-block-column-33">
-            <div class="sticky">
+		<aside role="complementary" id="widget" class="widget-single wp-block-column wp-block-column-33">
+			<div class="sticky">
 				<?php dynamic_sidebar( 'sidebar-single' ); ?>
 			</div>
 		</aside><!-- widget-single -->
