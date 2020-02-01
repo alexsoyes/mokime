@@ -17,7 +17,12 @@
 
 * Search page
 * Menu with social icons (footer + header)
-
+* PO/MO files... 
+* Style.css
+  * Tags
+  * Options 
+  * Include screenshot.png or screenshot.jpg.
+  
 #### More
 
 * Check on SHZ others elements that could be implemented
