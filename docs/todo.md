@@ -28,7 +28,7 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 * Add skip links in header
 * Search bar in header : must have visible label https://make.wordpress.org/themes/handbook/review/accessibility/required/#forms
 * Add roles for navigation : https://make.wordpress.org/themes/handbook/review/accessibility/required/#aria-landmark-roles
-* 
+* Remove custom header from theme, use wordpress on instead
 
 ### Markups
 
