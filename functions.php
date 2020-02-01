@@ -196,7 +196,9 @@ add_action( 'widgets_init', 'mokime_widgets_registration' );
 require get_template_directory() . '/inc/menu.php';
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/svg-icons.php';
 
+require get_template_directory() . '/classes/class-mokime-svg-icons.php';
 require get_template_directory() . '/classes/class-mokime-separator-control.php';
 require get_template_directory() . '/classes/class-mokime-walker-comment.php';
 require get_template_directory() . '/classes/class-mokime-customize.php';

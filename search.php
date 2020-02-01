@@ -7,7 +7,7 @@
 
 	$archive_title = sprintf(
 		'%1$s %2$s',
-		'<span class="color-accent">' . __( 'Search:', 'twentytwenty' ) . '</span>',
+		'<span class="color-accent">' . __( 'Search:', 'mokime' ) . '</span>',
 		'&ldquo;' . get_search_query() . '&rdquo;'
 	);
 

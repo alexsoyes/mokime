@@ -16,9 +16,10 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 
 ### Theming
 
-* Menu navigation ko with Bulma
-* Search page
-* Menu with social icons (footer + header)
+* Use style from Gutenberg ? https://wordpress.org/support/topic/block-library-documentation/#new-topic-0
+  * Menu navigation ko with Bulma
+* <del>Search page</del>
+* <del>Menu with social icons (footer + header)</del>
 * PO/MO files... 
 * Style.css
   * Tags
@@ -28,10 +29,6 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 * Search bar in header : must have visible label https://make.wordpress.org/themes/handbook/review/accessibility/required/#forms
 * Add roles for navigation : https://make.wordpress.org/themes/handbook/review/accessibility/required/#aria-landmark-roles
 * 
-
-#### More
-
-* Check on SHZ others elements that could be implemented
 
 ### Markups
 
