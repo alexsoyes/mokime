@@ -42,6 +42,7 @@
 		$header_title       = get_theme_mod( 'homepage_title' );
 		$header_description = get_theme_mod( 'homepage_description' );
 	}
+	_e( 'Page Not Found', 'mokime' );
 	?>
 
     <div class="wrapper is-fluid site-header has-padding-0"
