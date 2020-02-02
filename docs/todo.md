@@ -28,7 +28,18 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 * <del>Search bar in header : must have visible label https://make.wordpress.org/themes/handbook/review/accessibility/required/#forms</del>
 * <del>Add roles for navigation : https://make.wordpress.org/themes/handbook/review/accessibility/required/#aria-landmark-roles</del>
 * Remove custom header from theme, use wordpress on instead
-
+    * selective_refresh with render_callback
+    * custom colors for
+        * primary color
+        * header
+            * header background
+            * header text color
+        * footer
+            * footer background
+            * footer text color
+        * <del>background</del>
+    * 
+    
 ### Markups
 
 * Add schema.org Article

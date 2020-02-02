@@ -137,11 +137,12 @@ class Mokime_Walker_Nav_Menu extends Walker {
 			$class_names .= 'is-active has-text-weight-bold';
 		}
 
-		$button = sprintf( "<a href='%s' class='navbar-link %s is-white'>%s</a>", $url, $class_names, $item->title );
+		$button = sprintf( "<a href='%s' class='navbar-link %s'>%s</a>", $url, $class_names, $item->title );
 
-		$dropdown = sprintf( "<div class='navbar-item has-dropdown is-hoverable'>%s", $button);
+		$dropdown = sprintf( "<div class='navbar-item has-dropdown is-hoverable'>%s", $button );
 
 		$dropdown .= "<div class='navbar-dropdown is-boxed'>";
+
 		return $dropdown;
 	}
 

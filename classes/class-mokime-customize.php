@@ -31,6 +31,29 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			/**
 			 * Site Identity
 			 */
+			self::add_section_logo( $wp_customize );
+			self::add_section_color( $wp_customize );
+
+			/**
+			 * Theme Options
+			 */
+			self::add_section_homepage( $wp_customize );
+			self::add_section_single( $wp_customize );
+
+			$wp_customize->add_panel(
+				'options',
+				array(
+					'title'      => __( 'Theme Options', 'mokime' ),
+					'priority'   => 40,
+					'capability' => 'edit_theme_options',
+				)
+			);
+		}
+
+		/**
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		public static function add_section_logo( &$wp_customize ) {
 
 			/* 2X Header Logo ---------------- */
 			$wp_customize->add_setting(
@@ -52,14 +75,19 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 					'description' => __( 'Scales the logo to half its uploaded size, making it sharp on high-res screens.', 'mokime' ),
 				)
 			);
+		}
+
+		/**
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		public static function add_section_color( &$wp_customize ) {
 
 			// Header & Footer Background Color.
 			$wp_customize->add_setting(
 				'header_footer_background_color',
 				array(
 					'default'           => '#ffffff',
-					'sanitize_callback' => 'sanitize_hex_color',
-					'transport'         => 'postMessage',
+					'sanitize_callback' => 'sanitize_hex_color'
 				)
 			);
 
@@ -71,111 +99,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 						'label'   => __( 'Header &amp; Footer Background Color', 'mokime' ),
 						'section' => 'colors',
 					)
-				)
-			);
-
-			// Enable picking an accent color.
-			$wp_customize->add_setting(
-				'accent_hue_active',
-				array(
-					'capability'        => 'edit_theme_options',
-					'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
-					'transport'         => 'postMessage',
-					'default'           => 'default',
-				)
-			);
-
-			$wp_customize->add_control(
-				'accent_hue_active',
-				array(
-					'type'    => 'radio',
-					'section' => 'colors',
-					'label'   => __( 'Primary Color', 'mokime' ),
-					'choices' => array(
-						'default' => __( 'Default', 'mokime' ),
-						'custom'  => __( 'Custom', 'mokime' ),
-					),
-				)
-			);
-
-			/**
-			 * Implementation for the accent color.
-			 * This is different to all other color options because of the accessibility enhancements.
-			 * The control is a hue-only colorpicker, and there is a separate setting that holds values
-			 * for other colors calculated based on the selected hue and various background-colors on the page.
-			 *
-			 * @since 1.0.0
-			 */
-
-			// Add the setting for the hue colorpicker.
-			$wp_customize->add_setting(
-				'accent_hue',
-				array(
-					'default'           => 344,
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'absint',
-					'transport'         => 'postMessage',
-				)
-			);
-
-			// Add setting to hold colors derived from the accent hue.
-			$wp_customize->add_setting(
-				'accent_accessible_colors',
-				array(
-					'default'           => array(
-						'content'       => array(
-							'text'      => '#000000',
-							'accent'    => '#cd2653',
-							'secondary' => '#6d6d6d',
-							'borders'   => '#dcd7ca',
-						),
-						'header-footer' => array(
-							'text'      => '#000000',
-							'accent'    => '#cd2653',
-							'secondary' => '#6d6d6d',
-							'borders'   => '#dcd7ca',
-						),
-					),
-					'type'              => 'theme_mod',
-					'transport'         => 'postMessage',
-					'sanitize_callback' => array( __CLASS__, 'sanitize_accent_accessible_colors' ),
-				)
-			);
-
-			// Add the hue-only colorpicker for the accent color.
-			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
-					$wp_customize,
-					'accent_hue',
-					array(
-						'section'         => 'colors',
-						'settings'        => 'accent_hue',
-						'description'     => __( 'Apply a custom color for links, buttons, featured images.', 'mokime' ),
-						'mode'            => 'hue',
-						'active_callback' => function() use ( $wp_customize ) {
-							return ( 'custom' === $wp_customize->get_setting( 'accent_hue_active' )->value() );
-						},
-					)
-				)
-			);
-
-			// Update background color with postMessage, so inline CSS output is updated as well.
-			$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
-
-			/**
-			 * Theme Options
-			 */
-
-			self::add_section_homepage( $wp_customize );
-			self::add_section_header( $wp_customize );
-			self::add_section_single( $wp_customize );
-
-			$wp_customize->add_panel(
-				'options',
-				array(
-					'title'      => __( 'Theme Options', 'mokime' ),
-					'priority'   => 40,
-					'capability' => 'edit_theme_options',
 				)
 			);
 		}
@@ -215,46 +138,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 					'label'    => __( 'Show the author bio in single pages.', 'mokime' ),
 				)
 			);
-		}
-
-		/**
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
-		 */
-		public static function add_section_header( &$wp_customize ) {
-
-			// Add section
-			$wp_customize->add_section(
-				'options_header',
-				array(
-					'title'    => __( 'Header', 'mokime' ),
-					'priority' => 10,
-					'panel'    => 'options'
-				)
-			);
-
-			// Add setting
-			$wp_customize->add_setting(
-				'header_image',
-				array(
-					'transport'         => 'refresh',
-					'height'            => 325,
-					'sanitize_callback' => array( __CLASS__, 'sanitize_image' )
-				)
-			);
-
-			// Add control
-			$wp_customize->add_control(
-				new WP_Customize_Image_Control(
-					$wp_customize,
-					'logo',
-					array(
-						'label'    => __( 'Header image', 'mokime' ),
-						'section'  => 'options_header',
-						'settings' => 'header_image'
-					)
-				)
-			);
-
 		}
 
 		/**

@@ -19,7 +19,7 @@ function mokime_theme_support() {
 	add_theme_support(
 		'custom-background',
 		array(
-			'default-color' => 'f5efe0',
+			'default-color' => 'ffffff',
 		)
 	);
 
@@ -100,7 +100,7 @@ function mokime_theme_support() {
 	// Add support for custom header image
 	add_theme_support( 'custom-header', array(
 //	    'default-image'      => get_template_directory_uri() . 'img/default-image.jpg',
-		'default-text-color' => '000',
+		'default-text-color' => 'fff',
 		'width'              => 1000,
 		'height'             => 250,
 		'flex-width'         => true,
@@ -127,6 +127,9 @@ function mokime_theme_support() {
 
 add_action( 'after_setup_theme', 'mokime_theme_support' );
 
+/**
+ *
+ */
 function mokime_sidebar_registration() {
 
 	// Arguments used in all register_sidebar() calls.
@@ -194,9 +197,9 @@ add_action( 'widgets_init', 'mokime_widgets_registration' );
  * Include required files.
  */
 require get_template_directory() . '/inc/menu.php';
-require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/svg-icons.php';
+require get_template_directory() . '/inc/custom-css.php';
 
 require get_template_directory() . '/classes/class-mokime-svg-icons.php';
 require get_template_directory() . '/classes/class-mokime-separator-control.php';
@@ -216,6 +219,8 @@ function mokime_register_styles() {
 
 	wp_enqueue_style( 'mokime-style', get_stylesheet_uri(), array(), $theme_version );
 	wp_style_add_data( 'mokime-style', 'rtl', 'replace' );
+
+	wp_add_inline_style( 'mokime-style', mokime_get_customizer_css() );
 }
 
 add_action( 'wp_enqueue_scripts', 'mokime_register_styles' );
