@@ -75,7 +75,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 
 		foreach ( $colors as $color_key => $color_values ) {
 			$color = get_theme_mod( $color_key );
-			mokime_generate_css( implode( ',', $color_values['elements'] ), $color_values['type'], $color );
+			mokime_generate_css( implode( ',', $color_values['elements'] ), $color_values['type'], $color, $color_values['prefix'] );
 		}
 
 		// Return the results.
@@ -102,11 +102,13 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 		$colors = array(
 			'header_footer_background_color' => array(
 				'type'     => 'background-color',
-				'elements' => array( 'footer' )
+				'elements' => array( 'footer' ),
+				'prefix'   => ''
 			),
 			'header_textcolor'               => array(
 				'type'     => 'color',
-				'elements' => array( '.navbar-item, .navbar-link' )
+				'elements' => array( '.navbar-item, .navbar-link' ),
+				'prefix'   => '#'
 			)
 		);
 
