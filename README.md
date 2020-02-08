@@ -10,9 +10,7 @@
 
 * Based on [TwentyTwenty]().
 
-
-
-
+https://coolors.co/219385-020402-49516f-dcdcdd-c5c3c6
 
 * [Checking](docs/checking.md)
 * [Developer installation](docs/development.md)

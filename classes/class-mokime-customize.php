@@ -32,7 +32,43 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			 * Site Identity
 			 */
 			self::add_section_logo( $wp_customize );
-			self::add_section_color( $wp_customize );
+			self::add_section_color(
+				$wp_customize,
+				'primary_color',
+				'Primary Color',
+				'#FFFFFF'
+			);
+			self::add_section_color(
+				$wp_customize,
+				'secondary_color',
+				'Secondary Color',
+				'#FFFFFF'
+			);
+			self::add_section_color(
+				$wp_customize,
+				'footer_text_color',
+				'Footer Text Color',
+				'#FFFFFF'
+			);
+			self::add_section_color(
+				$wp_customize,
+				'footer_background_color',
+				'Footer Background Color',
+				'#FFFFFF'
+			);
+			self::add_section_color(
+				$wp_customize,
+				'header_background_color',
+				'Header Background Color',
+				'#EEE'
+			);
+			self::add_section_color(
+				$wp_customize,
+				'header_hero_text_color',
+				'Header Hero Text Color',
+				'#EEE'
+			);
+
 
 			/**
 			 * Theme Options
@@ -79,14 +115,15 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 
 		/**
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 * @param $id string The id of the color
+		 * @param $label string The displaying label in customizer
+		 * @param $default string The default color bound
 		 */
-		public static function add_section_color( &$wp_customize ) {
-
-			// Header & Footer Background Color.
+		public static function add_section_color( &$wp_customize, $id, $label, $default ) {
 			$wp_customize->add_setting(
-				'header_footer_background_color',
+				$id,
 				array(
-					'default'           => '#ffffff',
+					'default'           => $default,
 					'sanitize_callback' => 'sanitize_hex_color'
 				)
 			);
@@ -94,9 +131,9 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			$wp_customize->add_control(
 				new WP_Customize_Color_Control(
 					$wp_customize,
-					'header_footer_background_color',
+					$id,
 					array(
-						'label'   => __( 'Header &amp; Footer Background Color', 'mokime' ),
+						'label'   => __( $label, 'mokime' ),
 						'section' => 'colors',
 					)
 				)

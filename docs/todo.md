@@ -27,18 +27,18 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 * <del>Add skip links in header</del>
 * <del>Search bar in header : must have visible label https://make.wordpress.org/themes/handbook/review/accessibility/required/#forms</del>
 * <del>Add roles for navigation : https://make.wordpress.org/themes/handbook/review/accessibility/required/#aria-landmark-roles</del>
-* Remove custom header from theme, use wordpress on instead
-    * selective_refresh with render_callback
-    * custom colors for
-        * primary color
-        * header
-            * header background
-            * header text color
-        * footer
-            * footer background
-            * footer text color
+* <del>Remove custom header from theme, use wordpress on instead</del>
+    * <del>selective_refresh with render_callback</del>
+    * <del>custom colors for</del>
+        * <del>primary color</del>
+        * <del>header</del>
+            * <del>header background</del>
+            * <del>header text color</del>
+        * <del>footer</del>
+            * <del>footer background</del>
+            * <del>footer text color</del>
         * <del>background</del>
-    * 
+    * Applying styles :  **remove color styling in Milligram ?**
     
 ### Markups
 

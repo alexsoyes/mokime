@@ -1,6 +1,6 @@
 </main><!-- #content -->
 
-<footer id="site-footer" role="contentinfo">
+<footer id="site-footer" class="site-footer" role="contentinfo">
 
 	<?php if ( is_active_sidebar( 'sidebar-pre-footer' ) ) : ?>
         <div id="prefooter" class="container has-margin-top-5">

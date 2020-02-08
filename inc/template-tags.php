@@ -703,7 +703,7 @@ function mokime_body_classes( $classes ) {
 	}
 
 	// Get header/footer background color.
-	$header_footer_background = get_theme_mod( 'header_footer_background_color', '#ffffff' );
+	$header_footer_background = get_theme_mod( 'footer_background_color' );
 	$header_footer_background = strtolower( '#' . ltrim( $header_footer_background, '#' ) );
 
 	// Get content background color.

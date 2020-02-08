@@ -73,9 +73,13 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 		// Auto-calculated colors.
 		$colors = mokime_get_colors_array();
 
-		foreach ( $colors as $color_key => $color_values ) {
-			$color = get_theme_mod( $color_key );
-			mokime_generate_css( implode( ',', $color_values['elements'] ), $color_values['type'], $color, $color_values['prefix'] );
+		// first level, get the $color_key which matches mod id
+		foreach ( $colors as $theme_mod_id => $color ) {
+			// second level, loop into the classes for the given mod id
+			foreach ( $color as $color_values ) {
+				$hex_color = get_theme_mod( $theme_mod_id );
+				mokime_generate_css( $color_values['elements'], $color_values['type'], $hex_color, $color_values['prefix'] );
+			}
 		}
 
 		// Return the results.
@@ -100,16 +104,75 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 		 * - CSS elements: that must be generated with the current item
 		 */
 		$colors = array(
-			'header_footer_background_color' => array(
-				'type'     => 'background-color',
-				'elements' => array( 'footer' ),
-				'prefix'   => ''
+			'footer_background_color' => array(
+				array(
+					'type'     => 'background-color',
+					'elements' => 'footer',
+					'prefix'   => ''
+				)
 			),
-			'header_textcolor'               => array(
-				'type'     => 'color',
-				'elements' => array( '.navbar-item, .navbar-link' ),
-				'prefix'   => '#'
-			)
+			'header_textcolor'        => array(
+				array(
+					'type'     => 'color',
+					'elements' => '.navbar-item, .navbar-link',
+					'prefix'   => '#'
+				)
+			),
+			'primary_color'           => array(
+				array(
+					'type'     => 'color',
+					'elements' => 'a, a.navbar-item.is-active, .navbar-link.is-active',
+					'prefix'   => ''
+				),
+				array(
+					'type'     => 'background-color',
+					'elements' => '.button, button, input[type="button"], input[type="reset"], input[type="submit"]',
+					'prefix'   => ''
+				),
+				array(
+					'type'     => 'border',
+					'elements' => '.button, button, input[type="button"], input[type="reset"], input[type="submit"]',
+					'prefix'   => '0.1rem solid '
+				)
+			),
+			'secondary_color'         => array(
+				array(
+					'type'     => 'color',
+					'elements' => '.navbar-item, .navbar-link',
+					'prefix'   => ''
+				),
+				array(
+					'type'     => 'background-color',
+					'elements' => '.button:focus, .button:hover, button:focus, button:hover, input[type="button"]:focus, input[type="button"]:hover, input[type="reset"]:focus, input[type="reset"]:hover, input[type="submit"]:focus, input[type="submit"]:hover',
+					'prefix'   => ''
+				)
+			),
+			'footer_text_color'       => array(
+				array(
+					'type'     => 'fill',
+					'elements' => '.site-footer .svg-icon',
+					'prefix'   => ''
+				),
+				array(
+					'type'     => 'color',
+					'elements' => '.site-footer p, .site-footer a, .site-footer li',
+					'prefix'   => ''
+				)
+			),
+			'header_background_color' => array(
+				array(
+					'type'     => 'background-color',
+					'elements' => '.site-header',
+					'prefix'   => ''
+				)
+			),
+			'header_hero_text_color'  => array(
+				array(
+					'type'     => 'color',
+					'elements' => '.hero-title, .hero-desc',
+					'prefix'   => ''
+				)
+			),
 		);
 
 		/**

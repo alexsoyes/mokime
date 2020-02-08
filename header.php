@@ -42,30 +42,34 @@
 		$header_title       = get_theme_mod( 'homepage_title' );
 		$header_description = get_theme_mod( 'homepage_description' );
 	}
+
+	$has_background_image = ( $header_image && $header_image != 'remove-header' );
 	?>
 
-    <div class="wrapper is-fluid site-header has-padding-0"
-         <?php if ( $header_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
-        <div class="filtered-black">
-            <div class="entry-content">
-                <header id="masthead" role="banner">
-				    <?php get_template_part( 'template-parts/header/menu' ); ?>
-                </header>
+	<div id="site-header" class="wrapper is-fluid site-header has-padding-0"
+	     <?php if ( $has_background_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
+		<div class="pre-entry-content<?php if ( $has_background_image ) {
+			echo ' filtered-black';
+		} ?>">
+			<div class="entry-content">
+				<header id="masthead" role="banner">
+					<?php get_template_part( 'template-parts/header/menu' ); ?>
+				</header>
 
-                <div class="hero is-medium has-padding-bottom-5">
-                    <div class="hero-body has-text-align-center">
-					    <?php
-					    echo '<h1 class="has-huge-font-size has-margin-bottom-0">' . $header_title . '</h1>';
-					    if ( isset( $header_description ) && $header_description ) {
-						    echo '<div class="h6 has-text-centered">' . $header_description . '</div>';
-					    }
+				<div class="hero is-medium has-padding-bottom-5">
+					<div class="hero-body has-text-align-center">
+						<?php
+						echo '<h1 class="hero-title has-huge-font-size has-margin-bottom-0">' . $header_title . '</h1>';
+						if ( isset( $header_description ) && $header_description ) {
+							echo '<div class="hero-desc h6 has-text-centered">' . $header_description . '</div>';
+						}
 
-					    if ( ( is_home() || is_front_page() ) && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
-						    get_template_part( 'template-parts/header/search-form' );
-					    } elseif ( is_single() ) {
-						    get_template_part( 'template-parts/entry/entry-article-categories' );
-					    }
-					    ?>
+						if ( ( is_home() || is_front_page() ) && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
+							get_template_part( 'template-parts/header/search-form' );
+						} elseif ( is_single() ) {
+							get_template_part( 'template-parts/entry/entry-article-categories' );
+						}
+						?>
                     </div><!-- .hero-body -->
                 </div><!-- .hero -->
             </div><!-- .container -->

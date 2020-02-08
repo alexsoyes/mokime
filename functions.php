@@ -134,7 +134,7 @@ function mokime_sidebar_registration() {
 
 	// Arguments used in all register_sidebar() calls.
 	$shared_args = array(
-		'before_title'  => '<p class="h5 is-white is-uppercase has-text-weight-bold">',
+		'before_title'  => '<p class="h5 is-uppercase has-text-weight-bold">',
 		'after_title'   => '</p>',
 		'before_widget' => '<div class="%2$s">',
 		'after_widget'  => '</div>',
