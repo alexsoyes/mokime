@@ -194,6 +194,11 @@ function mokime_performance_setup() {
 		add_filter( 'avatar_defaults', '__return_empty_array' );
 		add_filter( 'default_avatar_select', '__return_empty_string' );
 	}
+	if ( (bool) get_theme_mod( 'performance_reduce_jpeg_quality', false ) ) {
+		add_filter( 'jpeg_quality', function ( $arg ) {
+			return 80;
+		} );
+	}
 }
 
 add_action( 'after_setup_theme', 'mokime_performance_setup' );

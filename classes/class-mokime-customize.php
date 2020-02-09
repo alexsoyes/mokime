@@ -169,6 +169,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			self::add_section_performance_control( $wp_customize, 'enable_only_page_contact_form_7', __( 'Only enable Contact Form 7 on type page', 'mokime' ), false );
 			self::add_section_performance_control( $wp_customize, 'remove_jquery', __( 'Remove jQuery', 'mokime' ), false );
 			self::add_section_performance_control( $wp_customize, 'disable_gravatar', __( 'Disable Gravatar', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'reduce_jpeg_quality', __( 'Reduce JPEG quality to 80%', 'mokime' ), false );
 		}
 
 		/**
