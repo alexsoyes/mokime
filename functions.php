@@ -229,8 +229,8 @@ add_filter( 'get_avatar', 'mokime_get_gravatar' );
  */
 function mokime_performance_scripts() {
 
-	if ( (bool) get_theme_mod( 'remove_jquery', true ) ) {
-		if ( ! is_admin() ) {
+	if ( (bool) get_theme_mod( 'remove_jquery', false ) ) {
+		if ( ! is_admin() && ! is_customize_preview() ) {
 			wp_deregister_script( 'jquery' );
 		}
 	}
@@ -284,9 +284,9 @@ function mokime_sidebar_registration() {
 			array(
 				'before_title' => '<p class="has-margin-top-3 h4 has-text-grey-dark is-uppercase has-text-weight-bold">',
 				'after_title'  => '</p>',
-				'name'         => __( 'Single pages', 'mokime' ),
+				'name'         => __( 'Single post', 'mokime' ),
 				'id'           => 'sidebar-single',
-				'description'  => __( 'Widgets in this area will be display next to content in article.', 'mokime' ),
+				'description'  => __( 'Widgets in this area will be display next to content in single post pages.', 'mokime' ),
 			)
 		)
 	);
