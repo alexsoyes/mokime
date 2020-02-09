@@ -9,7 +9,7 @@
 
 if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'single_post_author_bio', true ) ) : ?>
     <div class="box author-box">
-        <article class="has-text-centered">
+        <div class="has-text-centered">
             <div>
                 <figure class="image is-64x64">
 					<?php echo get_avatar( get_the_author_meta( 'ID' ), 160, '', '', array( 'class' => 'is-circle' ) ); ?>
@@ -28,6 +28,6 @@ if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'singl
                     </div>
                 </div>
             </div>
-        </article>
+        </div>
     </div><!-- .author-box -->
 <?php endif; ?>

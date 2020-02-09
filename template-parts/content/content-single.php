@@ -1,15 +1,23 @@
 <div class="wp-block-columns">
 
     <article <?php post_class( 'wp-block-column wp-block-column-66' ); ?> id="post-<?php the_ID(); ?>">
-
         <div class="post-inner">
             <div class="entry-content">
 				<?php the_content(); ?>
             </div><!-- .entry-content -->
         </div><!-- .post-inner -->
 
-
         <div class="section-inner">
+            <div class="section-inner__date">
+				<?php _e( 'Post published on ', 'mokime' ); ?>
+                <time class="is-small-text" datetime="<?php echo get_the_date( 'c' ); ?>">
+					<?php echo get_the_date( 'j F Y' ); ?>
+                </time>
+				<?php _e( ' Last modified on ', 'mokime' ); ?>
+                <time class="is-small-text" datetime="<?php echo get_the_modified_date( 'c' ); ?>">
+					<?php echo get_the_modified_date( 'j F Y' ); ?>
+                </time>
+            </div>
 			<?php
 			if ( (bool) get_theme_mod( 'single_post_nav_posts', true ) ) {
 				get_template_part( 'template-parts/navigation' );

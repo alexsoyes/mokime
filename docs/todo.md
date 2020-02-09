@@ -52,15 +52,13 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
  ### Frontoffice
  
 * Implements Yoast SEO breadcrumb
-* Change sidebar artcile presentation
-* Remove schema markup
-* Add modif/add date in poste
+* Change sidebar article presentation
+* Add modif/add date in post
 
 #### Design
 
 * Use Gutenberg style ?
-* Change submenu for Bulma Navbar
-    * Remove unused bulma style
+* Remove unused bulma style
 * Post category design
 * Comments
 * Author card

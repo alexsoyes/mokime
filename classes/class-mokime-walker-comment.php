@@ -74,8 +74,8 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
                         <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'mokime' ); ?></p>
 					<?php endif; ?>
 
-                    <small class="comment-metadata">
-						<?php
+                    <div class="comment-metadata">
+		                <?php
 
 						$comment_reply_link = get_comment_reply_link(
 							array_merge(
@@ -111,7 +111,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 							?>
                         </p>
 
-                    </small><!-- .comment-metadata -->
+                    </div><!-- .comment-metadata -->
 
                 </div><!-- .media-content -->
 
