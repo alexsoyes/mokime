@@ -75,6 +75,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			 */
 			self::add_section_homepage( $wp_customize );
 			self::add_section_single_post( $wp_customize );
+			self::add_section_performance( $wp_customize );
 
 			$wp_customize->add_panel(
 				'options',
@@ -136,6 +137,66 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 						'label'   => $label,
 						'section' => 'colors',
 					)
+				)
+			);
+		}
+
+		/**
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		public static function add_section_performance( &$wp_customize ) {
+
+			// Add section
+			$wp_customize->add_section(
+				'options_performance',
+				array(
+					'title'    => __( 'Performance', 'mokime' ),
+					'priority' => 10,
+					'panel'    => 'options'
+				)
+			);
+
+			self::add_section_performance_control( $wp_customize, 'remove_generator', __( 'Remove WordPress generator.', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_wlwmanifest_link', __( 'Remove support for Windows Live Writer', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_random_post_link', __( 'Remove random post link', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_parent_post_rel_link', __( 'Remove parent post link', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_emoji', __( 'Remove Emoji support.', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_shortlink', __( 'Remove shortlink support.', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'disable_json_api', __( 'Disable JSON API', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'disable_embed_posts', __( 'Disable embed posts', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_wc_generator_tag', __( 'Remove WooCommerce tags in header', 'mokime' ), false );
+
+			self::add_section_performance_control( $wp_customize, 'enable_only_page_contact_form_7', __( 'Only enable Contact Form 7 on type page', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_jquery', __( 'Remove jQuery', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'disable_gravatar', __( 'Disable Gravatar', 'mokime' ), false );
+		}
+
+		/**
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 * @param $id string the id of the setting & control
+		 * @param $label string displayed label in customizer
+		 * @param $default boolean the default option for the checkbox
+		 */
+		private static function add_section_performance_control( &$wp_customize, $id, $label, $default ) {
+
+			// Add setting
+			$wp_customize->add_setting(
+				'performance_' . $id,
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => $default,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
+			// Add control
+			$wp_customize->add_control(
+				'performance_' . $id,
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options_performance',
+					'settings' => 'performance_' . $id,
+					'label'    => $label,
 				)
 			);
 		}

@@ -128,6 +128,112 @@ function mokime_theme_support() {
 add_action( 'after_setup_theme', 'mokime_theme_support' );
 
 /**
+ * Check performance options in customizer
+ */
+function mokime_performance_setup() {
+	if ( (bool) get_theme_mod( 'performance_remove_generator', false ) ) {
+		remove_action( 'wp_head', 'wp_generator' );
+	}
+	if ( (bool) get_theme_mod( 'performance_remove_wlwmanifest_link', false ) ) {
+		remove_action( 'wp_head', 'wlwmanifest_link' );
+	}
+	if ( (bool) get_theme_mod( 'performance_remove_random_post_link', false ) ) {
+		remove_action( 'wp_head', 'start_post_rel_link', 10 );
+	}
+	if ( (bool) get_theme_mod( 'performance_remove_parent_post_rel_link', false ) ) {
+		remove_action( 'wp_head', 'parent_post_rel_link', 10 );
+	}
+	if ( (bool) get_theme_mod( 'performance_remove_emoji', false ) ) {
+		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+		remove_action( 'wp_print_styles', 'print_emoji_styles' );
+		add_filter( 'emoji_svg_url', '__return_false' );
+	}
+	if ( (bool) get_theme_mod( 'performance_remove_shortlink', false ) ) {
+		remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
+	}
+	if ( (bool) get_theme_mod( 'performance_disable_json_api', false ) ) {
+		// Filters for WP-API version 1.x
+		add_filter( 'json_enabled', '__return_false' );
+		add_filter( 'json_jsonp_enabled', '__return_false' );
+
+		// Filters for WP-API version 2.x
+		add_filter( 'rest_enabled', '__return_false' );
+		add_filter( 'rest_jsonp_enabled', '__return_false' );
+	}
+	if ( (bool) get_theme_mod( 'performance_disable_embed_posts', false ) ) {
+		// Remove the REST API lines from the HTML Header
+		remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+		remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+
+		// Remove the REST API endpoint.
+		remove_action( 'rest_api_init', 'wp_oembed_register_route' );
+
+		// Turn off oEmbed auto discovery.
+		add_filter( 'embed_oembed_discover', '__return_false' );
+
+		// Don't filter oEmbed results.
+		remove_filter( 'oembed_dataparse', 'wp_filter_oembed_result', 10 );
+
+		// Remove oEmbed discovery links.
+		remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+
+		// Remove oEmbed-specific JavaScript from the front-end and back-end.
+		remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+
+		// Remove all embeds rewrite rules.
+		add_filter( 'rewrite_rules_array', 'disable_embeds_rewrites' );
+	}
+	if ( (bool) get_theme_mod( 'performance_remove_wc_generator_tag', false ) ) {
+		remove_action( 'wp_head', 'wc_generator_tag' );
+	}
+	if ( (bool) get_theme_mod( 'performance_enable_only_page_contact_form_7', false ) ) {
+		add_filter( 'wpcf7_load_js', '__return_false' );
+		add_filter( 'wpcf7_load_css', '__return_false' );
+	}
+	if ( (bool) get_theme_mod( 'performance_disable_gravatar', false ) ) {
+		add_filter( 'avatar_defaults', '__return_empty_array' );
+		add_filter( 'default_avatar_select', '__return_empty_string' );
+	}
+}
+
+add_action( 'after_setup_theme', 'mokime_performance_setup' );
+
+
+define( 'DEFAULT_AVATAR_URL', get_template_directory_uri() . '/assets/img/icons/person-circle-outline.svg' );
+
+/**
+ * Remove Gravatar profile images if check in the customizer
+ *
+ * @param $avatar string
+ *
+ * @return string|string[]|null
+ */
+function mokime_get_gravatar( $avatar ) {
+
+	if ( (bool) get_theme_mod( 'performance_disable_gravatar', false ) ) {
+		return preg_replace( "/http.*?gravatar\.com[^\']*/", DEFAULT_AVATAR_URL, $avatar );
+	} else {
+		return $avatar;
+	}
+}
+
+add_filter( 'get_avatar', 'mokime_get_gravatar' );
+
+/**
+ * Remove some script if check in the customizer
+ */
+function mokime_performance_scripts() {
+
+	if ( (bool) get_theme_mod( 'remove_jquery', true ) ) {
+		if ( ! is_admin() ) {
+			wp_deregister_script( 'jquery' );
+		}
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'mokime_performance_scripts' );
+
+/**
  *
  */
 function mokime_sidebar_registration() {

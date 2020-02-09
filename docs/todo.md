@@ -53,7 +53,6 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
  
 * Implements Yoast SEO breadcrumb
 * Change sidebar article presentation
-* Add modif/add date in post
 
 #### Design
 
@@ -75,8 +74,10 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 
 # Version 1.1
 
+* Transient adds ?
 * 100% theme accessibility : https://make.wordpress.org/themes/handbook/review/accessibility/
 * 
 * Add schema.org Article
   * https://developers.google.com/search/docs/data-types/article#non-amp
   * https://schema.org/Article
+* Remove gravatar ?
