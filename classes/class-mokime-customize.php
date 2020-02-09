@@ -74,7 +74,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			 * Theme Options
 			 */
 			self::add_section_homepage( $wp_customize );
-			self::add_section_single( $wp_customize );
+			self::add_section_single_post( $wp_customize );
 
 			$wp_customize->add_panel(
 				'options',
@@ -143,13 +143,13 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		/**
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public static function add_section_single( &$wp_customize ) {
+		public static function add_section_single_post( &$wp_customize ) {
 
 			// Add section
 			$wp_customize->add_section(
 				'options_single',
 				array(
-					'title'    => __( 'Single', 'mokime' ),
+					'title'    => __( 'Single Posts', 'mokime' ),
 					'priority' => 10,
 					'panel'    => 'options'
 				)
@@ -157,7 +157,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 
 			// Add setting
 			$wp_customize->add_setting(
-				'single_author_bio',
+				'single_post_author_bio',
 				array(
 					'capability'        => 'edit_theme_options',
 					'default'           => true,
@@ -167,12 +167,33 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 
 			// Add control
 			$wp_customize->add_control(
-				'single_author_bio',
+				'single_post_author_bio',
 				array(
 					'type'     => 'checkbox',
 					'section'  => 'options_single',
-					'settings' => 'single_author_bio',
-					'label'    => __( 'Show the author bio in single pages.', 'mokime' ),
+					'settings' => 'single_post_author_bio',
+					'label'    => __( 'Show the author bio.', 'mokime' ),
+				)
+			);
+
+			// Add setting
+			$wp_customize->add_setting(
+				'single_post_nav_posts',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => true,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
+			// Add control
+			$wp_customize->add_control(
+				'single_post_nav_posts',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options_single',
+					'settings' => 'single_post_nav_posts',
+					'label'    => __( 'Display previous / next posts.', 'mokime' ),
 				)
 			);
 		}

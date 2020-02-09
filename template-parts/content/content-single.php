@@ -10,8 +10,11 @@
 
 
         <div class="section-inner">
-			<?php get_template_part( 'template-parts/navigation' ); ?>
-			<?php get_template_part( 'template-parts/entry/entry-author-bio' ); ?>
+			<?php
+			if ( (bool) get_theme_mod( 'single_post_nav_posts', true ) ) {
+				get_template_part( 'template-parts/navigation' );
+			}
+			get_template_part( 'template-parts/entry/entry-author-bio' ); ?>
         </div><!-- .section-inner -->
 
 		<?php

@@ -7,7 +7,7 @@
  * @since 1.0.0
  */
 
-if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'single_author_bio', true ) ) : ?>
+if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'single_post_author_bio', true ) ) : ?>
     <div class="box author-box">
         <article class="has-text-centered">
             <div>
