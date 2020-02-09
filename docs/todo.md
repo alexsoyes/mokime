@@ -42,11 +42,7 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
     
 ### Markups
 
-* Add schema.org Article
-  * https://developers.google.com/search/docs/data-types/article#non-amp
-  * https://schema.org/Article
 * Remove empty functions and so
-* Use WordPress good practices guide
 * Commenting HTML classes `<!-- .end -->`
 * HTML5 segmentation properly
 * SEO points
@@ -83,3 +79,6 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 
 * 100% theme accessibility : https://make.wordpress.org/themes/handbook/review/accessibility/
 * 
+* Add schema.org Article
+  * https://developers.google.com/search/docs/data-types/article#non-amp
+  * https://schema.org/Article
