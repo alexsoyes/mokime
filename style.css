@@ -36,6 +36,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
     flex-basis: 66.66%
 }
 
+.wp-block-column-100 {
+    flex-basis: 100%
+}
+
 .alignfull {
     margin-top: 5rem;
     margin-right: auto;

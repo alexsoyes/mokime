@@ -68,15 +68,10 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 * Autoprefixer : https://github.com/postcss/autoprefixer#javascript
 * Coding : https://torquemag.io/2018/01/enforce-code-standards-wordpress-development-using-composer/
 
-### Customizer
-
-* Include post navigation : checkbox
-
 # Version 1.1
 
 * Transient adds ?
 * 100% theme accessibility : https://make.wordpress.org/themes/handbook/review/accessibility/
-* 
 * Add schema.org Article
   * https://developers.google.com/search/docs/data-types/article#non-amp
   * https://schema.org/Article

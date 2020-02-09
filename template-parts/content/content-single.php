@@ -1,5 +1,12 @@
-<div class="wp-block-columns">
+<div class="wp-block-columns breadcrumb">
+	<?php if ( function_exists( 'yoast_breadcrumb' ) ): ?>
+        <div class="wp-block-column wp-block-column-100 entry-content">
+			<?php yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' ); ?>
+        </div>
+	<?php endif; ?>
+</div><!-- .breadcrumb -->
 
+<div class="wp-block-columns content">
     <article <?php post_class( 'wp-block-column wp-block-column-66' ); ?> id="post-<?php the_ID(); ?>">
         <div class="post-inner">
             <div class="entry-content">
@@ -44,4 +51,4 @@
 			</div>
 		</aside><!-- widget-single -->
 	<?php endif; ?>
-</div><!-- .row -->
+</div><!-- .content -->

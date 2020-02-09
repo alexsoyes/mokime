@@ -13,6 +13,12 @@
 
 ?>
 
+<?php if ( function_exists( 'yoast_breadcrumb' ) ): ?>
+    <div class="wp-block-column wp-block-column-100 entry-content">
+		<?php yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' ); ?>
+    </div>
+<?php endif; ?>
+
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
     <div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
@@ -36,7 +42,7 @@
 			)
 		);
 		?>
-	</div><!-- .section-inner -->
+    </div><!-- .section-inner -->
 
 	<?php
 	/**
@@ -46,11 +52,11 @@
 	if ( ( is_single() || is_page() ) && ( comments_open() || get_comments_number() ) && ! post_password_required() ) {
 		?>
 
-		<div class="comments-wrapper section-inner">
+        <div class="comments-wrapper section-inner">
 
 			<?php comments_template(); ?>
 
-		</div><!-- .comments-wrapper -->
+        </div><!-- .comments-wrapper -->
 
 		<?php
 	}
