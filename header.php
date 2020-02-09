@@ -65,6 +65,7 @@
 							get_template_part( 'template-parts/header/search-form' );
 						} elseif ( is_single() ) {
 							get_template_part( 'template-parts/entry/entry-article-categories' );
+							the_tags( '<ul><li>', '</li><li>', '</li></ul>' );
 						}
 						?>
                     </div><!-- .hero-body -->
