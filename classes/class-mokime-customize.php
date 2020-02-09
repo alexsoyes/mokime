@@ -273,20 +273,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 
 			// Add setting
 			$wp_customize->add_setting(
-				'homepage_title', array(
-				'default'           => '',
-				'sanitize_callback' => array( __CLASS__, 'sanitize_text' )
-			) );
-
-			$wp_customize->add_setting(
-				'homepage_description',
-				array(
-					'default'           => '',
-					'sanitize_callback' => 'sanitize_textarea_field'
-				)
-			);
-
-			$wp_customize->add_setting(
 				'homepage_header_search',
 				array(
 					'capability'        => 'edit_theme_options',
@@ -306,32 +292,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 
 			// Add control
 			$wp_customize->add_control(
-				new WP_Customize_Control(
-					$wp_customize,
-					'homepage_title',
-					array(
-						'label'    => __( 'Homepage title', 'mokime' ),
-						'section'  => 'options_homepage',
-						'settings' => 'homepage_title',
-						'type'     => 'text'
-					)
-				)
-			);
-
-			$wp_customize->add_control(
-				new WP_Customize_Control(
-					$wp_customize,
-					'homepage_description',
-					array(
-						'label'    => __( 'Homepage description', 'mokime' ),
-						'section'  => 'options_homepage',
-						'settings' => 'homepage_description',
-						'type'     => 'textarea'
-					)
-				)
-			);
-
-			$wp_customize->add_control(
 				'homepage_header_search',
 				array(
 					'type'     => 'checkbox',
@@ -341,14 +301,13 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				)
 			);
 
-
 			$wp_customize->add_control(
 				'homepage_last_posts',
 				array(
 					'type'     => 'checkbox',
 					'section'  => 'options_homepage',
 					'priority' => 10,
-					'label'    => __( 'Show last posts in the hompeage', 'mokime' ),
+					'label'    => __( 'Show last posts in the static homepage', 'mokime' ),
 				)
 			);
 		}

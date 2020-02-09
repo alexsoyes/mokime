@@ -39,8 +39,8 @@
 		$header_description = '';
 	} else {
 		$header_image       = get_theme_mod( 'header_image' );
-		$header_title       = get_theme_mod( 'homepage_title' );
-		$header_description = get_theme_mod( 'homepage_description' );
+		$header_title       = get_bloginfo( 'name' );
+		$header_description = get_bloginfo( 'description' );
 	}
 
 	$has_background_image = ( $header_image && $header_image != 'remove-header' );
