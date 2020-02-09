@@ -121,7 +121,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'primary_color'           => array(
 				array(
 					'type'     => 'color',
-					'elements' => 'a, a.navbar-item.is-active, .navbar-link.is-active',
+					'elements' => '.color-primary, a, a.navbar-item.is-active, .navbar-link.is-active',
 					'prefix'   => ''
 				),
 				array(
@@ -133,19 +133,34 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 					'type'     => 'border',
 					'elements' => '.button, button, input[type="button"], input[type="reset"], input[type="submit"]',
 					'prefix'   => '0.1rem solid '
-				)
+				),
+				array(
+					'type'     => 'border-color',
+					'elements' => 'input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, textarea:focus, select:focus',
+					'prefix'   => ''
+				),
+				array(
+					'type'     => 'fill',
+					'elements' => '.site-footer .svg-icon:hover',
+					'prefix'   => ''
+				),
 			),
 			'secondary_color'         => array(
 				array(
 					'type'     => 'color',
-					'elements' => '.navbar-item, .navbar-link',
+					'elements' => '.color-secondary, .navbar-item, .navbar-link',
 					'prefix'   => ''
 				),
 				array(
 					'type'     => 'background-color',
 					'elements' => '.button:focus, .button:hover, button:focus, button:hover, input[type="button"]:focus, input[type="button"]:hover, input[type="reset"]:focus, input[type="reset"]:hover, input[type="submit"]:focus, input[type="submit"]:hover',
 					'prefix'   => ''
-				)
+				),
+				array(
+					'type'     => 'border-color',
+					'elements' => 'hr, td, th, .navbar-link:not(.is-arrowless)::after, blockquote, input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], textarea, select',
+					'prefix'   => ''
+				),
 			),
 			'footer_text_color'       => array(
 				array(

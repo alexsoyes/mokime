@@ -31,4 +31,4 @@
 		}
 		?>
     </div><!-- . navbar-menu -->
-</nav>
+</nav><!-- .navbar -->

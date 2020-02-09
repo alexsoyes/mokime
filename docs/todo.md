@@ -58,6 +58,11 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 * Use Gutenberg style ?
 * Implements Yoast SEO breadcrumb
 
+### Coding style
+
+* Second level dropdown : https://codepen.io/sakthig/pen/RvwVYM?editors=1100
+* Autoprefixer : https://github.com/postcss/autoprefixer#javascript
+* Coding : https://torquemag.io/2018/01/enforce-code-standards-wordpress-development-using-composer/
 
 ### Customizer
 
