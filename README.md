@@ -20,8 +20,20 @@ https://coolors.co/219385-020402-49516f-dcdcdd-c5c3c6
 
 ## Special thanks
 
+* https://www.seomix.fr/optimisez-vitesse-wordpress-theme/
 * https://gist.github.com/Auke1810/f2a4cf04f2c07c74a393a4b442f22267
 * Bulma.io
 * Milligram.io
 * Gutenberg
 * WordPress
+
+
+## Development
+
+To make a production build of MokiMe Theme.
+
+```bash
+cd scripts/
+# ${version could be 1.1.4}
+bash make-release.sh ${version}
+```
