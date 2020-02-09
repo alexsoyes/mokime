@@ -19,19 +19,15 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		public static function register( $wp_customize ) {
-
 			/**
-			 * Site Title & Description.
-			 * */
-			$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
-			$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-
-			self::add_selective_refreshes( $wp_customize );
-
-			/**
-			 * Site Identity
+			 * Logo
 			 */
+			$wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
 			self::add_section_logo( $wp_customize );
+
+			/**
+			 * Colors
+			 */
 			self::add_section_color(
 				$wp_customize,
 				'primary_color',
@@ -358,45 +354,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		}
 
 		/**
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
-		 */
-		public static function add_selective_refreshes( &$wp_customize ) {
-
-			$wp_customize->selective_refresh->add_partial(
-				'blogname',
-				array(
-					'selector'        => '.site-title a',
-					'render_callback' => 'mokime_customize_partial_blogname',
-				)
-			);
-
-			$wp_customize->selective_refresh->add_partial(
-				'blogdescription',
-				array(
-					'selector'        => '.site-description',
-					'render_callback' => 'mokime_customize_partial_blogdescription',
-				)
-			);
-
-			$wp_customize->selective_refresh->add_partial(
-				'custom_logo',
-				array(
-					'selector'        => '.header-titles [class*=site-]:not(.site-description)',
-					'render_callback' => 'mokime_customize_partial_site_logo',
-				)
-			);
-
-			$wp_customize->selective_refresh->add_partial(
-				'retina_logo',
-				array(
-					'selector'        => '.header-titles [class*=site-]:not(.site-description)',
-					'render_callback' => 'mokime_customize_partial_site_logo',
-				)
-			);
-		}
-
-
-		/**
 		 * @param $file
 		 * @param $setting
 		 *
@@ -417,7 +374,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			//if file has a valid mime type return it, otherwise return default
 			return ( $file_ext['ext'] ? $file : $setting->default );
 		}
-
 
 		/**
 		 * Sanitization callback for the "accent_accessible_colors" setting.
@@ -481,65 +437,4 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 
 	// Setup the Theme Customizer settings and controls.
 	add_action( 'customize_register', array( 'MokiMe_Customize', 'register' ) );
-
-}
-
-/**
- * PARTIAL REFRESH FUNCTIONS
- * */
-if ( ! function_exists( 'mokime_customize_partial_blogname' ) ) {
-	/**
-	 * Render the site title for the selective refresh partial.
-	 */
-	function mokime_customize_partial_blogname() {
-		bloginfo( 'name' );
-	}
-}
-
-if ( ! function_exists( 'mokime_customize_partial_blogdescription' ) ) {
-	/**
-	 * Render the site description for the selective refresh partial.
-	 */
-	function mokime_customize_partial_blogdescription() {
-		bloginfo( 'description' );
-	}
-}
-
-if ( ! function_exists( 'mokime_customize_partial_site_logo' ) ) {
-	/**
-	 * Render the site logo for the selective refresh partial.
-	 *
-	 * Doing it this way so we don't have issues with `render_callback`'s arguments.
-	 */
-	function mokime_customize_partial_site_logo() {
-		the_custom_logo();
-	}
-}
-
-
-/**
- * Input attributes for cover overlay opacity option.
- *
- * @return array Array containing attribute names and their values.
- */
-function mokime_customize_opacity_range() {
-	/**
-	 * Filter the input attributes for opacity
-	 *
-	 * @param array $attrs {
-	 *     The attributes
-	 *
-	 *     @type int $min Minimum value
-	 *     @type int $max Maximum value
-	 *     @type int $step Interval between numbers
-	 * }
-	 */
-	return apply_filters(
-		'mokime_customize_opacity_range',
-		array(
-			'min'  => 0,
-			'max'  => 90,
-			'step' => 5,
-		)
-	);
 }
