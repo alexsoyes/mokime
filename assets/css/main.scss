@@ -47,6 +47,7 @@ $white: $color-light !default;
 $navbar-item-color: $white;
 $navbar-item-hover-color: $secondary;
 $navbar-item-active-color: $primary;
+$navbar-item-img-max-height: 100px;
 
 /** Bulma components **/
 @import "../../node_modules/bulma/sass/elements/tag";

@@ -8,8 +8,9 @@
 
 
 
-* Based on [TwentyTwenty]().
+* Based on [TwentyTwenty](https://fr.wordpress.org/themes/twentytwenty/).
 
+https://coolors.co/219385-49516f-222222-dcdcdd-c5c3c6
 https://coolors.co/219385-020402-49516f-dcdcdd-c5c3c6
 
 * [Checking](docs/checking.md)

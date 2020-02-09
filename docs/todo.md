@@ -55,8 +55,19 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 
  ### Frontoffice
  
-* Use Gutenberg style ?
 * Implements Yoast SEO breadcrumb
+* Change sidebar artcile presentation
+* Remove schema markup
+* Add modif/add date in poste
+
+#### Design
+
+* Use Gutenberg style ?
+* Change submenu for Bulma Navbar
+    * Remove unused bulma style
+* Post category design
+* Comments
+* Author card
 
 ### Coding style
 
@@ -67,9 +78,6 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 ### Customizer
 
 * Include post navigation : checkbox
-
-
-
 
 # Version 1.1
 
