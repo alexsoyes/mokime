@@ -13,7 +13,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		public function __construct() {
 			parent::__construct(
 				'mokime_widget_cta_post', // Base ID
-				'MokiMe : CTA for Single Post', // Name
+				'MokiMe : CTA for Single Post.', // Name
 				array( 'description' => __( 'Create a beautiful call-to-action for your single posts.', 'mokime' ), ) // Args
 			);
 		}
@@ -31,8 +31,8 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 			extract( $args );
 			$id = apply_filters( 'widget_title', $instance['id'] );
 
-			/** @var WP_Post **/
-			$post = get_post( $id );
+			/** @var WP_Post * */
+			$post       = get_post( $id );
 			$post_image = mokime_get_post_thumbnail_url( $post );
 
 			if ( $post ) {

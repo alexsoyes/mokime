@@ -3,14 +3,12 @@
  * Customizer settings for this theme.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * @subpackage MokiMe
  * @since 1.0.0
  */
 
 if ( ! class_exists( 'MokiMe_Customize' ) ) {
-	/**
-	 * CUSTOMIZER SETTINGS
-	 */
+
 	class MokiMe_Customize {
 
 		/**
@@ -23,7 +21,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			 * Logo
 			 */
 			$wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
-			self::add_section_logo( $wp_customize );
+			self::add_section_retina_logo( $wp_customize );
 
 			/**
 			 * Colors
@@ -65,7 +63,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				'#49516f'
 			);
 
-
 			/**
 			 * Theme Options
 			 */
@@ -86,9 +83,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		/**
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public static function add_section_logo( &$wp_customize ) {
-
-			/* 2X Header Logo ---------------- */
+		public static function add_section_retina_logo( &$wp_customize ) {
 			$wp_customize->add_setting(
 				'retina_logo',
 				array(
@@ -153,19 +148,20 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			);
 
 			self::add_section_performance_control( $wp_customize, 'remove_generator', __( 'Remove WordPress generator.', 'mokime' ), false );
-			self::add_section_performance_control( $wp_customize, 'remove_wlwmanifest_link', __( 'Remove support for Windows Live Writer', 'mokime' ), false );
-			self::add_section_performance_control( $wp_customize, 'remove_random_post_link', __( 'Remove random post link', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_wlwmanifest_link', __( 'Remove support for Windows Live Writer.', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_random_post_link', __( 'Remove random post link.', 'mokime' ), false );
 			self::add_section_performance_control( $wp_customize, 'remove_parent_post_rel_link', __( 'Remove parent post link', 'mokime' ), false );
 			self::add_section_performance_control( $wp_customize, 'remove_emoji', __( 'Remove Emoji support.', 'mokime' ), false );
 			self::add_section_performance_control( $wp_customize, 'remove_shortlink', __( 'Remove shortlink support.', 'mokime' ), false );
-			self::add_section_performance_control( $wp_customize, 'disable_json_api', __( 'Disable JSON API', 'mokime' ), false );
-			self::add_section_performance_control( $wp_customize, 'disable_embed_posts', __( 'Disable embed posts', 'mokime' ), false );
-			self::add_section_performance_control( $wp_customize, 'remove_wc_generator_tag', __( 'Remove WooCommerce tags in header', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_wc_generator_tag', __( 'Remove WooCommerce tags in header.', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_jquery', __( 'Remove jQuery.', 'mokime' ), false );
 
-			self::add_section_performance_control( $wp_customize, 'enable_only_page_contact_form_7', __( 'Only enable Contact Form 7 on type page', 'mokime' ), false );
-			self::add_section_performance_control( $wp_customize, 'remove_jquery', __( 'Remove jQuery', 'mokime' ), false );
-			self::add_section_performance_control( $wp_customize, 'disable_gravatar', __( 'Disable Gravatar', 'mokime' ), false );
-			self::add_section_performance_control( $wp_customize, 'reduce_jpeg_quality', __( 'Reduce JPEG quality to 80%', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'enable_only_page_contact_form_7', __( 'Only enable Contact Form 7 on page type.', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'disable_gravatar', __( 'Disable Gravatar.', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'disable_json_api', __( 'Disable JSON API.', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'disable_embed_posts', __( 'Disable embed posts.', 'mokime' ), false );
+
+			self::add_section_performance_control( $wp_customize, 'reduce_jpeg_quality', __( 'Reduce JPEG quality to 80%.', 'mokime' ), false );
 		}
 
 		/**
@@ -202,7 +198,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		public static function add_section_single_post( &$wp_customize ) {
-
 			// Add section
 			$wp_customize->add_section(
 				'options_single',
@@ -213,9 +208,18 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				)
 			);
 
-			// Add setting
+			// add setting
 			$wp_customize->add_setting(
 				'single_post_author_bio',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => true,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'single_post_nav_posts',
 				array(
 					'capability'        => 'edit_theme_options',
 					'default'           => true,
@@ -234,17 +238,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				)
 			);
 
-			// Add setting
-			$wp_customize->add_setting(
-				'single_post_nav_posts',
-				array(
-					'capability'        => 'edit_theme_options',
-					'default'           => true,
-					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
-				)
-			);
-
-			// Add control
 			$wp_customize->add_control(
 				'single_post_nav_posts',
 				array(
@@ -260,7 +253,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		public static function add_section_homepage( &$wp_customize ) {
-
 			// Add section
 			$wp_customize->add_section(
 				'options_homepage',

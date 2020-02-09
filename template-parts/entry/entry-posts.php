@@ -15,7 +15,7 @@ if ( have_posts() ) {
 		get_template_part( 'template-parts/entry/entry-article' );
 	}
 
-	echo '</div>';
+	echo '</div><!-- .wp-block-columns -->';
 
 	get_template_part( 'template-parts/pagination' );
 }

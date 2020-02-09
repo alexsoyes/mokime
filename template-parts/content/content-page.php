@@ -1,23 +1,4 @@
-<?php
-/**
- * The default template for displaying content
- *
- * Used for both singular and index.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since 1.0.0
- */
-
-?>
-
-<?php if ( function_exists( 'yoast_breadcrumb' ) ): ?>
-    <div class="wp-block-column wp-block-column-100 entry-content">
-		<?php yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' ); ?>
-    </div>
-<?php endif; ?>
+<?php get_template_part( 'template-parts/entry/entry-breadcrumb' ); ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 

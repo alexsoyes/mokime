@@ -61,12 +61,12 @@ if ( $has_social_menu || $has_sidebar_1 || $has_sidebar_2 || $has_sidebar_3 || $
 
                     </div>
 
-                </div>
+                </div><!-- .footer-widgets-wrapper -->
 
-            </aside>
+            </aside><!-- .footer-widgets-outer-wrapper -->
 
-        </div>
+        </div><!-- .footer-inner -->
 
-    </div>
+    </div><!-- .footer-nav-widgets-wrapper -->
 
 <?php } ?>

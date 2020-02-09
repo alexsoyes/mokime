@@ -5,7 +5,7 @@
 	<?php if ( is_active_sidebar( 'sidebar-pre-footer' ) ) : ?>
         <div id="prefooter" class="container has-margin-top-5">
 			<?php dynamic_sidebar( 'sidebar-pre-footer' ); ?>
-        </div>
+        </div><!-- #prefooter -->
 	<?php endif; ?>
 
     <div class="header-footer-group wrapper has-padding-top-5 has-margin-top-5 has-margin-x-0 has-padding-x-0">
@@ -22,13 +22,13 @@
 							<?php _e( 'High performance theme', 'mokime' ) ?>
                         </a>
 						<?php _e( 'made by ', 'mokime' ) ?>
-                        <a href="https://www.security-helpzone.com" target="_blank" class="is-white">SHZ</a>.
+	                    <a href="https://www.security-helpzone.com" target="_blank" class="is-white">SHZ</a>.
                     </small>
                 </p>
 
-            </div>
+            </div><!-- .footer-credits -->
 
-        </div>
+        </div><!-- .section-inner -->
 
     </div>
 

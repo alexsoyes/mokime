@@ -313,7 +313,6 @@ require get_template_directory() . '/inc/svg-icons.php';
 require get_template_directory() . '/inc/custom-css.php';
 
 require get_template_directory() . '/classes/class-mokime-svg-icons.php';
-require get_template_directory() . '/classes/class-mokime-separator-control.php';
 require get_template_directory() . '/classes/class-mokime-walker-comment.php';
 require get_template_directory() . '/classes/class-mokime-customize.php';
 require get_template_directory() . '/classes/class-mokime-walker-menu.php';
@@ -374,7 +373,6 @@ function mokime_register_scripts() {
 	}
 
 	wp_enqueue_script( 'mokime-js', get_template_directory_uri() . '/assets/js/menu.js', array(), $theme_version, false );
-	wp_enqueue_script( 'mokime-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
 
 	wp_script_add_data( 'mokime-js', 'async', true );
 }

@@ -7,7 +7,8 @@
  * Based on a solution in WP Rig.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * @subpackage MokiMe
+ * @from Twenty_Twenty
  * @since 1.0.0
  */
 

@@ -1,4 +1,12 @@
 <?php
+/**
+ * Temmplate tags utilities
+ *
+ * @package WordPress
+ * @subpackage MokiMe
+ * @with Twenty_Twenty
+ * @since 1.0.0
+ */
 
 /**
  * @param $limit int

@@ -1,11 +1,4 @@
 <?php
-/**
- * The template for displaying Author info
- *
- * @package WordPress
- * @subpackage MokiMe
- * @since 1.0.0
- */
 
 if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'single_post_author_bio', true ) ) : ?>
     <div class="box author-box">
@@ -25,9 +18,9 @@ if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'singl
                            rel="author">
 							<?php _e( 'View Archive <span aria-hidden="true">&rarr;</span>', 'mokime' ); ?>
                         </a>
-                    </div>
+                    </div><!-- .author-description -->
                 </div>
-            </div>
+            </div><!-- .media-content-center -->
         </div>
     </div><!-- .author-box -->
 <?php endif; ?>

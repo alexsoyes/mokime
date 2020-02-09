@@ -3,7 +3,7 @@
  * MokiMe Custom CSS
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * @subpackage MokiMe
  * @since 1.0.0
  */
 

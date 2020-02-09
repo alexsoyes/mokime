@@ -3,7 +3,8 @@
  * Displays the next and previous post navigation in single posts.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * @subpackage MokiMe
+ * @from Twenty_Twenty
  * @since 1.0.0
  */
 

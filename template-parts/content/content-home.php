@@ -25,7 +25,7 @@ elseif ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_
 		foreach ( $recent_posts as $index => $post ) {
 
 			if ( $index !== 0 && ( $index % 3 ) === 0 ) {
-				echo '</div><div class="has-margin-top-3 wp-block-columns">';
+				echo '</div><!-- .wp-block-columns --><div class="has-margin-top-3 wp-block-columns">';
 			}
 
 			setup_postdata( $post );
@@ -34,7 +34,7 @@ elseif ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_
 
 		wp_reset_postdata();
 
-		echo '</div>';
+		echo '</div><!-- .wp-block-columns -->';
 	}
 
 	wp_reset_query();

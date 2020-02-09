@@ -2,9 +2,9 @@
 
 <div class="is-search entry-content">
 
-    <div class="section-inner thin">
+    <div class="section-inner">
 		<?php get_search_form( array( 'label' => __( 'search again', 'mokime' ) ) ); ?>
-    </div>
+    </div><!-- .section-inner -->
 
 	<?php
 	global $wp_query;
@@ -39,6 +39,6 @@
 
 	?>
 
-</div><!-- .entry-content -->
+</div><!-- .is-search -->
 
 <?php get_footer(); ?>

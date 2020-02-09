@@ -26,6 +26,7 @@ https://coolors.co/219385-020402-49516f-dcdcdd-c5c3c6
 * Milligram.io
 * Gutenberg
 * WordPress
+* FakerPress
 
 
 ## Development

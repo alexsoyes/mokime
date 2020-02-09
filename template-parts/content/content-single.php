@@ -1,10 +1,4 @@
-<div class="wp-block-columns breadcrumb">
-	<?php if ( function_exists( 'yoast_breadcrumb' ) ): ?>
-        <div class="wp-block-column wp-block-column-100 entry-content">
-			<?php yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' ); ?>
-        </div>
-	<?php endif; ?>
-</div><!-- .breadcrumb -->
+<?php get_template_part( 'template-parts/entry/entry-breadcrumb' ); ?>
 
 <div class="wp-block-columns content">
     <article <?php post_class( 'wp-block-column wp-block-column-66' ); ?> id="post-<?php the_ID(); ?>">
@@ -24,7 +18,7 @@
                 <time class="is-small-text" datetime="<?php echo get_the_modified_date( 'c' ); ?>">
 					<?php echo get_the_modified_date( 'j F Y' ); ?>
                 </time>
-            </div>
+            </div><!-- .section-inner__date -->
 			<?php
 			if ( (bool) get_theme_mod( 'single_post_nav_posts', true ) ) {
 				get_template_part( 'template-parts/navigation' );

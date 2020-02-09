@@ -8,12 +8,12 @@
                       itemprop="datePublished">
                     <small><?php echo get_the_date( 'j F Y' ); ?></small>
                 </time>
-            </div>
-        </div>
+            </div><!-- .card-date -->
+        </div><!-- .card--image -->
 
-        <div class="card-content">
-            <h3 class="card-title has-text-weight-bold has-margin-top-1 has-margin-bottom-075" itemprop="headline">
-                <a href="<?php the_permalink() ?>" class="color-secondary">
+	    <div class="card-content">
+		    <h3 class="card-title has-text-weight-bold has-margin-top-1 has-margin-bottom-075" itemprop="headline">
+			    <a href="<?php the_permalink() ?>" class="color-secondary">
 					<?php the_title(); ?>
                 </a>
             </h3><!-- .title -->
@@ -23,7 +23,8 @@
             <p class="subtitle is-6 has-text-justified has-text-overflowed has-margin-bottom-1"><?php echo get_the_excerpt(); ?></p>
 
 
-        </div><!-- .card-content -->
+	    </div><!-- .card-content -->
 
-	</div><!-- .card -->
-</article>
+    </div><!-- .card -->
+
+</article><!-- .wp-block-column -->

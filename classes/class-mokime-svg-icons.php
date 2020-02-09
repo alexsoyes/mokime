@@ -3,7 +3,8 @@
  * Custom icons for this theme.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * @subpackage MokiMe
+ * @from Twenty_Twenty
  * @since 1.0.0
  */
 
