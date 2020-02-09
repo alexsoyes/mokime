@@ -12,6 +12,10 @@
   }
 }
 
+a {
+  text-decoration: none;
+}
+
 ul {
   list-style: none;
   padding: 0px;
@@ -24,5 +28,17 @@ ul {
 body {
   p {
     margin-bottom: 0.5rem;
+  }
+}
+
+.is-single, .is-page {
+  .entry-content {
+    p {
+      color: $color-dark;
+    }
+
+    a {
+      text-decoration: underline;
+    }
   }
 }

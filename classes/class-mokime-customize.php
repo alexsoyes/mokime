@@ -35,38 +35,38 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			self::add_section_color(
 				$wp_customize,
 				'primary_color',
-				'Primary Color',
-				'#FFFFFF'
+				__( 'Primary Color', 'mokime' ),
+				'#219385'
 			);
 			self::add_section_color(
 				$wp_customize,
 				'secondary_color',
-				'Secondary Color',
-				'#FFFFFF'
+				__( 'Secondary Color', 'mokime' ),
+				'#49516f'
 			);
 			self::add_section_color(
 				$wp_customize,
 				'footer_text_color',
-				'Footer Text Color',
-				'#FFFFFF'
+				__( 'Footer Text Color', 'mokime' ),
+				'#dcdcdd'
 			);
 			self::add_section_color(
 				$wp_customize,
 				'footer_background_color',
-				'Footer Background Color',
-				'#FFFFFF'
+				__( 'Footer Background Color', 'mokime' ),
+				'#222222'
 			);
 			self::add_section_color(
 				$wp_customize,
 				'header_background_color',
-				'Header Background Color',
-				'#EEE'
+				__( 'Header Background Color', 'mokime' ),
+				'#c5c3c6'
 			);
 			self::add_section_color(
 				$wp_customize,
 				'header_hero_text_color',
-				'Header Hero Text Color',
-				'#EEE'
+				__( 'Header Hero Text Color', 'mokime' ),
+				'#49516f'
 			);
 
 
@@ -133,7 +133,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 					$wp_customize,
 					$id,
 					array(
-						'label'   => __( $label, 'mokime' ),
+						'label'   => $label,
 						'section' => 'colors',
 					)
 				)

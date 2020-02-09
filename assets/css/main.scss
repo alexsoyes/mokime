@@ -1,13 +1,14 @@
 @import "../../node_modules/bulma/sass/utilities/all.sass";
 
-$color-initial: #fff;
-$color-primary: #e9862b;
-$color-secondary: #1c3146;
-$color-tertiary: #dcdcdc;
-$color-quinary: #fff;
-$color-link: #3d7e9a;
-$color-dark: #212121;
-$color-light: #fff;
+$color-initial: #dcdcdd;
+$color-primary: #219385;
+$color-secondary: #49516f;
+$color-tertiary: #c5c3c6;
+$color-quaternary: #c5c3c6;
+$color-quinary: #c5c3c6;
+$color-link: #219385;
+$color-dark: #222222;
+$color-light: #dcdcdd;
 
 $radius-large: 6px;
 
@@ -20,11 +21,11 @@ $radius-large: 6px;
 @import "../../node_modules/milligram/src/Divider";
 @import "../../node_modules/milligram/src/Form";
 //@import "../../node_modules/milligram/src/Grid";
-@import "../../node_modules/milligram/src/Link";
+//@import "../../node_modules/milligram/src/Link";
 @import "../../node_modules/milligram/src/List";
 //@import "../../node_modules/milligram/src/Spacing";
 @import "../../node_modules/milligram/src/Table";
-@import "../../node_modules/milligram/src/Typography";
+//@import "../../node_modules/milligram/src/Typography";
 @import "../../node_modules/milligram/src/Image";
 //@import "../../node_modules/milligram/src/Utility";
 
@@ -32,16 +33,16 @@ $radius-large: 6px;
 @import "milligram/Typography";
 //@import "milligram/Grid";
 
-$primary: #e9862b;
-$secondary: #1c3146;
+$primary: $color-primary;
+$secondary: $color-secondary;
 
 $info: $cyan !default;
 $success: $green !default;
 $warning: $yellow !default;
 $danger: $red !default;
-$grey: #aeaeae !default;
-$light: #dcdcdc !default$dark: #101010 !default;
-$white: #fefefe !default;
+$grey: $color-light !default;
+$light: $color-light !default$dark: $color-dark !default;
+$white: $color-light !default;
 
 $navbar-item-color: $white;
 $navbar-item-hover-color: $secondary;
