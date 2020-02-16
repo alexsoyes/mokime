@@ -1,86 +1,115 @@
-@import "../../node_modules/bulma/sass/utilities/all.sass";
+/*
+Theme Name: Mokime
+Theme URI: http://wordpress.org/themes/mokime
+Author: The Moki theme
+Author URI: https://moki.me
+Description: High performance and SEO WordPress theme
+Version: 1.0
+License: GNU General Public License v3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Tags: one-column, two-columns, right-sidebar, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: mokime
+Domain Path: /languages
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
 
 $color-initial: #dcdcdd;
 $color-primary: #219385;
 $color-secondary: #49516f;
 $color-tertiary: #c5c3c6;
 $color-quaternary: #c5c3c6;
-$color-quinary: #c5c3c6;
+$color-quinary: $color-quaternary;
 $color-link: #219385;
 $color-dark: #222222;
 $color-light: #dcdcdd;
 $color-grey: #8d8d8d;
 
-$radius-large: 6px;
+$radius-large: 8px;
 
 /* Milligram import */
-//@import "../../node_modules/milligram/src/Color";
 @import "../../node_modules/milligram/src/Base";
 @import "../../node_modules/milligram/src/Blockquote";
 @import "../../node_modules/milligram/src/Button";
 @import "../../node_modules/milligram/src/Code";
 @import "../../node_modules/milligram/src/Divider";
 @import "../../node_modules/milligram/src/Form";
-//@import "../../node_modules/milligram/src/Grid";
-//@import "../../node_modules/milligram/src/Link";
 @import "../../node_modules/milligram/src/List";
-//@import "../../node_modules/milligram/src/Spacing";
 @import "../../node_modules/milligram/src/Table";
-//@import "../../node_modules/milligram/src/Typography";
 @import "../../node_modules/milligram/src/Image";
-//@import "../../node_modules/milligram/src/Utility";
 
-/* Custom Milligram */
-@import "milligram/Typography";
-//@import "milligram/Grid";
-
-$primary: $color-primary;
-$secondary: $color-secondary;
-
-$info: $cyan !default;
-$success: $green !default;
-$warning: $yellow !default;
-$danger: $red !default;
-$grey: $color-light !default;
-$light: $color-light !default$dark: $color-dark !default;
-$white: $color-light !default;
-
-$navbar-item-color: $white;
-$navbar-item-hover-color: $secondary;
-$navbar-item-active-color: $primary;
-$navbar-item-img-max-height: 100px;
-
-/** Bulma components **/
-@import "../../node_modules/bulma/sass/components/navbar";
-@import "../../node_modules/bulma/sass/components/media";
-
-/** External libs **/
+/* ==========================================================================
+   Normalize.css
+   ========================================================================== */
 @import '../../node_modules/normalize.css/normalize';
 
-/** Custom elements **/
+
+/* ==========================================================================
+   Elements
+   ========================================================================== */
+
+/* Blocks
+   ========================================================================== */
 @import 'elements/helpers';
-@import 'elements/color';
+
+/* Typography
+   ========================================================================== */
 @import 'elements/typography';
 
-/** Layouts **/
+/* Title
+   ========================================================================== */
+@import 'elements/title';
+
+
+/* ==========================================================================
+   Layouts
+   ========================================================================== */
+
+/* Pagelayout
+   ========================================================================== */
+@import "layouts/pagelayout";
+
+/* Gutenberg columns
+   ========================================================================== */
 @import 'layouts/columns.scss';
 
-/** Pages **/
-@import 'pages/single';
-@import "pagelayout";
+/* Global style
+   ========================================================================== */
+@import 'layouts/global.scss';
 
-/** Bulma additionnals **/
-@import "bulma/card";
-@import "bulma/navbar";
-@import "bulma/tags";
-@import "bulma/hero";
 
-/** Pages **/
-@import 'pages/single';
+/* ==========================================================================
+   Components
+   ========================================================================== */
+
+/* Card
+   ========================================================================== */
+@import "components/card";
+
+/* Card
+   ========================================================================== */
+@import "components/tags";
+
+/* Hero
+   ========================================================================== */
+@import "components/hero";
+
+
+/* ==========================================================================
+   Pages
+   ========================================================================== */
+
+/* Homepage
+   ========================================================================== */
 @import 'pages/homepage';
 
-/** Customize design :) **/
+/* Single
+   ========================================================================== */
+@import 'pages/single';
 
-ul.unstyled {
-  list-style: none;
-}
+
+/* ==========================================================================
+   WordPress core classes
+   ========================================================================== */
+@import 'wordpress-core';

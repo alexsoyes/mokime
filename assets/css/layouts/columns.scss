@@ -1,4 +1,6 @@
-
+/*
+ * Columns
+ */
 .wp-block-column-30 {
 
   flex-basis: 100%;
@@ -19,4 +21,37 @@
 
 .wp-block-column-100 {
   flex-basis: 100%
+}
+
+/*
+ * Container width
+ */
+
+.entry-content > * {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.25em;
+}
+
+.entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+  max-width: 120rem;
+  width: calc(100% - 4rem);
+}
+
+.alignfull {
+  margin-top: 5rem;
+  margin-right: auto;
+  margin-bottom: 5rem;
+  margin-left: auto;
+  max-width: 100vw;
+  position: relative;
+  width: 100%;
+}
+
+body.template-full-width .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+  width: calc(100% - 8rem);
+}
+
+body.template-full-width .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide), body.template-full-width [class*="__inner-container"] > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+  max-width: 120rem;
 }

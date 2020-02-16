@@ -3,15 +3,15 @@
 }
 
 .has-text-weight-light {
-  font-weight: 300 !important;
+  font-weight: 300;
 }
 
 .has-text-weight-bold {
-  font-weight: 700 !important;
+  font-weight: 700;
 }
 
 .has-text-justified {
-  text-align: justify !important;
+  text-align: justify;
 }
 
 .has-text-align-center {
@@ -19,7 +19,7 @@
 }
 
 .has-text-centered {
-  text-align: center !important;
+  text-align: center;
 }
 
 .has-text-overflowed {
@@ -38,4 +38,3 @@
   -webkit-line-clamp: 1; /* number of lines to show */
   line-clamp: 1;
 }
-
