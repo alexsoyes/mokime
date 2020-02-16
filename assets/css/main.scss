@@ -75,6 +75,9 @@ $navbar-item-img-max-height: 100px;
 @import "bulma/tags";
 @import "bulma/hero";
 
+/** Pages **/
+@import 'pages/single';
+@import 'pages/homepage';
 
 /** Customize design :) **/
 

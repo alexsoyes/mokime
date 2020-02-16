@@ -1,6 +1,6 @@
 <div class="wp-block-columns content">
 
-    <article <?php post_class( 'wp-block-column wp-block-column-70' ); ?> id="post-<?php the_ID(); ?>">
+    <article <?php post_class( 'post wp-block-column wp-block-column-70' ); ?> id="post-<?php the_ID(); ?>">
 
 		<?php get_template_part( 'template-parts/entry/entry-breadcrumb' ); ?>
 
