@@ -28,17 +28,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
     width: calc(100% - 4rem);
 }
 
-.wp-block-column-33 {
-    flex-basis: 33.33%
-}
-
-.wp-block-column-66 {
-    flex-basis: 66.66%
-}
-
-.wp-block-column-100 {
-    flex-basis: 100%
-}
 
 .alignfull {
     margin-top: 5rem;

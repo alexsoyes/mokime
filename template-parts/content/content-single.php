@@ -1,7 +1,9 @@
-<?php get_template_part( 'template-parts/entry/entry-breadcrumb' ); ?>
-
 <div class="wp-block-columns content">
-    <article <?php post_class( 'wp-block-column wp-block-column-66' ); ?> id="post-<?php the_ID(); ?>">
+
+    <article <?php post_class( 'wp-block-column wp-block-column-70' ); ?> id="post-<?php the_ID(); ?>">
+
+		<?php get_template_part( 'template-parts/entry/entry-breadcrumb' ); ?>
+
         <div class="post-inner">
             <div class="entry-content">
 				<?php the_content(); ?>
@@ -36,13 +38,13 @@
 			<?php
 		}
 		?>
-	</article><!-- .post -->
+    </article><!-- .post -->
 
 	<?php if  ( is_active_sidebar( 'sidebar-single' ) ) :  ?>
-		<aside role="complementary" id="widget" class="widget-single wp-block-column wp-block-column-33">
-			<div class="sticky">
+        <aside role="complementary" id="widget" class="widget-single wp-block-column wp-block-column-30">
+            <div class="sticky">
 				<?php dynamic_sidebar( 'sidebar-single' ); ?>
-			</div>
-		</aside><!-- widget-single -->
+            </div>
+        </aside><!-- widget-single -->
 	<?php endif; ?>
 </div><!-- .content -->
