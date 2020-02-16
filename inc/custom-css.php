@@ -104,20 +104,6 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 		 * - CSS elements: that must be generated with the current item
 		 */
 		$colors = array(
-			'footer_background_color' => array(
-				array(
-					'type'     => 'background-color',
-					'elements' => 'footer',
-					'prefix'   => ''
-				)
-			),
-			'header_textcolor'        => array(
-				array(
-					'type'     => 'color',
-					'elements' => '.navbar-item, .navbar-link, .navbar-burger',
-					'prefix'   => '#'
-				)
-			),
 			'primary_color'           => array(
 				array(
 					'type'     => 'color',
@@ -144,6 +130,11 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 					'elements' => '.site-footer .svg-icon:hover',
 					'prefix'   => ''
 				),
+				array(
+					'type'     => 'color',
+					'elements' => '.site-footer a:hover',
+					'prefix'   => ''
+				),
 			),
 			'secondary_color'         => array(
 				array(
@@ -162,6 +153,13 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 					'prefix'   => ''
 				),
 			),
+			'footer_background_color' => array(
+				array(
+					'type'     => 'background-color',
+					'elements' => 'footer',
+					'prefix'   => ''
+				)
+			),
 			'footer_text_color'       => array(
 				array(
 					'type'     => 'fill',
@@ -170,8 +168,20 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 				),
 				array(
 					'type'     => 'color',
-					'elements' => '.site-footer p, .site-footer a, .site-footer li',
+					'elements' => '.site-footer p, .site-footer a, .site-footer li, .site-footer input[type="text"], .site-footer input[type="search"]',
 					'prefix'   => ''
+				),
+				array(
+					'type'     => 'border-color',
+					'elements' => '.site-footer input[type="text"], .site-footer input[type="search"]',
+					'prefix'   => ''
+				)
+			),
+			'header_textcolor'        => array(
+				array(
+					'type'     => 'color',
+					'elements' => '.navbar-item, .navbar-link, .navbar-burger',
+					'prefix'   => '#'
 				)
 			),
 			'header_background_color' => array(

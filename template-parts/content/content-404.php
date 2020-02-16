@@ -4,7 +4,7 @@ $recent_posts = get_the_last_posts( 3 );
 
 if ( $recent_posts ) {
 
-	echo '<h2 class="title has-text-weight-light has-margin-bottom-0">' . __( 'Nos derniers articles', 'mokime' ) . '</h2>';
+	echo '<h2 class="title has-text-weight-light has-margin-bottom-0">' . __( 'Our last posts', 'mokime' ) . '</h2>';
 	echo '<div class="wp-block-columns">';
 
 	foreach ( $recent_posts as $index => $post ) {

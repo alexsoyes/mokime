@@ -19,7 +19,7 @@ elseif ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_
 
 	if ( $recent_posts ) {
 
-		echo '<h2 class="title has-text-weight-light has-margin-bottom-0">' . __( 'Nos derniers articles', 'mokime' ) . '</h2>';
+		echo '<h2 class="title has-text-weight-light has-margin-bottom-0">' . __( 'Our last posts', 'mokime' ) . '</h2>';
 		echo '<div class="wp-block-columns">';
 
 		foreach ( $recent_posts as $index => $post ) {
