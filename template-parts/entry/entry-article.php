@@ -7,15 +7,15 @@
 
         <div class="card-content">
 
-			<?php get_template_part( 'template-parts/entry/entry-article-categories' ); ?>
+		    <?php get_template_part( 'template-parts/entry/entry-article-categories' ); ?>
 
             <h3 class="card-title has-text-weight-bold" itemprop="headline">
                 <a href="<?php the_permalink() ?>" class="color-secondary">
-					<?php the_title(); ?>
+				    <?php the_title(); ?>
                 </a>
             </h3><!-- .title -->
 
-            <p class="has-text-justified has-text-overflowed"><?php echo get_the_excerpt(); ?></p>
+            <p class="has-text-justified has-text-overflowed is-overflowed-3"><?php echo get_the_excerpt(); ?></p>
 
             <div class="card-date">
                 <time class="is-small-text" datetime="<?php echo get_the_date( 'c' ); ?>"

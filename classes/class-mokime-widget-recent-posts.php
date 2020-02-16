@@ -44,7 +44,7 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 				$args['widget_id'] = $this->id;
 			}
 
-			$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Posts from category %s', 'mokime' );
+			$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Posts from category', 'mokime' );
 
 			/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 			$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
@@ -63,9 +63,7 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 				/** @var WP_Term $post_category */
 				$post_category = get_post_category_primary( $current_post->ID );
 
-				if ( $post_category ) {
-					$title = sprintf( $title, $post_category->name );
-				} else {
+				if ( ! $post_category ) {
 					return;
 				}
 			} else {
@@ -101,10 +99,14 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 				return;
 			}
 
+			echo '<div class="widget-cta-categories">';
+
 			echo $args['before_widget'];
 
 			if ( $title ) {
-				echo $args['before_title'] . $title . $args['after_title'];
+				echo $args['before_title'];
+				echo '<span class="is-small-text has-text-weight-light is-block">' . $title . '</span>';
+				echo $post_category->name . $args['after_title'];
 			}
 			?>
             <ul class="unstyled">
@@ -118,17 +120,18 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 						$aria_current = ' aria-current="page"';
 					}
 					?>
-                    <li>
-                        <a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>><?php echo $title; ?></a>
+                    <li class="has-text-overflowed is-overflowed-1">
 						<?php if ( $show_date ) : ?>
-                            <span class="post-date"><?php echo get_the_date( '', $recent_post->ID ); ?></span>
+                            <span class="post-date"><?php echo get_the_date( 'd/m/Y', $recent_post->ID ); ?> - </span>
 						<?php endif; ?>
+                        <a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>><?php echo $title; ?></a>
                     </li>
 				<?php endforeach; ?>
             </ul>
 
 			<?php
 			echo $args['after_widget'];
+			echo '</div>';
 		}
 
 		/**
