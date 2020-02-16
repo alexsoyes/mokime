@@ -9,6 +9,7 @@ $color-quinary: #c5c3c6;
 $color-link: #219385;
 $color-dark: #222222;
 $color-light: #dcdcdd;
+$color-grey: #8d8d8d;
 
 $radius-large: 6px;
 
@@ -50,11 +51,7 @@ $navbar-item-active-color: $primary;
 $navbar-item-img-max-height: 100px;
 
 /** Bulma components **/
-@import "../../node_modules/bulma/sass/elements/tag";
 @import "../../node_modules/bulma/sass/components/navbar";
-@import "../../node_modules/bulma/sass/components/card";
-@import "../../node_modules/bulma/sass/layout/hero";
-@import "../../node_modules/bulma/sass/elements/box";
 @import "../../node_modules/bulma/sass/components/media";
 
 /** External libs **/
@@ -92,6 +89,7 @@ $navbar-item-img-max-height: 100px;
 
 ul.unstyled {
   list-style: none;
+}
 
 /**
 Default style
