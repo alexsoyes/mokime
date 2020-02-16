@@ -60,7 +60,6 @@ $navbar-item-img-max-height: 100px;
 /** Custom elements **/
 @import 'elements/helpers';
 @import 'elements/color';
-@import 'elements/sizing';
 @import 'elements/typography';
 
 /** Pages **/
@@ -72,6 +71,8 @@ $navbar-item-img-max-height: 100px;
 @import "bulma/card";
 @import "bulma/navbar";
 @import "bulma/tags";
+@import "bulma/hero";
+
 
 /** Customize design :) **/
 .filtered-black {

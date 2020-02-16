@@ -1,10 +1,4 @@
-<?php
-/**
- * @package WordPress
- * @subpackage MokiMe
- * @since 1.0.0
- */
-?><!doctype html>
+<!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>"/>
@@ -46,17 +40,17 @@
 	$has_background_image = ( $header_image && $header_image != 'remove-header' );
 	?>
 
-	<div id="site-header" class="wrapper is-fluid site-header has-padding-0 has-margin-0">
-		<div class="pre-entry-content">
-			<div class="entry-content">
-				<header id="masthead" role="banner">
+    <div id="site-header" class="site-header">
+        <div class="pre-entry-content">
+            <div class="entry-content">
+                <header id="masthead" role="banner">
 					<?php get_template_part( 'template-parts/header/menu' ); ?>
-				</header>
+                </header>
 
-				<div class="hero is-medium has-padding-bottom-5">
-					<div class="hero-body">
+                <div class="hero">
+                    <div class="hero-body">
 						<?php
-						echo '<h1 class="hero-title has-text-weight-bold has-huge-font-size has-margin-bottom-1">' . $header_title . '</h1>';
+						echo '<h1 class="hero-title has-text-weight-bold has-huge-font-size">' . $header_title . '</h1>';
 						if ( isset( $header_description ) && $header_description ) {
 							echo '<div class="hero-desc h6">' . $header_description . '</div>';
 						}

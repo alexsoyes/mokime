@@ -6,15 +6,15 @@
 			the_custom_logo();
 		} ?>
 
-	    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-	       data-target="navbarMobile">
-		    <span aria-hidden="true" class="is-white"></span>
-		    <span aria-hidden="true" class="is-white"></span>
-		    <span aria-hidden="true" class="is-white"></span>
-	    </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+           data-target="navbarMobile">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
     </div>
 
-	<div id="navbarMobile" class="navbar-menu">
+    <div id="navbarMobile" class="navbar-menu">
 
 		<?php
 		if ( has_nav_menu( 'primary' ) ) {

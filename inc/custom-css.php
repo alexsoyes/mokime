@@ -114,7 +114,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'header_textcolor'        => array(
 				array(
 					'type'     => 'color',
-					'elements' => '.navbar-item, .navbar-link',
+					'elements' => '.navbar-item, .navbar-link, .navbar-burger',
 					'prefix'   => '#'
 				)
 			),
