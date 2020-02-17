@@ -19,13 +19,13 @@ elseif ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_
 
 	if ( $recent_posts ) {
 
-		echo '<h2 class="title has-text-weight-light has-margin-bottom-0">' . __( 'Our last posts', 'mokime' ) . '</h2>';
+		echo '<h2 class="title has-text-weight-light">' . __( 'Our last posts', 'mokime' ) . '</h2>';
 		echo '<div class="wp-block-columns">';
 
 		foreach ( $recent_posts as $index => $post ) {
 
 			if ( $index !== 0 && ( $index % 3 ) === 0 ) {
-				echo '</div><!-- .wp-block-columns --><div class="has-margin-top-3 wp-block-columns">';
+				echo '</div><!-- .wp-block-columns --><div class="wp-block-columns">';
 			}
 
 			setup_postdata( $post );

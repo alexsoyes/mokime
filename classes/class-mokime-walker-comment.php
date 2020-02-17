@@ -37,7 +37,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
             <<?php echo $tag; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 
             <article id="div-comment-<?php comment_ID(); ?>" class="media comment-body vcard">
-                <figure class="media-left has-margin-left-0 has-margin-top-0">
+                <figure class="media-left">
                     <p class="image is-64x64">
 			            <?php
 						$avatar = get_avatar( $comment, $args['avatar_size'] );
@@ -63,11 +63,11 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 		            }
 
 		            printf(
-			            '<p class="strong has-margin-bottom-0"><a href="%1$s">#</a> <span class="fn">%2$s</span>%3$s</p>',
+			            '<p class="strong"><a href="%1$s">#</a> <span class="fn">%2$s</span>%3$s</p>',
 			            esc_url( get_comment_link( $comment, $args ) ),
 			            ! empty( $comment_author_url ) ? esc_html( $comment_author ) : sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', $comment_author_url, $comment_author ),
 			            $post_author
-					);
+		            );
 
 					comment_text();
 
@@ -99,8 +99,8 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 								<?php echo esc_html( $comment_timestamp ); ?>
                             </time>
                         </small>
-                        <p>
 
+                        <p>
 							<?php
 							if ( get_edit_comment_link() ) {
 								echo '<a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'mokime' ) . '</a> <span aria-hidden="true">&bull;</span> ';

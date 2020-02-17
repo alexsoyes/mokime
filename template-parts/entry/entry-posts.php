@@ -7,7 +7,7 @@ if ( have_posts() ) {
 
 	while ( have_posts() ) {
 		if ( $i !== 0 && ( $i % 3 ) === 0 ) {
-			echo '</div><div class="has-margin-top-3 wp-block-columns">';
+			echo '</div><div class="wp-block-columns">';
 		}
 		$i ++;
 		the_post();

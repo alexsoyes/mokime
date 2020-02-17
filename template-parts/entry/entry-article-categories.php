@@ -8,7 +8,7 @@ if ( $categories ) {
 
 foreach ( $categories as $category ) {
 	$category_link = sprintf(
-		'<a href="%1$s" title="%2$s" itemprop="about" class="tag is-light">%3$s</a>',
+		'<a href="%1$s" title="%2$s" itemprop="about" class="tag">%3$s</a>',
 		esc_url( get_category_link( $category->term_id ) ),
 		esc_attr( sprintf( __( 'View all posts in %s', 'mokime' ), $category->name ) ),
 		esc_html( $category->name )
