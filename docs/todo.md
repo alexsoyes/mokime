@@ -41,10 +41,8 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 #### Design
 
 * Use Gutenberg style ?
-* Remove unused bulma style
 * Post category design
 * Comments
-* Author card
 
 ### Coding style
 
@@ -60,3 +58,6 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 * Add schema.org Article
   * https://developers.google.com/search/docs/data-types/article#non-amp
   * https://schema.org/Article
+ 
+* Author card
+    * Add ability to use social links
