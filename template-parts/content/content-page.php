@@ -2,13 +2,9 @@
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-    <div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
+    <div class="post-inner">
 
-        <div class="entry-content">
-
-			<?php the_content( __( 'Continue reading', 'mokime' ) ); ?>
-
-        </div><!-- .entry-content -->
+		<?php the_content( __( 'Continue reading', 'mokime' ) ); ?>
 
     </div><!-- .post-inner -->
 

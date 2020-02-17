@@ -5,6 +5,11 @@
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 
+  &--gapped {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
   .card-title {
     margin-bottom: 0.5rem;
   }

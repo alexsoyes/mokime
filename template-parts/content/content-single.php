@@ -5,9 +5,7 @@
 		<?php get_template_part( 'template-parts/entry/entry-breadcrumb' ); ?>
 
         <div class="post-inner">
-            <div class="entry-content">
-				<?php the_content(); ?>
-            </div><!-- .entry-content -->
+			<?php the_content(); ?>
         </div><!-- .post-inner -->
 
         <div class="section-inner">

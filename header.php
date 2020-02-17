@@ -50,7 +50,7 @@
                 <div class="hero">
                     <div class="hero-body">
 						<?php
-						echo '<h1 class="hero-title has-text-weight-bold has-huge-font-size">' . $header_title . '</h1>';
+						echo '<h1 class="hero-title has-text-weight-bold h2">' . $header_title . '</h1>';
 						if ( isset( $header_description ) && $header_description ) {
 							echo '<div class="hero-desc h6">' . $header_description . '</div>';
 						}
