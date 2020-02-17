@@ -332,7 +332,7 @@ function add_custom_logo_url() {
 		'<a href="%1$s" class="navbar-item custom-logo-link" rel="home">%2$s</a>',
 		esc_url( home_url( '/' ) ),
 		wp_get_attachment_image( $custom_logo_id, 'full', false, array(
-			'class' => 'custom-logo',
+			'class' => 'custom-logo navbar-item',
 		) )
 	);
 }
