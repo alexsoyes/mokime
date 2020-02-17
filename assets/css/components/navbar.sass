@@ -53,7 +53,7 @@ $navbar-breakpoint: $desktop !default
   z-index: $navbar-fixed-z
 
 .navbar
-  background-color: $navbar-background-color
+  //background-color: $navbar-background-color
   min-height: $navbar-height
   position: relative
   z-index: $navbar-z
@@ -69,13 +69,13 @@ $navbar-breakpoint: $desktop !default
         .navbar-link
           color: $color-invert
 
-        & > a.navbar-item,
-        .navbar-link
-          &:focus,
-          &:hover,
-          &.is-active
-            background-color: darken($color, 5%)
-            color: $color-invert
+        //& > a.navbar-item,
+        //.navbar-link
+        //  &:focus,
+        //  &:hover,
+        //  &.is-active
+        //    background-color: darken($color, 5%)
+        //    color: $color-invert
 
         .navbar-link
           &::after
@@ -91,22 +91,22 @@ $navbar-breakpoint: $desktop !default
           .navbar-link
             color: $color-invert
 
-          & > a.navbar-item,
-          .navbar-link
-            &:focus,
-            &:hover,
-            &.is-active
-              background-color: darken($color, 5%)
-              color: $color-invert
+          //& > a.navbar-item,
+          //.navbar-link
+          //  &:focus,
+          //  &:hover,
+          //  &.is-active
+          //    background-color: darken($color, 5%)
+          //    color: $color-invert
 
           .navbar-link
             &::after
               border-color: $color-invert
-        .navbar-item.has-dropdown:focus .navbar-link,
-        .navbar-item.has-dropdown:hover .navbar-link,
-        .navbar-item.has-dropdown.is-active .navbar-link
-          background-color: darken($color, 5%)
-          color: $color-invert
+        //.navbar-item.has-dropdown:focus .navbar-link,
+        //.navbar-item.has-dropdown:hover .navbar-link,
+        //.navbar-item.has-dropdown.is-active .navbar-link
+        //  background-color: darken($color, 5%)
+        //  color: $color-invert
         .navbar-dropdown
           a.navbar-item
             &.is-active
@@ -193,8 +193,9 @@ a.navbar-item,
   &:focus-within,
   &:hover,
   &.is-active
-    background-color: $navbar-item-hover-background-color
-    color: $navbar-item-hover-color
+    text-decoration: underline
+//background-color: $navbar-item-hover-background-color
+//color: $navbar-item-hover-color
 
 .navbar-item
   display: block
@@ -211,23 +212,23 @@ a.navbar-item,
     flex-grow: 1
     flex-shrink: 1
 
-  &.is-tab
-    border-bottom: 1px solid transparent
-    min-height: $navbar-height
-    padding-bottom: calc(0.5rem - 1px)
-
-    &:focus,
-    &:hover
-      background-color: $navbar-tab-hover-background-color
-      border-bottom-color: $navbar-tab-hover-border-bottom-color
-
-    &.is-active
-      background-color: $navbar-tab-active-background-color
-      border-bottom-color: $navbar-tab-active-border-bottom-color
-      border-bottom-style: $navbar-tab-active-border-bottom-style
-      border-bottom-width: $navbar-tab-active-border-bottom-width
-      color: $navbar-tab-active-color
-      padding-bottom: calc(0.5rem - #{$navbar-tab-active-border-bottom-width})
+//&.is-tab
+//  border-bottom: 1px solid transparent
+//  min-height: $navbar-height
+//  padding-bottom: calc(0.5rem - 1px)
+//
+//  &:focus,
+//  &:hover
+//    background-color: $navbar-tab-hover-background-color
+//    border-bottom-color: $navbar-tab-hover-border-bottom-color
+//
+//  &.is-active
+//    background-color: $navbar-tab-active-background-color
+//    border-bottom-color: $navbar-tab-active-border-bottom-color
+//    border-bottom-style: $navbar-tab-active-border-bottom-style
+//    border-bottom-width: $navbar-tab-active-border-bottom-width
+//    color: $navbar-tab-active-color
+//    padding-bottom: calc(0.5rem - #{$navbar-tab-active-border-bottom-width})
 
 .navbar-content
   flex-grow: 1
@@ -250,6 +251,7 @@ a.navbar-item,
   .navbar-item
     padding-left: 1.5rem
     padding-right: 1.5rem
+    color: black
 
 .navbar-divider
   background-color: $navbar-divider-background-color
@@ -270,7 +272,7 @@ a.navbar-item,
     &::after
       display: none
   .navbar-menu
-    background-color: $navbar-background-color
+    //background-color: $navbar-background-color
     box-shadow: 0 8px 16px rgba($scheme-invert, 0.1)
     padding: 0.5rem 0
 

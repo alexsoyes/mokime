@@ -19,7 +19,7 @@ if ( post_password_required() ) {
 if ( $comments ) {
 	?>
 
-    <div class="comments has-margin-top-5" id="comments">
+	<div class="comments" id="comments">
 
 		<?php get_template_part( 'template-parts/entry/entry-comment-title' ); ?>
 

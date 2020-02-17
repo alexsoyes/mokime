@@ -1,12 +1,21 @@
 .tags {
   margin-bottom: 0.8rem;
+}
 
-  .tag {
-    font-size: 1rem;
-    background-color: $color-light;
-    color: $color-dark;
-    padding: 0.4rem 0.75rem;
-    border-radius: 0.4rem;
-    margin-right: 1rem;
+.tag {
+  font-size: 1rem;
+  background-color: $color-light;
+  color: $color-dark;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.4rem;
+  margin-right: 1rem;
+}
+
+.hashtag {
+  display: inline-block;
+  margin-right: 1rem;
+
+  &::before {
+    content: '#';
   }
 }

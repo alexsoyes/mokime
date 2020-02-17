@@ -13,7 +13,7 @@
 <div id="page" class="site">
 	<?php
 	if ( is_single() && has_post_thumbnail() ) {
-		$header_image       = mokime_get_post_thumbnail_url( get_post() );
+//		$header_image       = mokime_get_post_thumbnail_url( get_post() );
 		$header_title       = get_the_title();
 		$header_description = get_the_excerpt();
 	} elseif ( is_page() && ( ! is_home() && ! is_front_page() ) ) {
@@ -37,15 +37,19 @@
 		$header_description = get_bloginfo( 'description' );
 	}
 
-	$has_background_image = ( $header_image && $header_image != 'remove-header' );
+	$has_background_image = isset( $header_image ) && ( $header_image && $header_image != 'remove-header' );
 	?>
 
-    <div id="site-header" class="site-header">
+    <div id="site-header" class="site-header"
+	     <?php if ( $has_background_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
+
         <div class="pre-entry-content">
+
             <div class="entry-content">
+
                 <header id="masthead" role="banner">
 					<?php get_template_part( 'template-parts/header/menu' ); ?>
-                </header>
+                </header><!-- #masthead -->
 
                 <div class="hero">
                     <div class="hero-body">
@@ -59,13 +63,17 @@
 							get_template_part( 'template-parts/header/search-form' );
 						} elseif ( is_single() ) {
 							get_template_part( 'template-parts/entry/entry-article-categories' );
-							the_tags( '<ul><li>', '</li><li>', '</li></ul>' );
+							the_tags( '<ul><li class="hashtag">', '</li><li class="hashtag">', '</li></ul>' );
 						}
 						?>
                     </div><!-- .hero-body -->
+
                 </div><!-- .hero -->
-            </div><!-- .container -->
-        </div><!-- .filtered-black -->
+
+            </div><!-- .entry-content -->
+
+        </div><!-- .pre-entry-content -->
+
     </div><!--.wrapper -->
 
     <main id="site-content" role="main">

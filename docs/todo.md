@@ -25,7 +25,7 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
 * Default colors not loaded !!
     * Add classes in main.scss
     * Use default color in shared array
-
+    * **Set theme mod ?**
 ### Markups
 
 * Remove empty functions and so

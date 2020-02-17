@@ -107,7 +107,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'primary_color'           => array(
 				array(
 					'type'     => 'color',
-					'elements' => '.color-primary, a, a.navbar-item.is-active, .navbar-link.is-active',
+					'elements' => '.color-primary',
 					'prefix'   => ''
 				),
 				array(
@@ -180,7 +180,12 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'header_textcolor'        => array(
 				array(
 					'type'     => 'color',
-					'elements' => '.navbar-item, .navbar-link, .navbar-burger',
+					'elements' => 'a.navbar-item.is-active, .navbar-link.is-active, .navbar-item, .navbar-link, .navbar-burger',
+					'prefix'   => '#'
+				),
+				array(
+					'type'     => 'border-color',
+					'elements' => '.navbar-link:not(.is-arrowless)::after',
 					'prefix'   => '#'
 				)
 			),
@@ -194,7 +199,12 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'header_hero_text_color'  => array(
 				array(
 					'type'     => 'color',
-					'elements' => '.hero-title, .hero-desc',
+					'elements' => '.hero-title, .hero-desc, .hero input[type="search"], .hashtag, .hashtag a',
+					'prefix'   => ''
+				),
+				array(
+					'type'     => 'border-color',
+					'elements' => '.hero input[type="search"]',
 					'prefix'   => ''
 				)
 			),
