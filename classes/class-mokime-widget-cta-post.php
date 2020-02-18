@@ -52,8 +52,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 									<?php _e( 'Read now', 'mokime' ) ?>
                                 </a>
                             </div>
-                        </div>
-                        <! --.card-content -->
+                        </div><!--.card-content -->
                     </div><!-- .card -->
                 </div><!-- .widget-cta-single -->
 				<?php

@@ -28,17 +28,27 @@ if ( $next_post || $prev_post ) {
 
         <hr class="styled-separator is-style-wide" aria-hidden="true"/>
 
-        <div class="pagination-single-inner">
+        <div class="pagination-single-inner wp-block-columns">
 
-			<?php
+		    <?php
 			if ( $prev_post ) {
 				?>
 
-                <a class="previous-post" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
-                    <span class="arrow" aria-hidden="true">&larr;</span>
-                    <span class="title"><span
-                                class="title-inner"><?php echo wp_kses_post( get_the_title( $prev_post->ID ) ); ?></span></span>
-                </a>
+                <div class="wp-block-column">
+                    <p class="h3 has-text-weight-bold"><span class="arrow"
+                                                             aria-hidden="true">&larr;</span> <?php _e( 'Article précédent', 'mokime' ); ?>
+                    </p>
+                    <a class="previous-post h3" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
+                        <span class="title">
+                            <span class="title-inner"><?php echo wp_kses_post( get_the_title( $prev_post->ID ) ); ?></span>
+                        </span>
+                    </a>
+                    <div class="excerpt">
+                        <span class="excerpt-inner has-text-justified has-text-overflowed is-overflowed-3">
+                            <?php echo wp_kses_post( get_the_excerpt( $prev_post->ID ) ); ?>
+                        </span>
+                    </div>
+                </div>
 
 				<?php
 			}
@@ -46,11 +56,21 @@ if ( $next_post || $prev_post ) {
 			if ( $next_post ) {
 				?>
 
-                <a class="next-post" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
-                    <span class="arrow" aria-hidden="true">&rarr;</span>
-                    <span class="title"><span
-                                class="title-inner"><?php echo wp_kses_post( get_the_title( $next_post->ID ) ); ?></span></span>
-                </a>
+                <div class="wp-block-column">
+                    <p class="h3 has-text-weight-bold"><?php _e( 'Article suivant', 'mokime' ); ?> <span class="arrow"
+                                                                                                         aria-hidden="true">&rarr;</span>
+                    </p>
+                    <a class="next-post h3" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
+                        <span class="title">
+                            <span class="title-inner"><?php echo wp_kses_post( get_the_title( $next_post->ID ) ); ?></span>
+                        </span>
+                    </a>
+                    <div class="excerpt">
+                        <span class="excerpt-inner has-text-justified has-text-overflowed is-overflowed-3">
+                            <?php echo wp_kses_post( get_the_excerpt( $prev_post->ID ) ); ?>
+                        </span>
+                    </div>
+                </div>
 				<?php
 			}
 			?>

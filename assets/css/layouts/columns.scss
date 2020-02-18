@@ -1,6 +1,15 @@
 /*
  * Columns
  */
+
+.wp-block-column-10 {
+  flex-basis: 10%;
+}
+
+.wp-block-column-90 {
+  flex-basis: 90%;
+}
+
 .wp-block-column-30 {
 
   flex-basis: 100%;

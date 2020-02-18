@@ -36,30 +36,27 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 			?>
             <<?php echo $tag; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 
-            <article id="div-comment-<?php comment_ID(); ?>" class="media comment-body vcard">
-                <figure class="media-left">
-                    <p class="image is-64x64">
-			            <?php
-						$avatar = get_avatar( $comment, $args['avatar_size'] );
+            <article id="div-comment-<?php comment_ID(); ?>" class="wp-block-columns media comment-body vcard">
+				<?php $avatar = get_avatar( $comment, $args['avatar_size'] ); ?>
+				<?php if ( 0 !== $args['avatar_size'] ) : ?>
+                    <figure class="media-left wp-block-column-10">
+                        <p class="image is-64x64">
+							<?php echo wp_kses_post( $avatar ); ?>
+                        </p> <!-- .image -->
+                    </figure><!-- .media-left -->
+				<?php endif; ?>
 
-						if ( 0 !== $args['avatar_size'] ) {
-							echo wp_kses_post( $avatar );
-						}
-						?>
-                    </p> <!-- .image -->
-                </figure><!-- .media-left -->
+                <div class="media-content wp-block-column<?php if ( 0 !== $args['avatar_size'] ) : ?>-90<?php else : ?>100<?php endif ?>">
 
-                <div class="media-content">
+					<?php
+					$comment_author_url = get_comment_author_url( $comment );
+					$comment_author     = get_comment_author( $comment );
 
-		            <?php
-		            $comment_author_url = get_comment_author_url( $comment );
-		            $comment_author     = get_comment_author( $comment );
+					$post_author    = '';
+					$by_post_author = mokime_is_comment_by_post_author( $comment );
 
-		            $post_author    = '';
-		            $by_post_author = mokime_is_comment_by_post_author( $comment );
-
-		            if ( $by_post_author ) {
-			            $post_author = ' <span class="by-post-author tag">' . __( 'Post Author', 'mokime' ) . '</span>';
+					if ( $by_post_author ) {
+						$post_author = ' <span class="by-post-author tag">' . __( 'Post Author', 'mokime' ) . '</span>';
 		            }
 
 		            /* Translators: 1 = comment date, 2 = comment time */
@@ -81,7 +78,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 	                ob_get_clean();
 
 	                printf(
-		                '<p><span class="fn">%1$s</span>%2$s %3$s</p>',
+		                '<p class="comment-info"><span class="fn">%1$s</span>%2$s %3$s</p>',
 		                ! empty( $comment_author_url ) ? esc_html( $comment_author ) : sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', $comment_author_url, $comment_author ),
 		                $post_author,
 		                $output
@@ -103,7 +100,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 					                'add_below' => 'div-comment',
 					                'depth'     => $depth,
 					                'max_depth' => $args['max_depth'],
-					                'before'    => '<span class="comment-reply">',
+					                'before'    => '<span class="comment-reply has-regular-font-size">',
 					                'after'     => '</span>',
 				                )
 			                )
@@ -112,7 +109,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 		                <p>
 			                <?php
 			                if ( get_edit_comment_link() ) {
-				                echo '<a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'mokime' ) . '</a> <span aria-hidden="true">&bull;</span> ';
+				                echo '<a class="comment-edit-link has-regular-font-size" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'mokime' ) . '</a> <span aria-hidden="true">&bull;</span> ';
 			                }
 
 			                if ( $comment_reply_link ) {
@@ -120,7 +117,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 			                }
 
 			                echo sprintf(
-				                ' &bull; <a href="%1$s">%2$s</a>',
+				                ' &bull; <a href="%1$s" class="has-regular-font-size">%2$s</a>',
 				                esc_url( get_comment_link( $comment, $args ) ),
 				                __( 'Link to the comment', 'mokime' )
 			                );
