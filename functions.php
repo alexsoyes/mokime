@@ -128,6 +128,20 @@ function mokime_theme_support() {
 add_action( 'after_setup_theme', 'mokime_theme_support' );
 
 /**
+ *  Add default colors to the theme
+ */
+function mokime_theme_mods() {
+	set_theme_mod( 'primary_color', '#219385' );
+	set_theme_mod( 'secondary_color', '#49516f' );
+	set_theme_mod( 'footer_text_color', '#dcdcdd' );
+	set_theme_mod( 'footer_background_color', '#222222' );
+	set_theme_mod( 'header_background_color', '#c5c3c6' );
+	set_theme_mod( 'header_hero_text_color', '#49516f' );
+}
+
+add_action( 'init', 'mokime_theme_mods' );
+
+/**
  * Check performance options in customizer
  */
 function mokime_performance_setup() {
