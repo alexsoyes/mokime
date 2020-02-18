@@ -1,0 +1,15 @@
+.home {
+  .wp-block-columns > article:nth-child(3) {
+
+    @media (min-width: 600px) and (max-width: 782px) {
+      flex-basis: 100%;
+    }
+
+    .card-image {
+      @media (min-width: 600px) and (max-width: 782px) {
+        height: 30rem;
+      }
+    }
+
+  }
+}

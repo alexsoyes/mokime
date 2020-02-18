@@ -203,7 +203,6 @@ function mokime_performance_setup() {
 
 add_action( 'after_setup_theme', 'mokime_performance_setup' );
 
-
 define( 'DEFAULT_AVATAR_URL', get_template_directory_uri() . '/assets/img/icons/person-circle-outline.svg' );
 
 /**
@@ -229,7 +228,7 @@ add_filter( 'get_avatar', 'mokime_get_gravatar' );
  */
 function mokime_performance_scripts() {
 
-	if ( (bool) get_theme_mod( 'remove_jquery', false ) ) {
+	if ( (bool) get_theme_mod( 'performance_remove_jquery', false ) ) {
 		if ( ! is_admin() && ! is_customize_preview() ) {
 			wp_deregister_script( 'jquery' );
 		}
@@ -237,6 +236,18 @@ function mokime_performance_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'mokime_performance_scripts' );
+
+/**
+ * Remove Gutenberg block style if checked in the customizer
+ */
+function mokime_performance_gutenberg_block_style() {
+
+	if ( (bool) get_theme_mod( 'performance_disable_gutenberg_style', true ) ) {
+		wp_dequeue_style( 'wp-block-library' );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'mokime_performance_gutenberg_block_style', 100 );
 
 /**
  *
