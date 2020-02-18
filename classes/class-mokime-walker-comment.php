@@ -62,57 +62,72 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 			            $post_author = ' <span class="by-post-author tag">' . __( 'Post Author', 'mokime' ) . '</span>';
 		            }
 
-		            printf(
-			            '<p class="strong"><a href="%1$s">#</a> <span class="fn">%2$s</span>%3$s</p>',
-			            esc_url( get_comment_link( $comment, $args ) ),
-			            ! empty( $comment_author_url ) ? esc_html( $comment_author ) : sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', $comment_author_url, $comment_author ),
-			            $post_author
-		            );
+		            /* Translators: 1 = comment date, 2 = comment time */
+		            $comment_timestamp = sprintf( __( '%1$s at %2$s', 'mokime' ), get_comment_date( 'l j F Y', $comment ), get_comment_time() );
 
-					comment_text();
+		            ob_start();
 
-					if ( '0' === $comment->comment_approved ): ?>
-                        <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'mokime' ); ?></p>
-					<?php endif; ?>
+		            ?>
+	                <small>
+		                <time datetime="<?php comment_time( 'c' ); ?>"
+		                      title="<?php echo esc_attr( $comment_timestamp ); ?>">
+			                <?php echo esc_html( $comment_timestamp ); ?>
+		                </time>
+	                </small>
+	                <?php
 
-                    <div class="comment-metadata">
+	                $output = ob_get_contents();
+
+	                ob_get_clean();
+
+	                printf(
+		                '<p><span class="fn">%1$s</span>%2$s %3$s</p>',
+		                ! empty( $comment_author_url ) ? esc_html( $comment_author ) : sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', $comment_author_url, $comment_author ),
+		                $post_author,
+		                $output
+	                );
+
+	                comment_text();
+
+	                if ( '0' === $comment->comment_approved ): ?>
+		                <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'mokime' ); ?></p>
+	                <?php endif; ?>
+
+	                <div class="comment-metadata">
 		                <?php
 
-						$comment_reply_link = get_comment_reply_link(
-							array_merge(
-								$args,
-								array(
-									'add_below' => 'div-comment',
-									'depth'     => $depth,
-									'max_depth' => $args['max_depth'],
-									'before'    => '<span class="comment-reply">',
-									'after'     => '</span>',
-								)
-							)
-						);
-						/* Translators: 1 = comment date, 2 = comment time */
-						$comment_timestamp = sprintf( __( '%1$s at %2$s', 'mokime' ), get_comment_date( '', $comment ), get_comment_time() );
-						?>
-                        <small>
-                            <time datetime="<?php comment_time( 'c' ); ?>"
-                                  title="<?php echo esc_attr( $comment_timestamp ); ?>">
-								<?php echo esc_html( $comment_timestamp ); ?>
-                            </time>
-                        </small>
+		                $comment_reply_link = get_comment_reply_link(
+			                array_merge(
+				                $args,
+				                array(
+					                'add_below' => 'div-comment',
+					                'depth'     => $depth,
+					                'max_depth' => $args['max_depth'],
+					                'before'    => '<span class="comment-reply">',
+					                'after'     => '</span>',
+				                )
+			                )
+		                );
+		                ?>
+		                <p>
+			                <?php
+			                if ( get_edit_comment_link() ) {
+				                echo '<a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'mokime' ) . '</a> <span aria-hidden="true">&bull;</span> ';
+			                }
 
-                        <p>
-							<?php
-							if ( get_edit_comment_link() ) {
-								echo '<a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'mokime' ) . '</a> <span aria-hidden="true">&bull;</span> ';
-							}
+			                if ( $comment_reply_link ) {
+				                echo '' . $comment_reply_link;
+			                }
 
-							if ( $comment_reply_link ) {
-								echo '' . $comment_reply_link;
-							}
-							?>
-                        </p>
+			                echo sprintf(
+				                ' &bull; <a href="%1$s">%2$s</a>',
+				                esc_url( get_comment_link( $comment, $args ) ),
+				                __( 'Link to the comment', 'mokime' )
+			                );
+			                ?>
+		                </p>
 
-                    </div><!-- .comment-metadata -->
+	                </div><!-- .comment-metadata -->
 
                 </div><!-- .media-content -->
 

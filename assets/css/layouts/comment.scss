@@ -1,0 +1,24 @@
+.media {
+  align-items: flex-start;
+  display: flex;
+  text-align: left;
+}
+
+.media-left {
+  margin: 0px 1.5rem 0px 0px;
+}
+
+.comment-body {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.depth-2 > *,
+.depth-3 > * {
+  margin-left: 6rem;
+}
+
+.avatar {
+  width: auto;
+  height: auto;
+}

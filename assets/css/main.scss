@@ -34,7 +34,6 @@ $radius-large: 8px;
 @import "../../node_modules/milligram/src/Button";
 @import "../../node_modules/milligram/src/Code";
 @import "../../node_modules/milligram/src/Divider";
-@import "../../node_modules/milligram/src/Form";
 @import "../../node_modules/milligram/src/List";
 @import "../../node_modules/milligram/src/Table";
 @import "../../node_modules/milligram/src/Image";
@@ -64,6 +63,11 @@ $radius-large: 8px;
 /* Author box
    ========================================================================== */
 @import 'elements/author-box';
+
+/* Form
+   ========================================================================== */
+@import 'elements/form';
+
 
 /* ==========================================================================
    Layouts
