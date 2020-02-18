@@ -40,7 +40,7 @@
 
 	<?php if  ( is_active_sidebar( 'sidebar-single' ) ) :  ?>
         <aside role="complementary" id="widget" class="widget-single wp-block-column wp-block-column-30">
-            <div class="sticky">
+            <div<?php if ( (bool) get_theme_mod( 'single_post_sidebar_sticky', false ) ) : ?> class="sticky"<?php endif ?>>
 				<?php dynamic_sidebar( 'sidebar-single' ); ?>
             </div>
         </aside><!-- widget-single -->

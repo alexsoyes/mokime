@@ -226,6 +226,14 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
 				)
 			);
+			$wp_customize->add_setting(
+				'single_post_sidebar_sticky',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => true,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
 
 			// Add control
 			$wp_customize->add_control(
@@ -245,6 +253,16 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 					'section'  => 'options_single',
 					'settings' => 'single_post_nav_posts',
 					'label'    => __( 'Display previous / next posts.', 'mokime' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'single_post_sidebar_sticky',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options_single',
+					'settings' => 'single_post_sidebar_sticky',
+					'label'    => __( 'Make the sidebar sticky.', 'mokime' ),
 				)
 			);
 		}

@@ -26,6 +26,8 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
     * Add classes in main.scss
     * Use default color in shared array
     * **Set theme mod ?**
+ * Make sidebar sticky option on single post   
+ 
 ### Markups
 
 * Remove empty functions and so
