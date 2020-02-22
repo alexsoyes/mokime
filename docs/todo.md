@@ -26,25 +26,6 @@ WordPress best pratices : https://make.wordpress.org/themes/handbook/review/reso
     * Add classes in main.scss
     * Use default color in shared array
     * **Set theme mod ?**
- * Make sidebar sticky option on single post   
- 
-### Markups
-
-* Remove empty functions and so
-    * Commenting HTML classes `<!-- .end -->`
-* SEO points
-  * Titles in sidebar
-  * `aside` for articles links from same category?
-
- ### Frontoffice
- 
-* Change sidebar article presentation
-
-#### Design
-
-* Use Gutenberg style ?
-* Post category design
-* Comments
 
 ### Coding style
 

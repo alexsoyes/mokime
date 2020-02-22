@@ -35,6 +35,8 @@ services:
       WORDPRESS_DB_NAME: exampledb
     volumes:
       - ./wordpress:/var/www/html
+    depends_on:
+      - db
 
   db:
     image: mysql:5.7
