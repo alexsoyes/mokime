@@ -29,7 +29,7 @@
 		$header_description = __( 'The page you were looking for could not be found. It might have been removed, renamed, or did not exist in the first place.', 'mokime' );
 	} elseif ( is_search() ) {
 		$header_image       = get_theme_mod( 'header_image' );
-		$header_title       = sprintf( __( '<span class="has-text-weight-bold">Searching for</span> "%s"', 'mokime' ), get_search_query() );
+		$header_title       = sprintf( '<span class="has-text-weight-bold">' . __( 'Searching for', 'mokime' ) . '</span> "%s"', get_search_query() );
 		$header_description = '';
 	} else {
 		$header_image       = get_theme_mod( 'header_image' );
