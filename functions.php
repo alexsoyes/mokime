@@ -57,55 +57,28 @@ function mokime_theme_support() {
 		array(
 			'height'      => $logo_height,
 			'width'       => $logo_width,
-			'flex-height' => true
+			'flex-height' => true,
 		)
 	);
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
-
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support(
-		'html5',
-		array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'script',
-			'style',
-		)
-	);
-
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Twenty Twenty, use a find and replace
-	 * to change 'mokime' to the name of your theme in all the template files.
-	 */
-	load_theme_textdomain( 'mokime' );
+	// Load translations
+	load_theme_textdomain( 'mokime', get_template_directory() . '/languages' );
 
 	// Add support for full and wide align images.
 	add_theme_support( 'align-wide' );
 
 	// Add support for custom header image
-	add_theme_support( 'custom-header', array(
-//	    'default-image'      => get_template_directory_uri() . 'img/default-image.jpg',
-		'default-text-color' => 'fff',
-		'width'              => 1000,
-		'height'             => 250,
-		'flex-width'         => true,
-		'flex-height'        => true,
-	) );
+	add_theme_support(
+		'custom-header',
+		array(
+			// 'default-image'      => get_template_directory_uri() . 'img/default-image.jpg',
+			'default-text-color' => 'fff',
+			'width'              => 1000,
+			'height'             => 250,
+			'flex-width'         => true,
+			'flex-height'        => true,
+		)
+	);
 
 	// Custom background color.
 	add_theme_support(
@@ -126,20 +99,6 @@ function mokime_theme_support() {
 }
 
 add_action( 'after_setup_theme', 'mokime_theme_support' );
-
-/**
- *  Add default colors to the theme
- */
-function mokime_theme_mods() {
-	set_theme_mod( 'primary_color', '#219385' );
-	set_theme_mod( 'secondary_color', '#49516f' );
-	set_theme_mod( 'footer_text_color', '#dcdcdd' );
-	set_theme_mod( 'footer_background_color', '#222222' );
-	set_theme_mod( 'header_background_color', '#c5c3c6' );
-	set_theme_mod( 'header_hero_text_color', '#49516f' );
-}
-
-add_action( 'init', 'mokime_theme_mods' );
 
 /**
  * Check performance options in customizer
@@ -209,9 +168,12 @@ function mokime_performance_setup() {
 		add_filter( 'default_avatar_select', '__return_empty_string' );
 	}
 	if ( (bool) get_theme_mod( 'performance_reduce_jpeg_quality', false ) ) {
-		add_filter( 'jpeg_quality', function ( $arg ) {
-			return 80;
-		} );
+		add_filter(
+			'jpeg_quality',
+			function ( $arg ) {
+				return 80;
+			}
+		);
 	}
 }
 
@@ -356,9 +318,14 @@ function add_custom_logo_url() {
 	return sprintf(
 		'<a href="%1$s" class="navbar-item custom-logo-link" rel="home">%2$s</a>',
 		esc_url( home_url( '/' ) ),
-		wp_get_attachment_image( $custom_logo_id, 'full', false, array(
-			'class' => 'custom-logo navbar-item',
-		) )
+		wp_get_attachment_image(
+			$custom_logo_id,
+			'full',
+			false,
+			array(
+				'class' => 'custom-logo navbar-item',
+			)
+		)
 	);
 }
 
