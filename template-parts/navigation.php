@@ -35,8 +35,8 @@ if ( $next_post || $prev_post ) {
 				?>
 
                 <div class="wp-block-column">
-                    <p class="h3 has-text-weight-bold"><span class="arrow"
-                                                             aria-hidden="true">&larr;</span> <?php _e( 'Article précédent', 'mokime' ); ?>
+                    <p class="h3 has-text-weight-bold">
+                        <span class="arrow" aria-hidden="true">&larr;</span> <?php _e( 'Previous post', 'mokime' ); ?>
                     </p>
                     <a class="previous-post h3" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
                         <span class="title">
@@ -57,8 +57,8 @@ if ( $next_post || $prev_post ) {
 				?>
 
                 <div class="wp-block-column">
-                    <p class="h3 has-text-weight-bold"><?php _e( 'Article suivant', 'mokime' ); ?> <span class="arrow"
-                                                                                                         aria-hidden="true">&rarr;</span>
+                    <p class="h3 has-text-weight-bold"><?php _e( 'Next post', 'mokime' ); ?>
+                        <span class="arrow" aria-hidden="true">&rarr;</span>
                     </p>
                     <a class="next-post h3" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
                         <span class="title">

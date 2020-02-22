@@ -199,7 +199,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'header_hero_text_color'  => array(
 				array(
 					'type'     => 'color',
-					'elements' => '.hero-title, .hero-desc, .hero input[type="search"], .hashtag, .hashtag a',
+					'elements' => '.hero-title, .hero-desc, .hero input, .hashtag, .hashtag a',
 					'prefix'   => ''
 				),
 				array(

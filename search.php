@@ -3,7 +3,7 @@
 <div class="is-search entry-content">
 
     <div class="section-inner">
-		<?php get_search_form( array( 'label' => __( 'search again', 'mokime' ) ) ); ?>
+		<?php get_search_form( array( 'label' => __( 'Search again', 'mokime' ) ) ); ?>
     </div><!-- .section-inner -->
 
 	<?php
@@ -34,7 +34,9 @@
 		get_template_part( 'template-parts/entry/entry-posts' );
 
 	} else {
+		echo '<div>';
 		echo __( 'We could not find any results for your search. You can give it another try through the search form below.', 'mokime' );
+		echo '</div>';
 	}
 
 	?>
