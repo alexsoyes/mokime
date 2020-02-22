@@ -1,14 +1,13 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"PO-Revision-Date: 2020-02-22 09:15+0000\n"
+"Last-Translator: Alex Soyer <a.soyer@outlook.fr>\n"
+"Language-Team: Français\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,17 +16,17 @@ msgstr ""
 
 #: template-parts/content/content-single.php:17
 msgid " Last modified on "
-msgstr ""
+msgstr "Dernière modification le "
 
 #. 1 = comment date, 2 = comment time
 #: classes/class-mokime-walker-comment.php:63
 #, php-format
 msgid "%1$s at %2$s"
-msgstr ""
+msgstr "%1$s à %2$s"
 
 #: classes/class-mokime-widget-recent-posts.php:116
 msgid "(no title)"
-msgstr ""
+msgstr "(sans titre)"
 
 #: template-parts/navigation.php:39
 msgid "Article précédent"
@@ -39,11 +38,11 @@ msgstr ""
 
 #: comments.php:57
 msgid "Comments"
-msgstr ""
+msgstr "Commentaires"
 
 #: comments.php:96
 msgid "Comments are closed."
-msgstr ""
+msgstr "Les commentaires sont fermés."
 
 #. 1: number of comments, 2: post title
 #: template-parts/entry/entry-comment-title.php:15
@@ -51,87 +50,87 @@ msgstr ""
 msgctxt "comments title"
 msgid "%1$s reply on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s réponse sur &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s réponses sur &ldquo;%2$s&rdquo;"
 
 #. %s: post title
 #: template-parts/entry/entry-comment-title.php:11
 #, php-format
 msgctxt "comments title"
 msgid "One reply on &ldquo;%s&rdquo;"
-msgstr ""
+msgstr "Une réponse à &ldquo;%s&rdquo;"
 
 #: template-parts/content/content-page.php:7
 msgid "Continue reading"
-msgstr ""
+msgstr "Lire"
 
 #: classes/class-mokime-widget-cta-post.php:17
 msgid "Create a beautiful call-to-action for your single posts."
-msgstr ""
+msgstr "Créer un bouton d'appel pour vos meilleurs articles."
 
 #: classes/class-mokime-customize.php:162
 msgid "Disable embed posts."
-msgstr ""
+msgstr "Désactiver les articles intégrés."
 
 #: classes/class-mokime-customize.php:160
 msgid "Disable Gravatar."
-msgstr ""
+msgstr "Désactiver les images Gravatar."
 
 #: classes/class-mokime-customize.php:163
 msgid "Disable Gutenberg block style."
-msgstr ""
+msgstr "Désactiver le style de Gutenberg."
 
 #: classes/class-mokime-customize.php:161
 msgid "Disable JSON API."
-msgstr ""
+msgstr "Désactiver l'API JSON."
 
 #: classes/class-mokime-widget-recent-posts.php:185
 msgid "Display post date?"
-msgstr ""
+msgstr "Afficher la date de l'article ?"
 
 #: classes/class-mokime-customize.php:256
 msgid "Display previous / next posts."
-msgstr ""
+msgstr "Afficher les articles précédents/suivants."
 
 #: classes/class-mokime-widget-recent-posts.php:25
 msgid "Display the last posts from the current category (SEO power)."
-msgstr ""
+msgstr "Afficher les derniers articles de la catégorie principale."
 
 #: classes/class-mokime-walker-comment.php:112
 msgid "Edit"
-msgstr ""
+msgstr "Éditer"
 
 #: functions.php:295
 msgid "Footer"
-msgstr ""
+msgstr "Pied de page"
 
 #: classes/class-mokime-customize.php:50
 msgid "Footer Background Color"
-msgstr ""
+msgstr "Couleur du fond du pied de page"
 
 #: classes/class-mokime-customize.php:44
 msgid "Footer Text Color"
-msgstr ""
+msgstr "Couleur des textes du pied de page"
 
 #: classes/class-mokime-customize.php:56
 msgid "Header Background Color"
-msgstr ""
+msgstr "Couleur de fond de l'en-tête"
 
 #: classes/class-mokime-customize.php:62
 msgid "Header Hero Text Color"
-msgstr ""
+msgstr "Couleur du texte de la bannière"
 
 #. Description of the theme
 msgid "High performance and SEO WordPress theme"
-msgstr ""
+msgstr "Thème WordPress haute performance & référencement"
 
 #: footer.php:22
 msgid "High performance theme"
-msgstr ""
+msgstr "Thème WordPress haute performance"
 
 #: classes/class-mokime-customize.php:279
 msgid "Homepage"
-msgstr ""
+msgstr "Page d'accueil"
 
 #. URI of the theme
 msgid "http://wordpress.org/themes/mokime"
@@ -143,23 +142,23 @@ msgstr ""
 
 #: template-parts/entry/entry-comment-title.php:8
 msgid "Leave a comment"
-msgstr ""
+msgstr "Laisser un commentaire"
 
 #: classes/class-mokime-walker-comment.php:122
 msgid "Link to the comment"
-msgstr ""
+msgstr "Lien vers le commentaire"
 
 #: footer.php:24
 msgid "made by "
-msgstr ""
+msgstr "créé par"
 
 #: inc/menu.php:16
 msgid "Main menu"
-msgstr ""
+msgstr "Menu principal"
 
 #: classes/class-mokime-customize.php:266
 msgid "Make the sidebar sticky."
-msgstr ""
+msgstr "Rendre la barre latérale fixe"
 
 #. Name of the theme
 msgid "Mokime"
@@ -169,226 +168,232 @@ msgstr ""
 #. The text inside the span with the class nav-short will be hidden on small screens.
 #: template-parts/pagination.php:22
 msgid "Newer <span class=\"nav-short\">Posts</span>"
-msgstr ""
+msgstr "Articles <span class=\"nav-short\">Récents</span>"
 
 #: comments.php:42
 msgid "Newer Comments"
-msgstr ""
+msgstr "Nouveaux commentaires"
 
 #: classes/class-mokime-widget-recent-posts.php:177
 msgid "Number of posts to show:"
-msgstr ""
+msgstr "Nombre d'articles à afficher : "
 
 #: template-parts/pagination.php:26
 msgid "Older <span class=\"nav-short\">Posts</span>"
-msgstr ""
+msgstr "Anciens articles"
 
 #: comments.php:43
 msgid "Older Comments"
-msgstr ""
+msgstr "Anciens commentaires"
 
 #: classes/class-mokime-customize.php:159
 msgid "Only enable Contact Form 7 on page type."
-msgstr ""
+msgstr "Seulement activer Contact Form 7 sur les pages de type \"simple\"."
 
 #: template-parts/content/content-home.php:22
 #: template-parts/content/content-404.php:7
 msgid "Our last posts"
-msgstr ""
+msgstr "Nos derniers articles"
 
 #: template-parts/content/content-page.php:15
 msgid "Page"
-msgstr ""
+msgstr "Page"
 
 #: header.php:28
 msgid "Page Not Found"
-msgstr ""
+msgstr "Page non trouvée"
 
 #: template-parts/content/content-page.php:15
 msgid "Pages:"
-msgstr ""
+msgstr "Pages : "
 
 #: classes/class-mokime-customize.php:144
 msgid "Performance"
-msgstr ""
+msgstr "Performance"
 
 #: template-parts/navigation.php:27
 msgid "Post"
-msgstr ""
+msgstr "Article"
 
 #: classes/class-mokime-walker-comment.php:59
 msgid "Post Author"
-msgstr ""
+msgstr "Auteur de l'article"
 
 #: template-parts/content/content-single.php:13
 msgid "Post published on "
-msgstr ""
+msgstr "Article publié le "
 
 #: classes/class-mokime-widget-recent-posts.php:47
 msgid "Posts from category"
-msgstr ""
+msgstr "Articles de la catégorie"
 
 #: functions.php:310
 msgid "Pre-footer"
-msgstr ""
+msgstr "Pré pied de page"
 
 #: classes/class-mokime-customize.php:32
 msgid "Primary Color"
-msgstr ""
+msgstr "Couleur primaire"
 
 #: classes/class-mokime-widget-cta-post.php:51
 #: classes/class-mokime-widget-cta-post.php:52
 msgid "Read now"
-msgstr ""
+msgstr "Lire maintenant"
 
 #: classes/class-mokime-customize.php:165
 msgid "Reduce JPEG quality to 80%."
-msgstr ""
+msgstr "Réduire la qualité des images de 20%."
 
 #: classes/class-mokime-customize.php:154
 msgid "Remove Emoji support."
-msgstr ""
+msgstr "Désactiver les emojis."
 
 #: classes/class-mokime-customize.php:157
 msgid "Remove jQuery."
-msgstr ""
+msgstr "Désactiver jQuery."
 
 #: classes/class-mokime-customize.php:153
 msgid "Remove parent post link"
-msgstr ""
+msgstr "Désactiver le lien vers l'article parent."
 
 #: classes/class-mokime-customize.php:152
 msgid "Remove random post link."
-msgstr ""
+msgstr "Désactiver le lien vers l'article aléatoire."
 
 #: classes/class-mokime-customize.php:155
 msgid "Remove shortlink support."
-msgstr ""
+msgstr "Désactiver le support des \"shortlinks\"."
 
 #: classes/class-mokime-customize.php:151
 msgid "Remove support for Windows Live Writer."
-msgstr ""
+msgstr "Désactiver le support pour Windows Live Writer."
 
 #: classes/class-mokime-customize.php:156
 msgid "Remove WooCommerce tags in header."
-msgstr ""
+msgstr "Désactiver les tags WooCommerce dans l'en-tête."
 
 #: classes/class-mokime-customize.php:150
 msgid "Remove WordPress generator."
-msgstr ""
+msgstr "Désactiver les tags autogérés de WordPress."
 
 #: classes/class-mokime-customize.php:102
 msgid "Retina logo"
-msgstr ""
+msgstr "Logo retina"
 
 #: classes/class-mokime-customize.php:103
 msgid ""
 "Scales the logo to half its uploaded size, making it sharp on high-res "
 "screens."
 msgstr ""
+"Rendre le logo dans une qualité deux fois meilleure pour les écrans à haute "
+"densité de pixels."
 
 #: search.php:6
 msgid "Search again"
-msgstr ""
+msgstr "Rechercher à nouveau"
 
 #: search.php:14
 msgid "Search:"
-msgstr ""
+msgstr "Rechercher : "
 
 #: header.php:32
 msgid "Searching for"
-msgstr ""
+msgstr "Rechercher..."
 
 #: classes/class-mokime-customize.php:38
 msgid "Secondary Color"
-msgstr ""
+msgstr "Couleur secondaire"
 
 #: classes/class-mokime-customize.php:321
 msgid "Show last posts in the static homepage"
-msgstr ""
+msgstr "Afficher les derniers articles sur la page d'accueil."
 
 #: classes/class-mokime-customize.php:311
 msgid "Show search in header"
-msgstr ""
+msgstr "Afficher la barre de recherche sur la bannière."
 
 #: classes/class-mokime-customize.php:246
 msgid "Show the author bio."
-msgstr ""
+msgstr "Afficher les informations de l'auteur."
 
 #: functions.php:323
 msgid "Single post"
-msgstr ""
+msgstr "Article"
 
 #: classes/class-mokime-widget-cta-post.php:83
 msgid "Single Post Id:"
-msgstr ""
+msgstr "ID de l'article :  "
 
 #: classes/class-mokime-customize.php:206
 msgid "Single Posts"
-msgstr ""
+msgstr "Articles"
 
 #: functions.php:400
 msgid "Skip to the content"
-msgstr ""
+msgstr "Aller au contenu"
 
 #: inc/menu.php:17
 msgid "Social Menu"
-msgstr ""
+msgstr "Menu des réseaux sociaux"
 
 #. Author of the theme
 msgid "The Moki theme"
-msgstr ""
+msgstr "Thème MokiMe"
 
 #: header.php:29
 msgid ""
 "The page you were looking for could not be found. It might have been removed,"
 " renamed, or did not exist in the first place."
 msgstr ""
+"La page n'existe plus à cette adresse ! Utilisez le formulaire de recherche "
+"pour la retrouver."
 
 #: classes/class-mokime-customize.php:76
 msgid "Theme Options"
-msgstr ""
+msgstr "Options du thème"
 
 #: classes/class-mokime-widget-recent-posts.php:170
 msgid "Title:"
-msgstr ""
+msgstr "Titre : "
 
 #: template-parts/entry/entry-article-categories.php:13
 #, php-format
 msgid "View all posts in %s"
-msgstr ""
+msgstr "Voir tous les articles dans %s"
 
 #: template-parts/entry/entry-author-bio.php:18
 msgid "View Archive <span aria-hidden=\"true\">&rarr;</span>"
-msgstr ""
+msgstr "Voir les articles <span aria-hidden=\"true\">&rarr;</span>"
 
 #: search.php:37
 msgid ""
 "We could not find any results for your search. You can give it another try "
 "through the search form below."
-msgstr ""
+msgstr "Nous n'avons rien trouvé pour votre recherche, essayez à nouveau !"
 
 #. %s: Number of search results
 #: search.php:21
 #, php-format
 msgid "We found %s result for your search."
 msgid_plural "We found %s results for your search."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Nous avons %s résultat pour votre recherche."
+msgstr[1] "Nous avons %s résultats pour votre recherche."
 
 #: functions.php:325
 msgid ""
 "Widgets in this area will be display next to content in single post pages."
 msgstr ""
+"Les widgets dans cette zone seront affichés sur la barre latérale des "
+"articles."
 
 #: functions.php:297
 msgid "Widgets in this area will be displayed in columns."
-msgstr ""
+msgstr "Les widgets dans cette zone seront affichés en colonne."
 
 #: functions.php:312
 msgid "Widgets will be displayed just before the footer."
-msgstr ""
+msgstr "Les widgets dans cette zone apparaîtront juste avant le pied de page."
 
 #: classes/class-mokime-walker-comment.php:90
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "Votre commentaire est en cours de validation..."
