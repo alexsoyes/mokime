@@ -1,9 +1,9 @@
 === MokiMe ===
-Contributors: dinath_
+Contributors: alexsoyer
 Donate link: https://moki.me
-Tags: comments, spam
+Tags: performance, seo, greenit, fast, accessibility
 Requires at least: 4.6
-Tested up to: 4.7
+Tested up to: 5.2
 Stable tag: 1.0
 Requires PHP: 5.2.4
 License: GPLv2 or later
@@ -28,21 +28,6 @@ MokiMe will reduce your website data transfer, it will not save the Earth but co
 
 MokiMe will try to load every page of your site in less than 1 second, exiting challenge isn't it?
 
-* Pingdom
-* GTMetrix
-* Pagespeed
-* Dareboost
-* Google Mobile Test
-* 
-
-Recommends plugins 
-
-* Contact Form 7
-* Yoast SEO
-* WP Super Cache
-* Autoptimize
-* Clearfy
- 
 == Installation ==
 
 This section describes how to install the plugin and get it working.
@@ -51,13 +36,13 @@ e.g.
 
 1. Upload the plugin files to the `/wp-content/themes/mokime` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Themes' screen in WordPress
-1. Use the Settings->Themes Name screen to configure the theme with the customizer
+1. Use the Settings -> Themes Name screen to configure the theme with the customizer
 
 == Frequently Asked Questions ==
 
 = Is MokiMe the fastest WordPress theme? =
 
-Probably not! MokiMe will give you the best of the two worlds: a beautifull AND fast theme.
+Probably not! MokiMe will give you the best of the two worlds: a beautiful AND fast theme.
 
 = I do not know which performance checkboxes I should check? =
 

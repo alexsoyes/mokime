@@ -66,3 +66,25 @@ docker-compose up --build
 * WordPress Administration : http://localhost:8080/wp-admin/
 * WordPress Front-Office : http://localhost:8080
 
+## Demo content
+
+https://codex.wordpress.org/Theme_Unit_Test
+
+Or Download a copy from https://raw.githubusercontent.com/WPTRT/theme-unit-test/master/themeunittestdata.wordpress.xml
+
+1. Import test data into your WordPress install by going to Tools => Import => WordPress
+1. Select the XML file from your computer
+1. Click on "Upload file and import".
+1. Under "Import Attachments," check the "Download and import file attachments" box and click submit.
+   Note: you may have to repeat the Import step until you see "All Done" to obtain the full list of Posts and Media.
+
+## Plugins to install
+
+* [Theme Check](https://fr.wordpress.org/plugins/theme-check/)
+* [Theme Sniffer](https://wordpress.org/plugins/theme-sniffer/)
+* [Loco Translate](https://fr.wordpress.org/plugins/loco-translate/)
+* [Health Check](https://fr.wordpress.org/plugins/health-check/)
+* [Contact Form 7](https://fr.wordpress.org/plugins/contact-form-7/)
+* [Yoast SEO](https://fr.wordpress.org/plugins/wordpress-seo/)
+* [WP Super Cache](https://fr.wordpress.org/plugins/wp-super-cache/)
+* [WordPress Importer](https://fr.wordpress.org/plugins/wordpress-importer/)

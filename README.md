@@ -16,6 +16,14 @@
 * [FakerPress](https://fr.wordpress.org/plugins/fakerpress/)
 * [Coolors](https://coolors.co/219385-49516f-222222-dcdcdd-c5c3c6)
 
+## Recommended plugins
+
+* Contact Form 7
+* Yoast SEO
+* WP Super Cache
+* Autoptimize
+* Clearfy 
+
 ## Production release
 
 To make a production build of MokiMe Theme.
