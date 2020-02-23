@@ -107,7 +107,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'primary_color'           => array(
 				array(
 					'type'     => 'color',
-					'elements' => '.color-primary',
+					'elements' => '.color-primary, .site-footer a:hover',
 					'prefix'   => ''
 				),
 				array(
@@ -129,12 +129,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 					'type'     => 'fill',
 					'elements' => '.site-footer .svg-icon:hover',
 					'prefix'   => ''
-				),
-				array(
-					'type'     => 'color',
-					'elements' => '.site-footer a:hover',
-					'prefix'   => ''
-				),
+				)
 			),
 			'secondary_color'         => array(
 				array(
