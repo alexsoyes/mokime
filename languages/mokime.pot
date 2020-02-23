@@ -30,11 +30,11 @@ msgid "(no title)"
 msgstr ""
 
 #: template-parts/navigation.php:39
-msgid "Article précédent"
+msgid "Previous post"
 msgstr ""
 
 #: template-parts/navigation.php:60
-msgid "Article suivant"
+msgid "Next post"
 msgstr ""
 
 #: comments.php:57
