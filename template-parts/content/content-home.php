@@ -22,6 +22,7 @@ elseif ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_
 		echo '<h2 class="title has-text-weight-light">' . __( 'Our last posts', 'mokime' ) . '</h2>';
 		echo '<div class="wp-block-columns">';
 
+		// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 		foreach ( $recent_posts as $index => $post ) {
 
 			if ( $index !== 0 && ( $index % 3 ) === 0 ) {

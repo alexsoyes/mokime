@@ -170,11 +170,13 @@ function mokime_performance_setup() {
 	if ( (bool) get_theme_mod( 'performance_reduce_jpeg_quality', false ) ) {
 		add_filter(
 			'jpeg_quality',
-			function ( $arg ) {
-				return 80;
-			}
+			'mokime_jpeg_quality'
 		);
 	}
+}
+
+function mokime_jpeg_quality() {
+	return 80;
 }
 
 add_action( 'after_setup_theme', 'mokime_performance_setup' );
@@ -201,11 +203,14 @@ add_filter( 'get_avatar', 'mokime_get_gravatar' );
 
 /**
  * Remove some script if check in the customizer
+ *
+ * ONLY remove jQuery if we are in FRONT, let it go for Admin & Customizer
  */
 function mokime_performance_scripts() {
 
 	if ( (bool) get_theme_mod( 'performance_remove_jquery', false ) ) {
 		if ( ! is_admin() && ! is_customize_preview() ) {
+			// phpcs:ignore WPThemeReview.CoreFunctionality.NoDeregisterCoreScript.Found
 			wp_deregister_script( 'jquery' );
 		}
 	}
@@ -338,6 +343,12 @@ function mokime_register_styles() {
 
 	wp_enqueue_style( 'mokime-style', get_stylesheet_uri(), array(), $theme_version );
 	wp_style_add_data( 'mokime-style', 'rtl', 'replace' );
+
+	wp_enqueue_style(
+		'mokime-google-fonts',
+		'https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,900&display=swap',
+		false
+	);
 
 	wp_add_inline_style( 'mokime-style', mokime_get_customizer_css() );
 }

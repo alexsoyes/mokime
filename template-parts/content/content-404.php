@@ -7,6 +7,7 @@ if ( $recent_posts ) {
 	echo '<h2 class="title has-text-weight-light">' . __( 'Our last posts', 'mokime' ) . '</h2>';
 	echo '<div class="wp-block-columns">';
 
+	// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 	foreach ( $recent_posts as $index => $post ) {
 
 		if ( $index !== 0 && ( $index % 3 ) === 0 ) {

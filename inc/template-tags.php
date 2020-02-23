@@ -29,7 +29,7 @@ function get_the_last_posts( $limit = 12 ) {
  */
 function get_post_category_primary( $post_id ) {
 
-	$term_list = wp_get_post_terms( $post_id, 'category', [ 'fields' => 'all' ] );
+	$term_list = wp_get_post_terms( $post_id, 'category', array( 'fields' => 'all' ) );
 
 	/** @var WP_Term $term */
 	foreach ( $term_list as $term ) {
