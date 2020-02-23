@@ -10,7 +10,7 @@
 
 .comment-body {
   margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 6rem;
 }
 
 .comment-info {
@@ -24,6 +24,10 @@
 .depth-2 > *,
 .depth-3 > * {
   margin-left: 6rem;
+}
+
+.comments {
+  margin-top: 4rem;
 }
 
 .comments-wrapper {

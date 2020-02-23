@@ -1,16 +1,18 @@
 <div class="wp-block-columns content">
 
-    <article <?php post_class( 'post wp-block-column wp-block-column-70' ); ?> id="post-<?php the_ID(); ?>">
+	<?php $column_width = is_active_sidebar( 'sidebar-single' ) ? '70' : '100'; ?>
 
-	    <?php get_template_part( 'template-parts/entry/entry-breadcrumb' ); ?>
+    <article <?php post_class( "post wp-block-column-$column_width" ); ?> id="post-<?php the_ID(); ?>">
 
-	    <div class="post-inner">
-		    <?php the_content(); ?>
-	    </div><!-- .post-inner -->
+		<?php get_template_part( 'template-parts/entry/entry-breadcrumb' ); ?>
 
-	    <div class="section-inner post-metadata">
-		    <div class="section-inner__date">
-			    <?php _e( 'Post published on ', 'mokime' ); ?>
+        <div class="post-inner">
+			<?php the_content(); ?>
+        </div><!-- .post-inner -->
+
+        <div class="section-inner post-metadata">
+            <div class="section-inner__date">
+				<?php _e( 'Post published on ', 'mokime' ); ?>
 			    <time class="tag" datetime="<?php echo get_the_date( 'c' ); ?>">
 				    <?php echo get_the_date( 'j F Y' ); ?>
 			    </time>

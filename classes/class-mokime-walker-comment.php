@@ -36,17 +36,17 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 			?>
             <<?php echo $tag; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 
-            <article id="div-comment-<?php comment_ID(); ?>" class="wp-block-columns media comment-body vcard">
+            <article id="div-comment-<?php comment_ID(); ?>" class="media comment-body vcard">
 				<?php $avatar = get_avatar( $comment, $args['avatar_size'] ); ?>
 				<?php if ( 0 !== $args['avatar_size'] ) : ?>
-                    <figure class="media-left wp-block-column-10">
+                    <figure class="media-left">
                         <p class="image is-64x64">
 							<?php echo wp_kses_post( $avatar ); ?>
                         </p> <!-- .image -->
                     </figure><!-- .media-left -->
 				<?php endif; ?>
 
-                <div class="media-content wp-block-column<?php if ( 0 !== $args['avatar_size'] ) : ?>-90<?php else : ?>100<?php endif ?>">
+                <div class="media-content">
 
 					<?php
 					$comment_author_url = get_comment_author_url( $comment );
@@ -65,8 +65,8 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 		            ob_start();
 
 		            ?>
-	                <small>
-		                <time datetime="<?php comment_time( 'c' ); ?>"
+                    <small class="tag">
+                        <time datetime="<?php comment_time( 'c' ); ?>"
 		                      title="<?php echo esc_attr( $comment_timestamp ); ?>">
 			                <?php echo esc_html( $comment_timestamp ); ?>
 		                </time>
@@ -79,9 +79,11 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 
 	                printf(
 		                '<p class="comment-info"><span class="fn">%1$s</span>%2$s %3$s</p>',
-		                ! empty( $comment_author_url ) ? esc_html( $comment_author ) : sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', $comment_author_url, $comment_author ),
-		                $post_author,
-		                $output
+		                ! empty( $comment_author_url ) ?
+			                esc_html( $comment_author ) :
+			                sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', $comment_author_url, $comment_author ),
+		                $output,
+		                $post_author
 	                );
 
 	                comment_text();
