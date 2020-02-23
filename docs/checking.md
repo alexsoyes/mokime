@@ -1,15 +1,13 @@
-
-## Types of page to valide
-
-| Page | URL (dev) | Date checked  |
-| ------------- |------------- | -----|
-| Home | http://localhost:8080/ | 24-01-2020 |
-| Page | http://localhost:8080/?page_id=40 | 24-01-2020 |
-| Article | http://localhost:8080/?p=169 | 24-01-2020 |
-| Category | https://mokime.security-helpzone.com/?cat=1 | 07-02-2020 |
-| 404 | http://localhost:8080/?p=1111111111 | 24-01-2020 |
-
-## Online checker
-
 * W3C Validator : https://validator.w3.org/#validate_by_input
-* 
+* Google PageSpeed : https://developers.google.com/speed/pagespeed/insights/?hl=fr
+* Pingdom Speed Test : https://tools.pingdom.com/
+* GTMetrix : https://gtmetrix.com/
+* WebPageTest : https://www.webpagetest.org/
+* Theme Check : https://themecheck.info/
+* Google Rich Snippet : https://search.google.com/structured-data/testing-tool?hl=fr
+
+|     | W3C Validator | Google Pagespeed | Pingdom | GTMetrix | WebPageTest | ThemeCheck | Google Rich Snippet |
+|-----|---------------|------------------|---------|----------|-------------|------------|---------------------|
+| 1.0 |               |                  |         |          |             |            |                     |
+
+

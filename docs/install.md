@@ -59,10 +59,10 @@ volumes:
 ```sh
 docker-compose up --build
 ```
-* Simple log into your WordPress admin panel.
+* Simple login into your WordPress admin panel.
 
 ## Access
 
-* WordPress Administration : http://localhost:8080/wp-admin/install.php
+* WordPress Administration : http://localhost:8080/wp-admin/
 * WordPress Front-Office : http://localhost:8080
 

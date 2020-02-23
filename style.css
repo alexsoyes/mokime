@@ -153,16 +153,18 @@ input[type='button'][disabled],
 input[type='reset'][disabled],
 input[type='submit'][disabled] {
   cursor: default;
-    opacity: .5; }
-    .button[disabled]:focus, .button[disabled]:hover,
-    button[disabled]:focus,
-    button[disabled]:hover,
-    input[type='button'][disabled]:focus,
-    input[type='button'][disabled]:hover,
-    input[type='reset'][disabled]:focus,
-    input[type='reset'][disabled]:hover,
-    input[type='submit'][disabled]:focus,
-    input[type='submit'][disabled]:hover {
+  opacity: .5;
+}
+
+.button[disabled]:focus, .button[disabled]:hover,
+button[disabled]:focus,
+button[disabled]:hover,
+input[type='button'][disabled]:focus,
+input[type='button'][disabled]:hover,
+input[type='reset'][disabled]:focus,
+input[type='reset'][disabled]:hover,
+input[type='submit'][disabled]:focus,
+input[type='submit'][disabled]:hover {
       background-color: #219385;
       border-color: #219385; }
   .button.button-outline,
@@ -733,12 +735,16 @@ input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:fo
 
 select {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#d1d1d1" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat;
-  padding-right: 3.0rem; }
-  select:focus {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#9b4dca" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>'); }
+  padding-right: 3.0rem;
+}
+
+select:focus {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#9b4dca" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>');
+}
 
 textarea {
-  min-height: 6.5rem; }
+  min-height: 6.5rem;
+}
 
 label,
 legend {

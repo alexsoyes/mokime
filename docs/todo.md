@@ -1,46 +1,38 @@
 
-WordPress best pratices : https://make.wordpress.org/themes/handbook/review/resources/
+# Current release
 
-### Testing
-
-* Install WP on a server
-* Find accessibility test online
-* Pass Google Pagespeed
-* Pass Schema.org validator from Google
-* **OK** W3C validator
-* Theme Check
-* SEO online check
-  * Screaming frog
-  * https://www.seoptimer.com/mokime.security-helpzone.com 
-
-### Theming
-
-* Use style from Gutenberg ? https://wordpress.org/support/topic/block-library-documentation/#new-topic-0
-* PO/MO files... 
 * Configuration Theme in Style.css
   * Tags
   * Options 
   * Include screenshot.png or screenshot.jpg.
+* Erase database and test
+* Make a simple tour with Gi  
+ 
+# Next release
 
-* Default colors not loaded !!
-    * Add classes in main.scss
-    * Use default color in shared array
-    * **Set theme mod ?**
+## :sparkles: Customizer
 
-### Coding style
+* Customizer : Add widget properly so they can be updated
+* Customizer : Make the edit button appear for each element
 
-* Second level dropdown : https://codepen.io/sakthig/pen/RvwVYM?editors=1100
-* Autoprefixer : https://github.com/postcss/autoprefixer#javascript
-* Coding : https://torquemag.io/2018/01/enforce-code-standards-wordpress-development-using-composer/
+## :wheelchair: Accessibility
 
-# Version 1.1
+* https://make.wordpress.org/themes/handbook/review/accessibility/
 
-* Add widget properly so they can be update in customizer
-* Transient adds ?
-* 100% theme accessibility : https://make.wordpress.org/themes/handbook/review/accessibility/
+## :art: Schema.org
+
 * Add schema.org Article
   * https://developers.google.com/search/docs/data-types/article#non-amp
   * https://schema.org/Article
- 
+
+## :lipstick: Design 
+
+* Remove Bulma Navbar
+    * Make sure we can have multiple levels on dropdown
 * Author card
     * Add ability to use social links
+    
+## :zap: Performance
+
+* Default colors : put theme out of SCSS
+* Transient adds ?
