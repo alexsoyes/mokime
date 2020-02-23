@@ -46,23 +46,23 @@
             <div class="entry-content">
 
                 <header id="masthead" role="banner">
-					<?php get_template_part( 'template-parts/header/menu' ); ?>
+			        <?php get_template_part( 'template-parts/header/menu' ); ?>
                 </header><!-- #masthead -->
 
                 <div class="hero">
                     <div class="hero-body">
-						<?php
-						echo '<h1 class="hero-title has-text-weight-bold h2">' . $header_title . '</h1>';
-						if ( isset( $header_description ) && $header_description ) {
-							echo '<div class="hero-desc h6">' . $header_description . '</div>';
-						}
+				        <?php
+				        echo '<h1 class="hero-title has-text-weight-bold h2">' . esc_html( $header_title ) . '</h1>';
+				        if ( isset( $header_description ) && $header_description ) {
+					        echo '<div class="hero-desc h6">' . esc_html( $header_description ) . '</div>';
+				        }
 
-						if ( ( is_home() || is_front_page() ) && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
-							get_template_part( 'template-parts/header/search-form' );
-						} elseif ( is_single() ) {
-							get_template_part( 'template-parts/entry/entry-article-categories' );
-							the_tags( '<ul><li class="hashtag">', '</li><li class="hashtag">', '</li></ul>' );
-						}
+				        if ( ( is_home() || is_front_page() ) && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
+					        get_template_part( 'template-parts/header/search-form' );
+				        } elseif ( is_single() ) {
+					        get_template_part( 'template-parts/entry/entry-article-categories' );
+					        the_tags( '<ul><li class="hashtag">', '</li><li class="hashtag">', '</li></ul>' );
+				        }
 						?>
                     </div><!-- .hero-body -->
 

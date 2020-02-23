@@ -19,7 +19,7 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 		public function __construct() {
 			parent::__construct(
 				'mokime_widget_recent_entries',
-				'MokiMe : Display cat most recents',
+				esc_html__( 'MokiMe : Recent posts per cat', 'mokime' ),
 				array(
 					'classname'                   => 'mokime_widget_recent_entries',
 					'description'                 => __( 'Display the last posts from the current category (SEO power).', 'mokime' ),
@@ -98,16 +98,23 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 			if ( ! $r->have_posts() ) {
 				return;
 			}
+			?>
 
-			echo '<div class="widget-cta-categories">';
+            <div class="widget-cta-categories">
 
-			echo $args['before_widget'];
+				<?php
 
-			if ( $title ) {
-				echo $args['before_title'];
-				echo '<span class="is-small-text has-text-weight-light is-block">' . $title . '</span>';
-				echo $post_category->name . $args['after_title'];
-			}
+				echo wp_kses_post( $args['before_widget'] );
+
+				if ( $title ) {
+					printf(
+						'%s<span class="is-small-text has-text-weight-light is-block">%s</span>%s%s',
+						wp_kses_post( $args['before_title'] ),
+						wp_kses_post( $title ),
+						wp_kses_post( $post_category->name ),
+						wp_kses_post( $args['after_title'] )
+					);
+				}
 			?>
             <ul class="unstyled">
 				<?php foreach ( $r->posts as $recent_post ) : ?>
@@ -122,16 +129,22 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 					?>
                     <li class="has-text-overflowed is-overflowed-1">
 						<?php if ( $show_date ) : ?>
-                            <span class="post-date"><?php echo get_the_date( 'd/m/Y', $recent_post->ID ); ?> - </span>
+                            <span class="post-date">
+                                <?php echo esc_html( get_the_date( 'd/m/Y', $recent_post->ID ) ); ?> -
+                            </span>
 						<?php endif; ?>
-                        <a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>><?php echo $title; ?></a>
+                        <a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo esc_html( $aria_current ); ?>>
+							<?php echo wp_kses_post( $title ); ?>
+                        </a>
                     </li>
 				<?php endforeach; ?>
             </ul>
 
+				<?php echo wp_kses_post( $args['after_widget'] ); ?>
+
+            </div>
+
 			<?php
-			echo $args['after_widget'];
-			echo '</div>';
 		}
 
 		/**
@@ -167,22 +180,30 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 			$number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 			$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
 			?>
-            <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'mokime' ); ?></label>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
-                       name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
-                       value="<?php echo $title; ?>"/>
-            </p>
-
             <p>
-                <label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:', 'mokime' ); ?></label>
-                <input class="tiny-text" id="<?php echo $this->get_field_id( 'number' ); ?>"
-                       name="<?php echo $this->get_field_name( 'number' ); ?>" type="number" step="1" min="1"
-                       value="<?php echo $number; ?>" size="3"/></p>
-
-            <p><input class="checkbox" type="checkbox"<?php checked( $show_date ); ?>
-                      id="<?php echo $this->get_field_id( 'show_date' ); ?>"
-                      name="<?php echo $this->get_field_name( 'show_date' ); ?>"/>
-                <label for="<?php echo $this->get_field_id( 'show_date' ); ?>"><?php _e( 'Display post date?', 'mokime' ); ?></label>
+                <label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>">
+					<?php esc_html_e( 'Title:', 'mokime' ); ?>
+                </label>
+                <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"
+                       name="<?php echo wp_kses_post( $this->get_field_name( 'title' ) ); ?>" type="text"
+                       value="<?php echo wp_kses_post( $title ); ?>"/>
+            </p>
+            <p>
+                <label for="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>">
+					<?php esc_html_e( 'Number of posts to show:', 'mokime' ); ?>
+                </label>
+                <input class="tiny-text" id="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>"
+                       name="<?php echo esc_html( $this->get_field_name( 'number' ) ); ?>" type="number" step="1"
+                       min="1"
+                       value="<?php echo esc_html( $number ); ?>" size="3"/>
+            </p>
+            <p>
+                <input class="checkbox" type="checkbox"<?php checked( $show_date ); ?>
+                       id="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>"
+                       name="<?php echo esc_html( $this->get_field_name( 'show_date' ) ); ?>"/>
+                <label for="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>">
+					<?php esc_html_e( 'Display post date?', 'mokime' ); ?>
+                </label>
             </p>
 			<?php
 		}

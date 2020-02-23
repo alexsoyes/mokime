@@ -10,7 +10,7 @@
 
     <div class="header-footer-group wrapper">
 
-		<?php get_template_part( 'template-parts/footer/menus-widgets' ); ?>
+	    <?php get_template_part( 'template-parts/footer/menus-widgets' ); ?>
 
         <div class="section-inner">
 
@@ -19,10 +19,10 @@
                 <p class="footer-copyright has-text-align-center">
                     <small class="is-white">
                         <a href="https://moki.me" title="Theme MokiMe" target="_blank" class="is-white">
-							<?php _e( 'High performance theme', 'mokime' ) ?>
+						    <?php esc_html_e( 'High performance theme', 'mokime' ) ?>
                         </a>
-						<?php _e( 'made by ', 'mokime' ) ?>
-	                    <a href="https://www.security-helpzone.com" target="_blank" class="is-white">SHZ</a>.
+					    <?php esc_html_e( 'made by ', 'mokime' ) ?>
+                        <a href="https://www.security-helpzone.com" target="_blank" class="is-white">SHZ</a>.
                     </small>
                 </p>
 

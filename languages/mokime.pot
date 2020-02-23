@@ -85,6 +85,10 @@ msgstr ""
 msgid "Disable JSON API."
 msgstr ""
 
+#: classes/class-mokime-widget-recent-posts.php:22
+msgid "MokiMe : Recent posts per cat"
+msgstr ""
+
 #: classes/class-mokime-widget-recent-posts.php:185
 msgid "Display post date?"
 msgstr ""
@@ -234,6 +238,10 @@ msgstr ""
 
 #: classes/class-mokime-customize.php:32
 msgid "Primary Color"
+msgstr ""
+
+#: classes/class-mokime-widget-cta-post.php:16
+msgid "MokiMe : CTA for Single Posts"
 msgstr ""
 
 #: classes/class-mokime-widget-cta-post.php:51

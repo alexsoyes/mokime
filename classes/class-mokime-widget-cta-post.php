@@ -13,7 +13,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		public function __construct() {
 			parent::__construct(
 				'mokime_widget_cta_post', // Base ID
-				'MokiMe : CTA for Single Post.', // Name
+				esc_html__( 'MokiMe : CTA for Single Posts', 'mokime' ), // Name
 				array( 'description' => __( 'Create a beautiful call-to-action for your single posts.', 'mokime' ), ) // Args
 			);
 		}
@@ -38,29 +38,44 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 			if ( $post ) {
 				ob_start();
 				?>
-                <div class="widget-cta-single">
-                    <div class="card">
-                        <div class="card-image"<?php if ( $post_image ): ?> style="<?php echo sprintf( " background-image: url('%s')", $post_image ) ?>"<?php endif ?>></div>
-                        <!-- .card-image -->
-                        <div class="card-content">
-                            <p class="h3 card-title has-text-weight-bold"><?php echo $post->post_title; ?></p>
-                            <p class="description"><?php echo $post->post_excerpt; ?></p>
-                            <div class="card-actions">
-                                <a href="<?php echo get_the_permalink( $id ) ?>"
-                                   class="button"
-                                   title="<?php echo __( 'Read now', 'mokime' ) . " : $post->post_title"; ?>">
-									<?php _e( 'Read now', 'mokime' ) ?>
-                                </a>
-                            </div>
-                        </div><!--.card-content -->
-                    </div><!-- .card -->
-                </div><!-- .widget-cta-single -->
+				<div class="widget-cta-single">
+
+					<div class="card">
+
+						<div
+							class="card-image"<?php if ( $post_image ): ?> style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ) ?>"<?php endif ?>></div>
+
+						<div class="card-content">
+
+							<p class="h3 card-title has-text-weight-bold">
+								<a href="<?php echo esc_html( get_the_permalink( $id ) ); ?>">
+									<?php echo esc_html( $post->post_title ); ?>
+								</a>
+							</p>
+
+							<p class="description"><?php echo wp_kses_post( $post->post_excerpt ); ?></p>
+
+							<div class="card-actions">
+
+								<a href="<?php echo esc_html( get_the_permalink( $id ) ); ?>"
+								   class="button"
+								   title="<?php echo esc_html__( 'Read now', 'mokime' ) . " : " . wp_kses_post( $post->post_title ); ?>">
+									<?php esc_html_e( 'Read now', 'mokime' ) ?>
+								</a>
+
+							</div><!-- .card-actions -->
+
+						</div><!--.card-content -->
+
+					</div><!-- .card -->
+
+				</div><!-- .widget-cta-single -->
 				<?php
 				$output = ob_get_contents();
 				ob_clean();
-				echo $output;
+				echo wp_kses_post( $output );
 			} else {
-				echo sprintf('<p>The following post id (%d) does not exist.</p>', $id);
+				printf( '<p>The following post id (%d) does not exist.</p>', esc_html( $id ) );
 			}
 		}
 
@@ -79,12 +94,13 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 				$id = '';
 			}
 			?>
-            <p>
-                <label for="<?php echo $this->get_field_name( 'id' ); ?>"><?php _e( 'Single Post Id:', 'mokime' ); ?></label>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'id' ); ?>"
-                       name="<?php echo $this->get_field_name( 'id' ); ?>" type="text"
-                       value="<?php echo esc_attr( $id ); ?>"/>
-            </p>
+			<p>
+				<label
+					for="<?php echo esc_html( $this->get_field_name( 'id' ) ); ?>"><?php esc_html_e( 'Single Post Id:', 'mokime' ); ?></label>
+				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'id' ) ); ?>"
+				       name="<?php echo esc_html( $this->get_field_name( 'id' ) ); ?>" type="text"
+				       value="<?php echo esc_attr( $id ); ?>"/>
+			</p>
 			<?php
 		}
 

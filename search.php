@@ -3,7 +3,7 @@
 <div class="is-search entry-content">
 
     <div class="section-inner">
-		<?php get_search_form( array( 'label' => __( 'Search again', 'mokime' ) ) ); ?>
+		<?php get_search_form( array( 'label' => esc_html__( 'Search again', 'mokime' ) ) ); ?>
     </div><!-- .section-inner -->
 
 	<?php
@@ -11,7 +11,7 @@
 
 	$archive_title = sprintf(
 		'%1$s %2$s',
-		'<span class="color-accent">' . __( 'Search:', 'mokime' ) . '</span>',
+		'<span class="color-accent">' . esc_html_e( 'Search:', 'mokime' ) . '</span>',
 		'&ldquo;' . get_search_query() . '&rdquo;'
 	);
 
@@ -34,9 +34,10 @@
 		get_template_part( 'template-parts/entry/entry-posts' );
 
 	} else {
-		echo '<div>';
-		echo __( 'We could not find any results for your search. You can give it another try through the search form below.', 'mokime' );
-		echo '</div>';
+		printf(
+			'<div>%s</div>',
+			esc_html__( 'We could not find any results for your search. You can give it another try through the search form below.', 'mokime' )
+		);
 	}
 
 	?>

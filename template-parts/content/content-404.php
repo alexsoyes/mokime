@@ -4,7 +4,7 @@ $recent_posts = get_the_last_posts( 3 );
 
 if ( $recent_posts ) {
 
-	echo '<h2 class="title has-text-weight-light">' . __( 'Our last posts', 'mokime' ) . '</h2>';
+	echo '<h2 class="title has-text-weight-light">' . esc_html__( 'Our last posts', 'mokime' ) . '</h2>';
 	echo '<div class="wp-block-columns">';
 
 	// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited

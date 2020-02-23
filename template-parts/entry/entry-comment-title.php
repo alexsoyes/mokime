@@ -5,12 +5,12 @@
     <p class="h2 comment-reply-title">
 		<?php
 		if ( ! have_comments() ) {
-			_e( 'Leave a comment', 'mokime' );
+			esc_html_e( 'Leave a comment', 'mokime' );
 		} elseif ( '1' === $comments_number ) {
 			/* translators: %s: post title */
-			printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'mokime' ), esc_html( get_the_title() ) );
+			printf( esc_html_x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'mokime' ), esc_html( get_the_title() ) );
 		} else {
-			echo sprintf(
+			echo wp_kses_post( sprintf(
 			/* translators: 1: number of comments, 2: post title */
 				_nx(
 					'%1$s reply on &ldquo;%2$s&rdquo;',
@@ -21,7 +21,7 @@
 				),
 				number_format_i18n( $comments_number ),
 				esc_html( get_the_title() )
-			);
+			) );
 		}
 		?>
     </p><!-- .comments-title -->

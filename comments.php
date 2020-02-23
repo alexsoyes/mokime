@@ -93,7 +93,7 @@ if ( comments_open() || pings_open() ) {
 
     <div class="comment-respond" id="respond">
 
-        <p class="comments-closed"><?php _e( 'Comments are closed.', 'mokime' ); ?></p>
+        <p class="comments-closed"><?php esc_html_e( 'Comments are closed.', 'mokime' ); ?></p>
 
     </div><!-- #respond -->
 

@@ -2,7 +2,7 @@
          itemtype="http://schema.org/BlogPosting">
     <div class="card card--gapped">
 		<?php $post_image = mokime_get_post_thumbnail_url( get_post() ); ?>
-        <div class="card-image"<?php if ( $post_image ): ?> style="<?php echo sprintf( " background-image: url('%s')", $post_image ) ?>"<?php endif ?>></div>
+        <div class="card-image"<?php if ( $post_image ): ?> style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ) ?>"<?php endif ?>></div>
         <!-- .card--image -->
 
         <div class="card-content">
@@ -15,7 +15,7 @@
                 </a>
             </h3><!-- .card-title -->
 
-            <p class="has-text-justified has-text-overflowed is-overflowed-3"><?php echo get_the_excerpt(); ?></p>
+            <p class="has-text-justified has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( get_the_excerpt() ); ?></p>
 
             <div class="card-date">
                 <time class="is-small-text" datetime="<?php echo get_the_date( 'c' ); ?>"

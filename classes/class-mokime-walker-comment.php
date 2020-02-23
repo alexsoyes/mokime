@@ -57,20 +57,20 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 
 					if ( $by_post_author ) {
 						$post_author = ' <span class="by-post-author tag">' . __( 'Post Author', 'mokime' ) . '</span>';
-		            }
+					}
 
-		            /* Translators: 1 = comment date, 2 = comment time */
-		            $comment_timestamp = sprintf( __( '%1$s at %2$s', 'mokime' ), get_comment_date( 'l j F Y', $comment ), get_comment_time() );
+					/* Translators: 1 = comment date, 2 = comment time */
+					$comment_timestamp = sprintf( __( '%1$s at %2$s', 'mokime' ), get_comment_date( 'l j F Y', $comment ), get_comment_time() );
 
-		            ob_start();
+					ob_start();
 
-		            ?>
+					?>
                     <small class="tag">
                         <time datetime="<?php comment_time( 'c' ); ?>"
-		                      title="<?php echo esc_attr( $comment_timestamp ); ?>">
+                              title="<?php echo esc_attr( $comment_timestamp ); ?>">
 			                <?php echo esc_html( $comment_timestamp ); ?>
-		                </time>
-	                </small>
+                        </time>
+                    </small>
 	                <?php
 
 	                $output = ob_get_contents();
@@ -81,18 +81,21 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 		                '<p class="comment-info"><span class="fn">%1$s</span>%2$s %3$s</p>',
 		                ! empty( $comment_author_url ) ?
 			                esc_html( $comment_author ) :
-			                sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', $comment_author_url, $comment_author ),
+			                sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', esc_html( $comment_author_url ), esc_html( $comment_author ) ),
+		                //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		                $output,
-		                $post_author
+		                esc_html( $post_author )
 	                );
 
 	                comment_text();
 
 	                if ( '0' === $comment->comment_approved ): ?>
-		                <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'mokime' ); ?></p>
+                        <p class="comment-awaiting-moderation">
+			                <?php __( 'Your comment is awaiting moderation.', 'mokime' ); ?>
+                        </p>
 	                <?php endif; ?>
 
-	                <div class="comment-metadata">
+                    <div class="comment-metadata">
 		                <?php
 
 		                $comment_reply_link = get_comment_reply_link(
@@ -108,25 +111,28 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 			                )
 		                );
 		                ?>
-		                <p>
+                        <p>
 			                <?php
 			                if ( get_edit_comment_link() ) {
-				                echo '<a class="comment-edit-link has-regular-font-size" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'mokime' ) . '</a> <span aria-hidden="true">&bull;</span> ';
+				                printf( '<a class="comment-edit-link has-regular-font-size" href="%s">%s</a> <span aria-hidden="true">&bull;</span> ',
+					                esc_url( get_edit_comment_link() ),
+					                esc_html__( 'Edit', 'mokime' )
+				                );
 			                }
 
 			                if ( $comment_reply_link ) {
-				                echo '' . $comment_reply_link;
+				                echo wp_kses_post( $comment_reply_link );
 			                }
 
 			                echo sprintf(
 				                ' &bull; <a href="%1$s" class="has-regular-font-size">%2$s</a>',
 				                esc_url( get_comment_link( $comment, $args ) ),
-				                __( 'Link to the comment', 'mokime' )
+				                esc_html__( 'Link to the comment', 'mokime' )
 			                );
 			                ?>
-		                </p>
+                        </p>
 
-	                </div><!-- .comment-metadata -->
+                    </div><!-- .comment-metadata -->
 
                 </div><!-- .media-content -->
 

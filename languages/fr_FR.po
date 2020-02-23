@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-02-23 12:56+0000\n"
+"PO-Revision-Date: 2020-02-23 14:09+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -83,6 +83,10 @@ msgstr "Désactiver le style de Gutenberg."
 #: classes/class-mokime-customize.php:161
 msgid "Disable JSON API."
 msgstr "Désactiver l'API JSON."
+
+#: classes/class-mokime-widget-recent-posts.php:22
+msgid "MokiMe : Recent posts per cat"
+msgstr "MokiMe : Articles récents de la catégorie principale"
 
 #: classes/class-mokime-widget-recent-posts.php:185
 msgid "Display post date?"
@@ -234,6 +238,10 @@ msgstr "Pré pied de page"
 #: classes/class-mokime-customize.php:32
 msgid "Primary Color"
 msgstr "Couleur primaire"
+
+#: classes/class-mokime-widget-cta-post.php:16
+msgid "MokiMe : CTA for Single Posts"
+msgstr "MokiMe : Bouton d'appel pour un article"
 
 #: classes/class-mokime-widget-cta-post.php:51
 #: classes/class-mokime-widget-cta-post.php:52
