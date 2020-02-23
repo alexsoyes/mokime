@@ -7,6 +7,9 @@
   * Include screenshot.png or screenshot.jpg.
 * Erase database and test
 * Make a simple tour with Gi  
+* Pages with comments : http://localhost:8080/?page_id=155
+* Customizer not same colors as default theme
+* Code sniffer compliancy
  
 # Next release
 
