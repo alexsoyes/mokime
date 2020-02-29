@@ -71,7 +71,7 @@ function mokime_theme_support() {
 	add_theme_support(
 		'custom-header',
 		array(
-			// 'default-image'      => get_template_directory_uri() . 'img/default-image.jpg',
+			'default-image'      => get_template_directory_uri() . '/assets/img/mokime-custom-header.jpg',
 			'default-text-color' => 'fff',
 			'width'              => 1000,
 			'height'             => 250,
