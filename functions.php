@@ -12,9 +12,6 @@ function mokime_theme_support() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
-
 	// Custom background color.
 	add_theme_support(
 		'custom-background',
@@ -124,7 +121,6 @@ function mokime_theme_support() {
 }
 
 add_action( 'after_setup_theme', 'mokime_theme_support' );
-
 
 /**
  * Register default header image
@@ -415,10 +411,11 @@ function mokime_setup_options() {
 
 	set_theme_mod( 'primary_color', '#53257F' );
 	set_theme_mod( 'secondary_color', '#49516f' );
+	set_theme_mod( 'header_textcolor', 'fff' );
 	set_theme_mod( 'footer_text_color', '#dcdcdd' );
 	set_theme_mod( 'footer_background_color', '#222222' );
 	set_theme_mod( 'header_background_color', '#49516f' );
-	set_theme_mod( 'header_hero_text_color', '#FFF' );
+	set_theme_mod( 'header_hero_text_color', '#fff' );
 }
 
 add_action( 'after_switch_theme', 'mokime_setup_options' );
