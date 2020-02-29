@@ -26,7 +26,7 @@ if ( $next_post || $prev_post ) {
     <nav class="pagination-single section-inner<?php echo esc_attr( $pagination_classes ); ?>"
          aria-label="<?php esc_attr_e( 'Post', 'mokime' ); ?>" role="navigation">
 
-        <hr class="styled-separator is-style-wide" aria-hidden="true"/>
+        <hr aria-hidden="true"/>
 
         <div class="pagination-single-inner wp-block-columns">
 

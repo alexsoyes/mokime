@@ -14,3 +14,9 @@
 .page-numbers.current {
   font-weight: bold;
 }
+
+@media (max-width: 599px) {
+  .pagination-single-inner > div:nth-child(2) {
+    margin-top: 4rem;
+  }
+}

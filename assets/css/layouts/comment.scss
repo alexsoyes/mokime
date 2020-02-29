@@ -6,11 +6,19 @@
 
 .media-left {
   margin: 0px 1.5rem 0px 0px;
+  flex: 1 0 auto;
 }
 
 .comment-body {
+  flex-direction: column;
   margin-top: 3rem;
   margin-bottom: 6rem;
+}
+
+@media (min-width: 782px) {
+  .comment-body {
+    flex-direction: row;
+  }
 }
 
 .comment-info {
@@ -32,7 +40,7 @@
 
 .comments-wrapper {
   .avatar {
-    width: auto;
-    height: auto;
+    width: 64px;
+    height: 64px;
   }
 }
