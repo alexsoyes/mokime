@@ -18,13 +18,17 @@
   }
 
   .social-menu.footer-social li .svg-icon:hover {
-    transition: 1s all;
+    transition: 1.5s all;
   }
 
   .social-menu.footer-social li .svg-icon {
     width: 3rem;
     height: 3rem;
   }
+}
+
+.footer-widgets-wrapper .wp-block-column {
+  padding-right: 32px;
 }
 
 .footer-copyright {

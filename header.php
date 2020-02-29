@@ -52,9 +52,11 @@
                 <div class="hero">
                     <div class="hero-body">
 				        <?php
+				        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				        echo '<h1 class="hero-title has-text-weight-bold h2">' . $header_title . '</h1>';
 				        if ( isset( $header_description ) && $header_description ) {
-					        echo '<div class="hero-desc h6">' . esc_html( $header_description ) . '</div>';
+					        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					        echo '<div class="hero-desc h6">' . $header_description . '</div>';
 				        }
 
 				        if ( ( is_home() || is_front_page() ) && (bool) get_theme_mod( 'homepage_header_search', true ) ) {

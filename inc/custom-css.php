@@ -77,7 +77,11 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 		foreach ( $colors as $theme_mod_id => $color ) {
 			// second level, loop into the classes for the given mod id
 			foreach ( $color as $color_values ) {
-				$hex_color = get_theme_mod( $theme_mod_id );
+				if ( $theme_mod_id === 'header_textcolor' ) {
+					$hex_color = get_header_textcolor();
+				} else {
+					$hex_color = get_theme_mod( $theme_mod_id );
+				}
 				mokime_generate_css( $color_values['elements'], $color_values['type'], $hex_color, $color_values['prefix'] );
 			}
 		}
@@ -134,12 +138,12 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'secondary_color'         => array(
 				array(
 					'type'     => 'color',
-					'elements' => '.color-secondary, .navbar-item, .navbar-link',
+					'elements' => '.color-secondary',
 					'prefix'   => ''
 				),
 				array(
 					'type'     => 'background-color',
-					'elements' => '.button:focus, .button:hover, button:focus, button:hover, input[type="button"]:focus, input[type="button"]:hover, input[type="reset"]:focus, input[type="reset"]:hover, input[type="submit"]:focus, input[type="submit"]:hover',
+					'elements' => '.card .card-image, .button:focus, .button:hover, button:focus, button:hover, input[type="button"]:focus, input[type="button"]:hover, input[type="reset"]:focus, input[type="reset"]:hover, input[type="submit"]:focus, input[type="submit"]:hover',
 					'prefix'   => ''
 				),
 				array(
@@ -175,7 +179,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'header_textcolor'        => array(
 				array(
 					'type'     => 'color',
-					'elements' => '.navbar-dropdown .navbar-item, a.navbar-item.is-active, .navbar-link.is-active, .navbar-item, .navbar-link, .navbar-burger',
+					'elements' => 'a.navbar-item, .navbar-link, .navbar-dropdown .navbar-item, a.navbar-item.is-active, .navbar-link.is-active, .navbar-item, .navbar-link, .navbar-burger',
 					'prefix'   => '#'
 				),
 				array(

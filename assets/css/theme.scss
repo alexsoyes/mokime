@@ -28,7 +28,7 @@ input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:fo
   color: $color-secondary;
 }
 
-.button:focus, .button:hover, button:focus, button:hover, input[type="button"]:focus, input[type="button"]:hover, input[type="reset"]:focus, input[type="reset"]:hover, input[type="submit"]:focus, input[type="submit"]:hover {
+.card .card-image, .button:focus, .button:hover, button:focus, button:hover, input[type="button"]:focus, input[type="button"]:hover, input[type="reset"]:focus, input[type="reset"]:hover, input[type="submit"]:focus, input[type="submit"]:hover {
   background-color: $color-secondary;
 }
 
@@ -58,7 +58,7 @@ footer {
 /* Header
    ========================================================================== */
 
-.navbar-dropdown .navbar-item, a.navbar-item.is-active, .navbar-link.is-active, .navbar-item, .navbar-link, .navbar-burger {
+a.navbar-item, .navbar-link, .navbar-dropdown .navbar-item, a.navbar-item.is-active, .navbar-link.is-active, .navbar-item, .navbar-link, .navbar-burger {
   color: $color-light;
 }
 
