@@ -11,7 +11,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<?php
-	if ( is_single() && has_post_thumbnail() ) {
+	if ( is_single() ) {
 		$header_title       = get_the_title();
 		$header_description = get_the_excerpt();
 	} elseif ( is_page() && ( ! is_home() && ! is_front_page() ) ) {
@@ -52,7 +52,7 @@
                 <div class="hero">
                     <div class="hero-body">
 				        <?php
-				        echo '<h1 class="hero-title has-text-weight-bold h2">' . esc_html( $header_title ) . '</h1>';
+				        echo '<h1 class="hero-title has-text-weight-bold h2">' . $header_title . '</h1>';
 				        if ( isset( $header_description ) && $header_description ) {
 					        echo '<div class="hero-desc h6">' . esc_html( $header_description ) . '</div>';
 				        }
