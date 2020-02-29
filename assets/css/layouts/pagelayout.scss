@@ -33,6 +33,27 @@ pre, code {
   word-wrap: break-word; /* IE 5.5+ */
 }
 
+pre {
+  background-color: $color-light;
+  padding: 1rem 2rem;
+  margin: 1rem 0px;
+}
+
+code {
+  border-radius: .4rem;
+  font-size: 86%;
+  margin: .5rem;
+  padding: .5rem 1rem;
+  display: inline-block;
+  background-color: $color-dark;
+  color: $color-light;
+}
+
+code br {
+  display: inline;
+}
+
+
 body {
   p {
     margin-bottom: 0.5rem;
