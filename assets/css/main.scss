@@ -1,18 +1,15 @@
 /*
 Theme Name: Mokime
 Theme URI: http://wordpress.org/themes/mokime
-Author: The Moki theme
+Author: AlexSoyer
 Author URI: https://moki.me
-Description: High performance and SEO WordPress theme
+Description: High performance WordPress theme
 Version: 1.0
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Tags: one-column, two-columns, right-sidebar, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Tags: one-column, two-columns, right-sidebar, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, blog
 Text Domain: mokime
 Domain Path: /languages
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
 */
 
 $color-initial: #dcdcdd;
@@ -20,13 +17,9 @@ $color-primary: #53257F;
 $color-secondary: #49516f;
 $color-tertiary: #c5c3c6;
 $color-quaternary: #c5c3c6;
-$color-quinary: $color-quaternary;
+$color-quinary: #c5c3c6;
 $color-dark: #222222;
 $color-light: #dcdcdd;
-$color-white;
-#fff
-
-;
 $color-grey: #8d8d8d;
 $color-link: #3d7e9a;
 
