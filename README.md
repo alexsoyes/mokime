@@ -6,6 +6,7 @@
 
 ## Special thanks
 
+* [For screenshot.png generation](https://croppola.com/)
 * Main photo by [Joshua Earle on Unsplash](https://unsplash.com/photos/C6duwascOEA)
 * [WordPress](https://wordpress.org)
 * [Gutenberg](https://fr.wordpress.org/gutenberg/)
