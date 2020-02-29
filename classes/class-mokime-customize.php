@@ -296,7 +296,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				'homepage_last_posts',
 				array(
 					'capability'        => 'edit_theme_options',
-					'default'           => true,
+					'default'           => false,
 					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
 				)
 			);
