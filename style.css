@@ -20,19 +20,24 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* Primary colors
    ========================================================================== */
 .color-primary, .site-footer a:hover {
-  color: #219385; }
+  color: #53257F;
+}
 
 .button, button, input[type="button"], input[type="reset"], input[type="submit"] {
-  background-color: #219385; }
+  background-color: #53257F;
+}
 
 .button, button, input[type="button"], input[type="reset"], input[type="submit"] {
-  border: 0.1rem solid #219385; }
+  border: 0.1rem solid #53257F;
+}
 
 input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, textarea:focus, select:focus {
-  border-color: #219385; }
+  border-color: #53257F;
+}
 
 .site-footer .svg-icon:hover {
-  fill: #219385; }
+  fill: #53257F;
+}
 
 /* Secondary colors
    ========================================================================== */
@@ -68,10 +73,12 @@ a.navbar-item, .navbar-link, .navbar-dropdown .navbar-item, a.navbar-item.is-act
   background-color: #49516f; }
 
 .hero-title, .hero-desc, .hero input, .hashtag, .hashtag a {
-  color: #219385; }
+  color: #53257F;
+}
 
 .hero input[type="search"] {
-  border-color: #219385; }
+  border-color: #53257F;
+}
 
 /* ==========================================================================
    CSS dependencies
@@ -87,8 +94,8 @@ blockquote {
     margin-bottom: 0; }
 
 .button, button, input[type="button"], input[type="reset"], input[type="submit"] {
-  background-color: #219385;
-  border: 0.1rem solid #219385;
+  background-color: #53257F;
+  border: 0.1rem solid #53257F;
   border-radius: .4rem;
   color: #dcdcdd;
   cursor: pointer;
@@ -132,15 +139,17 @@ blockquote {
     input[type='reset'][disabled]:hover,
     input[type='submit'][disabled]:focus,
     input[type='submit'][disabled]:hover {
-      background-color: #219385;
-      border-color: #219385; }
+      background-color: #53257F;
+      border-color: #53257F;
+    }
   .button.button-outline,
   button.button-outline,
   input[type='button'].button-outline,
   input[type='reset'].button-outline,
   input[type='submit'].button-outline {
     background-color: transparent;
-    color: #219385; }
+    color: #53257F;
+  }
     .button.button-outline:focus, .button.button-outline:hover,
     button.button-outline:focus,
     button.button-outline:hover,
@@ -163,7 +172,8 @@ blockquote {
     input[type='submit'].button-outline[disabled]:focus,
     input[type='submit'].button-outline[disabled]:hover {
       border-color: inherit;
-      color: #219385; }
+      color: #53257F;
+    }
   .button.button-clear,
   button.button-clear,
   input[type='button'].button-clear,
@@ -171,7 +181,8 @@ blockquote {
   input[type='submit'].button-clear {
     background-color: transparent;
     border-color: transparent;
-    color: #219385; }
+    color: #53257F;
+  }
     .button.button-clear:focus, .button.button-clear:hover,
     button.button-clear:focus,
     button.button-clear:hover,
@@ -193,7 +204,8 @@ blockquote {
     input[type='reset'].button-clear[disabled]:hover,
     input[type='submit'].button-clear[disabled]:focus,
     input[type='submit'].button-clear[disabled]:hover {
-      color: #219385; }
+      color: #53257F;
+    }
 
 .button, button, input[type="button"], input[type="reset"], input[type="submit"] {
   transition: 1s all; }

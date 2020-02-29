@@ -125,6 +125,18 @@ function mokime_theme_support() {
 
 add_action( 'after_setup_theme', 'mokime_theme_support' );
 
+
+/**
+ * Register default header image
+ */
+register_default_headers( array(
+	'default-image' => array(
+		'url'           => get_template_directory_uri() . '/assets/img/mokime-custom-header.jpg',
+		'thumbnail_url' => get_template_directory_uri() . '/assets/img/mokime-custom-header.jpg',
+		'description'   => ''
+	),
+) );
+
 /**
  * Check performance options in customizer
  */
@@ -401,13 +413,12 @@ function mokime_setup_options() {
 	set_theme_mod( 'homepage_header_search', true );
 	set_theme_mod( 'homepage_last_posts', false );
 
-
-	set_theme_mod( 'primary_color', '#219385' );
+	set_theme_mod( 'primary_color', '#53257F' );
 	set_theme_mod( 'secondary_color', '#49516f' );
 	set_theme_mod( 'footer_text_color', '#dcdcdd' );
 	set_theme_mod( 'footer_background_color', '#222222' );
-	set_theme_mod( 'header_background_color', '#c5c3c6' );
-	set_theme_mod( 'header_hero_text_color', '#49516f' );
+	set_theme_mod( 'header_background_color', '#49516f' );
+	set_theme_mod( 'header_hero_text_color', '#FFF' );
 }
 
 add_action( 'after_switch_theme', 'mokime_setup_options' );
