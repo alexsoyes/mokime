@@ -1,0 +1,14 @@
+
+ul ul {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+ul {
+  padding: 0px;
+  color: $color-dark;
+
+  &.sub-menu {
+    padding-left: 1rem;
+  }
+}

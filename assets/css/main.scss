@@ -21,10 +21,10 @@ $color-secondary: #49516f;
 $color-tertiary: #c5c3c6;
 $color-quaternary: #c5c3c6;
 $color-quinary: $color-quaternary;
-$color-link: #219385;
 $color-dark: #222222;
 $color-light: #dcdcdd;
 $color-grey: #8d8d8d;
+$color-link: #3d7e9a;
 
 $radius-large: 8px;
 
@@ -42,13 +42,11 @@ $radius-large: 8px;
 
 /* Milligram
    ========================================================================== */
-@import "../../node_modules/milligram/src/Base";
+//@import "../../node_modules/milligram/src/Base";
 @import "../../node_modules/milligram/src/Blockquote";
 @import "../../node_modules/milligram/src/Button";
 @import "../../node_modules/milligram/src/Divider";
 @import "../../node_modules/milligram/src/List";
-@import "../../node_modules/milligram/src/Table";
-@import "../../node_modules/milligram/src/Image";
 
 /* Normalize.css
    ========================================================================== */
@@ -89,6 +87,12 @@ $radius-large: 8px;
 @import "layouts/pagelayout";
 @import "layouts/header";
 @import "layouts/footer";
+
+/* Layouts
+   ========================================================================== */
+@import "layouts/list";
+@import "layouts/code";
+@import "layouts/table";
 
 /* Gutenberg columns
    ========================================================================== */

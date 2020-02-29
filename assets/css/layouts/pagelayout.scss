@@ -1,7 +1,39 @@
 
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  color: $color-dark;
+  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: .01em;
+  line-height: 1.6;
+}
+
+/** Global elements **/
+
+a {
+  text-decoration: none;
+}
+
+body {
+  p {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/** Page layouts  **/
+
 .site-header {
-  //border-radius: 0px 0px 60% 60%;
-  //background-attachment: fixed;
   background-position: top center;
   background-size: cover;
 }
@@ -9,55 +41,6 @@
 #site-footer {
   .column > div:not(:first-child) {
     margin-top: 3rem;
-  }
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-  padding: 0px;
-  color: $color-dark;
-
-  &.sub-menu {
-    padding-left: 1rem;
-  }
-}
-
-pre, code {
-  white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
-  white-space: -pre-wrap; /* Opera */
-  white-space: -o-pre-wrap; /* Opera */
-  white-space: pre-line;
-  word-wrap: break-word; /* IE 5.5+ */
-}
-
-pre {
-  background-color: $color-light;
-  padding: 1rem 2rem;
-  margin: 1rem 0px;
-}
-
-code {
-  border-radius: .4rem;
-  font-size: 86%;
-  margin: .5rem;
-  padding: .5rem 1rem;
-  display: inline-block;
-  background-color: $color-dark;
-  color: $color-light;
-}
-
-code br {
-  display: inline;
-}
-
-
-body {
-  p {
-    margin-bottom: 0.5rem;
   }
 }
 

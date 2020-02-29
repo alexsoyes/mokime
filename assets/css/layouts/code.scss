@@ -1,0 +1,33 @@
+
+pre, code {
+  white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+  white-space: -pre-wrap; /* Opera */
+  white-space: -o-pre-wrap; /* Opera */
+  white-space: pre-line;
+  word-wrap: break-word; /* IE 5.5+ */
+}
+
+pre {
+  background-color: $color-light;
+  padding: 1rem 2rem;
+  margin: 1rem 0px;
+}
+
+code {
+  border-radius: .4rem;
+  font-size: 86%;
+  margin: .5rem;
+  padding: .5rem 1rem;
+  display: inline-block;
+  background-color: $color-dark;
+  color: $color-light;
+}
+
+pre code {
+  background-color: transparent;
+  color: $color-dark;
+}
+
+code br {
+  display: inline;
+}

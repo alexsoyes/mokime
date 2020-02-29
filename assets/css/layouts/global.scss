@@ -10,13 +10,23 @@ strong {
 
 p {
   margin-top: 0;
-  color: #333;
 }
 
 a {
-  color: #3d7e9a;
+  color: $color-link;
 
   &:hover {
     text-decoration: underline;
   }
+}
+
+figure,
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.wp-caption {
+  width: auto !important;
 }

@@ -34,6 +34,11 @@
 
   .post-metadata {
     margin-top: 5rem;
-    color: $color-grey;
+  }
+
+  @media (min-width: 782px) {
+    .section-inner__date > p {
+      display: inline-block;
+    }
   }
 }
