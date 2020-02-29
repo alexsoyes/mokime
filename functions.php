@@ -389,6 +389,29 @@ function mokime_skip_link() {
 
 add_action( 'wp_body_open', 'mokime_skip_link', 5 );
 
+
+/**
+ * Triggered just after theme activation
+ */
+function mokime_setup_options() {
+	set_theme_mod( 'single_post_sidebar_sticky', true );
+	set_theme_mod( 'single_post_nav_posts', true );
+	set_theme_mod( 'single_post_author_bio', true );
+
+	set_theme_mod( 'homepage_header_search', true );
+	set_theme_mod( 'homepage_last_posts', false );
+
+
+	set_theme_mod( 'primary_color', '#219385' );
+	set_theme_mod( 'secondary_color', '#49516f' );
+	set_theme_mod( 'footer_text_color', '#dcdcdd' );
+	set_theme_mod( 'footer_background_color', '#222222' );
+	set_theme_mod( 'header_background_color', '#c5c3c6' );
+	set_theme_mod( 'header_hero_text_color', '#49516f' );
+}
+
+add_action( 'after_switch_theme', 'mokime_setup_options' );
+
 /**
  * Register and Enqueue Scripts.
  */
