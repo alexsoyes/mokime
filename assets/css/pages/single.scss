@@ -13,6 +13,7 @@
     .post-inner {
       p {
         font-size: 1.8rem;
+        margin-bottom: 2rem;
       }
     }
   }
@@ -40,5 +41,18 @@
     .section-inner__date > p {
       display: inline-block;
     }
+  }
+
+  .title-navigation {
+    margin-bottom: 0.5rem;
+  }
+
+  .pagination-single .has-text-align-right .excerpt {
+    margin-left: auto;
+  }
+
+  .pagination-single .excerpt {
+    width: 90%;
+    margin-top: 1rem;
   }
 }

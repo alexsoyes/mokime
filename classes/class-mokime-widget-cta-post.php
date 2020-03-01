@@ -43,27 +43,27 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 					<div class="card">
 
 						<div
-							class="card-image"<?php if ( $post_image ): ?> style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ) ?>"<?php endif ?>></div>
+                                class="card-image"<?php if ( $post_image ): ?> style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ) ?>"<?php endif ?>></div>
 
-						<div class="card-content">
+                        <div class="card-content">
 
-							<p class="h3 card-title has-text-weight-bold">
-								<a href="<?php echo esc_html( get_the_permalink( $id ) ); ?>">
+                            <p class="h3 card-title">
+                                <a href="<?php echo esc_html( get_the_permalink( $id ) ); ?>">
 									<?php echo esc_html( $post->post_title ); ?>
-								</a>
-							</p>
+                                </a>
+                            </p>
 
-							<p class="description"><?php echo wp_kses_post( $post->post_excerpt ); ?></p>
+                            <p class="description has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( $post->post_excerpt ); ?></p>
 
-							<div class="card-actions">
+                            <div class="card-actions">
 
-								<a href="<?php echo esc_html( get_the_permalink( $id ) ); ?>"
-								   class="button"
-								   title="<?php echo esc_html__( 'Read now', 'mokime' ) . " : " . wp_kses_post( $post->post_title ); ?>">
+                                <a href="<?php echo esc_html( get_the_permalink( $id ) ); ?>"
+                                   class="button"
+                                   title="<?php echo esc_html__( 'Read now', 'mokime' ) . " : " . wp_kses_post( $post->post_title ); ?>">
 									<?php esc_html_e( 'Read now', 'mokime' ) ?>
-								</a>
+                                </a>
 
-							</div><!-- .card-actions -->
+                            </div><!-- .card-actions -->
 
 						</div><!--.card-content -->
 

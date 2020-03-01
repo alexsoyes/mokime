@@ -12,14 +12,14 @@ Text Domain: mokime
 Domain Path: /languages
 */
 
-$color-initial: #dcdcdd;
+$color-initial: #efefef;
 $color-primary: #53257F;
 $color-secondary: #49516f;
 $color-tertiary: #c5c3c6;
 $color-quaternary: #c5c3c6;
 $color-quinary: #c5c3c6;
 $color-dark: #222222;
-$color-light: #dcdcdd;
+$color-light: #efefef;
 $color-grey: #8d8d8d;
 $color-link: #3d7e9a;
 
@@ -32,9 +32,7 @@ $radius-large: 8px;
 
 /* Milligram
    ========================================================================== */
-//@import "../../node_modules/milligram/src/Base";
 @import "../../node_modules/milligram/src/Blockquote";
-@import "../../node_modules/milligram/src/Button";
 @import "../../node_modules/milligram/src/Divider";
 @import "../../node_modules/milligram/src/List";
 
@@ -67,6 +65,9 @@ $radius-large: 8px;
    ========================================================================== */
 @import 'elements/form';
 
+/* Button
+   ========================================================================== */
+@import 'elements/button';
 
 /* ==========================================================================
    Layouts
@@ -100,6 +101,10 @@ $radius-large: 8px;
 /* ==========================================================================
    Components
    ========================================================================== */
+
+/* List
+   ========================================================================== */
+@import "components/list";
 
 /* Card
    ========================================================================== */

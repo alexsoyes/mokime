@@ -107,7 +107,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'primary_color'           => array(
 				array(
 					'type'     => 'color',
-					'elements' => '.color-primary, .site-footer a:hover',
+					'elements' => '.color-primary',
 					'prefix'   => ''
 				),
 				array(
@@ -122,7 +122,8 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 				),
 				array(
 					'type'     => 'border-color',
-					'elements' => 'input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, textarea:focus, select:focus',
+					'elements' => "input[type='email']:focus, input[type='number']:focus, input[type='password']:focus, input[type='search']:focus, input[type='tel']:focus, input[type='text']:focus, input[type='url']:focus, textarea:focus, select:focus, 
+									input[type='email']:hover, input[type='number']:hover, input[type='password']:hover, input[type='search']:hover, input[type='tel']:hover, input[type='text']:hover, input[type='url']:hover, textarea:hover, select:hover",
 					'prefix'   => ''
 				),
 				array(
@@ -141,12 +142,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 					'type'     => 'background-color',
 					'elements' => '.card .card-image, .button:focus, .button:hover, button:focus, button:hover, input[type="button"]:focus, input[type="button"]:hover, input[type="reset"]:focus, input[type="reset"]:hover, input[type="submit"]:focus, input[type="submit"]:hover',
 					'prefix'   => ''
-				),
-				array(
-					'type'     => 'border-color',
-					'elements' => 'hr, td, th, .navbar-link:not(.is-arrowless)::after, blockquote, input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], textarea, select',
-					'prefix'   => ''
-				),
+				)
 			),
 			'footer_background_color' => array(
 				array(

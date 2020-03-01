@@ -10,11 +10,14 @@ input[type='text'],
 input[type='url'],
 textarea,
 select
+  transition: 1s all
   appearance: none
   // Removes awkward default styles on some inputs for iOS
   background-color: transparent
-  border: .1rem solid $color-quaternary
-  border-radius: .4rem
+
+  border-radius: 1.2rem
+  border: 1px solid rgb(204, 207, 207)
+
   box-shadow: none
   box-sizing: inherit
   // Forced to replace inherit values of the normalize.css
@@ -40,9 +43,10 @@ textarea
 label,
 legend
   display: block
-  font-size: 1.4rem
-  font-weight: 500
-  margin-bottom: .5rem
+  font-size: 1.6rem
+  font-weight: 400
+  line-height: 1.6
+  margin-bottom: 1rem
   margin-top: 1rem
 
 fieldset
@@ -55,12 +59,15 @@ input[type='checkbox'] + label,
 input[type='radio'] + label
   display: inline
 
+input[type='checkbox'] + label
+  font-weight: 300
+
 .label-inline
   display: inline-block
   font-weight: normal
   margin-left: .5rem
 
 form
-  & button,
-  & input[type="submit"]
-    margin-top: 2rem
+  p
+    margin-bottom: 2.5rem
+

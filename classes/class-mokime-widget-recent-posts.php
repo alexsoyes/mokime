@@ -116,8 +116,8 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 					);
 				}
 			?>
-            <ul class="unstyled">
-				<?php foreach ( $r->posts as $recent_post ) : ?>
+	            <ul>
+		            <?php foreach ( $r->posts as $recent_post ) : ?>
 					<?php
 					$post_title   = get_the_title( $recent_post->ID );
 					$title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)', 'mokime' );

@@ -35,11 +35,11 @@ if ( $next_post || $prev_post ) {
 				?>
 
                 <div class="wp-block-column">
-                    <p class="h3 has-text-weight-bold">
+                    <p class="title-navigation h4 has-text-weight-bold">
                         <span class="arrow"
                               aria-hidden="true">&larr;</span> <?php esc_html_e( 'Previous post', 'mokime' ); ?>
                     </p>
-                    <a class="previous-post h3" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
+                    <a class="previous-post h4" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
                         <span class="title">
                             <span class="title-inner"><?php echo wp_kses_post( get_the_title( $prev_post->ID ) ); ?></span>
                         </span>
@@ -57,11 +57,11 @@ if ( $next_post || $prev_post ) {
 			if ( $next_post ) {
 				?>
 
-                <div class="wp-block-column">
-                    <p class="h3 has-text-weight-bold"><?php esc_html_e( 'Next post', 'mokime' ); ?>
+                <div class="wp-block-column has-text-align-right">
+                    <p class="title-navigation h4 has-text-weight-bold"><?php esc_html_e( 'Next post', 'mokime' ); ?>
                         <span class="arrow" aria-hidden="true">&rarr;</span>
                     </p>
-                    <a class="next-post h3" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
+                    <a class="next-post h4" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
                         <span class="title">
                             <span class="title-inner"><?php echo wp_kses_post( get_the_title( $next_post->ID ) ); ?></span>
                         </span>
