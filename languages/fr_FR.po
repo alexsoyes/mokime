@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-02-23 14:09+0000\n"
+"PO-Revision-Date: 2020-03-01 09:03+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
-"Language-Team: Français\n"
+"Language-Team: French (France)\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
@@ -327,6 +327,10 @@ msgstr "Afficher les informations de l'auteur."
 #: functions.php:323
 msgid "Single post"
 msgstr "Article"
+
+# functions.php:88
+msgid "Default Header Image"
+msgstr "Image de l'en-tête par défaut"
 
 #: classes/class-mokime-widget-cta-post.php:83
 msgid "Single Post Id:"

@@ -327,6 +327,10 @@ msgstr ""
 msgid "Single post"
 msgstr ""
 
+# functions.php:88
+msgid "Default Header Image"
+msgstr ""
+
 #: classes/class-mokime-widget-cta-post.php:83
 msgid "Single Post Id:"
 msgstr ""

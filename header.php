@@ -30,7 +30,7 @@
 		$header_title       = sprintf( '<span class="has-text-weight-bold">' . __( 'Searching for', 'mokime' ) . '</span> "%s"', get_search_query() );
 		$header_description = '';
 	} else {
-		$header_image       = get_theme_mod( 'header_image' );
+		$header_image       = get_header_image();
 		$header_title       = get_bloginfo( 'name' );
 		$header_description = get_bloginfo( 'description' );
 	}
@@ -46,7 +46,7 @@
             <div class="entry-content">
 
                 <header id="masthead" role="banner">
-			        <?php get_template_part( 'template-parts/header/menu' ); ?>
+					<?php get_template_part( 'template-parts/header/menu' ); ?>
                 </header><!-- #masthead -->
 
                 <div class="hero">

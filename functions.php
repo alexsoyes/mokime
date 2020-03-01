@@ -64,16 +64,28 @@ function mokime_theme_support() {
 	// Add support for full and wide align images.
 	add_theme_support( 'align-wide' );
 
-	// Add support for custom header image
 	add_theme_support(
 		'custom-header',
+		apply_filters(
+			'mokime_custom_header_args',
+			array(
+				'default-image' => get_parent_theme_file_uri( '/assets/img/mokime-custom-header.jpg' ),
+				'width'         => 1920,
+				'height'        => 1080,
+				'video'         => true,
+				'flex-width'    => true,
+				'flex-height'   => true,
+			)
+		)
+	);
+
+	register_default_headers(
 		array(
-			'default-image'      => get_template_directory_uri() . '/assets/img/mokime-custom-header.jpg',
-			'default-text-color' => 'fff',
-			'width'              => 1000,
-			'height'             => 250,
-			'flex-width'         => true,
-			'flex-height'        => true,
+			'default-image' => array(
+				'url'           => '%s/assets/img/mokime-custom-header.jpg',
+				'thumbnail_url' => '%s/assets/img/mokime-custom-header.jpg',
+				'description'   => __( 'Default Header Image', 'mokime' ),
+			),
 		)
 	);
 
@@ -437,4 +449,3 @@ function mokime_register_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'mokime_register_scripts' );
-
