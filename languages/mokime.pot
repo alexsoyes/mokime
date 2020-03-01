@@ -166,7 +166,7 @@ msgid "Make the sidebar sticky."
 msgstr ""
 
 #. Name of the theme
-msgid "Mokime"
+msgid "MokiMe"
 msgstr ""
 
 #. This text contains HTML to allow the text to be shorter on small screens.

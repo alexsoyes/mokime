@@ -1,7 +1,7 @@
 {
   "name": "mokime",
   "version": "1.0.0",
-  "description": "Mokime theme for WordPress.",
+  "description": "MokiMe theme for WordPress.",
   "main": "index.js",
   "scripts": {
     "css-size": "du -hs style.css",

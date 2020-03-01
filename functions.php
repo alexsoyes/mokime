@@ -70,7 +70,6 @@ function mokime_theme_support() {
 				'default-image' => get_parent_theme_file_uri( '/assets/img/mokime-custom-header.jpg' ),
 				'width'         => 1920,
 				'height'        => 1080,
-				'video'         => true,
 				'flex-width'    => true,
 				'flex-height'   => true,
 			)

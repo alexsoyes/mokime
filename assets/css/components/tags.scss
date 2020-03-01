@@ -2,7 +2,7 @@
   margin-bottom: 0.8rem;
 }
 
-.tag {
+.tag:not(body) {
   font-size: 1rem;
   background-color: $color-light;
   color: $color-dark;

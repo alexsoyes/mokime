@@ -1,8 +1,8 @@
 === MokiMe ===
 Contributors: alexsoyer
 Donate link: https://moki.me
-Tags: performance, seo, greenit, fast, accessibility
-Requires at least: 4.6
+Tags: performance, seo, fast, blog
+Requires at least: 4.0
 Tested up to: 5.2
 Stable tag: 1.0
 Requires PHP: 5.2.4
@@ -22,9 +22,7 @@ MokiMe will reduce your website data transfer, it will not save the Earth but co
 * Mobile First
 * W3C compliant
 * Security ready
-* 100% score on Theme check / Theme sniffer
-* 100/100 on Google PageSpeed
-* 100% on https://themecheck.info/
+* Respect WordPress good practices
 
 MokiMe will try to load every page of your site in less than 1 second, exiting challenge isn't it?
 

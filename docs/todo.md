@@ -1,17 +1,3 @@
-
-# Current release
-
-* Configuration Theme in Style.css
-  * Tags
-  * Options 
-  * Include screenshot.png or screenshot.jpg.
-* Erase database and test
-* Make a simple tour with Gi  
-* Make same theme design as the preview (screenshot.png)
-    * Feature image to import
-    * Themecolors
-    * margin...
-
 # Next release
 
 ## :sparkles: Customizer

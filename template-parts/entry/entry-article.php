@@ -3,7 +3,6 @@
     <div class="card card--gapped">
 		<?php $post_image = mokime_get_post_thumbnail_url( get_post() ); ?>
         <div class="card-image"<?php if ( $post_image ): ?> style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ) ?>"<?php endif ?>></div>
-        <!-- .card--image -->
 
         <div class="card-content">
 

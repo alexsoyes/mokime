@@ -11,6 +11,8 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<?php
+	$header_class = '';
+
 	if ( is_single() ) {
 		$header_title       = get_the_title();
 		$header_description = get_the_excerpt();
@@ -29,7 +31,8 @@
 		$header_image       = get_theme_mod( 'header_image' );
 		$header_title       = sprintf( '<span class="has-text-weight-bold">' . __( 'Searching for', 'mokime' ) . '</span> "%s"', get_search_query() );
 		$header_description = '';
-	} else {
+	} else { // homepage
+		$header_class       = ' has-text-align-center';
 		$header_image       = get_header_image();
 		$header_title       = get_bloginfo( 'name' );
 		$header_description = get_bloginfo( 'description' );
@@ -46,21 +49,21 @@
             <div class="entry-content">
 
                 <header id="masthead" role="banner">
-					<?php get_template_part( 'template-parts/header/menu' ); ?>
+				    <?php get_template_part( 'template-parts/header/menu' ); ?>
                 </header><!-- #masthead -->
 
                 <div class="hero">
-                    <div class="hero-body">
-				        <?php
-				        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				        echo '<h1 class="hero-title has-text-weight-bold h2">' . $header_title . '</h1>';
-				        if ( isset( $header_description ) && $header_description ) {
-					        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					        echo '<div class="hero-desc h6">' . $header_description . '</div>';
-				        }
+                    <div class="hero-body<?php echo esc_html( $header_class ); ?>">
+					    <?php
+					    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					    echo '<h1 class="hero-title has-text-weight-bold h2">' . $header_title . '</h1>';
+					    if ( isset( $header_description ) && $header_description ) {
+						    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						    echo '<div class="hero-desc h6">' . $header_description . '</div>';
+					    }
 
-				        if ( ( is_home() || is_front_page() ) && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
-					        get_template_part( 'template-parts/header/search-form' );
+					    if ( ( is_home() || is_front_page() ) && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
+						    get_template_part( 'template-parts/header/search-form' );
 				        } elseif ( is_single() ) {
 					        get_template_part( 'template-parts/entry/entry-article-categories' );
 					        the_tags( '<ul><li class="hashtag">', '</li><li class="hashtag">', '</li></ul>' );
