@@ -1,5 +1,5 @@
 /*
-Theme Name: Mokime
+Theme Name: MokiMe
 Theme URI: http://wordpress.org/themes/mokime
 Author: AlexSoyer
 Author URI: https://moki.me
@@ -7,7 +7,7 @@ Description: High performance WordPress theme
 Version: 1.0
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Tags: one-column, two-columns, right-sidebar, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, blog
+Tags: one-column, two-columns, right-sidebar, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, blog
 Text Domain: mokime
 Domain Path: /languages
 */
@@ -29,22 +29,23 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-    background-color: #53257F;
-    border: 0.1rem solid #53257F;
-    border-radius: .4rem;
-    color: #dcdcdd;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 1.1rem;
-    font-weight: 700;
-    height: 3.8rem;
-    letter-spacing: .1rem;
+  background-color: #53257F;
+  border: 0.1rem solid #53257F;
+  border-radius: .4rem;
+  color: #dcdcdd;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  height: 3.8rem;
+  letter-spacing: .1rem;
   line-height: 3.8rem;
   padding: 0 3.0rem;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
   .button:focus, .button:hover,
   button:focus,
   button:hover,
@@ -74,16 +75,16 @@ input[type='submit'] {
     input[type='reset'][disabled]:hover,
     input[type='submit'][disabled]:focus,
     input[type='submit'][disabled]:hover {
-        background-color: #53257F;
-        border-color: #53257F;
+      background-color: #53257F;
+      border-color: #53257F;
     }
   .button.button-outline,
   button.button-outline,
   input[type='button'].button-outline,
   input[type='reset'].button-outline,
   input[type='submit'].button-outline {
-      background-color: transparent;
-      color: #53257F;
+    background-color: transparent;
+    color: #53257F;
   }
     .button.button-outline:focus, .button.button-outline:hover,
     button.button-outline:focus,
@@ -106,17 +107,17 @@ input[type='submit'] {
     input[type='reset'].button-outline[disabled]:hover,
     input[type='submit'].button-outline[disabled]:focus,
     input[type='submit'].button-outline[disabled]:hover {
-        border-color: inherit;
-        color: #53257F;
+      border-color: inherit;
+      color: #53257F;
     }
   .button.button-clear,
   button.button-clear,
   input[type='button'].button-clear,
   input[type='reset'].button-clear,
   input[type='submit'].button-clear {
-      background-color: transparent;
-      border-color: transparent;
-      color: #53257F;
+    background-color: transparent;
+    border-color: transparent;
+    color: #53257F;
   }
     .button.button-clear:focus, .button.button-clear:hover,
     button.button-clear:focus,
@@ -139,7 +140,7 @@ input[type='submit'] {
     input[type='reset'].button-clear[disabled]:hover,
     input[type='submit'].button-clear[disabled]:focus,
     input[type='submit'].button-clear[disabled]:hover {
-        color: #53257F;
+      color: #53257F;
     }
 
 hr {
@@ -245,13 +246,13 @@ a {
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 abbr[title] {
-    border-bottom: none;
-    /* 1 */
-    text-decoration: underline;
-    /* 2 */
-    -webkit-text-decoration: underline dotted;
-    text-decoration: underline dotted;
-    /* 2 */
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+  /* 2 */
 }
 
 /**
@@ -594,17 +595,17 @@ input[type='text'],
 input[type='url'],
 textarea,
 select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: transparent;
-    border: 0.1rem solid #c5c3c6;
-    border-radius: .4rem;
-    box-shadow: none;
-    box-sizing: inherit;
-    height: 3.8rem;
-    padding: .6rem 1.0rem;
-    width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 0.1rem solid #c5c3c6;
+  border-radius: .4rem;
+  box-shadow: none;
+  box-sizing: inherit;
+  height: 3.8rem;
+  padding: .6rem 1.0rem;
+  width: 100%;
 }
 
 input[type='email']:focus,
@@ -616,20 +617,20 @@ input[type='text']:focus,
 input[type='url']:focus,
 textarea:focus,
 select:focus {
-    outline: 0;
+  outline: 0;
 }
 
 select {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#d1d1d1" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat;
-    padding-right: 3.0rem;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#d1d1d1" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat;
+  padding-right: 3.0rem;
 }
 
 select:focus {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#9b4dca" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#9b4dca" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>');
 }
 
 textarea {
-    min-height: 6.5rem;
+  min-height: 6.5rem;
 }
 
 label,
@@ -845,15 +846,15 @@ th {
   margin-left: auto;
   max-width: 100vw;
   position: relative;
-    width: 100%;
+  width: 100%;
 }
 
 body.template-full-width .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
-    width: calc(100% - 8rem);
+  width: calc(100% - 8rem);
 }
 
 body.template-full-width .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide), body.template-full-width [class*="__inner-container"] > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
-    max-width: 120rem;
+  max-width: 120rem;
 }
 
 /* Global style
@@ -861,40 +862,40 @@ body.template-full-width .entry-content > :not(.alignwide):not(.alignfull):not(.
 *,
 *:after,
 *:before {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
-    color: #222222;
-    font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    letter-spacing: .01em;
-    line-height: 1.6;
+  color: #222222;
+  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: .01em;
+  line-height: 1.6;
 }
 
 ul.unstyled {
-    list-style: none;
+  list-style: none;
 }
 
 b,
 strong {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 p {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 a {
-    color: #3d7e9a;
-    text-decoration: none;
+  color: #3d7e9a;
+  text-decoration: none;
 }
   a:hover {
     text-decoration: underline; }
@@ -1014,21 +1015,21 @@ video {
 /* Navbar
    ========================================================================== */
 @-webkit-keyframes spinAround {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(359deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 @keyframes spinAround {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(359deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 .navbar-link:not(.is-arrowless)::after {
@@ -1726,37 +1727,38 @@ a img.aligncenter {
 
 /* Text meant only for screen readers. */
 .screen-reader-text {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    -webkit-clip-path: inset(50%);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute !important;
-    width: 1px;
-    word-wrap: normal !important;
-    /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
 
 .screen-reader-text:focus {
-    background-color: #eee;
-    clip: auto !important;
-    -webkit-clip-path: none;
-    clip-path: none;
-    color: #444;
-    display: block;
-    font-size: 1em;
-    height: auto;
-    left: 5px;
-    line-height: normal;
-    padding: 15px 23px 14px;
-    text-decoration: none;
-    top: 5px;
-    width: auto;
+  background-color: #eee;
+  clip: auto !important;
+  -webkit-clip-path: none;
+  clip-path: none;
+  color: #444;
+  display: block;
+  font-size: 1em;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
   z-index: 100000;
-  /* Above WP toolbar. */ }
+  /* Above WP toolbar. */
+}
 
 .gallery-caption {
   display: block;

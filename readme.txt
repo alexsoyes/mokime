@@ -19,12 +19,12 @@ The aim of MokiMe is to provide a free WordPress blog theme with minimal stuff i
 
 MokiMe will reduce your website data transfer, it will not save the Earth but contributes to. 
 
-* 100% security
-* 100% theme check
 * Mobile First
-* 100/100 on Google Pagespeed
-* 100% W3C compliancy
-* 100 points on https://themecheck.info/
+* W3C compliant
+* Security ready
+* 100% score on Theme check / Theme sniffer
+* 100/100 on Google PageSpeed
+* 100% on https://themecheck.info/
 
 MokiMe will try to load every page of your site in less than 1 second, exiting challenge isn't it?
 

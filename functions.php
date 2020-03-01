@@ -13,8 +13,7 @@ function mokime_theme_support() {
 	add_theme_support( 'automatic-feed-links' );
 
 	// Custom background color.
-	add_theme_support(
-		'custom-background',
+	add_theme_support( 'custom-background',
 		array(
 			'default-color' => 'ffffff',
 		)
@@ -64,8 +63,7 @@ function mokime_theme_support() {
 	// Add support for full and wide align images.
 	add_theme_support( 'align-wide' );
 
-	add_theme_support(
-		'custom-header',
+	add_theme_support( 'custom-header',
 		apply_filters(
 			'mokime_custom_header_args',
 			array(
@@ -84,7 +82,7 @@ function mokime_theme_support() {
 			'default-image' => array(
 				'url'           => '%s/assets/img/mokime-custom-header.jpg',
 				'thumbnail_url' => '%s/assets/img/mokime-custom-header.jpg',
-				'description'   => __( 'Default Header Image', 'mokime' ),
+				'description'   => esc_html__( 'Default Header Image', 'mokime' ),
 			),
 		)
 	);

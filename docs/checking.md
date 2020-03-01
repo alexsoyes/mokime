@@ -6,8 +6,8 @@
 * Theme Check : https://themecheck.info/
 * Google Rich Snippet : https://search.google.com/structured-data/testing-tool?hl=fr
 
-|     | W3C Validator | Google Pagespeed | Pingdom | GTMetrix | WebPageTest | ThemeCheck | Google Rich Snippet | Dareboost |
-|-----|---------------|------------------|---------|----------|-------------|------------|---------------------|-----------|
-| 1.0 |               |                  |         |          |             |            |                     |           |
+| Release    | W3C Validator | Google Pagespeed | Pingdom | GTMetrix | WebPageTest | ThemeCheck | Google Rich Snippet | Dareboost |
+|------------|---------------|------------------|---------|----------|-------------|------------|---------------------|-----------|
+| 1.0        |               |                  |         |          |             |            |                     |           |
 
 
