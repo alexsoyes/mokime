@@ -9,7 +9,7 @@ MokiMe is a simple theme with *minimalist* and *material design* supercharged fo
 * [Make a production](docs/production.md)
 
 ## Credits
-
+* [@Acoli](https://acoli.fr/) for the design
 * [WordPress](https://wordpress.org)
 * [Gutenberg](https://fr.wordpress.org/gutenberg/)
 * [TwentyTwenty](https://fr.wordpress.org/themes/twentytwenty/)
