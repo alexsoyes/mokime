@@ -244,23 +244,6 @@ function mokime_get_gravatar( $avatar ) {
 add_filter( 'get_avatar', 'mokime_get_gravatar' );
 
 /**
- * Remove some script if check in the customizer
- *
- * ONLY remove jQuery if we are in FRONT, let it go for Admin & Customizer
- */
-function mokime_performance_scripts() {
-
-	if ( (bool) get_theme_mod( 'performance_remove_jquery', false ) ) {
-		if ( ! is_admin() && ! is_customize_preview() ) {
-			// phpcs:ignore WPThemeReview.CoreFunctionality.NoDeregisterCoreScript.Found
-			wp_deregister_script( 'jquery' );
-		}
-	}
-}
-
-add_action( 'wp_enqueue_scripts', 'mokime_performance_scripts' );
-
-/**
  * Remove Gutenberg block style if checked in the customizer
  */
 function mokime_performance_gutenberg_block_style() {
