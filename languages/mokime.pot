@@ -25,6 +25,10 @@ msgstr ""
 msgid "%1$s at %2$s"
 msgstr ""
 
+#: classes/class-mokime-widget-recent-posts.php:100
+msgid "Articles from the same category"
+msgstr ""
+
 #: classes/class-mokime-widget-recent-posts.php:116
 msgid "(no title)"
 msgstr ""

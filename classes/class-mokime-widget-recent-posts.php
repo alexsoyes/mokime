@@ -97,7 +97,8 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 			}
 			?>
 
-            <div class="widget-cta-categories">
+            <nav class="widget-cta-categories"
+                 aria-label="<?php esc_html_e( 'Articles from the same category', 'mokime' ); ?>" role="navigation">>
 
 				<?php
 
@@ -124,7 +125,7 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
                             <li class="has-text-overflowed is-overflowed-1">
 								<?php if ( $show_date ) : ?>
                                     <span class="post-date">
-								<?php echo esc_html( get_the_date( 'd/m/Y', $recent_post->ID ) ); ?> -
+									<?php echo esc_html( get_the_date( 'd/m/Y', $recent_post->ID ) ); ?> -
 							</span>
 								<?php endif; ?>
 								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -138,7 +139,7 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 
 				<?php echo wp_kses_post( $args['after_widget'] ); ?>
 
-            </div>
+            </nav>
 
 			<?php
 		}
