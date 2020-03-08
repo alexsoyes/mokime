@@ -17,7 +17,7 @@ if ( ! function_exists( 'mokime_generate_css' ) ) {
 	 * @param string $value The CSS value.
 	 * @param string $prefix The CSS prefix.
 	 * @param string $suffix The CSS suffix.
-	 * @param bool $echo Echo the styles.
+	 * @param bool   $echo Echo the styles.
 	 *
 	 * @return string|void
 	 */
@@ -52,8 +52,6 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 	 * Get CSS Built from Customizer Options.
 	 * Build CSS reflecting colors, fonts and other options set in the Customizer, and return them for output.
 	 *
-	 * @param string $type Whether to return CSS for the "front-end", "block-editor" or "classic-editor".
-	 *
 	 * @return false|string
 	 */
 	function mokime_get_customizer_css() {
@@ -73,12 +71,12 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 		// Auto-calculated colors.
 		$colors = mokime_get_colors_array();
 
-		// first level, get the $color_key which matches mod id
+		// first level, get the $color_key which matches mod id.
 		foreach ( $colors as $theme_mod_id => $color ) {
-			// second level, loop into the classes for the given mod id
+			// second level, loop into the classes for the given mod id.
 			foreach ( $color as $color_values ) {
 				$hex_color = get_theme_mod( $theme_mod_id );
-				mokime_generate_css( $color_values['elements'], $color_values['type'], $hex_color, $color_values['prefix'] );
+				mokime_generate_css( $color_values['elements'], $color_values['type'], $hex_color, $color_values['prefix'], $color_values['suffix'] );
 			}
 		}
 
@@ -91,7 +89,6 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 	 *
 	 * @return array
 	 * @since 1.0
-	 *
 	 */
 	function mokime_get_colors_array() {
 
@@ -104,99 +101,123 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 		 * - CSS elements: that must be generated with the current item
 		 */
 		$colors = array(
-			'primary_color'           => array(
+			'primary_color'                      => array(
 				array(
 					'type'     => 'color',
 					'elements' => '.color-primary',
-					'prefix'   => ''
+					'prefix'   => '',
+					'suffix'   => '',
 				),
 				array(
 					'type'     => 'background-color',
 					'elements' => '.button, button, input[type="button"], input[type="reset"], input[type="submit"]',
-					'prefix'   => ''
+					'prefix'   => '',
+					'suffix'   => '',
 				),
 				array(
 					'type'     => 'border',
 					'elements' => '.button, button, input[type="button"], input[type="reset"], input[type="submit"]',
-					'prefix'   => '0.1rem solid '
+					'prefix'   => '0.1rem solid ',
+					'suffix'   => '',
 				),
 				array(
 					'type'     => 'border-color',
 					'elements' => "input[type='email']:focus, input[type='number']:focus, input[type='password']:focus, input[type='search']:focus, input[type='tel']:focus, input[type='text']:focus, input[type='url']:focus, textarea:focus, select:focus, input[type='email']:hover, input[type='number']:hover, input[type='password']:hover, input[type='search']:hover, input[type='tel']:hover, input[type='text']:hover, input[type='url']:hover, textarea:hover, select:hover",
-					'prefix'   => ''
+					'prefix'   => '',
+					'suffix'   => '',
 				),
 				array(
 					'type'     => 'fill',
 					'elements' => '.site-footer .svg-icon:hover',
-					'prefix'   => ''
-				)
+					'prefix'   => '',
+					'suffix'   => '',
+				),
 			),
-			'secondary_color'         => array(
+			'secondary_color'                    => array(
 				array(
 					'type'     => 'color',
 					'elements' => '.color-secondary',
-					'prefix'   => ''
+					'prefix'   => '',
+					'suffix'   => '',
 				),
 				array(
 					'type'     => 'background-color',
 					'elements' => '.card .card-image, .button:focus, .button:hover, button:focus, button:hover, input[type="button"]:focus, input[type="button"]:hover, input[type="reset"]:focus, input[type="reset"]:hover, input[type="submit"]:focus, input[type="submit"]:hover',
-					'prefix'   => ''
-				)
+					'prefix'   => '',
+					'suffix'   => '',
+				),
 			),
-			'footer_background_color' => array(
+			'footer_background_color'            => array(
 				array(
 					'type'     => 'background-color',
 					'elements' => 'footer',
-					'prefix'   => ''
-				)
+					'prefix'   => '',
+					'suffix'   => '',
+				),
 			),
-			'footer_text_color'       => array(
+			'footer_text_color'                  => array(
 				array(
 					'type'     => 'fill',
 					'elements' => '.site-footer .svg-icon',
-					'prefix'   => ''
+					'prefix'   => '',
+					'suffix'   => '',
 				),
 				array(
 					'type'     => 'color',
 					'elements' => '.site-footer p, .site-footer a, .site-footer li, .site-footer input[type="text"], .site-footer input[type="search"]',
-					'prefix'   => ''
+					'prefix'   => '',
+					'suffix'   => '',
 				),
 				array(
 					'type'     => 'border-color',
 					'elements' => '.site-footer input[type="text"], .site-footer input[type="search"]',
-					'prefix'   => ''
-				)
+					'prefix'   => '',
+					'suffix'   => '',
+				),
 			),
-			'header_textcolor'        => array(
+			'header_textcolor'                   => array(
 				array(
 					'type'     => 'color',
 					'elements' => 'a.navbar-item, .navbar-link, .navbar-dropdown .navbar-item, a.navbar-item.is-active, .navbar-link.is-active, .navbar-item, .navbar-link, .navbar-burger',
-					'prefix'   => '#'
+					'prefix'   => '#',
+					'suffix'   => '',
 				),
 				array(
 					'type'     => 'border-color',
 					'elements' => '.navbar-link:not(.is-arrowless)::after',
-					'prefix'   => '#'
-				)
+					'prefix'   => '#',
+					'suffix'   => '',
+				),
 			),
-			'header_background_color' => array(
+			'header_background_color'            => array(
 				array(
 					'type'     => 'background-color',
 					'elements' => '.site-header',
-					'prefix'   => ''
-				)
+					'prefix'   => '',
+					'suffix'   => '',
+				),
 			),
-			'header_hero_text_color'  => array(
+			'header_hero_text_color'             => array(
 				array(
 					'type'     => 'color',
 					'elements' => '.hero-title, .hero-desc, .hero input, .hashtag, .hashtag a',
-					'prefix'   => ''
+					'prefix'   => '',
+					'suffix'   => '',
 				),
 				array(
 					'type'     => 'border-color',
 					'elements' => '.hero input[type="search"]',
-					'prefix'   => ''
-				)
+					'prefix'   => '',
+					'suffix'   => '',
+				),
+			),
+			'single_post_featured_image_opacity' => array(
+				array(
+					'type'     => 'background',
+					'elements' => '.site-header .has-gradient-image',
+					'prefix'   => 'linear-gradient(to bottom,rgba(0,0,0,',
+					'suffix'   => '),transparent)',
+				),
 			),
 		);
 
@@ -206,9 +227,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 		 * @param array Array of elements
 		 *
 		 * @since 1.0.0
-		 *
 		 */
 		return apply_filters( 'mokime_get_colors_array', $colors );
 	}
-
 }

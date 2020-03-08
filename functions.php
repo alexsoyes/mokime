@@ -397,6 +397,8 @@ function mokime_setup_options() {
 	set_theme_mod( 'single_post_sidebar_sticky', true );
 	set_theme_mod( 'single_post_nav_posts', true );
 	set_theme_mod( 'single_post_author_bio', true );
+	set_theme_mod( 'single_post_featured_image', false );
+	set_theme_mod( 'single_post_featured_image_overlay', 0.4 );
 
 	set_theme_mod( 'homepage_header_search', true );
 	set_theme_mod( 'homepage_last_posts', false );

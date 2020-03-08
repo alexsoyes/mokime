@@ -210,6 +210,22 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 
 			// add setting
 			$wp_customize->add_setting(
+				'single_post_featured_image',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => false,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'single_post_featured_image_opacity',
+				array(
+					'default'           => 0.4
+				)
+			);
+
+			$wp_customize->add_setting(
 				'single_post_author_bio',
 				array(
 					'capability'        => 'edit_theme_options',
@@ -236,6 +252,31 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			);
 
 			// Add control
+			$wp_customize->add_control(
+				'single_post_featured_image',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options_single',
+					'settings' => 'single_post_featured_image',
+					'label'    => __( 'Show featured image in hero screen.', 'mokime' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'single_post_featured_image_opacity',
+				array(
+					'label'       => __( 'Featured image overlay', 'mokime' ),
+					'description' => __( 'Make sure that the contrast is high enough so that the text is readable.', 'mokime' ),
+					'section'     => 'options_single',
+					'type'        => 'range',
+					'input_attrs' => array(
+						'min'  => 0,
+						'max'  => 1,
+						'step' => 0.1
+					)
+				)
+			);
+
 			$wp_customize->add_control(
 				'single_post_author_bio',
 				array(

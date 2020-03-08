@@ -1,9 +1,9 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="profile" href="https://gmpg.org/xfn/11"/>
+	<meta charset="<?php bloginfo( 'charset' ); ?>"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="profile" href="https://gmpg.org/xfn/11"/>
 	<?php wp_head(); ?>
 </head>
 
@@ -14,6 +14,9 @@
 	$header_class = '';
 
 	if ( is_single() ) {
+		if ( (bool) get_theme_mod( 'single_post_featured_image', false ) ) {
+			$header_image = get_the_post_thumbnail_url( null, 'large' );
+		}
 		$header_title       = get_the_title();
 		$header_description = get_the_excerpt();
 	} elseif ( is_page() && ( ! is_home() && ! is_front_page() ) ) {
@@ -38,45 +41,43 @@
 		$header_description = get_bloginfo( 'description' );
 	}
 
-	$has_background_image = isset( $header_image ) && ( $header_image && $header_image != 'remove-header' );
+	$has_background_image = isset( $header_image ) && ( $header_image && 'remove-header' !== $header_image );
 	?>
 
-    <div id="site-header" class="site-header"
-	     <?php if ( $has_background_image ) : ?>style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
+	<div id="site-header" class="site-header"<?php if ( $has_background_image ) : ?> style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
 
-        <div class="pre-entry-content">
+		<div class="entry-content<?php if ( $has_background_image ) :?> has-gradient-image<?php endif; ?>">
 
-            <div class="entry-content">
+			<header id="masthead" role="banner">
 
-                <header id="masthead" role="banner">
-				    <?php get_template_part( 'template-parts/header/menu' ); ?>
-                </header><!-- #masthead -->
+				<?php get_template_part( 'template-parts/header/menu' ); ?>
 
-                <div class="hero">
-                    <div class="hero-body<?php echo esc_html( $header_class ); ?>">
-					    <?php
-					    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					    echo '<h1 class="hero-title has-text-weight-bold h2">' . $header_title . '</h1>';
-					    if ( isset( $header_description ) && $header_description ) {
-						    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						    echo '<div class="hero-desc h6">' . $header_description . '</div>';
-					    }
+			</header><!-- #masthead -->
 
-					    if ( ( is_home() || is_front_page() ) && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
-						    get_template_part( 'template-parts/header/search-form' );
-				        } elseif ( is_single() ) {
-					        get_template_part( 'template-parts/entry/entry-article-categories' );
-					        the_tags( '<ul><li class="hashtag">', '</li><li class="hashtag">', '</li></ul>' );
-				        }
-						?>
-                    </div><!-- .hero-body -->
+			<div class="hero">
 
-                </div><!-- .hero -->
+				<div class="hero-body<?php echo esc_html( $header_class ); ?>">
+					<?php
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo '<h1 class="hero-title has-text-weight-bold h2">' . $header_title . '</h1>';
+					if ( isset( $header_description ) && $header_description ) {
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo '<div class="hero-desc h6">' . $header_description . '</div>';
+					}
 
-            </div><!-- .entry-content -->
+					if ( ( is_home() || is_front_page() ) && (bool) get_theme_mod( 'homepage_header_search', true ) ) {
+						get_template_part( 'template-parts/header/search-form' );
+					} elseif ( is_single() ) {
+						get_template_part( 'template-parts/entry/entry-article-categories' );
+						the_tags( '<ul><li class="hashtag">', '</li><li class="hashtag">', '</li></ul>' );
+					}
+					?>
+				</div><!-- .hero-body -->
 
-        </div><!-- .pre-entry-content -->
+			</div><!-- .hero -->
 
-    </div><!--.wrapper -->
+		</div><!-- .entry-content -->
 
-    <main id="site-content" role="main">
+	</div><!--.wrapper -->
+
+	<main id="site-content" role="main">
