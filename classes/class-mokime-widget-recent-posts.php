@@ -37,7 +37,6 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 		 * @param array $instance Settings for the current Recent Posts widget instance.
 		 *
 		 * @since 2.8.0
-		 *
 		 */
 		public function widget( $args, $instance ) {
 			if ( ! isset( $args['widget_id'] ) ) {
@@ -54,7 +53,6 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 				$number = 5;
 			}
 			$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
-
 
 			/** @var WP_Post $current_post */
 			$current_post = get_queried_object();
@@ -80,7 +78,6 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 			 *
 			 * @since 3.4.0
 			 * @since 4.9.0 Added the `$instance` parameter.
-			 *
 			 */
 			$wp_query_args = array(
 				'posts_per_page'      => $number,
@@ -115,30 +112,29 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 						wp_kses_post( $args['after_title'] )
 					);
 				}
-			?>
-	            <ul>
-		            <?php foreach ( $r->posts as $recent_post ) : ?>
-					<?php
-					$post_title   = get_the_title( $recent_post->ID );
-					$title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)', 'mokime' );
-					$aria_current = '';
-
-					if ( get_queried_object_id() === $recent_post->ID ) {
-						$aria_current = ' aria-current="page"';
-					}
-					?>
-                    <li class="has-text-overflowed is-overflowed-1">
-						<?php if ( $show_date ) : ?>
-                            <span class="post-date">
-                                <?php echo esc_html( get_the_date( 'd/m/Y', $recent_post->ID ) ); ?> -
-                            </span>
+				?>
+                <ul>
+					<?php foreach ( $r->posts as $recent_post ) : ?>
+						<?php if ( get_queried_object_id() !== $recent_post->ID ) : ?>
+							<?php
+							$post_title   = get_the_title( $recent_post->ID );
+							$title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)', 'mokime' );
+							$aria_current = '';
+							?>
+                            <li class="has-text-overflowed is-overflowed-1">
+								<?php if ( $show_date ) : ?>
+                                    <span class="post-date">
+								<?php echo esc_html( get_the_date( 'd/m/Y', $recent_post->ID ) ); ?> -
+							</span>
+								<?php endif; ?>
+								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                <a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>>
+									<?php echo wp_kses_post( $title ); ?>
+                                </a>
+                            </li>
 						<?php endif; ?>
-                        <a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo esc_html( $aria_current ); ?>>
-							<?php echo wp_kses_post( $title ); ?>
-                        </a>
-                    </li>
-				<?php endforeach; ?>
-            </ul>
+					<?php endforeach; ?>
+                </ul>
 
 				<?php echo wp_kses_post( $args['after_widget'] ); ?>
 
@@ -156,7 +152,6 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 		 *
 		 * @return array Updated settings to save.
 		 * @since 2.8.0
-		 *
 		 */
 		public function update( $new_instance, $old_instance ) {
 			$instance              = $old_instance;
@@ -173,7 +168,6 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 		 * @param array $instance Current settings.
 		 *
 		 * @since 2.8.0
-		 *
 		 */
 		public function form( $instance ) {
 			$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
