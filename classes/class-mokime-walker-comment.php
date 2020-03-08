@@ -34,19 +34,20 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 			$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 
 			?>
-            <<?php echo $tag; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
+			<<?php echo $tag; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 
-            <article id="div-comment-<?php comment_ID(); ?>" class="media comment-body vcard">
+			<article itemscope itemtype="https://schema.org/Comment" id="div-comment-<?php comment_ID(); ?>"
+					 class="media comment-body vcard">
 				<?php $avatar = get_avatar( $comment, $args['avatar_size'] ); ?>
 				<?php if ( 0 !== $args['avatar_size'] ) : ?>
-                    <figure class="media-left">
-                        <p class="image is-64x64">
+					<figure class="media-left">
+						<p class="image is-64x64">
 							<?php echo wp_kses_post( $avatar ); ?>
-                        </p> <!-- .image -->
-                    </figure><!-- .media-left -->
+						</p> <!-- .image -->
+					</figure><!-- .media-left -->
 				<?php endif; ?>
 
-                <div class="media-content">
+				<div itemprop="comment" class="media-content">
 
 					<?php
 					$comment_author_url = get_comment_author_url( $comment );
@@ -65,78 +66,80 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 					ob_start();
 
 					?>
-                    <small class="tag">
-                        <time datetime="<?php comment_time( 'c' ); ?>"
-                              title="<?php echo esc_attr( $comment_timestamp ); ?>">
-			                <?php echo esc_html( $comment_timestamp ); ?>
-                        </time>
-                    </small>
-	                <?php
+					<small class="tag">
+						<time itemprop="dateCreated" datetime="<?php comment_time( 'c' ); ?>"
+							  title="<?php echo esc_attr( $comment_timestamp ); ?>">
+							<?php echo esc_html( $comment_timestamp ); ?>
+						</time>
+					</small>
+					<?php
 
-	                $output = ob_get_contents();
+					$output = ob_get_contents();
 
-	                ob_get_clean();
+					ob_get_clean();
 
-	                printf(
-		                '<p class="comment-info"><span class="fn">%1$s</span>%2$s %3$s</p>',
-		                ! empty( $comment_author_url ) ?
-			                esc_html( $comment_author ) :
-			                sprintf( '<a href="%s" rel="external nofollow" class="url">%s</a>', esc_html( $comment_author_url ), esc_html( $comment_author ) ),
+					printf(
+						'<p class="comment-info"><span class="fn">%1$s</span>%2$s %3$s</p>',
+						! empty( $comment_author_url ) ?
+							esc_html( $comment_author ) :
+							sprintf( '<a itemprop="url" href="%s" rel="external nofollow" class="url">%s</a>', esc_html( $comment_author_url ), esc_html( $comment_author ) ),
 		                //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		                $output,
-		                esc_html( $post_author )
-	                );
+						$output,
+						esc_html( $post_author )
+					);
 
-	                comment_text();
+					comment_text();
 
-	                if ( '0' === $comment->comment_approved ): ?>
-                        <p class="comment-awaiting-moderation">
-			                <?php __( 'Your comment is awaiting moderation.', 'mokime' ); ?>
-                        </p>
-	                <?php endif; ?>
+					if ( '0' === $comment->comment_approved ) :
+						?>
+						<p class="comment-awaiting-moderation">
+							<?php __( 'Your comment is awaiting moderation.', 'mokime' ); ?>
+						</p>
+					<?php endif; ?>
 
-                    <div class="comment-metadata">
-		                <?php
+					<div class="comment-metadata">
+						<?php
 
-		                $comment_reply_link = get_comment_reply_link(
-			                array_merge(
-				                $args,
-				                array(
-					                'add_below' => 'div-comment',
-					                'depth'     => $depth,
-					                'max_depth' => $args['max_depth'],
-					                'before'    => '<span class="comment-reply has-regular-font-size">',
-					                'after'     => '</span>',
-				                )
-			                )
-		                );
-		                ?>
-                        <p>
-			                <?php
-			                if ( get_edit_comment_link() ) {
-				                printf( '<a class="comment-edit-link has-regular-font-size" href="%s">%s</a> <span aria-hidden="true">&bull;</span> ',
-					                esc_url( get_edit_comment_link() ),
-					                esc_html__( 'Edit', 'mokime' )
-				                );
-			                }
+						$comment_reply_link = get_comment_reply_link(
+							array_merge(
+								$args,
+								array(
+									'add_below' => 'div-comment',
+									'depth'     => $depth,
+									'max_depth' => $args['max_depth'],
+									'before'    => '<span class="comment-reply has-regular-font-size">',
+									'after'     => '</span>',
+								)
+							)
+						);
+						?>
+						<p>
+							<?php
+							if ( get_edit_comment_link() ) {
+								printf(
+									'<a class="comment-edit-link has-regular-font-size" href="%s">%s</a> <span aria-hidden="true">&bull;</span> ',
+									esc_url( get_edit_comment_link() ),
+									esc_html__( 'Edit', 'mokime' )
+								);
+							}
 
-			                if ( $comment_reply_link ) {
-				                echo wp_kses_post( $comment_reply_link );
-			                }
+							if ( $comment_reply_link ) {
+								echo wp_kses_post( $comment_reply_link );
+							}
 
-			                echo sprintf(
-				                ' &bull; <a href="%1$s" class="has-regular-font-size">%2$s</a>',
-				                esc_url( get_comment_link( $comment, $args ) ),
-				                esc_html__( 'Link to the comment', 'mokime' )
-			                );
-			                ?>
-                        </p>
+							echo sprintf(
+								' &bull; <a href="%1$s" class="has-regular-font-size">%2$s</a>',
+								esc_url( get_comment_link( $comment, $args ) ),
+								esc_html__( 'Link to the comment', 'mokime' )
+							);
+							?>
+						</p>
 
-                    </div><!-- .comment-metadata -->
+					</div><!-- .comment-metadata -->
 
-                </div><!-- .media-content -->
+				</div><!-- .media-content -->
 
-            </article><!-- .comment-body -->
+			</article><!-- .comment-body -->
 
 			<?php
 		}

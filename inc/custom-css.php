@@ -150,7 +150,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'footer_background_color'            => array(
 				array(
 					'type'     => 'background-color',
-					'elements' => 'footer',
+					'elements' => '.site-footer',
 					'prefix'   => '',
 					'suffix'   => '',
 				),
@@ -192,7 +192,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'header_background_color'            => array(
 				array(
 					'type'     => 'background-color',
-					'elements' => '.site-header',
+					'elements' => '.main-content > header, .navbar-menu.is-active',
 					'prefix'   => '',
 					'suffix'   => '',
 				),

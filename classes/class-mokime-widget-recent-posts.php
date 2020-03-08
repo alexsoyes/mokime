@@ -97,8 +97,8 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 			}
 			?>
 
-            <nav class="widget-cta-categories"
-                 aria-label="<?php esc_html_e( 'Articles from the same category', 'mokime' ); ?>" role="navigation">>
+			<nav class="widget-cta-categories"
+				 aria-label="<?php esc_html_e( 'Articles from the same category', 'mokime' ); ?>" role="navigation">
 
 				<?php
 
@@ -114,7 +114,7 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 					);
 				}
 				?>
-                <ul>
+				<ul>
 					<?php foreach ( $r->posts as $recent_post ) : ?>
 						<?php if ( get_queried_object_id() !== $recent_post->ID ) : ?>
 							<?php
@@ -122,24 +122,24 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 							$title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)', 'mokime' );
 							$aria_current = '';
 							?>
-                            <li class="has-text-overflowed is-overflowed-1">
+							<li class="has-text-overflowed is-overflowed-1">
 								<?php if ( $show_date ) : ?>
-                                    <span class="post-date">
+									<span class="post-date">
 									<?php echo esc_html( get_the_date( 'd/m/Y', $recent_post->ID ) ); ?> -
 							</span>
 								<?php endif; ?>
 								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                <a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>>
+								<a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>>
 									<?php echo wp_kses_post( $title ); ?>
-                                </a>
-                            </li>
+								</a>
+							</li>
 						<?php endif; ?>
 					<?php endforeach; ?>
-                </ul>
+				</ul>
 
 				<?php echo wp_kses_post( $args['after_widget'] ); ?>
 
-            </nav>
+			</nav>
 
 			<?php
 		}
@@ -175,31 +175,31 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 			$number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 			$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
 			?>
-            <p>
-                <label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>">
+			<p>
+				<label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>">
 					<?php esc_html_e( 'Title:', 'mokime' ); ?>
-                </label>
-                <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"
-                       name="<?php echo wp_kses_post( $this->get_field_name( 'title' ) ); ?>" type="text"
-                       value="<?php echo wp_kses_post( $title ); ?>"/>
-            </p>
-            <p>
-                <label for="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>">
+				</label>
+				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"
+					   name="<?php echo wp_kses_post( $this->get_field_name( 'title' ) ); ?>" type="text"
+					   value="<?php echo wp_kses_post( $title ); ?>"/>
+			</p>
+			<p>
+				<label for="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>">
 					<?php esc_html_e( 'Number of posts to show:', 'mokime' ); ?>
-                </label>
-                <input class="tiny-text" id="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>"
-                       name="<?php echo esc_html( $this->get_field_name( 'number' ) ); ?>" type="number" step="1"
-                       min="1"
-                       value="<?php echo esc_html( $number ); ?>" size="3"/>
-            </p>
-            <p>
-                <input class="checkbox" type="checkbox"<?php checked( $show_date ); ?>
-                       id="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>"
-                       name="<?php echo esc_html( $this->get_field_name( 'show_date' ) ); ?>"/>
-                <label for="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>">
+				</label>
+				<input class="tiny-text" id="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>"
+					   name="<?php echo esc_html( $this->get_field_name( 'number' ) ); ?>" type="number" step="1"
+					   min="1"
+					   value="<?php echo esc_html( $number ); ?>" size="3"/>
+			</p>
+			<p>
+				<input class="checkbox" type="checkbox"<?php checked( $show_date ); ?>
+					   id="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>"
+					   name="<?php echo esc_html( $this->get_field_name( 'show_date' ) ); ?>"/>
+				<label for="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>">
 					<?php esc_html_e( 'Display post date?', 'mokime' ); ?>
-                </label>
-            </p>
+				</label>
+			</p>
 			<?php
 		}
 	}

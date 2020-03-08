@@ -13,12 +13,12 @@
 			echo wp_kses_post( sprintf(
 			/* translators: 1: number of comments, 2: post title */
 				_nx(
-					'%1$s reply on &ldquo;%2$s&rdquo;',
-					'%1$s replies on &ldquo;%2$s&rdquo;',
-					$comments_number,
-					'comments title',
-					'mokime'
-				),
+                    '<span itemprop="commentCount">%1$s</span> reply on &ldquo;%2$s&rdquo;',
+                    '<span itemprop="commentCount">%1$s</span> replies on &ldquo;%2$s&rdquo;',
+                    $comments_number,
+                    'comments title',
+                    'mokime'
+                ),
 				number_format_i18n( $comments_number ),
 				esc_html( get_the_title() )
 			) );

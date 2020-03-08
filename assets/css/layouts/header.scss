@@ -1,6 +1,12 @@
 .site-header {
-  background-repeat: no-repeat;
-  background-position: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  background: transparent;
+
+  &.entry-content > * {
+    margin-bottom: 0;
+  }
 
   .custom-logo,
   .custom-logo-link {
