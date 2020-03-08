@@ -69,6 +69,18 @@ msgstr ""
 msgid "Create a beautiful call-to-action for your single posts."
 msgstr ""
 
+# classes/class-mokime-customize.php:261
+msgid "Show featured image in hero screen."
+msgstr ""
+
+# classes/class-mokime-customize.php:261
+msgid "Featured image overlay"
+msgstr ""
+
+# classes/class-mokime-customize.php:261
+msgid "Make sure that the contrast is high enough so that the text is readable."
+msgstr ""
+
 #: classes/class-mokime-customize.php:162
 msgid "Disable embed posts."
 msgstr ""
