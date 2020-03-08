@@ -2,20 +2,12 @@
 global $header_class, $header_image, $header_title, $header_description, $has_background_image;
 ?>
 
-<div 
-<?php
-if ( $has_background_image ) :
-	?>
-	 style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
+<div <?php if ( $has_background_image ) : ?> style="background-image: url('<?php echo esc_url( $header_image ); ?>');"<?php endif; ?>>
 
-	<div class="entry-content
-	<?php
-	if ( $has_background_image ) :
-		?>
-		 has-gradient-image<?php endif; ?>">
-		<div class="hero">
+    <div class="entry-content<?php if ( $has_background_image ) : ?> has-gradient-image<?php endif; ?>">
+        <div class="hero">
 
-			<div class="hero-body<?php echo esc_html( $header_class ); ?>">
+            <div class="hero-body<?php echo esc_html( $header_class ); ?>">
 				<?php
 				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo '<h1 itemprop="name headline" class="hero-title has-text-weight-bold h2">' . $header_title . '</h1>';
@@ -31,10 +23,10 @@ if ( $has_background_image ) :
 					the_tags( '<ul><li class="hashtag">', '</li><li class="hashtag">', '</li></ul>' );
 				}
 				?>
-			</div><!-- .hero-body -->
+            </div><!-- .hero-body -->
 
-		</div><!-- .hero -->
+        </div><!-- .hero -->
 
-	</div><!-- .entry-content -->
+    </div><!-- .entry-content -->
 
 </div><!--.wrapper -->
