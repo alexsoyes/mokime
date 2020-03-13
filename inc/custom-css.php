@@ -192,7 +192,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'header_background_color'            => array(
 				array(
 					'type'     => 'background-color',
-					'elements' => '.main-content > header, .navbar-menu.is-active',
+					'elements' => '.article-header, .navbar-menu.is-active',
 					'prefix'   => '',
 					'suffix'   => '',
 				),
@@ -214,7 +214,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'single_post_featured_image_opacity' => array(
 				array(
 					'type'     => 'background',
-					'elements' => '.site-header .has-gradient-image',
+					'elements' => '.article-header .has-gradient-image',
 					'prefix'   => 'linear-gradient(to bottom,rgba(0,0,0,',
 					'suffix'   => '),transparent)',
 				),

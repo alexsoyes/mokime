@@ -5,9 +5,9 @@ $column_width = is_active_sidebar( 'sidebar-single' ) ? 70 : 100; ?>
 <article itemscope itemtype="https://schema.org/Article"
 	<?php post_class( 'post' ); ?> id="post-<?php the_ID(); ?>">
 
-	<header>
+	<header class="article-header">
 		<?php get_template_part( 'template-parts/entry/entry-header' ); ?>
-	</header>
+	</header><!-- .article-header -->
 
 	<div class="entry-content">
 

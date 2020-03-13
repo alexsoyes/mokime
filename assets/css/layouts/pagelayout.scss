@@ -9,8 +9,10 @@
   }
 }
 
-.main-content > header {
-  margin-top: 5rem;
+.article-header__background-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .is-single, .is-page {
