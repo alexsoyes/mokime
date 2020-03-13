@@ -2,6 +2,13 @@
 
 if ( (bool) get_theme_mod( 'single_post_author_bio', true ) ) : ?>
 
+	<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+		<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+			<meta itemprop="url" content="<?php echo esc_html( get_custom_logo_url() ); ?>">
+		</div>
+		<meta itemprop="name" content="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>">
+	</div>
+
 	<div itemprop="author" itemscope itemtype="https://schema.org/Person" class="author-box has-text-align-center">
 
 		<figure class="author-image is-64x64">

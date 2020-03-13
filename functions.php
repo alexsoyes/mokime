@@ -13,7 +13,8 @@ function mokime_theme_support() {
 	add_theme_support( 'automatic-feed-links' );
 
 	// Custom background color.
-	add_theme_support( 'custom-background',
+	add_theme_support(
+		'custom-background',
 		array(
 			'default-color' => 'ffffff',
 		)
@@ -63,7 +64,8 @@ function mokime_theme_support() {
 	// Add support for full and wide align images.
 	add_theme_support( 'align-wide' );
 
-	add_theme_support( 'custom-header',
+	add_theme_support(
+		'custom-header',
 		apply_filters(
 			'mokime_custom_header_args',
 			array(
@@ -134,13 +136,15 @@ add_action( 'after_setup_theme', 'mokime_theme_support' );
 /**
  * Register default header image
  */
-register_default_headers( array(
-	'default-image' => array(
-		'url'           => get_template_directory_uri() . '/assets/img/mokime-custom-header.jpg',
-		'thumbnail_url' => get_template_directory_uri() . '/assets/img/mokime-custom-header.jpg',
-		'description'   => ''
-	),
-) );
+register_default_headers(
+	array(
+		'default-image' => array(
+			'url'           => get_template_directory_uri() . '/assets/img/mokime-custom-header.jpg',
+			'thumbnail_url' => get_template_directory_uri() . '/assets/img/mokime-custom-header.jpg',
+			'description'   => '',
+		),
+	)
+);
 
 /**
  * Check performance options in customizer
@@ -357,6 +361,21 @@ function add_custom_logo_url() {
 			)
 		)
 	);
+}
+
+/**
+ * @return mixed|string
+ */
+function get_custom_logo_url() {
+
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	$logo_meta      = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+
+	if ( $logo_meta ) {
+		return $logo_meta[0];
+	} else {
+		return '';
+	}
 }
 
 /**

@@ -37,7 +37,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 			<<?php echo $tag; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 
 			<article itemscope itemtype="https://schema.org/Comment" id="div-comment-<?php comment_ID(); ?>"
-					 class="media comment-body vcard">
+					 class="media comment-body">
 				<?php $avatar = get_avatar( $comment, $args['avatar_size'] ); ?>
 				<?php if ( 0 !== $args['avatar_size'] ) : ?>
 					<figure class="media-left">
@@ -79,7 +79,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 					ob_get_clean();
 
 					printf(
-						'<p class="comment-info"><span class="fn">%1$s</span>%2$s %3$s</p>',
+						'<p><span itemprop="name">%1$s</span><span >%2$s</span> %3$s</p>',
 						! empty( $comment_author_url ) ?
 							esc_html( $comment_author ) :
 							sprintf( '<a itemprop="url" href="%s" rel="external nofollow" class="url">%s</a>', esc_html( $comment_author_url ), esc_html( $comment_author ) ),
