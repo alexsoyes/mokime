@@ -13,18 +13,13 @@
 
 * Add AdSense plain html area
 
-## :art: Schema.org
-
-* Add schema.org Article
-  * https://developers.google.com/search/docs/data-types/article#non-amp
-  * https://schema.org/Article
-
 ## :lipstick: Design 
 
 * Remove Bulma Navbar
     * Make sure we can have multiple levels on dropdown
 * Author card
     * Add ability to use social links
+* Comments count in `entry-post.php`
 * Use HTML5 tags in templates
     * `address` for post info
     * ...
