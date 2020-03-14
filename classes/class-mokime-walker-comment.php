@@ -38,6 +38,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 
 			<article itemscope itemtype="https://schema.org/Comment" id="div-comment-<?php comment_ID(); ?>"
 					 class="media comment-body">
+
 				<?php $avatar = get_avatar( $comment, $args['avatar_size'] ); ?>
 				<?php if ( 0 !== $args['avatar_size'] ) : ?>
 					<figure class="media-left">
@@ -47,7 +48,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 					</figure><!-- .media-left -->
 				<?php endif; ?>
 
-				<div itemprop="comment" class="media-content">
+				<div class="media-content">
 
 					<?php
 					$comment_author_url = get_comment_author_url( $comment );
@@ -80,21 +81,27 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 
 					printf(
 						'<p><span itemprop="name">%1$s</span><span >%2$s</span> %3$s</p>',
-						! empty( $comment_author_url ) ?
+						! ( $comment_author_url ) ?
 							esc_html( $comment_author ) :
-							sprintf( '<a itemprop="url" href="%s" rel="external nofollow" class="url">%s</a>', esc_html( $comment_author_url ), esc_html( $comment_author ) ),
+							sprintf( '<a target="_blank" href="%s" rel="external nofollow" class="url">%s</a>', esc_html( $comment_author_url ), esc_html( $comment_author ) ),
 						//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						$output,
-						esc_html( $post_author )
+						//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						$post_author
 					);
 
-					comment_text();
+					?>
+					<span itemprop="text">
+						<?php comment_text(); ?>
+					</span>
+
+					<?php
 
 					if ( '0' === $comment->comment_approved ) :
 						?>
-						<p class="comment-awaiting-moderation">
-							<?php __( 'Your comment is awaiting moderation.', 'mokime' ); ?>
-						</p>
+					<p class="comment-awaiting-moderation">
+						<?php __( 'Your comment is awaiting moderation.', 'mokime' ); ?>
+					</p>
 					<?php endif; ?>
 
 					<div class="comment-metadata">
@@ -128,7 +135,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 							}
 
 							echo sprintf(
-								' &bull; <a href="%1$s" class="has-regular-font-size">%2$s</a>',
+								' &bull; <a itemprop="url"  href="%1$s" class="has-regular-font-size">%2$s</a>',
 								esc_url( get_comment_link( $comment, $args ) ),
 								esc_html__( 'Link to the comment', 'mokime' )
 							);

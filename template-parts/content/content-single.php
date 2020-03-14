@@ -6,12 +6,13 @@ $column_width = is_active_sidebar( 'sidebar-single' ) ? 70 : 100; ?>
 	<?php post_class( 'post' ); ?> id="post-<?php the_ID(); ?>">
 
     <meta itemprop="mainEntityOfPage" content="<?php echo esc_html( get_the_permalink() ); ?>"/>
+    <meta itemprop="inLanguage" content="<?php echo get_bloginfo('language'); ?>">
 
     <header class="article-header">
 		<?php get_template_part( 'template-parts/entry/entry-header' ); ?>
 		<?php $header_image = get_the_post_thumbnail_url( null, 'large' ); ?>
 		<?php if ( $header_image ) : ?>
-			<meta itemprop="image" content="<?php echo esc_html( $header_image ); ?>"/>
+			<meta itemprop="image thumbnailUrl" content="<?php echo esc_html( $header_image ); ?>"/>
 		<?php endif; ?>
 	</header><!-- .article-header -->
 

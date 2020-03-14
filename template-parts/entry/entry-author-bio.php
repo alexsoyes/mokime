@@ -12,10 +12,18 @@ if ( (bool) get_theme_mod( 'single_post_author_bio', true ) ) : ?>
 	<div itemprop="author" itemscope itemtype="https://schema.org/Person" class="author-box has-text-align-center">
 
 		<figure class="author-image is-64x64">
-			<?php echo get_avatar( get_the_author_meta( 'ID' ), 160, '', '', array(
-				'class'    => 'is-circle',
-				'itemprop' => 'image'
-			) ); ?>
+			<?php
+			echo get_avatar(
+				get_the_author_meta( 'ID' ),
+				160,
+				'',
+				'',
+				array(
+					'class'    => 'is-circle',
+					'itemprop' => 'image',
+				)
+			);
+			?>
 		</figure><!-- .author-image -->
 
 		<div class="media-content-center content">
@@ -23,9 +31,11 @@ if ( (bool) get_theme_mod( 'single_post_author_bio', true ) ) : ?>
 			<p itemprop="name" class="h3 has-text-weight-bold"><?php echo esc_html( get_the_author() ); ?></p>
 
 			<div class="author-description">
-				<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
+				<span itemprop="description">
+					<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
+				</span>
 				<a class="author-link"
-				   itemprop="publisher"
+				   itemprop="url"
 				   href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"
 				   rel="author">
 					<?php

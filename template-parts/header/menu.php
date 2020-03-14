@@ -1,4 +1,4 @@
-<nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+<nav itemscope="itemscope" itemtype="http://www.schema.org/SiteNavigationElement" class="navbar is-transparent" role="navigation" aria-label="main navigation">
 
     <div class="navbar-brand">
 

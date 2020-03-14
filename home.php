@@ -13,3 +13,30 @@ $has_background_image = isset( $header_image ) && ( $header_image && 'remove-hea
 get_template_part( 'template-parts/content/content-home' );
 
 get_footer();
+
+?>
+
+potentialAction
+
+@type
+
+SearchAction
+target
+
+@type
+
+EntryPoint
+urlTemplate
+
+https://www.security-helpzone.com/?s={search_term_string}
+query-input
+
+@type
+
+PropertyValueSpecification
+valueRequired
+
+http://schema.org/True
+valueName
+
+search_term_string
