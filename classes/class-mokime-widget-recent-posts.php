@@ -37,7 +37,6 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 		 * @param array $instance Settings for the current Recent Posts widget instance.
 		 *
 		 * @since 2.8.0
-		 *
 		 */
 		public function widget( $args, $instance ) {
 			if ( ! isset( $args['widget_id'] ) ) {
@@ -54,7 +53,6 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 				$number = 5;
 			}
 			$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
-
 
 			/** @var WP_Post $current_post */
 			$current_post = get_queried_object();
@@ -80,7 +78,6 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 			 *
 			 * @since 3.4.0
 			 * @since 4.9.0 Added the `$instance` parameter.
-			 *
 			 */
 			$wp_query_args = array(
 				'posts_per_page'      => $number,
@@ -95,56 +92,54 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 
 			$r = new WP_Query( apply_filters( 'widget_posts_args', $wp_query_args, $instance ) );
 
-			if ( ! $r->have_posts() ) {
-				return;
-			}
-			?>
+			// Since we hide the post from the same category, we except at least 2 posts to display the widget.
+			if ( $r->have_posts() && count( $r->posts ) > 1 ) {
+				?>
 
-            <div class="widget-cta-categories">
+				<nav class="widget-cta-categories"
+					 aria-label="<?php esc_html_e( 'Articles from the same category', 'mokime' ); ?>" role="navigation">
 
-				<?php
-
-				echo wp_kses_post( $args['before_widget'] );
-
-				if ( $title ) {
-					printf(
-						'%s<span class="is-small-text has-text-weight-light is-block">%s</span>%s%s',
-						wp_kses_post( $args['before_title'] ),
-						wp_kses_post( $title ),
-						wp_kses_post( $post_category->name ),
-						wp_kses_post( $args['after_title'] )
-					);
-				}
-			?>
-	            <ul>
-		            <?php foreach ( $r->posts as $recent_post ) : ?>
 					<?php
-					$post_title   = get_the_title( $recent_post->ID );
-					$title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)', 'mokime' );
-					$aria_current = '';
 
-					if ( get_queried_object_id() === $recent_post->ID ) {
-						$aria_current = ' aria-current="page"';
+					echo wp_kses_post( $args['before_widget'] );
+
+					if ( $title ) {
+						printf(
+							'%s<span class="is-small-text has-text-weight-light is-block">%s</span>%s%s',
+							wp_kses_post( $args['before_title'] ),
+							wp_kses_post( $title ),
+							wp_kses_post( $post_category->name ),
+							wp_kses_post( $args['after_title'] )
+						);
 					}
 					?>
-                    <li class="has-text-overflowed is-overflowed-1">
-						<?php if ( $show_date ) : ?>
-                            <span class="post-date">
-                                <?php echo esc_html( get_the_date( 'd/m/Y', $recent_post->ID ) ); ?> -
-                            </span>
-						<?php endif; ?>
-                        <a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo esc_html( $aria_current ); ?>>
-							<?php echo wp_kses_post( $title ); ?>
-                        </a>
-                    </li>
-				<?php endforeach; ?>
-            </ul>
+					<ul>
+						<?php foreach ( $r->posts as $recent_post ) : ?>
+							<?php if ( get_queried_object_id() !== $recent_post->ID ) : ?>
+								<?php
+								$post_title   = get_the_title( $recent_post->ID );
+								$title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)', 'mokime' );
+								$aria_current = '';
+								?>
+								<li class="has-text-overflowed is-overflowed-1">
+									<?php if ( $show_date ) : ?>
+										<span class="post-date"><?php echo esc_html( get_the_date( 'd/m/Y', $recent_post->ID ) ); ?> - </span>
+									<?php endif; ?>
+									<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+									<a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>>
+										<?php echo wp_kses_post( $title ); ?>
+									</a>
+								</li>
+							<?php endif; ?>
+						<?php endforeach; ?>
+					</ul>
 
-				<?php echo wp_kses_post( $args['after_widget'] ); ?>
+					<?php echo wp_kses_post( $args['after_widget'] ); ?>
 
-            </div>
+				</nav>
 
-			<?php
+				<?php
+			}
 		}
 
 		/**
@@ -156,7 +151,6 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 		 *
 		 * @return array Updated settings to save.
 		 * @since 2.8.0
-		 *
 		 */
 		public function update( $new_instance, $old_instance ) {
 			$instance              = $old_instance;
@@ -173,38 +167,37 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 		 * @param array $instance Current settings.
 		 *
 		 * @since 2.8.0
-		 *
 		 */
 		public function form( $instance ) {
 			$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 			$number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 			$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
 			?>
-            <p>
-                <label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>">
+			<p>
+				<label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>">
 					<?php esc_html_e( 'Title:', 'mokime' ); ?>
-                </label>
-                <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"
-                       name="<?php echo wp_kses_post( $this->get_field_name( 'title' ) ); ?>" type="text"
-                       value="<?php echo wp_kses_post( $title ); ?>"/>
-            </p>
-            <p>
-                <label for="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>">
+				</label>
+				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"
+					   name="<?php echo wp_kses_post( $this->get_field_name( 'title' ) ); ?>" type="text"
+					   value="<?php echo wp_kses_post( $title ); ?>"/>
+			</p>
+			<p>
+				<label for="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>">
 					<?php esc_html_e( 'Number of posts to show:', 'mokime' ); ?>
-                </label>
-                <input class="tiny-text" id="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>"
-                       name="<?php echo esc_html( $this->get_field_name( 'number' ) ); ?>" type="number" step="1"
-                       min="1"
-                       value="<?php echo esc_html( $number ); ?>" size="3"/>
-            </p>
-            <p>
-                <input class="checkbox" type="checkbox"<?php checked( $show_date ); ?>
-                       id="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>"
-                       name="<?php echo esc_html( $this->get_field_name( 'show_date' ) ); ?>"/>
-                <label for="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>">
+				</label>
+				<input class="tiny-text" id="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>"
+					   name="<?php echo esc_html( $this->get_field_name( 'number' ) ); ?>" type="number" step="1"
+					   min="1"
+					   value="<?php echo esc_html( $number ); ?>" size="3"/>
+			</p>
+			<p>
+				<input class="checkbox" type="checkbox"<?php checked( $show_date ); ?>
+					   id="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>"
+					   name="<?php echo esc_html( $this->get_field_name( 'show_date' ) ); ?>"/>
+				<label for="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>">
 					<?php esc_html_e( 'Display post date?', 'mokime' ); ?>
-                </label>
-            </p>
+				</label>
+			</p>
 			<?php
 		}
 	}

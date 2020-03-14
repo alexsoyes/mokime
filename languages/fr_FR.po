@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-03-08 13:00+0000\n"
+"PO-Revision-Date: 2020-03-08 13:52+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -23,6 +23,10 @@ msgstr "Dernière modification le "
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s à %2$s"
+
+#: classes/class-mokime-widget-recent-posts.php:100
+msgid "Articles from the same category"
+msgstr "Articles de la même catégorie"
 
 #: classes/class-mokime-widget-recent-posts.php:116
 msgid "(no title)"

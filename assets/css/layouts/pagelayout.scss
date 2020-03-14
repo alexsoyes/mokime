@@ -9,6 +9,12 @@
   }
 }
 
+.article-header__background-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .is-single, .is-page {
   &.entry-content {
     p {
@@ -31,4 +37,8 @@ a.button:hover {
 
 .comment-respond {
   margin-top: 6rem;
+}
+
+.breadcrumbs {
+  margin-bottom: 2rem;
 }

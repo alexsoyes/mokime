@@ -1,7 +1,13 @@
-<?php get_header(); ?>
+<?php
 
-<div class="is-archive entry-content">
-	<?php get_template_part( 'template-parts/entry/entry-posts' ); ?>
-</div><!-- .is-archive -->
+get_header();
 
-<?php get_footer(); ?>
+global $header_class, $header_image, $header_title, $header_description, $has_background_image;
+
+$header_image       = get_theme_mod( 'header_image' );
+$header_title       = get_the_archive_title();
+$header_description = get_the_archive_description();
+
+get_template_part( 'template-parts/content/content-archive' );
+
+get_footer();

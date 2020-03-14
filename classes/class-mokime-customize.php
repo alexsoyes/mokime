@@ -168,7 +168,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 * @param $id string the id of the setting & control
 		 * @param $label string displayed label in customizer
-		 * @param $default boolean the default option for the checkbox
+		 * @param $default bool the default option for the checkbox
 		 */
 		private static function add_section_performance_control( &$wp_customize, $id, $label, $default ) {
 
@@ -221,7 +221,8 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			$wp_customize->add_setting(
 				'single_post_featured_image_opacity',
 				array(
-					'default'           => 0.4
+					'default'           => 0.4,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_range_number' ),
 				)
 			);
 
@@ -361,6 +362,20 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 					'label'    => __( 'Show last posts in the static homepage', 'mokime' ),
 				)
 			);
+		}
+
+
+		/**
+		 * @param $input
+		 *
+		 * @return float
+		 */
+		public static function sanitize_range_number( $input ) {
+			if ( is_numeric( $input ) ) {
+				return $input;
+			} else {
+				return 0.4;
+			}
 		}
 
 		/**
