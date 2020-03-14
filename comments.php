@@ -23,7 +23,7 @@ if ( $comments ) {
 
 		<?php get_template_part( 'template-parts/entry/entry-comment-title' ); ?>
 
-        <div class="comments-inner section-inner thin max-percentage">
+		<div class="comments-inner section-inner thin max-percentage">
 
 			<?php
 			wp_list_comments(
@@ -53,10 +53,10 @@ if ( $comments ) {
 				}
 				?>
 
-                <nav class="comments-pagination pagination<?php echo $pagination_classes; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>"
-                     aria-label="<?php esc_attr_e( 'Comments', 'mokime' ); ?>">
+				<nav class="comments-pagination pagination<?php echo $pagination_classes; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>"
+					 aria-label="<?php esc_attr_e( 'Comments', 'mokime' ); ?>">
 					<?php echo wp_kses_post( $comment_pagination ); ?>
-                </nav>
+				</nav><!-- .comments-pagination -->
 
 				<?php
 			}
@@ -91,11 +91,11 @@ if ( comments_open() || pings_open() ) {
 
 	?>
 
-    <div class="comment-respond" id="respond">
+	<div class="comment-respond" id="respond">
 
-        <p class="comments-closed"><?php esc_html_e( 'Comments are closed.', 'mokime' ); ?></p>
+		<p class="comments-closed"><?php esc_html_e( 'Comments are closed.', 'mokime' ); ?></p>
 
-    </div><!-- #respond -->
+	</div><!-- #respond -->
 
 	<?php
 }

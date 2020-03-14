@@ -5,10 +5,10 @@ $column_width = is_active_sidebar( 'sidebar-single' ) ? 70 : 100; ?>
 <article itemscope itemtype="https://schema.org/Article"
 	<?php post_class( 'post' ); ?> id="post-<?php the_ID(); ?>">
 
-    <meta itemprop="mainEntityOfPage" content="<?php echo esc_html( get_the_permalink() ); ?>"/>
-    <meta itemprop="inLanguage" content="<?php echo get_bloginfo('language'); ?>">
+	<meta itemprop="mainEntityOfPage" content="<?php echo esc_html( get_the_permalink() ); ?>"/>
+	<meta itemprop="inLanguage" content="<?php echo esc_html( get_bloginfo( 'language' ) ); ?>">
 
-    <header class="article-header">
+	<header class="article-header">
 		<?php get_template_part( 'template-parts/entry/entry-header' ); ?>
 		<?php $header_image = get_the_post_thumbnail_url( null, 'large' ); ?>
 		<?php if ( $header_image ) : ?>

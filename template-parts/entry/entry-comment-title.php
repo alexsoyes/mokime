@@ -8,16 +8,14 @@
 		<?php
 		if ( ! have_comments() ) {
 			esc_html_e( 'Leave a comment', 'mokime' );
-		} elseif ( '1' === $comments_number ) {
-			/* translators: %s: post title */
-			printf( esc_html_x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'mokime' ), esc_html( get_the_title() ) );
 		} else {
+			echo wp_kses_post( sprintf( '<meta itemprop="commentCount" content="%s">', $comments_number ) );
 			echo wp_kses_post(
 				sprintf(
 				/* translators: 1: number of comments, 2: post title */
 					_nx(
-						'<span itemprop="commentCount">%1$s</span> reply on &ldquo;%2$s&rdquo;',
-						'<span itemprop="commentCount">%1$s</span> replies on &ldquo;%2$s&rdquo;',
+						'%1$s reply on &ldquo;%2$s&rdquo;',
+						'%1$s replies on &ldquo;%2$s&rdquo;',
 						$comments_number,
 						'comments title',
 						'mokime'
