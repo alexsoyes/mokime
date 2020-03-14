@@ -20,14 +20,24 @@ $has_background_image = isset( $header_image ) && ( $header_image && 'remove-hea
 		<div class="hero">
 
 			<div class="hero-body<?php echo esc_html( $header_class ); ?>">
-				<?php
-				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				echo '<h1 itemprop="name headline" class="hero-title has-text-weight-bold h2">' . $header_title . '</h1>';
-				if ( isset( $header_description ) && $header_description ) {
-					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					echo '<div itemprop="description" class="hero-desc h6">' . $header_description . '</div>';
-				}
+				<h1
+					<?php
+					if ( is_single() ) :
+						?>
+						itemprop="name headline"<?php endif; ?> class="hero-title has-text-weight-bold h2">
+					<?php echo wp_kses_post( $header_title ); ?>
+				</h1>
+				<?php if ( isset( $header_description ) && $header_description ) : ?>
+				<div
+					<?php
+					if ( is_single() ) :
+						?>
+					 itemprop="description"<?php endif; ?> class="hero-desc h6">
+					<?php echo wp_kses_post( $header_description ); ?>
+				</div>
+				<?php endif; ?>
 
+				<?php
 				if ( is_search() ||
 					 ( ( is_home() || is_front_page() )
 					   && (bool) get_theme_mod( 'homepage_header_search', true ) ) ) {

@@ -38,5 +38,20 @@
 
 <?php wp_footer(); ?>
 
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "<?php echo esc_html( get_bloginfo( 'name' ) ); ?>",
+		"description": "<?php echo esc_html( get_bloginfo( 'description' ) ); ?>",
+		"url": "<?php echo esc_url( get_site_url() ); ?>",
+		"potentialAction": {
+			"@type": "SearchAction",
+			"target": "<?php echo esc_url( get_site_url() ); ?>/s?q={search_term_string}",
+			"query-input": "required name=search_term_string"
+		}
+	}
+</script>
+
 </body>
 </html>

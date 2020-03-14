@@ -1,5 +1,4 @@
-<article class="wp-block-column is-flex" id="post-<?php the_ID(); ?>" itemscope
-		 itemtype="http://schema.org/BlogPosting">
+<article class="wp-block-column is-flex" id="post-<?php the_ID(); ?>">
 
 	<div class="card card--gapped">
 		<?php $post_image = mokime_get_post_thumbnail_url( get_post() ); ?>
@@ -13,7 +12,7 @@
 
 			<?php get_template_part( 'template-parts/entry/entry-article-categories' ); ?>
 
-			<h3 class="card-title has-text-weight-bold" itemprop="headline">
+			<h3 class="card-title has-text-weight-bold">
 				<a href="<?php the_permalink(); ?>" class="color-secondary">
 					<?php the_title(); ?>
 				</a>
@@ -23,8 +22,7 @@
 
 			<div class="card-date">
 				<a href="<?php the_permalink(); ?>" class="color-secondary">
-					<time class="is-small-text" datetime="<?php echo get_the_date( 'c' ); ?>"
-						  itemprop="datePublished">
+					<time class="is-small-text" datetime="<?php echo get_the_date( 'c' ); ?>">
 						<small><?php echo get_the_date( 'j F Y' ); ?></small>
 					</time>
 				</a>
