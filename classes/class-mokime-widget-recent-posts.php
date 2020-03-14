@@ -92,56 +92,54 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 
 			$r = new WP_Query( apply_filters( 'widget_posts_args', $wp_query_args, $instance ) );
 
-			if ( ! $r->have_posts() ) {
-				return;
-			}
-			?>
+			// Since we hide the post from the same category, we except at least 2 posts to display the widget.
+			if ( $r->have_posts() && count( $r->posts ) > 1 ) {
+				?>
 
-			<nav class="widget-cta-categories"
-				 aria-label="<?php esc_html_e( 'Articles from the same category', 'mokime' ); ?>" role="navigation">
+				<nav class="widget-cta-categories"
+					 aria-label="<?php esc_html_e( 'Articles from the same category', 'mokime' ); ?>" role="navigation">
+
+					<?php
+
+					echo wp_kses_post( $args['before_widget'] );
+
+					if ( $title ) {
+						printf(
+							'%s<span class="is-small-text has-text-weight-light is-block">%s</span>%s%s',
+							wp_kses_post( $args['before_title'] ),
+							wp_kses_post( $title ),
+							wp_kses_post( $post_category->name ),
+							wp_kses_post( $args['after_title'] )
+						);
+					}
+					?>
+					<ul>
+						<?php foreach ( $r->posts as $recent_post ) : ?>
+							<?php if ( get_queried_object_id() !== $recent_post->ID ) : ?>
+								<?php
+								$post_title   = get_the_title( $recent_post->ID );
+								$title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)', 'mokime' );
+								$aria_current = '';
+								?>
+								<li class="has-text-overflowed is-overflowed-1">
+									<?php if ( $show_date ) : ?>
+										<span class="post-date"><?php echo esc_html( get_the_date( 'd/m/Y', $recent_post->ID ) ); ?> - </span>
+									<?php endif; ?>
+									<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+									<a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>>
+										<?php echo wp_kses_post( $title ); ?>
+									</a>
+								</li>
+							<?php endif; ?>
+						<?php endforeach; ?>
+					</ul>
+
+					<?php echo wp_kses_post( $args['after_widget'] ); ?>
+
+				</nav>
 
 				<?php
-
-				echo wp_kses_post( $args['before_widget'] );
-
-				if ( $title ) {
-					printf(
-						'%s<span class="is-small-text has-text-weight-light is-block">%s</span>%s%s',
-						wp_kses_post( $args['before_title'] ),
-						wp_kses_post( $title ),
-						wp_kses_post( $post_category->name ),
-						wp_kses_post( $args['after_title'] )
-					);
-				}
-				?>
-				<ul>
-					<?php foreach ( $r->posts as $recent_post ) : ?>
-						<?php if ( get_queried_object_id() !== $recent_post->ID ) : ?>
-							<?php
-							$post_title   = get_the_title( $recent_post->ID );
-							$title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)', 'mokime' );
-							$aria_current = '';
-							?>
-							<li class="has-text-overflowed is-overflowed-1">
-								<?php if ( $show_date ) : ?>
-									<span class="post-date">
-									<?php echo esc_html( get_the_date( 'd/m/Y', $recent_post->ID ) ); ?> -
-							</span>
-								<?php endif; ?>
-								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-								<a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>>
-									<?php echo wp_kses_post( $title ); ?>
-								</a>
-							</li>
-						<?php endif; ?>
-					<?php endforeach; ?>
-				</ul>
-
-				<?php echo wp_kses_post( $args['after_widget'] ); ?>
-
-			</nav>
-
-			<?php
+			}
 		}
 
 		/**
