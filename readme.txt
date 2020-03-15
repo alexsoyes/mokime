@@ -60,6 +60,13 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 1.1.0 =
+* Change page layout structure
+* Add schema.org markups
+
+= 1.0.1 =
+* Compliancy with WordPress.org theme checker
+
 = 1.0 =
 * First stable release
 

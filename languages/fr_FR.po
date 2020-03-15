@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-03-08 13:52+0000\n"
+"PO-Revision-Date: 2020-03-15 13:14+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -56,6 +56,25 @@ msgid "%1$s reply on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
 msgstr[0] "%1$s réponse sur &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s réponses sur &ldquo;%2$s&rdquo;"
+
+#. 1: number of comments, 2: post title
+#: template-parts/entry/entry-article.php:39
+#, php-format
+msgctxt "comments count"
+msgid "%1$s comment"
+msgid_plural "%1$s comments"
+msgstr[0] "%1$s commentaire"
+msgstr[1] "%1$s commentaires"
+
+#: template-parts/entry/entry-article.php:26
+#, php-format
+msgid "Comments number"
+msgstr "Commentaires"
+
+#: template-parts/entry/entry-article.php:36
+#, php-format
+msgid "Published date"
+msgstr "Date de publication"
 
 #. %s: post title
 #: template-parts/entry/entry-comment-title.php:11
@@ -241,6 +260,14 @@ msgstr "Article"
 #: classes/class-mokime-walker-comment.php:59
 msgid "Post Author"
 msgstr "Auteur de l'article"
+
+#: template-parts/content/content-single.php:31
+msgid "Go to comments"
+msgstr "Voir les commentaires"
+
+#: template-parts/content/content-single.php:41
+msgid "Add a comment"
+msgstr "Ajouter un commentaire"
 
 #: template-parts/content/content-single.php:13
 msgid "Post published on "

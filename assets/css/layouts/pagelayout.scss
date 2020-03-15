@@ -35,10 +35,15 @@ a.button:hover {
   width: 100%;
 }
 
-.comment-respond {
-  margin-top: 6rem;
-}
-
 .breadcrumbs {
   margin-bottom: 2rem;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  opacity: 0.5;
+
+  display: inline-block;
+  vertical-align: middle;
 }

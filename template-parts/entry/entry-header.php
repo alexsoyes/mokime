@@ -17,6 +17,7 @@ $has_background_image = isset( $header_image ) && ( $header_image && 'remove-hea
 	if ( $has_background_image ) :
 		?>
 		 has-gradient-image<?php endif; ?>">
+
 		<div class="hero">
 
 			<div class="hero-body<?php echo esc_html( $header_class ); ?>">
@@ -34,7 +35,7 @@ $has_background_image = isset( $header_image ) && ( $header_image && 'remove-hea
 						?>
 					 itemprop="description"<?php endif; ?> class="hero-desc h6">
 					<?php echo wp_kses_post( $header_description ); ?>
-				</div>
+				</div><!-- .hero-desc -->
 				<?php endif; ?>
 
 				<?php
@@ -53,4 +54,4 @@ $has_background_image = isset( $header_image ) && ( $header_image && 'remove-hea
 
 	</div><!-- .entry-content -->
 
-</div><!--.wrapper -->
+</div><!--.article-header__background-image -->

@@ -11,15 +11,14 @@ if ( (bool) get_theme_mod( 'single_post_author_bio', true ) ) : ?>
 
 	<div itemprop="author" itemscope itemtype="https://schema.org/Person" class="author-box has-text-align-center">
 
-		<figure class="author-image is-64x64">
+		<figure class="author-image">
 			<?php
 			echo get_avatar(
 				get_the_author_meta( 'ID' ),
-				160,
+				96,
 				'',
-				'',
+				get_the_author(),
 				array(
-					'class'    => 'is-circle',
 					'itemprop' => 'image',
 				)
 			);

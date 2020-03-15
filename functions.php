@@ -227,7 +227,7 @@ function mokime_jpeg_quality() {
 
 add_action( 'after_setup_theme', 'mokime_performance_setup' );
 
-define( 'DEFAULT_AVATAR_URL', get_template_directory_uri() . '/assets/img/icons/person-circle-outline.svg' );
+define( 'DEFAULT_AVATAR_URL', get_template_directory_uri() . '/assets/img/icons/person-outline.svg' );
 
 /**
  * Remove Gravatar profile images if check in the customizer

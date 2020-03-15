@@ -58,6 +58,25 @@ msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
+#. 1: number of comments, 2: post title
+#: template-parts/entry/entry-article.php:39
+#, php-format
+msgctxt "comments count"
+msgid "%1$s comment"
+msgid_plural "%1$s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: template-parts/entry/entry-article.php:26
+#, php-format
+msgid "Comments number"
+msgstr ""
+
+#: template-parts/entry/entry-article.php:36
+#, php-format
+msgid "Published date"
+msgstr ""
+
 #. %s: post title
 #: template-parts/entry/entry-comment-title.php:11
 #, php-format
@@ -238,6 +257,14 @@ msgstr ""
 
 #: classes/class-mokime-walker-comment.php:59
 msgid "Post Author"
+msgstr ""
+
+#: template-parts/content/content-single.php:31
+msgid "Go to comments"
+msgstr ""
+
+#: template-parts/content/content-single.php:41
+msgid "Add a comment"
 msgstr ""
 
 #: template-parts/content/content-single.php:13

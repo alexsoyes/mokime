@@ -33,16 +33,19 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 
 			$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 
+			$comment_author_url = get_comment_author_url( $comment );
+			$comment_author     = get_comment_author( $comment );
+
 			?>
 			<<?php echo $tag; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 
 			<article itemscope itemtype="https://schema.org/Comment" id="div-comment-<?php comment_ID(); ?>"
 					 class="media comment-body">
 
-				<?php $avatar = get_avatar( $comment, $args['avatar_size'] ); ?>
+				<?php $avatar = get_avatar( $comment, 48, '', $comment_author ); ?>
 				<?php if ( 0 !== $args['avatar_size'] ) : ?>
 					<figure class="media-left">
-						<p class="image is-64x64">
+						<p class="image">
 							<?php echo wp_kses_post( $avatar ); ?>
 						</p> <!-- .image -->
 					</figure><!-- .media-left -->
@@ -51,8 +54,6 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 				<div class="media-content">
 
 					<?php
-					$comment_author_url = get_comment_author_url( $comment );
-					$comment_author     = get_comment_author( $comment );
 
 					$post_author    = '';
 					$by_post_author = mokime_is_comment_by_post_author( $comment );
