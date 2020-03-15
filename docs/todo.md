@@ -19,11 +19,12 @@
     * Make sure we can have multiple levels on dropdown
 * Author card
     * Add ability to use social links
-* Comments count in `entry-post.php`
 * Use HTML5 tags in templates
     * `address` for post info
     * ...
     
 ## :zap: Performance
 
+* Lighthouse pass
+* Include lazyload library ?
 * Transient caching ?

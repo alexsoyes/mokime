@@ -160,6 +160,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			self::add_section_performance_control( $wp_customize, 'disable_json_api', __( 'Disable JSON API.', 'mokime' ), false );
 			self::add_section_performance_control( $wp_customize, 'disable_embed_posts', __( 'Disable embed posts.', 'mokime' ), false );
 			self::add_section_performance_control( $wp_customize, 'disable_gutenberg_style', __( 'Disable Gutenberg block style.', 'mokime' ), false );
+			self::add_section_performance_control( $wp_customize, 'remove_xmlrpc', __( 'Disable WordPress XML-RPC.', 'mokime' ), false );
 
 			self::add_section_performance_control( $wp_customize, 'reduce_jpeg_quality', __( 'Reduce JPEG quality to 80%.', 'mokime' ), false );
 		}

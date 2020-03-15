@@ -7,6 +7,7 @@
 		} ?>
 
         <div role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+             onclick="toggleMobileMenu(this);"
              data-target="navbarMobile">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>

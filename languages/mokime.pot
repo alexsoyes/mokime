@@ -116,6 +116,10 @@ msgstr ""
 msgid "Disable Gutenberg block style."
 msgstr ""
 
+#: classes/class-mokime-customize.php:163
+msgid "Disable WordPress XML-RPC."
+msgstr ""
+
 #: classes/class-mokime-customize.php:161
 msgid "Disable JSON API."
 msgstr ""

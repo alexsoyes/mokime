@@ -69,7 +69,8 @@
   flex-basis: 100%;
 
   @media (min-width: 782px) {
-    flex-basis: 70%
+    flex-basis: 70%;
+    margin-right: 32px;
   }
 }
 

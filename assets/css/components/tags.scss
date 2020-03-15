@@ -17,6 +17,11 @@
   display: inline-block;
   margin-right: 1rem;
 
+  a {
+    display: inline-block;
+    padding: 8px 5px 8px 3px;
+  }
+
   &::before {
     content: '#';
   }
