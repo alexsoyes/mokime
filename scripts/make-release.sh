@@ -7,6 +7,8 @@ if [ -e "${OUTPUT_FILE}" ]; then
   rm -v "${OUTPUT_FILE}"
 fi
 
+node_modules/uglify-js/bin/uglifyjs assets/js/mokime.js --output=assets/js/mokime.min.js --compress --mangle
+
 zip -9 -rqq "${OUTPUT_FILE}" . \
     -x="*docs/*" \
     -x="*README.md*" \

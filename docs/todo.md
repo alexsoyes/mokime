@@ -25,6 +25,8 @@
     
 ## :zap: Performance
 
-* Lighthouse pass
+* In the release script
+    * Optimize image (jpeg optim, svg...)
+    * Minify JS
 * Include lazyload library ?
 * Transient caching ?

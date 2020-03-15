@@ -443,7 +443,7 @@ function mokime_register_scripts() {
 		wp_script_add_data( 'comment-reply', 'async', true );
 	}
 
-	wp_enqueue_script( 'mokime-js', get_template_directory_uri() . '/assets/js/mokime.js', array(), $theme_version, true );
+	wp_enqueue_script( 'mokime-js', get_template_directory_uri() . '/assets/js/mokime.min.js', array(), $theme_version, true );
 	wp_script_add_data( 'mokime-js', 'async', true );
 }
 
@@ -458,7 +458,7 @@ function mokime_register_styles_pre() {
 	echo '<link rel="preconnect" href="https://fonts.gstatic.com" />';
 	echo sprintf(
 		'<link rel="preload" as="script" type="text/javascript" media="all" href="%s" />',
-		get_template_directory_uri() . '/assets/js/mokime.js?ver=' . wp_get_theme()->get( 'Version' )
+		get_template_directory_uri() . '/assets/js/mokime.min.js?ver=' . wp_get_theme()->get( 'Version' )
 	);
 }
 
