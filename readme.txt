@@ -60,6 +60,11 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+
+= 1.1.1 =
+* Comments count
+* Lighthouse audit
+
 = 1.1.0 =
 * Change page layout structure
 * Add schema.org markups
