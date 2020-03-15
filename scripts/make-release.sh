@@ -7,7 +7,15 @@ if [ -e "${OUTPUT_FILE}" ]; then
   rm -v "${OUTPUT_FILE}"
 fi
 
+echo "# Optimizing JS..."
+
 node_modules/uglify-js/bin/uglifyjs assets/js/mokime.js --output=assets/js/mokime.min.js --compress --mangle
+
+echo "# Optimizing assets..."
+
+find "assets/img" -regex '\(.*jpeg\|.*.jpg\)' -exec node_modules/jpegoptim-bin/vendor/jpegoptim -m90 --strip-all {} \;
+find "assets/img" -iname "*.png" -exec node_modules/optipng-bin/vendor/optipng -o7 -strip all {} \;
+find "assets/img" -iname "*.svg" -exec node_modules/svgo/bin/svgo {} \;
 
 zip -9 -rqq "${OUTPUT_FILE}" . \
     -x="*docs/*" \
