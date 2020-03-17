@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-03-17 16:38+0000\n"
+"PO-Revision-Date: 2020-03-17 16:41+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -210,14 +210,6 @@ msgstr "Thème WordPress haute performance"
 msgid "Homepage"
 msgstr "Page d'accueil"
 
-#. URI of the theme
-msgid "http://wordpress.org/themes/mokime"
-msgstr ""
-
-#. Author URI of the theme
-msgid "https://moki.me"
-msgstr ""
-
 #: template-parts/entry/entry-comment-title.php:8
 msgid "Leave a comment"
 msgstr "Laisser un commentaire"
@@ -237,10 +229,6 @@ msgstr "Menu principal"
 #: classes/class-mokime-customize.php:266
 msgid "Make the sidebar sticky."
 msgstr "Rendre la barre latérale fixe"
-
-#. Name of the theme
-msgid "MokiMe"
-msgstr ""
 
 #. This text contains HTML to allow the text to be shorter on small screens.
 #. The text inside the span with the class nav-short will be hidden on small screens.

@@ -208,14 +208,6 @@ msgstr ""
 msgid "Homepage"
 msgstr ""
 
-#. URI of the theme
-msgid "http://wordpress.org/themes/mokime"
-msgstr ""
-
-#. Author URI of the theme
-msgid "https://moki.me"
-msgstr ""
-
 #: template-parts/entry/entry-comment-title.php:8
 msgid "Leave a comment"
 msgstr ""
@@ -234,10 +226,6 @@ msgstr ""
 
 #: classes/class-mokime-customize.php:266
 msgid "Make the sidebar sticky."
-msgstr ""
-
-#. Name of the theme
-msgid "MokiMe"
 msgstr ""
 
 #. This text contains HTML to allow the text to be shorter on small screens.
