@@ -32,10 +32,12 @@
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
+    "autoprefixer": "^9.7.4",
     "jpegoptim-bin": "^5.1.0",
     "node-sass": "^4.13.0",
     "npm-check-updates": "^4.0.4",
     "optipng-bin": "^6.0.0",
+    "postcss-cli": "^7.1.0",
     "svgo": "^1.3.2",
     "uglify-js": "^3.8.0"
   }
