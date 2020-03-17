@@ -9,10 +9,6 @@
 
 * https://make.wordpress.org/themes/handbook/review/accessibility/
 
-## :alien: Advertising
-
-* Add AdSense plain html area
-
 ## :lipstick: Design 
 
 * Remove Bulma Navbar
@@ -25,8 +21,5 @@
     
 ## :zap: Performance
 
-* In the release script
-    * Optimize image (jpeg optim, svg...)
-    * Minify JS
 * Include lazyload library ?
 * Transient caching ?
