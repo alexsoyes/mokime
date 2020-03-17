@@ -7,7 +7,7 @@
 			the_custom_logo();
 		} else {
             echo sprintf(
-                '<a href="%s" class="logo-text"><span class="h1">%s</span></a>',
+                '<a href="%s" class="logo-text"><span class="h1 has-text-weight-bold">%s</span></a>',
                 get_home_url(),
                 get_bloginfo('name')
             );

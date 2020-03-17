@@ -13,13 +13,19 @@
  *
  * @return int[]|WP_Post[]
  */
-function get_the_last_posts( $limit = 12 ) {
+function get_the_last_posts( $limit = -1 ) {
 
-	return get_posts( array(
-		'posts_per_page' => $limit,
-		'offset'         => 0,
-		'post_status'    => 'publish'
-	) );
+	if ( -1 === $limit ) {
+		$limit = get_option( 'posts_per_page' );
+	}
+
+	return get_posts(
+		array(
+			'posts_per_page' => $limit,
+			'offset'         => 0,
+			'post_status'    => 'publish',
+		)
+	);
 }
 
 /**
@@ -49,7 +55,7 @@ function get_post_category_primary( $post_id ) {
 
 /**
  * @param $post WP_Post the post ID to use
- * @param string $size the thumbnail size to use
+ * @param string                          $size the thumbnail size to use
  *
  * @return string the URL of the post thumbnail
  */
@@ -151,7 +157,7 @@ add_filter( 'walker_nav_menu_start_el', 'mokime_nav_menu_social_icons', 10, 4 );
 function mokime_no_js_class() {
 
 	?>
-    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+	<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
 	<?php
 
 }

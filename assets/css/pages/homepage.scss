@@ -1,5 +1,11 @@
 .home {
 
+  .entry-content {
+    .title {
+      margin-bottom: 1rem;
+    }
+  }
+
   .wp-block-columns > article:nth-child(3) {
 
     @media (min-width: 600px) and (max-width: 782px) {
