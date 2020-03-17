@@ -3,6 +3,10 @@ set -e
 
 OUTPUT_FILE="versions/mokime.zip"
 
+if [ ! -d  "versions" ]; then
+  mkdir -v "versions"
+fi
+
 if [ -e "${OUTPUT_FILE}" ]; then
   rm -v "${OUTPUT_FILE}"
 fi
