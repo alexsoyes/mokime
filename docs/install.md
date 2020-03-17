@@ -2,9 +2,8 @@
 
 For dev environment, I am using [docker-compose](https://docs.docker.com/compose/).
 
-* Create a `mokime` directoy and go in there
-* Create the directories `mkdir -vp mokime/db mokime/wordpress`
-* Create a directory and unzip WordPress in there
+* Create a `mokime` directoy and go in there `mkdir -vp mokime/db`
+* Download WordPress friom `mokime` directory
   * `wget https://wordpress.org/latest.tar.gz`
   * `tar -xzvf latest.tar.gz`
   * `rm -v latest.tar.gz`
