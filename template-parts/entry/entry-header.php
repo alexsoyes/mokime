@@ -1,8 +1,6 @@
 <?php
 global $header_class, $header_image, $header_title, $header_description, $has_background_image;
 
-$header_image = get_the_post_thumbnail_url( null, 'large' );
-
 $has_background_image = isset( $header_image ) && ( $header_image && 'remove-header' !== $header_image );
 ?>
 
