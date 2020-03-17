@@ -8,8 +8,8 @@
 		} else {
             echo sprintf(
                 '<a href="%s" class="logo-text"><span class="h1 has-text-weight-bold">%s</span></a>',
-                get_home_url(),
-                get_bloginfo('name')
+                esc_html( get_home_url() ),
+                esc_html( get_bloginfo('name') )
             );
         }
         ?>

@@ -92,6 +92,38 @@ msgstr ""
 msgid "Create a beautiful call-to-action for your single posts."
 msgstr ""
 
+# classes/class-mokime-customize.php:322
+msgid "Advertising"
+msgstr ""
+
+# classes/class-mokime-customize.php:372
+msgid "Global"
+msgstr ""
+
+# classes/class-mokime-customize.php:373
+msgid "Ads at the top of all pages."
+msgstr ""
+
+# classes/class-mokime-customize.php:386
+msgid "Ads at the bottom of all pages."
+msgstr ""
+
+# classes/class-mokime-customize.php:399
+msgid "Posts"
+msgstr ""
+
+# classes/class-mokime-customize.php:400
+msgid "Ads at the top of the \"comments\" block."
+msgstr ""
+
+# classes/class-mokime-customize.php:413
+msgid "Ads at the bottom of the \"comments\" block."
+msgstr ""
+
+# classes/class-mokime-customize.php:375
+msgid "Ad script goes here."
+msgstr ""
+
 # classes/class-mokime-customize.php:261
 msgid "Show featured image in hero screen."
 msgstr ""

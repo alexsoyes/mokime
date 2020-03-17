@@ -133,18 +133,6 @@ function mokime_theme_support() {
 
 add_action( 'after_setup_theme', 'mokime_theme_support' );
 
-/**
- * Register default header image
- */
-register_default_headers(
-	array(
-		'default-image' => array(
-			'url'           => get_template_directory_uri() . '/assets/img/mokime-custom-header.jpg',
-			'thumbnail_url' => get_template_directory_uri() . '/assets/img/mokime-custom-header.jpg',
-			'description'   => '',
-		),
-	)
-);
 
 /**
  * Check performance options in customizer
@@ -230,8 +218,6 @@ function mokime_jpeg_quality() {
 }
 
 add_action( 'after_setup_theme', 'mokime_performance_setup' );
-
-define( 'DEFAULT_AVATAR_URL', get_template_directory_uri() . '/assets/img/icons/person-outline.svg' );
 
 /**
  * Remove Gravatar profile images if check in the customizer
@@ -443,7 +429,7 @@ function mokime_register_scripts() {
 		wp_script_add_data( 'comment-reply', 'async', true );
 	}
 
-	wp_enqueue_script( 'mokime-js', get_template_directory_uri() . '/assets/js/mokime.min.js', array(), $theme_version, true );
+	wp_enqueue_script( 'mokime-js', get_the_asset('javascript', 'mokime.min.js') , array(), $theme_version, true );
 	wp_script_add_data( 'mokime-js', 'async', true );
 }
 
@@ -458,8 +444,27 @@ function mokime_register_styles_pre() {
 	echo '<link rel="preconnect" href="https://fonts.gstatic.com" />';
 	echo sprintf(
 		'<link rel="preload" as="script" type="text/javascript" media="all" href="%s" />',
-		get_template_directory_uri() . '/assets/js/mokime.min.js?ver=' . wp_get_theme()->get( 'Version' )
+		esc_html(
+		    get_the_asset('javascript', 'mokime.min.js') . '?ver=' . wp_get_theme()->get( 'Version' )
+        )
 	);
 }
 
 add_action( 'wp_head', 'mokime_register_styles_pre', 5 );
+
+define( 'DEFAULT_IMAGE_URI', get_the_asset('image', 'mokime-custom-header.jpg' ) );
+
+/**
+ * Register default header image
+ */
+register_default_headers(
+    array(
+        'default-image' => array(
+            'url'           => DEFAULT_IMAGE_URI,
+            'thumbnail_url' => DEFAULT_IMAGE_URI,
+            'description'   => '',
+        ),
+    )
+);
+
+define( 'DEFAULT_AVATAR_URL', get_the_asset('icon', 'person-outline.svg' ) );

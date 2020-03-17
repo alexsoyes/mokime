@@ -4,12 +4,11 @@
 
 	<a href="#<?php echo $comments_number > 0 ? 'comments' : 'respond'; ?>" title="<?php esc_html_e( 'Go to comments', 'mokime' ); ?>">
 
-		<img src="<?php echo get_template_directory_uri() . '/assets/img/icons/chatbox-ellipses-outline.svg'; ?>"
+		<img src="<?php the_asset('icon', 'chatbox-ellipses-outline.svg' ); ?>"
 		     class="icon"
 		     alt="<?php esc_html_e( 'Comments number', 'mokime' ); ?>">
 
 		<?php
-
 		if ( 0 === $comments_number ) {
 			esc_html_e( 'Add a comment', 'mokime' );
 		} else {

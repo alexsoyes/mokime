@@ -27,6 +27,17 @@
   }
 }
 
+.widget-cta-single {
+  .card-title a {
+    color: $color-dark;
+  }
+}
+
+.ads {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 a.button:hover {
   text-decoration: none;
 }

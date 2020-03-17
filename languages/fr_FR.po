@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-03-15 13:14+0000\n"
+"PO-Revision-Date: 2020-03-17 16:38+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -91,6 +91,38 @@ msgstr "Lire"
 msgid "Create a beautiful call-to-action for your single posts."
 msgstr "Créer un bouton d'appel pour vos meilleurs articles."
 
+# classes/class-mokime-customize.php:322
+msgid "Advertising"
+msgstr "Publicité"
+
+# classes/class-mokime-customize.php:372
+msgid "Global"
+msgstr "Global"
+
+# classes/class-mokime-customize.php:373
+msgid "Ads at the top of all pages."
+msgstr "Publicité en haut de toutes les pages."
+
+# classes/class-mokime-customize.php:386
+msgid "Ads at the bottom of all pages."
+msgstr "Publicité en bas de toutes les pages."
+
+# classes/class-mokime-customize.php:399
+msgid "Posts"
+msgstr "Articles"
+
+# classes/class-mokime-customize.php:400
+msgid "Ads at the top of the \"comments\" block."
+msgstr "Publicité en haut du bloc \"commentaires\"."
+
+# classes/class-mokime-customize.php:413
+msgid "Ads at the bottom of the \"comments\" block."
+msgstr "Publicité en bas du bloc \"commentaires\"."
+
+# classes/class-mokime-customize.php:375
+msgid "Ad script goes here."
+msgstr "Ajouter le script ici."
+
 # classes/class-mokime-customize.php:261
 msgid "Show featured image in hero screen."
 msgstr "Afficher l'image mise en avant sur les articles."
@@ -117,6 +149,10 @@ msgstr "Désactiver les images Gravatar."
 #: classes/class-mokime-customize.php:163
 msgid "Disable Gutenberg block style."
 msgstr "Désactiver le style de Gutenberg."
+
+#: classes/class-mokime-customize.php:163
+msgid "Disable WordPress XML-RPC."
+msgstr "Désactiver l'API XML-RPC."
 
 #: classes/class-mokime-customize.php:161
 msgid "Disable JSON API."
@@ -384,7 +420,7 @@ msgstr "ID de l'article :  "
 
 #: classes/class-mokime-customize.php:206
 msgid "Single Posts"
-msgstr "Articles"
+msgstr "Article"
 
 #: functions.php:400
 msgid "Skip to the content"

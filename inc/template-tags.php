@@ -9,6 +9,61 @@
  */
 
 /**
+ * @param $type
+ * @param $file
+ */
+function the_asset($type, $file) {
+    echo esc_html( get_the_asset($type, $file) );
+}
+
+/**
+ * Get the asset with proper directory URI
+ *
+ * @param $type string
+ * @param $file string
+ *
+ * @eg $file='calendar-outline.svg' and $type='icon' will generate "/wp-content/themes/mokime/assets/img/icons/calendar-outline.svg"
+ *
+ * @return string string
+ */
+function get_the_asset($type, $file) {
+
+    $types = array( 'icon', 'image', 'javascript' );
+
+    if (!in_array($type, $types)) {
+        return '';
+    }
+
+    $uri = get_template_directory_uri();
+
+    switch ($type) {
+        case 'icon':
+            $uri .= '/assets/img/icons/';
+            break;
+        case 'image':
+            $uri .= '/assets/img/';
+            break;
+        case 'javascript':
+            $uri .= '/assets/js/';
+            break;
+    }
+
+    return $uri . $file;
+}
+
+/**
+ * @param $setting_name string
+ */
+function the_ads( $setting_name ) {
+	 $ad_content = get_theme_mod( $setting_name, false );
+
+	if ( (bool) $ad_content ) {
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo ( sprintf('<div class="entry-content"><div class="ads">%s</div><!-- .ads --></div><!-- .entry-content -->', $ad_content) );
+	}
+}
+
+/**
  * @param $limit int
  *
  * @return int[]|WP_Post[]

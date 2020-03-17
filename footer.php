@@ -1,14 +1,16 @@
 </main><!-- #content -->
 
-<footer id="site-footer" class="site-footer" role="contentinfo">
+<footer role="contentinfo">
+
+    <?php the_ads( 'advertising_global_bottom' ); ?>
 
 	<?php if ( is_active_sidebar( 'sidebar-pre-footer' ) ) : ?>
-		<div id="prefooter" class="container">
+		<div id="prefooter" class="entry-content">
 			<?php dynamic_sidebar( 'sidebar-pre-footer' ); ?>
 		</div><!-- #prefooter -->
 	<?php endif; ?>
 
-	<div class="header-footer-group wrapper">
+	<div id="site-footer" class="site-footer">
 
 		<?php get_template_part( 'template-parts/footer/menus-widgets' ); ?>
 

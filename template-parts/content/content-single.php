@@ -16,6 +16,8 @@ $column_width = is_active_sidebar( 'sidebar-single' ) ? 70 : 100; ?>
 		<?php endif; ?>
 	</header><!-- .article-header -->
 
+    <?php the_ads( 'advertising_global_top' ); ?>
+
 	<div class="entry-content">
 
 		<div class="wp-block-columns">

@@ -69,6 +69,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			self::add_section_homepage( $wp_customize );
 			self::add_section_single_post( $wp_customize );
 			self::add_section_performance( $wp_customize );
+			self::add_section_advertising( $wp_customize );
 
 			$wp_customize->add_panel(
 				'options',
@@ -89,7 +90,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				array(
 					'capability'        => 'edit_theme_options',
 					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
-					'transport'         => 'postMessage',
+					'transport'         => 'refresh',
 				)
 			);
 
@@ -106,7 +107,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		}
 
 		/**
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 * @param WP_Customize_Manager                            $wp_customize Theme Customizer object.
 		 * @param $id string The id of the color
 		 * @param $label string The displaying label in customizer
 		 * @param $default string The default color bound
@@ -116,7 +117,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				$id,
 				array(
 					'default'           => $default,
-					'sanitize_callback' => 'sanitize_hex_color'
+					'sanitize_callback' => 'sanitize_hex_color',
 				)
 			);
 
@@ -143,7 +144,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				array(
 					'title'    => __( 'Performance', 'mokime' ),
 					'priority' => 10,
-					'panel'    => 'options'
+					'panel'    => 'options',
 				)
 			);
 
@@ -166,14 +167,14 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		}
 
 		/**
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 * @param WP_Customize_Manager                             $wp_customize Theme Customizer object.
 		 * @param $id string the id of the setting & control
 		 * @param $label string displayed label in customizer
 		 * @param $default bool the default option for the checkbox
 		 */
 		private static function add_section_performance_control( &$wp_customize, $id, $label, $default ) {
 
-			// Add setting
+			// Add setting.
 			$wp_customize->add_setting(
 				'performance_' . $id,
 				array(
@@ -183,7 +184,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				)
 			);
 
-			// Add control
+			// Add control.
 			$wp_customize->add_control(
 				'performance_' . $id,
 				array(
@@ -199,17 +200,17 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		public static function add_section_single_post( &$wp_customize ) {
-			// Add section
+			// Add section.
 			$wp_customize->add_section(
 				'options_single',
 				array(
 					'title'    => __( 'Single Posts', 'mokime' ),
 					'priority' => 10,
-					'panel'    => 'options'
+					'panel'    => 'options',
 				)
 			);
 
-			// add setting
+			// add setting.
 			$wp_customize->add_setting(
 				'single_post_featured_image',
 				array(
@@ -274,8 +275,8 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 					'input_attrs' => array(
 						'min'  => 0,
 						'max'  => 1,
-						'step' => 0.1
-					)
+						'step' => 0.1,
+					),
 				)
 			);
 
@@ -313,6 +314,113 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		/**
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
+		public static function add_section_advertising( &$wp_customize ) {
+			// Add section.
+			$wp_customize->add_section(
+				'options_advertising',
+				array(
+					'title'    => __( 'Advertising', 'mokime' ),
+					'priority' => 10,
+					'panel'    => 'options',
+				)
+			);
+
+			// Add setting.
+			$wp_customize->add_setting(
+				'advertising_global_top',
+				array(
+					'capability'        => 'edit_theme_options',
+					'sanitize_callback' => null,
+					'default'           => null,
+				)
+			);
+
+			$wp_customize->add_setting(
+				'advertising_global_bottom',
+				array(
+					'capability'        => 'edit_theme_options',
+					'sanitize_callback' => null,
+					'default'           => null,
+				)
+			);
+
+			$wp_customize->add_setting(
+				'advertising_post_comments_top',
+				array(
+					'capability'        => 'edit_theme_options',
+					'sanitize_callback' => null,
+					'default'           => null,
+				)
+			);
+
+			$wp_customize->add_setting(
+				'advertising_post_comments_bottom',
+				array(
+					'capability'        => 'edit_theme_options',
+					'sanitize_callback' => null,
+					'default'           => null,
+				)
+			);
+
+			// Add control.
+			$wp_customize->add_control(
+				'advertising_global_top',
+				array(
+					'type'        => 'textarea',
+					'section'     => 'options_advertising',
+					'priority'    => 10,
+					'label'       => esc_html__( 'Global', 'mokime' ),
+					'description' => esc_html__( 'Ads at the top of all pages.', 'mokime' ),
+					'input_attrs' => array(
+						'placeholder' => sprintf( '<!-- %s -->', esc_html__( 'Ad script goes here.', 'mokime' ) ),
+					),
+				)
+			);
+
+			$wp_customize->add_control(
+				'advertising_global_bottom',
+				array(
+					'type'        => 'textarea',
+					'section'     => 'options_advertising',
+					'priority'    => 10,
+					'description' => esc_html__( 'Ads at the bottom of all pages.', 'mokime' ),
+					'input_attrs' => array(
+						'placeholder' => sprintf( '<!-- %s -->', esc_html__( 'Ad script goes here.', 'mokime' ) ),
+					),
+				)
+			);
+
+			$wp_customize->add_control(
+				'advertising_post_comments_top',
+				array(
+					'type'        => 'textarea',
+					'section'     => 'options_advertising',
+					'priority'    => 10,
+					'label'       => esc_html__( 'Posts', 'mokime' ),
+					'description' => esc_html__( 'Ads at the top of the "comments" block.', 'mokime' ),
+					'input_attrs' => array(
+						'placeholder' => sprintf( '<!-- %s -->', esc_html__( 'Ad script goes here.', 'mokime' ) ),
+					),
+				)
+			);
+
+			$wp_customize->add_control(
+				'advertising_post_comments_bottom',
+				array(
+					'type'        => 'textarea',
+					'section'     => 'options_advertising',
+					'priority'    => 10,
+					'description' => esc_html__( 'Ads at the bottom of the "comments" block.', 'mokime' ),
+					'input_attrs' => array(
+						'placeholder' => sprintf( '<!-- %s -->', esc_html__( 'Ad script goes here.', 'mokime' ) ),
+					),
+				)
+			);
+		}
+
+		/**
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
 		public static function add_section_homepage( &$wp_customize ) {
 			// Add section
 			$wp_customize->add_section(
@@ -320,7 +428,7 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				array(
 					'title'    => __( 'Homepage', 'mokime' ),
 					'priority' => 10,
-					'panel'    => 'options'
+					'panel'    => 'options',
 				)
 			);
 
@@ -387,17 +495,17 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		 */
 		public static function sanitize_image( $file, $setting ) {
 
-			//allowed file types
+			// allowed file types
 			$mimes = array(
 				'jpg|jpeg|jpe' => 'image/jpeg',
 				'gif'          => 'image/gif',
-				'png'          => 'image/png'
+				'png'          => 'image/png',
 			);
 
-			//check file type from file name
+			// check file type from file name
 			$file_ext = wp_check_filetype( $file, $mimes );
 
-			//if file has a valid mime type return it, otherwise return default
+			// if file has a valid mime type return it, otherwise return default
 			return ( $file_ext['ext'] ? $file : $setting->default );
 		}
 

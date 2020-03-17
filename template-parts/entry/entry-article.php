@@ -24,7 +24,7 @@
 
 				<div class="metadata">
 
-					<img src="<?php echo get_template_directory_uri() . '/assets/img/icons/calendar-outline.svg'; ?>"
+					<img src="<?php the_asset('icon', 'calendar-outline.svg' ); ?>"
 					     class="card-icons  icon"
 					     alt="<?php esc_html_e('Published date', 'mokime'); ?>" />
 
@@ -40,7 +40,7 @@
 
 				<div class="metadata">
 
-					<img src="<?php echo get_template_directory_uri() . '/assets/img/icons/chatbox-ellipses-outline.svg'; ?>"
+					<img src="<?php the_asset('icon', '/chatbox-ellipses-outline.svg' ); ?>"
 					     class="card-icons icon"
 					     alt="<?php esc_html_e('Comments number', 'mokime'); ?>">
 
