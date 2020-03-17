@@ -15,6 +15,16 @@
     margin-bottom: 0;
   }
 
+  .logo-text {
+    &:hover {
+      text-decoration: none;
+    }
+
+    span {
+      font-weight: 900;
+    }
+  }
+
   .custom-logo,
   .custom-logo-link {
     padding-left: 0;

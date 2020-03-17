@@ -1,22 +1,29 @@
 <nav itemscope="itemscope" itemtype="http://www.schema.org/SiteNavigationElement" class="navbar is-transparent" role="navigation" aria-label="main navigation">
 
-    <div class="navbar-brand">
+	<div class="navbar-brand">
 
-		<?php if ( has_custom_logo() ) {
+		<?php
+        if ( has_custom_logo() ) {
 			the_custom_logo();
-		} ?>
+		} else {
+            echo sprintf(
+                '<a href="%s" class="logo-text"><span class="h1">%s</span></a>',
+                get_home_url(),
+                get_bloginfo('name')
+            );
+        }
+        ?>
 
-        <div role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-             onclick="toggleMobileMenu(this);"
-             data-target="navbarMobile">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </div>
-    </div>
+		<div role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+			 onclick="toggleMobileMenu(this);"
+			 data-target="navbarMobile">
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+		</div>
+	</div>
 
-    <div id="navbarMobile" class="navbar-menu">
-
+	<div id="navbarMobile" class="navbar-menu">
 		<?php
 		if ( has_nav_menu( 'primary' ) ) {
 
@@ -31,5 +38,6 @@
 			);
 		}
 		?>
-    </div><!-- . navbar-menu -->
+	</div><!-- . navbar-menu -->
+
 </nav><!-- .navbar -->
