@@ -2,7 +2,27 @@
 
 MokiMe is a simple theme with *minimalist* and *material design* supercharged for performance and SEO.
 
-* [Checking](docs/checking.md)
+<table>
+   <tr>
+     <th><a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fwww.security-helpzone.com%2F">W3C Validator</a></th>
+     <th><a href="https://developers.google.com/speed/pagespeed/insights/?hl=fr&url=https%3A%2F%2Fwww.security-helpzone.com%2F">Google Pagespeed</a></th>
+     <th><a href="https://tools.pingdom.com/#5c3b68a1d5800000">Pingdom Speed Test</a></th>
+     <th><a href="https://gtmetrix.com/reports/www.security-helpzone.com/VtbhJkUk">GTMetrix</a></th>
+     <th><a href="https://www.webpagetest.org/result/200318_QA_fb195bb56ac7000d21d8b48537d1198d/">WebPageTest</a></th>
+     <th><a href="https://themecheck.info/">Theme Check</a></th>
+     <th><a href="https://search.google.com/structured-data/testing-tool?hl=fr#url=https%3A%2F%2Fwww.security-helpzone.com">Google Rich Snippet</a></th>
+   </tr>
+   <tr align="center">
+     <td>0 error</td>
+     <td>100 / 100</td>
+     <td>93/100</td>
+     <td>100/100 - 93/100</td>
+     <td>A</td>
+     <td>97%</td>
+     <td>Pass</td>
+   </tr>
+ </table>
+
 * [Installation](docs/install.md)
 * [Next release](docs/todo.md)
 * [Resources](docs/resources.md)

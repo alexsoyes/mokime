@@ -1,14 +1,21 @@
+<?php
+/**
+ * Show the author biography on post.
+ *
+ * @package mokime
+ */
+
+?>
 <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
 	<?php if ( has_custom_logo() ) : ?>
 	<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-		<meta itemprop="url" content="<?php echo esc_html( get_custom_logo_url() ); ?>">
+		<meta itemprop="url" content="<?php echo esc_html( mokime_get_custom_logo_url() ); ?>">
 	</div>
 	<meta itemprop="name" content="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>">
 	<?php endif; ?>
 </div>
 
-<div itemprop="author" itemscope itemtype="https://schema.org/Person"
-	 class="author-box has-text-align-center
+<div itemprop="author" itemscope itemtype="https://schema.org/Person" class="author-box has-text-align-center
 	 <?php
 		if ( ! (bool) get_theme_mod( 'single_post_author_bio', true ) ) :
 			?>

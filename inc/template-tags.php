@@ -12,8 +12,8 @@
  * @param $type
  * @param $file
  */
-function the_asset($type, $file) {
-    echo esc_html( get_the_asset($type, $file) );
+function mokime_the_asset( $type, $file ) {
+	echo esc_html( mokime_get_the_asset( $type, $file ) );
 }
 
 /**
@@ -26,49 +26,54 @@ function the_asset($type, $file) {
  *
  * @return string string
  */
-function get_the_asset($type, $file) {
+function mokime_get_the_asset( $type, $file ) {
 
-    $types = array( 'icon', 'image', 'javascript' );
+	$types = array( 'icon', 'image', 'javascript' );
 
-    if (!in_array($type, $types)) {
-        return '';
-    }
+	if ( ! in_array( strtolower( $type ), $types, true ) ) {
+		return '';
+	}
 
-    $uri = get_template_directory_uri();
+	$uri = get_template_directory_uri();
 
-    switch ($type) {
-        case 'icon':
-            $uri .= '/assets/img/icons/';
-            break;
-        case 'image':
-            $uri .= '/assets/img/';
-            break;
-        case 'javascript':
-            $uri .= '/assets/js/';
-            break;
-    }
+	switch ( $type ) {
+		case 'icon':
+			$uri .= '/assets/img/icons/';
+			break;
+		case 'image':
+			$uri .= '/assets/img/';
+			break;
+		case 'javascript':
+			$uri .= '/assets/js/';
+			break;
+	}
 
-    return $uri . $file;
+	return $uri . $file;
 }
 
 /**
- * @param $setting_name string
+ * Display the given advertised block.
+ *
+ * @param string $setting_name the setting name in customizer.
  */
-function the_ads( $setting_name ) {
-	 $ad_content = get_theme_mod( $setting_name, false );
+function mokime_the_ads( $setting_name ) {
+
+	$ad_content = get_theme_mod( $setting_name, false );
 
 	if ( (bool) $ad_content ) {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo ( sprintf('<div class="entry-content"><div class="ads">%s</div><!-- .ads --></div><!-- .entry-content -->', $ad_content) );
+		echo ( sprintf( '<div class="entry-content"><div class="ads">%s</div><!-- .ads --></div><!-- .entry-content -->', $ad_content ) );
 	}
 }
 
 /**
- * @param $limit int
+ * Get the last posts.
+ *
+ * @param int $limit the post limit.
  *
  * @return int[]|WP_Post[]
  */
-function get_the_last_posts( $limit = -1 ) {
+function mokime_get_the_last_posts( $limit = -1 ) {
 
 	if ( -1 === $limit ) {
 		$limit = get_option( 'posts_per_page' );
@@ -84,23 +89,25 @@ function get_the_last_posts( $limit = -1 ) {
 }
 
 /**
- * @param $post_id int The post ID to look categories into
+ * Try to get the primary post category with Yoast SEO's help.
+ *
+ * @param int $post_id The post ID to look categories into.
  *
  * @return WP_Term|null The primary category ID or null is none
  */
-function get_post_category_primary( $post_id ) {
+function mokime_get_post_category_primary( $post_id ) {
 
 	$term_list = wp_get_post_terms( $post_id, 'category', array( 'fields' => 'all' ) );
 
 	/** @var WP_Term $term */
 	foreach ( $term_list as $term ) {
-		// Yoast SEO main category
-		if ( get_post_meta( $post_id, '_yoast_wpseo_primary_category', true ) == $term->term_id ) {
+		// Yoast SEO main category.
+		if ( get_post_meta( $post_id, '_yoast_wpseo_primary_category', true ) === $term->term_id ) {
 			return $term;
 		}
 	}
 
-	// get the first one if at least one exists
+	// get the first one if at least one exists.
 	if ( ! empty( $term_list ) ) {
 		return $term_list[0];
 	}

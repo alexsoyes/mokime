@@ -4,7 +4,7 @@
 
 	<a href="#<?php echo $comments_number > 0 ? 'comments' : 'respond'; ?>" title="<?php esc_html_e( 'Go to comments', 'mokime' ); ?>">
 
-		<img src="<?php the_asset('icon', 'chatbox-ellipses-outline.svg' ); ?>"
+		<img src="<?php mokime_the_asset('icon', 'chatbox-ellipses-outline.svg' ); ?>"
 		     class="icon"
 		     alt="<?php esc_html_e( 'Comments number', 'mokime' ); ?>">
 

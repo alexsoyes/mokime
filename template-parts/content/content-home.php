@@ -4,7 +4,7 @@
 		<?php get_template_part( 'template-parts/entry/entry-header' ); ?>
 	</header><!-- .article-header -->
 
-    <?php the_ads( 'advertising_global_top' ); ?>
+    <?php mokime_the_ads( 'advertising_global_top' ); ?>
 
 	<div class="entry-content">
 		<?php
@@ -25,7 +25,7 @@
 		 */
 		elseif ( is_home() && ! is_front_page() || (bool) get_theme_mod( 'homepage_last_posts', true ) ) {
 
-			$recent_posts = get_the_last_posts();
+			$recent_posts = mokime_get_the_last_posts();
 
 			if ( $recent_posts ) {
 

@@ -2,7 +2,7 @@
 
 <footer role="contentinfo">
 
-    <?php the_ads( 'advertising_global_bottom' ); ?>
+    <?php mokime_the_ads( 'advertising_global_bottom' ); ?>
 
 	<?php if ( is_active_sidebar( 'sidebar-pre-footer' ) ) : ?>
 		<div id="prefooter" class="entry-content">

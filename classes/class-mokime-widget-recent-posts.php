@@ -59,7 +59,7 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 
 			if ( $current_post ) {
 				/** @var WP_Term $post_category */
-				$post_category = get_post_category_primary( $current_post->ID );
+				$post_category = mokime_get_post_category_primary( $current_post->ID );
 
 				if ( ! $post_category ) {
 					return;

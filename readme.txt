@@ -1,4 +1,4 @@
-=== MokiMe ===
+=== mokime ===
 Contributors: alexsoyer
 Donate link: https://moki.me
 Tags: performance, seo, fast, blog
@@ -6,10 +6,10 @@ Requires at least: 4.0
 Tested up to: 5.2
 Stable tag: 1.0
 Requires PHP: 5.2.4
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GNU General Public License v3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-High performance WordPress theme.
+High performance WordPress theme optimized for SEO and carbon print.
 
 == Description ==
 

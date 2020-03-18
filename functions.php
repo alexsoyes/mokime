@@ -21,9 +21,10 @@ function mokime_theme_support() {
 	);
 
 	// Set content-width.
+    // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedVariableFound
 	global $content_width;
 	if ( ! isset( $content_width ) ) {
-		$content_width = 580;
+		$content_width = 790;
 	}
 
 	/*
@@ -49,8 +50,8 @@ function mokime_theme_support() {
 		$logo_height = floor( $logo_height * 2 );
 	}
 
-	add_theme_support(
-		'custom-logo',
+	// phpcs:ignore PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket
+	add_theme_support('custom-logo',
 		array(
 			'height'      => $logo_height,
 			'width'       => $logo_width,
@@ -58,14 +59,14 @@ function mokime_theme_support() {
 		)
 	);
 
-	// Load translations
+	// Load translations.
 	load_theme_textdomain( 'mokime', get_template_directory() . '/languages' );
 
 	// Add support for full and wide align images.
 	add_theme_support( 'align-wide' );
 
-	add_theme_support(
-		'custom-header',
+    // phpcs:ignore PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket
+	add_theme_support('custom-header',
 		apply_filters(
 			'mokime_custom_header_args',
 			array(
@@ -114,8 +115,8 @@ function mokime_theme_support() {
 	);
 
 	// Custom background color.
-	add_theme_support(
-		'custom-background',
+    // phpcs:ignore PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket
+	add_theme_support('custom-background',
 		array(
 			'default-color' => 'ffffff',
 		)
@@ -334,9 +335,7 @@ require get_template_directory() . '/classes/class-mokime-script-loader.php';
 /**
  * Custom logo link class
  */
-add_filter( 'get_custom_logo', 'add_custom_logo_url' );
-
-function add_custom_logo_url() {
+function mokime_add_custom_logo_url() {
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 
 	return sprintf(
@@ -353,10 +352,12 @@ function add_custom_logo_url() {
 	);
 }
 
+add_filter( 'get_custom_logo', 'mokime_add_custom_logo_url' );
+
 /**
  * @return mixed|string
  */
-function get_custom_logo_url() {
+function mokime_get_custom_logo_url() {
 
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 	$logo_meta      = wp_get_attachment_image_src( $custom_logo_id, 'full' );
@@ -429,7 +430,7 @@ function mokime_register_scripts() {
 		wp_script_add_data( 'comment-reply', 'async', true );
 	}
 
-	wp_enqueue_script( 'mokime-js', get_the_asset('javascript', 'mokime.min.js') , array(), $theme_version, true );
+	wp_enqueue_script( 'mokime-js', mokime_get_the_asset( 'javascript', 'mokime.min.js' ), array(), $theme_version, true );
 	wp_script_add_data( 'mokime-js', 'async', true );
 }
 
@@ -437,7 +438,6 @@ add_action( 'wp_enqueue_scripts', 'mokime_register_scripts' );
 
 /**
  * Use rel=preload in the header
- *
  */
 function mokime_register_styles_pre() {
 	echo '<link rel="preconnect" href="https://fonts.googleapis.com" />';
@@ -445,26 +445,26 @@ function mokime_register_styles_pre() {
 	echo sprintf(
 		'<link rel="preload" as="script" type="text/javascript" media="all" href="%s" />',
 		esc_html(
-		    get_the_asset('javascript', 'mokime.min.js') . '?ver=' . wp_get_theme()->get( 'Version' )
-        )
+			mokime_get_the_asset( 'javascript', 'mokime.min.js' ) . '?ver=' . wp_get_theme()->get( 'Version' )
+		)
 	);
 }
 
 add_action( 'wp_head', 'mokime_register_styles_pre', 5 );
 
-define( 'DEFAULT_IMAGE_URI', get_the_asset('image', 'mokime-custom-header.jpg' ) );
+define( 'DEFAULT_IMAGE_URI', mokime_get_the_asset( 'image', 'mokime-custom-header.jpg' ) );
 
 /**
  * Register default header image
  */
 register_default_headers(
-    array(
-        'default-image' => array(
-            'url'           => DEFAULT_IMAGE_URI,
-            'thumbnail_url' => DEFAULT_IMAGE_URI,
-            'description'   => '',
-        ),
-    )
+	array(
+		'default-image' => array(
+			'url'           => DEFAULT_IMAGE_URI,
+			'thumbnail_url' => DEFAULT_IMAGE_URI,
+			'description'   => '',
+		),
+	)
 );
 
-define( 'DEFAULT_AVATAR_URL', get_the_asset('icon', 'person-outline.svg' ) );
+define( 'DEFAULT_AVATAR_URL', mokime_get_the_asset( 'icon', 'person-outline.svg' ) );
