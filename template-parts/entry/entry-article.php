@@ -12,11 +12,11 @@
 
 			<?php get_template_part( 'template-parts/entry/entry-article-categories' ); ?>
 
-			<h3 class="card-title has-text-weight-bold">
+			<h2 class="card-title h3 has-text-weight-bold">
 				<a href="<?php the_permalink(); ?>" class="color-secondary">
 					<?php the_title(); ?>
 				</a>
-			</h3><!-- .card-title -->
+			</h2><!-- .card-title -->
 
 			<p class="has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( get_the_excerpt() ); ?></p>
 
@@ -24,25 +24,30 @@
 
 				<div class="metadata">
 
-					<img src="<?php mokime_the_asset('icon', 'calendar-outline.svg' ); ?>"
-					     class="card-icons  icon"
-					     alt="<?php esc_html_e('Published date', 'mokime'); ?>" />
+					<img src="<?php mokime_the_asset( 'icon', 'calendar-outline.svg' ); ?>"
+						 class="card-icons icon"
+						 alt="<?php esc_html_e( 'Published date', 'mokime' ); ?>" />
 
 					<span class="card-date">
+						<?php $have_no_title = '' === get_the_title(); ?>
+						<?php if ( $have_no_title ) : ?>
 						<a href="<?php the_permalink(); ?>" class="color-secondary">
+						<?php endif; ?>
 							<time datetime="<?php echo get_the_date( 'c' ); ?>">
-								<small><?php echo get_the_date( 'j F Y' ); ?></small>
+								<small class="color-secondary"><?php echo get_the_date( 'j F Y' ); ?></small>
 							</time>
+						<?php if ( $have_no_title ) : ?>
 						</a>
+						<?php endif; ?>
 					</span><!-- .card-date -->
 
 				</div><!-- .metadata -->
 
 				<div class="metadata">
 
-					<img src="<?php mokime_the_asset('icon', '/chatbox-ellipses-outline.svg' ); ?>"
-					     class="card-icons icon"
-					     alt="<?php esc_html_e('Comments number', 'mokime'); ?>">
+					<img src="<?php mokime_the_asset( 'icon', '/chatbox-ellipses-outline.svg' ); ?>"
+						 class="card-icons icon"
+						 alt="<?php esc_html_e( 'Comments number', 'mokime' ); ?>">
 
 					<small class="card-comments color-secondary">
 						<?php
