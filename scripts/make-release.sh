@@ -25,6 +25,7 @@ zip -9 -rqq "${OUTPUT_FILE}" . \
     -x="*docs/*" \
     -x="*README.md*" \
     -x="*.json*" \
+    -x="*.idea*" \
     -x="*.git/*" \
     -x="*versions*" \
     -x="*.gitignore*" \
