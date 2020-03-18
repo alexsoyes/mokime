@@ -23,10 +23,16 @@ MokiMe is a simple theme with *minimalist* and *material design* supercharged fo
    </tr>
  </table>
 
-* [Installation](docs/install.md)
-* [Next release](docs/todo.md)
-* [Resources](docs/resources.md)
-* [Make a production](docs/production.md)
+* [Installation guide](docs/install.md)
+* [Production build](docs/production.md)
+* [Todo list](docs/todo.md)
+
+
+## MokiMe is build on top of
+
+* [WordPress best practices](https://make.wordpress.org/themes/handbook/review/resources/)
+* [WordPress Coding Standard (wpcs)](https://github.com/WordPress/WordPress-Coding-Standards)
+* [CSS coding style](https://github.com/necolas/idiomatic-css/tree/master/translations/fr-FR)
 
 ## Credits
 
