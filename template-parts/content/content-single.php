@@ -22,15 +22,15 @@ $column_width = is_active_sidebar( 'sidebar-single' ) ? 70 : 100; ?>
 
 		<div class="wp-block-columns">
 
-			<div class="wp-block-column-<?php echo esc_html( $column_width ); ?>">
+			<div class="wp-block-column wp-block-column-<?php echo esc_html( $column_width ); ?>">
 
 				<div class="wp-block-columns">
 
-					<div class="wp-block-column-70">
+					<div class="wp-block-column wp-block-column-70">
 						<?php get_template_part( 'template-parts/entry/entry-breadcrumb' ); ?>
 					</div><!-- .wp-block-column-70 -->
 
-					<div class="wp-block-column-30 has-text-align-right">
+					<div class="wp-block-column wp-block-column-30 has-text-align-right">
 						<?php get_template_part( 'template-parts/entry/entry-comment-number' ); ?>
 					</div><!-- .wp-block-column-30 -->
 

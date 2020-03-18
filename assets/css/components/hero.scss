@@ -26,7 +26,8 @@
     }
 
     .search-field {
-      width: 30rem;
+
+      width: auto;
 
       @media (min-width: 600px) {
         width: 50rem;

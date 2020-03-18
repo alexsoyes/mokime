@@ -1,12 +1,10 @@
+
+/* Header
+   ========================================================================== */
+
 .site-header {
   background-position: top center;
   background-size: cover;
-}
-
-#site-footer {
-  .column > div:not(:first-child) {
-    margin-top: 3rem;
-  }
 }
 
 .article-header__background-image {
@@ -15,17 +13,63 @@
   background-repeat: no-repeat;
 }
 
-.is-single, .is-page {
-  &.entry-content {
-    p {
-      color: $color-dark;
-    }
+/* Footer
+   ========================================================================== */
 
-    h2, h3, h4, h5, h6 {
-      margin-top: 4rem;
-    }
+#site-footer {
+  .column > div:not(:first-child) {
+    margin-top: 3rem;
   }
 }
+
+
+/* Content
+   ========================================================================== */
+
+.post-inner {
+  p {
+    color: $color-dark;
+    line-height: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  h2, h3, h4, h5, h6 {
+    margin-top: 4rem;
+  }
+}
+
+blockquote {
+  border-left: .3rem solid $color-quaternary;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1rem 1.5rem;
+
+  *:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Global
+   ========================================================================== */
+
+body {
+  background-color: $color-white;
+}
+
+a.button {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.post-inner {
+  a:visited {
+    color: $color-primary;
+  }
+}
+
+/* Widgets
+   ========================================================================== */
 
 .widget-cta-single {
   .card-title a {
@@ -33,22 +77,31 @@
   }
 }
 
-.ads {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-
-a.button:hover {
-  text-decoration: none;
+.widget-single {
+  @media (max-width: 599px) {
+    margin-top: 3rem;
+  }
 }
 
 .widget_search input[type="submit"] {
   width: 100%;
 }
 
+
+.ads {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* Breadcrumb
+   ========================================================================== */
+
 .breadcrumbs {
   margin-bottom: 2rem;
 }
+
+/* Images
+   ========================================================================== */
 
 .icon {
   width: 15px;

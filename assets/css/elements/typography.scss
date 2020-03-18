@@ -31,10 +31,12 @@
 
 .is-overflowed-3 {
   -webkit-line-clamp: 3; /* number of lines to show */
-  line-clamp: 3;
 }
 
 .is-overflowed-1 {
   -webkit-line-clamp: 1; /* number of lines to show */
-  line-clamp: 1;
+}
+
+p {
+  word-break: break-word;
 }

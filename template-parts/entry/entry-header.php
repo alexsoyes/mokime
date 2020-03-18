@@ -31,7 +31,7 @@ $has_background_image = isset( $header_image ) && ( $header_image && 'remove-hea
 					<?php
 					if ( is_single() ) :
 						?>
-					 itemprop="description"<?php endif; ?> class="hero-desc h6">
+					 itemprop="description"<?php endif; ?> class="hero-desc">
 					<?php echo wp_kses_post( $header_description ); ?>
 				</div><!-- .hero-desc -->
 				<?php endif; ?>

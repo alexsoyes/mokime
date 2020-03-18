@@ -8,8 +8,15 @@
     margin-bottom: 2rem;
   }
 
-  li a {
-    display: inline-block;
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      font-weight: 500;
+    }
+  }
+
+  li {
     padding: 5px 5px 5px 0;
   }
 
@@ -23,7 +30,7 @@
   }
 
   .social-menu.footer-social li .svg-icon:hover {
-    transition: 1.5s all;
+    transition: .5s all;
   }
 
   .social-menu.footer-social li .svg-icon {
