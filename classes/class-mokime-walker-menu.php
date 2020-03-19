@@ -8,287 +8,283 @@
  * @since      4.6.0
  */
 
-if (! class_exists('MokiMe_Walker_Nav_Menu') ) {
+if ( ! class_exists( 'MokiMe_Walker_Nav_Menu' ) ) {
 
-    /**
-     * Core class used to implement an HTML list of nav menu items.
-     *
-     * @since 3.0.0
-     *
-     * @see Walker
-     */
-    class MokiMe_Walker_Nav_Menu extends Walker
-    {
+	/**
+	 * Core class used to implement an HTML list of nav menu items.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @see Walker
+	 */
+	class MokiMe_Walker_Nav_Menu extends Walker {
 
-        /**
-         * What the class handles.
-         *
-         * @since 3.0.0
-         * @var   string
-         *
-         * @see Walker::$tree_type
-         */
-        public $tree_type = array( 'post_type', 'taxonomy', 'custom' );
 
-        /**
-         * Database fields to use.
-         *
-         * @since 3.0.0
-         * @var   array
-         *
-         * @see Walker::$db_fields
-         */
-        public $db_fields = array(
-        'parent' => 'menu_item_parent',
-        'id'     => 'db_id',
-        );
+		/**
+		 * What the class handles.
+		 *
+		 * @since 3.0.0
+		 * @var   string
+		 *
+		 * @see Walker::$tree_type
+		 */
+		public $tree_type = array( 'post_type', 'taxonomy', 'custom' );
 
-        /**
-         * Starts the list before the elements are added.
-         *
-         * @param string   $output Used to append additional content (passed by reference).
-         * @param int      $depth  Depth of menu item. Used for padding.
-         * @param stdClass $args   An object of wp_nav_menu() arguments.
-         *
-         * @see Walker::start_lvl()
-         *
-         * @since 3.0.0
-         */
-        public function start_lvl( &$output, $depth = 0, $args = null )
-        {
-            if (isset($args->item_spacing) && 'discard' === $args->item_spacing ) {
-                $t = '';
-                $n = '';
-            } else {
-                $t = "\t";
-                $n = "\n";
-            }
-            $indent = str_repeat($t, $depth);
+		/**
+		 * Database fields to use.
+		 *
+		 * @since 3.0.0
+		 * @var   array
+		 *
+		 * @see Walker::$db_fields
+		 */
+		public $db_fields = array(
+			'parent' => 'menu_item_parent',
+			'id'     => 'db_id',
+		);
 
-            // Default class.
-            $classes = array( 'navbar-dropdown' );
+		/**
+		 * Starts the list before the elements are added.
+		 *
+		 * @param string   $output Used to append additional content (passed by reference).
+		 * @param int      $depth  Depth of menu item. Used for padding.
+		 * @param stdClass $args   An object of wp_nav_menu() arguments.
+		 *
+		 * @see Walker::start_lvl()
+		 *
+		 * @since 3.0.0
+		 */
+		public function start_lvl( &$output, $depth = 0, $args = null ) {
+			if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+				$t = '';
+				$n = '';
+			} else {
+				$t = "\t";
+				$n = "\n";
+			}
+			$indent = str_repeat( $t, $depth );
 
-            /**
-             * Filters the CSS class(es) applied to a menu list element.
-             *
-             * @param string[] $classes Array of the CSS classes that are applied to the menu `<ul>` element.
-             * @param stdClass $args An object of `wp_nav_menu()` arguments.
-             * @param int $depth Depth of menu item. Used for padding.
-             *
-             * @since 4.8.0
-             */
-            $class_names = join(' ', apply_filters('nav_menu_submenu_css_class', $classes, $args, $depth));
-            $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+			// Default class.
+			$classes = array( 'navbar-dropdown' );
 
-            $output .= "{$n}{$indent}<div$class_names>{$n}";
-        }
+			/**
+			 * Filters the CSS class(es) applied to a menu list element.
+			 *
+			 * @param string[] $classes Array of the CSS classes that are applied to the menu `<ul>` element.
+			 * @param stdClass $args An object of `wp_nav_menu()` arguments.
+			 * @param int $depth Depth of menu item. Used for padding.
+			 *
+			 * @since 4.8.0
+			 */
+			$class_names = join( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
+			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
-        /**
-         * Ends the list of after the elements are added.
-         *
-         * @param string   $output Used to append additional content (passed by reference).
-         * @param int      $depth  Depth of menu item. Used for padding.
-         * @param stdClass $args   An object of wp_nav_menu() arguments.
-         *
-         * @see Walker::end_lvl()
-         *
-         * @since 3.0.0
-         */
-        public function end_lvl( &$output, $depth = 0, $args = null )
-        {
-            if (isset($args->item_spacing) && 'discard' === $args->item_spacing ) {
-                $t = '';
-                $n = '';
-            } else {
-                $t = "\t";
-                $n = "\n";
-            }
-            $indent = str_repeat($t, $depth);
-            $output .= "$indent</div></div>{$n}";
-        }
+			$output .= "{$n}{$indent}<div$class_names>{$n}";
+		}
 
-        /**
-         * Starts the element output.
-         *
-         * @param string   $output Used to append additional content (passed by reference).
-         * @param WP_Post  $item   Menu item data object.
-         * @param int      $depth  Depth of menu item. Used for padding.
-         * @param stdClass $args   An object of wp_nav_menu() arguments.
-         * @param int      $id     Current item ID.
-         *
-         * @see Walker::start_el()
-         *
-         * @since 3.0.0
-         * @since 4.4.0 The {@see 'nav_menu_item_args'} filter was added.
-         */
-        public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 )
-        {
-            if (isset($args->item_spacing) && 'discard' === $args->item_spacing ) {
-                $t = '';
-                $n = '';
-            } else {
-                $t = "\t";
-                $n = "\n";
-            }
-            $indent = ( $depth ) ? str_repeat($t, $depth) : '';
+		/**
+		 * Ends the list of after the elements are added.
+		 *
+		 * @param string   $output Used to append additional content (passed by reference).
+		 * @param int      $depth  Depth of menu item. Used for padding.
+		 * @param stdClass $args   An object of wp_nav_menu() arguments.
+		 *
+		 * @see Walker::end_lvl()
+		 *
+		 * @since 3.0.0
+		 */
+		public function end_lvl( &$output, $depth = 0, $args = null ) {
+			if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+				$t = '';
+				$n = '';
+			} else {
+				$t = "\t";
+				$n = "\n";
+			}
+			$indent  = str_repeat( $t, $depth );
+			$output .= "$indent</div></div>{$n}";
+		}
 
-            $classes   = empty($item->classes) ? array() : (array) $item->classes;
-            $classes[] = 'menu-item-' . $item->ID;
+		/**
+		 * Starts the element output.
+		 *
+		 * @param string   $output Used to append additional content (passed by reference).
+		 * @param WP_Post  $item   Menu item data object.
+		 * @param int      $depth  Depth of menu item. Used for padding.
+		 * @param stdClass $args   An object of wp_nav_menu() arguments.
+		 * @param int      $id     Current item ID.
+		 *
+		 * @see Walker::start_el()
+		 *
+		 * @since 3.0.0
+		 * @since 4.4.0 The {@see 'nav_menu_item_args'} filter was added.
+		 */
+		public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+			if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+				$t = '';
+				$n = '';
+			} else {
+				$t = "\t";
+				$n = "\n";
+			}
+			$indent = ( $depth ) ? str_repeat( $t, $depth ) : '';
 
-            /**
-             * Filters the arguments for a single nav menu item.
-             *
-             * @param stdClass $args An object of wp_nav_menu() arguments.
-             * @param WP_Post $item Menu item data object.
-             * @param int $depth Depth of menu item. Used for padding.
-             *
-             * @since 4.4.0
-             */
-            $args = apply_filters('nav_menu_item_args', $args, $item, $depth);
+			$classes   = empty( $item->classes ) ? array() : (array) $item->classes;
+			$classes[] = 'menu-item-' . $item->ID;
 
-            /**
-             * Filters the CSS classes applied to a menu item's list item element.
-             *
-             * @param string[] $classes Array of the CSS classes that are applied to the menu item's `<li>` element.
-             * @param WP_Post $item The current menu item.
-             * @param stdClass $args An object of wp_nav_menu() arguments.
-             * @param int $depth Depth of menu item. Used for padding.
-             *
-             * @since 3.0.0
-             * @since 4.1.0 The `$depth` parameter was added.
-             */
-            $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
-            $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+			/**
+			 * Filters the arguments for a single nav menu item.
+			 *
+			 * @param stdClass $args An object of wp_nav_menu() arguments.
+			 * @param WP_Post $item Menu item data object.
+			 * @param int $depth Depth of menu item. Used for padding.
+			 *
+			 * @since 4.4.0
+			 */
+			$args = apply_filters( 'nav_menu_item_args', $args, $item, $depth );
 
-            /**
-             * Filters the ID applied to a menu item's list item element.
-             *
-             * @param string $menu_id The ID that is applied to the menu item's `<li>` element.
-             * @param WP_Post $item The current menu item.
-             * @param stdClass $args An object of wp_nav_menu() arguments.
-             * @param int $depth Depth of menu item. Used for padding.
-             *
-             * @since 3.0.1
-             * @since 4.1.0 The `$depth` parameter was added.
-             */
-            $id = apply_filters('nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args, $depth);
-            $id = $id ? ' id="' . esc_attr($id) . '"' : '';
+			/**
+			 * Filters the CSS classes applied to a menu item's list item element.
+			 *
+			 * @param string[] $classes Array of the CSS classes that are applied to the menu item's `<li>` element.
+			 * @param WP_Post $item The current menu item.
+			 * @param stdClass $args An object of wp_nav_menu() arguments.
+			 * @param int $depth Depth of menu item. Used for padding.
+			 *
+			 * @since 3.0.0
+			 * @since 4.1.0 The `$depth` parameter was added.
+			 */
+			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
+			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
-            //        $output .= $indent . '<li' . $id . $class_names . '>';
+			/**
+			 * Filters the ID applied to a menu item's list item element.
+			 *
+			 * @param string $menu_id The ID that is applied to the menu item's `<li>` element.
+			 * @param WP_Post $item The current menu item.
+			 * @param stdClass $args An object of wp_nav_menu() arguments.
+			 * @param int $depth Depth of menu item. Used for padding.
+			 *
+			 * @since 3.0.1
+			 * @since 4.1.0 The `$depth` parameter was added.
+			 */
+			$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args, $depth );
+			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-            $atts           = array();
-            $atts['title']  = ! empty($item->attr_title) ? $item->attr_title : '';
-            $atts['target'] = ! empty($item->target) ? $item->target : '';
-            if ('_blank' === $item->target && empty($item->xfn) ) {
-                $atts['rel'] = 'noopener noreferrer';
-            } else {
-                $atts['rel'] = $item->xfn;
-            }
-            $atts['href']         = ! empty($item->url) ? $item->url : '';
-            $atts['aria-current'] = $item->current ? 'page' : '';
+			// $output .= $indent . '<li' . $id . $class_names . '>';
 
-            /**
-             * Filters the HTML attributes applied to a menu item's anchor element.
-             *
-             * @param array $atts {
-             *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
-             *
-             * @type string $title Title attribute.
-             * @type string $target Target attribute.
-             * @type string $rel The rel attribute.
-             * @type string $href The href attribute.
-             * @type string $aria_current The aria-current attribute.
-             * }
-             *
-             * @param WP_Post $item The current menu item.
-             * @param stdClass $args An object of wp_nav_menu() arguments.
-             * @param int $depth Depth of menu item. Used for padding.
-             *
-             * @since 3.6.0
-             * @since 4.1.0 The `$depth` parameter was added.
-             */
-            $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args, $depth);
+			$atts           = array();
+			$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
+			if ( '_blank' === $item->target && empty( $item->xfn ) ) {
+				$atts['rel'] = 'noopener noreferrer';
+			} else {
+				$atts['rel'] = $item->xfn;
+			}
+			$atts['href']         = ! empty( $item->url ) ? $item->url : '';
+			$atts['aria-current'] = $item->current ? 'page' : '';
 
-            $attributes = '';
-            foreach ( $atts as $attr => $value ) {
-                if (is_scalar($value) && '' !== $value && false !== $value ) {
-                    $value      = ( 'href' === $attr ) ? esc_url($value) : esc_attr($value);
-                    $attributes .= ' ' . $attr . '="' . $value . '"';
-                }
-            }
+			/**
+			 * Filters the HTML attributes applied to a menu item's anchor element.
+			 *
+			 * @param array $atts {
+			 *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
+			 *
+			 * @type string $title Title attribute.
+			 * @type string $target Target attribute.
+			 * @type string $rel The rel attribute.
+			 * @type string $href The href attribute.
+			 * @type string $aria_current The aria-current attribute.
+			 * }
+			 *
+			 * @param WP_Post $item The current menu item.
+			 * @param stdClass $args An object of wp_nav_menu() arguments.
+			 * @param int $depth Depth of menu item. Used for padding.
+			 *
+			 * @since 3.6.0
+			 * @since 4.1.0 The `$depth` parameter was added.
+			 */
+			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
 
-            /**
-       * This filter is documented in wp-includes/post-template.php 
+			$attributes = '';
+			foreach ( $atts as $attr => $value ) {
+				if ( is_scalar( $value ) && '' !== $value && false !== $value ) {
+					$value       = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+					$attributes .= ' ' . $attr . '="' . $value . '"';
+				}
+			}
+
+			/**
+	   * This filter is documented in wp-includes/post-template.php
 */
-            $title = apply_filters('the_title', $item->title, $item->ID);
+			$title = apply_filters( 'the_title', $item->title, $item->ID );
 
-            /**
-             * Filters a menu item's title.
-             *
-             * @param string $title The menu item's title.
-             * @param WP_Post $item The current menu item.
-             * @param stdClass $args An object of wp_nav_menu() arguments.
-             * @param int $depth Depth of menu item. Used for padding.
-             *
-             * @since 4.4.0
-             */
-            $title = apply_filters('nav_menu_item_title', $title, $item, $args, $depth);
+			/**
+			 * Filters a menu item's title.
+			 *
+			 * @param string $title The menu item's title.
+			 * @param WP_Post $item The current menu item.
+			 * @param stdClass $args An object of wp_nav_menu() arguments.
+			 * @param int $depth Depth of menu item. Used for padding.
+			 *
+			 * @since 4.4.0
+			 */
+			$title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
 
-            $item_output = '';
+			$item_output = '';
 
-            if ($this->has_children ) {
-                $item_output = '<div class="navbar-item has-dropdown is-hoverable">';
-            }
+			if ( $this->has_children ) {
+				$item_output = '<div class="navbar-item has-dropdown is-hoverable">';
+			}
 
-            $item_output .= $args->before;
-            if ($this->has_children ) {
-                $item_output .= '<a class="navbar-link" ' . $attributes . '>';
-            } else {
-                $item_output .= '<a class="navbar-item" ' . $attributes . '>';
-            }
-            $item_output .= $args->link_before . $title . $args->link_after;
-            $item_output .= '</a>';
-            $item_output .= $args->after;
+			$item_output .= $args->before;
+			if ( $this->has_children ) {
+				$item_output .= '<a class="navbar-link" ' . $attributes . '>';
+			} else {
+				$item_output .= '<a role="menuitem" class="navbar-item" ' . $attributes . '>';
+			}
+			$item_output .= $args->link_before . $title . $args->link_after;
+			$item_output .= '</a>';
+			$item_output .= $args->after;
 
-            /**
-             * Filters a menu item's starting output.
-             *
-             * The menu item's starting output only includes `$args->before`, the opening `<a>`,
-             * the menu item's title, the closing `</a>`, and `$args->after`. Currently, there is
-             * no filter for modifying the opening and closing `<li>` for a menu item.
-             *
-             * @param string $item_output The menu item's starting HTML output.
-             * @param WP_Post $item Menu item data object.
-             * @param int $depth Depth of menu item. Used for padding.
-             * @param stdClass $args An object of wp_nav_menu() arguments.
-             *
-             * @since 3.0.0
-             */
-            $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
-        }
+			/**
+			 * Filters a menu item's starting output.
+			 *
+			 * The menu item's starting output only includes `$args->before`, the opening `<a>`,
+			 * the menu item's title, the closing `</a>`, and `$args->after`. Currently, there is
+			 * no filter for modifying the opening and closing `<li>` for a menu item.
+			 *
+			 * @param string $item_output The menu item's starting HTML output.
+			 * @param WP_Post $item Menu item data object.
+			 * @param int $depth Depth of menu item. Used for padding.
+			 * @param stdClass $args An object of wp_nav_menu() arguments.
+			 *
+			 * @since 3.0.0
+			 */
+			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		}
 
-        /**
-         * Ends the element output, if needed.
-         *
-         * @param string   $output Used to append additional content (passed by reference).
-         * @param WP_Post  $item   Page data object. Not used.
-         * @param int      $depth  Depth of page. Not Used.
-         * @param stdClass $args   An object of wp_nav_menu() arguments.
-         *
-         * @since 3.0.0
-         *
-         * @see Walker::end_el()
-         */
-        public function end_el( &$output, $item, $depth = 0, $args = null )
-        {
-            if (isset($args->item_spacing) && 'discard' === $args->item_spacing ) {
-                $t = '';
-                $n = '';
-            } else {
-                $t = "\t";
-                $n = "\n";
-            }
-            $output .= "{$n}";
-        }
-    }
+		/**
+		 * Ends the element output, if needed.
+		 *
+		 * @param string   $output Used to append additional content (passed by reference).
+		 * @param WP_Post  $item   Page data object. Not used.
+		 * @param int      $depth  Depth of page. Not Used.
+		 * @param stdClass $args   An object of wp_nav_menu() arguments.
+		 *
+		 * @since 3.0.0
+		 *
+		 * @see Walker::end_el()
+		 */
+		public function end_el( &$output, $item, $depth = 0, $args = null ) {
+			if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+				$t = '';
+				$n = '';
+			} else {
+				$t = "\t";
+				$n = "\n";
+			}
+			$output .= "{$n}";
+		}
+	}
 }

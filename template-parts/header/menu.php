@@ -1,29 +1,36 @@
+<?php
+/**
+ * Display the header menu with logo and navbar.
+ *
+ * @package mokime
+ */
+
+?>
 <nav itemscope="itemscope" itemtype="http://www.schema.org/SiteNavigationElement" class="navbar is-transparent" role="navigation" aria-label="main navigation">
 
 	<div class="navbar-brand">
 
 		<?php
-        if ( has_custom_logo() ) {
+		if ( has_custom_logo() ) {
 			the_custom_logo();
 		} else {
-            echo sprintf(
-                '<a href="%s" class="logo-text"><span class="h1 has-text-weight-bold">%s</span></a>',
-                esc_html( get_home_url() ),
-                esc_html( get_bloginfo('name') )
-            );
-        }
-        ?>
+			echo sprintf(
+				'<a href="%s" class="logo-text"><span class="h1 has-text-weight-bold">%s</span></a>',
+				esc_html( get_home_url() ),
+				esc_html( get_bloginfo( 'name' ) )
+			);
+		}
+		?>
 
-		<div role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-			 onclick="toggleMobileMenu(this);"
-			 data-target="navbarMobile">
+		<a href="#" id="navbar-button" aria-haspopup="true" aria-controls="navbar" href="#" class="navbar-burger burger" aria-label="menu" aria-expanded="false">
 			<span aria-hidden="true"></span>
 			<span aria-hidden="true"></span>
 			<span aria-hidden="true"></span>
-		</div>
-	</div>
+		</a><!-- .navbar-burger -->
 
-	<div id="navbarMobile" class="navbar-menu">
+	</div><!-- .navbar-brand -->
+
+	<div id="navbar" class="navbar-menu" aria-labelledby="navbar-button">
 		<?php
 		if ( has_nav_menu( 'primary' ) ) {
 
