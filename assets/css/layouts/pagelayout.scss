@@ -56,6 +56,10 @@ body {
   background-color: $color-white;
 }
 
+a:focus {
+  text-decoration: underline;
+}
+
 a.button {
   &:hover {
     text-decoration: none;

@@ -69,8 +69,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 
 					?>
 					<small class="tag">
-						<time itemprop="dateCreated" datetime="<?php comment_time( 'c' ); ?>"
-							  title="<?php echo esc_attr( $comment_timestamp ); ?>">
+						<time itemprop="dateCreated" datetime="<?php comment_time( 'c' ); ?>">
 							<?php echo esc_html( $comment_timestamp ); ?>
 						</time>
 					</small>

@@ -347,6 +347,7 @@ function mokime_add_custom_logo_url() {
 			false,
 			array(
 				'class' => 'custom-logo navbar-item',
+				'alt'   => get_bloginfo( 'name' ),
 			)
 		)
 	);

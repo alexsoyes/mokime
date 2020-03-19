@@ -25,7 +25,7 @@
 				<div class="metadata">
 
 					<img src="<?php mokime_the_asset( 'icon', 'calendar-outline.svg' ); ?>"
-						 class="card-icons icon"
+						 class="card-icons icon" aria-hidden="true"
 						 alt="<?php esc_html_e( 'Published date', 'mokime' ); ?>" />
 
 					<span class="card-date">
@@ -46,7 +46,7 @@
 				<div class="metadata">
 
 					<img src="<?php mokime_the_asset( 'icon', '/chatbox-ellipses-outline.svg' ); ?>"
-						 class="card-icons icon"
+						 class="card-icons icon" aria-hidden="true"
 						 alt="<?php esc_html_e( 'Comments number', 'mokime' ); ?>">
 
 					<small class="card-comments color-secondary">
