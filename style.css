@@ -3,11 +3,11 @@ Theme Name: mokime
 Theme URI: http://wordpress.org/themes/mokime
 Author: AlexSoyer
 Author URI: https://moki.me
-Description: High performance WordPress theme
-Version: 1.2.0
+Description: High performance lightweight WordPress theme with SEO in mind, because pagespeed matters. Minimize carbon footprint, deliver a very fast and beautiful website or blog! Compatible with for Gutenberg, MokiMe comes with native Schema.org implementation for Article and professional design. Low configuration, this is also W3C compliant and accessible for disable people.
+Version: 1.2.1
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Tags: one-column, two-columns, right-sidebar, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, blog, theme-options, accessibility-ready
+Tags: one-column, two-columns, right-sidebar, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, blog, theme-options
 Text Domain: mokime
 Domain Path: /languages
 */
@@ -450,6 +450,10 @@ h6, .h6 {
   font-size: 1.6rem;
   letter-spacing: 0;
   line-height: 1.4; }
+
+.entry-content .custom-title {
+  margin-top: 4rem;
+  margin-bottom: 0; }
 
 /* Author box
    ========================================================================== */

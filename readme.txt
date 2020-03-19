@@ -9,9 +9,9 @@ Requires PHP: 5.2.4
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-High performance WordPress theme optimized for SEO and carbon print.
-
 == Description ==
+
+High performance WordPress theme optimized for SEO and carbon print.
 
 MokiMe is a simple theme with *minimalist* and *material design* supercharged for performance and SEO.
 
@@ -20,11 +20,12 @@ The aim of MokiMe is to provide a free WordPress blog theme with minimal stuff i
 MokiMe will reduce your website data transfer, it will not save the Earth but contributes to. 
 
 * Mobile First
+* Gutenberg compatible
 * W3C compliant
 * Security ready
 * Respect WordPress good practices
 
-MokiMe will try to load every page of your site in less than 1 second, exiting challenge isn't it?
+Demo : https://www.security-helpzone.com
 
 == Installation ==
 
@@ -59,6 +60,10 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 1.2.1 =
+* Accessibility improved a lot
+* Lot of fixes in style
 
 = 1.2.0 =
 * Ads blocks

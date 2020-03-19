@@ -23,10 +23,13 @@ MokiMe is a simple theme with *minimalist* and *material design* supercharged fo
    </tr>
  </table>
 
+**DEMO : https://www.security-helpzone.com**
+
+## Docs
+
 * [Installation guide](docs/install.md)
 * [Production build](docs/production.md)
 * [Todo list](docs/todo.md)
-
 
 ## MokiMe is build on top of
 
@@ -55,7 +58,7 @@ MokiMe is a simple theme with *minimalist* and *material design* supercharged fo
     * https://www.pexels.com/photo/silhouette-of-man-standing-on-grass-field-during-night-time-3706707/
     * https://www.pexels.com/photo/mountain-photo-during-nighttime-2086917/
     * https://www.pexels.com/photo/silhouette-of-man-standing-near-body-of-water-1136571/
-    
+* [tota11y](https://khan.github.io/tota11y/)
 ## Recommended plugins
 
 * Contact Form 7
