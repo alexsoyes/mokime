@@ -23,7 +23,7 @@ $has_background_image = isset( $header_image ) && ( $header_image && 'remove-hea
 					<?php
 					if ( is_single() ) :
 						?>
-						itemprop="name headline"<?php endif; ?> class="hero-title has-text-weight-bold h2">
+						itemprop="name headline"<?php endif; ?> class="hero-title has-text-weight-bold">
 					<?php echo wp_kses_post( $header_title ); ?>
 				</h1>
 				<?php if ( isset( $header_description ) && $header_description ) : ?>

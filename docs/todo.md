@@ -18,7 +18,8 @@
 * Use HTML5 tags in templates
     * `address` for post info
     * ...
-    
+* JS modal to display image
+
 ## :zap: Performance
 
 * Include lazyload library ?

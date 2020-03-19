@@ -356,6 +356,8 @@ function mokime_add_custom_logo_url() {
 add_filter( 'get_custom_logo', 'mokime_add_custom_logo_url' );
 
 /**
+ * Get the custom logo URL.
+ *
  * @return mixed|string
  */
 function mokime_get_custom_logo_url() {
