@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-03-17 16:41+0000\n"
+"PO-Revision-Date: 2020-03-19 10:30+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -372,11 +372,11 @@ msgstr "Rechercher à nouveau"
 
 #: search.php:14
 msgid "Search:"
-msgstr "Rechercher : "
+msgstr "Rechercher un article, une page, un mot clé..."
 
 #: header.php:32
 msgid "Searching for"
-msgstr "Rechercher..."
+msgstr "Recherche pour : "
 
 #: classes/class-mokime-customize.php:38
 msgid "Secondary Color"
@@ -437,6 +437,10 @@ msgstr "Options du thème"
 #: classes/class-mokime-widget-recent-posts.php:170
 msgid "Title:"
 msgstr "Titre : "
+
+#: template-parts/entry/entry-last-posts.php:38
+msgid "More posts"
+msgstr "Encore plus d'articles"
 
 #: template-parts/entry/entry-article-categories.php:13
 #, php-format

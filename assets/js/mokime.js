@@ -4,9 +4,7 @@
  * @param el HTMLElement the burger menu
  */
 function toggleMobileMenu(el) {
-	// Get the target from the "data-target" attribute.
-	var target  = el.dataset.target;
-	var $target = document.getElementById( target );
+	var $target = document.getElementById( 'navbar' );
 
 	// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu".
 	el.classList.toggle( 'is-active' );
@@ -14,7 +12,7 @@ function toggleMobileMenu(el) {
 }
 
 WebFontConfig = {
-	google: { families: [ 'Roboto:300,400,400i,500,900:latin' ] }
+	google: { families: [ 'Roboto:300,500,900:latin' ] }
 };
 
 (function(d) {

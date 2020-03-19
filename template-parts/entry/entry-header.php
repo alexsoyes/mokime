@@ -37,7 +37,7 @@ $has_background_image = isset( $header_image ) && ( $header_image && 'remove-hea
 				<?php endif; ?>
 
 				<?php
-				if ( is_search() ||
+				if ( is_search() || is_404() ||
 					 ( ( is_home() || is_front_page() )
 					   && (bool) get_theme_mod( 'homepage_header_search', true ) ) ) {
 					get_template_part( 'template-parts/header/search-form' );

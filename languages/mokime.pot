@@ -432,6 +432,10 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
+#: template-parts/entry/entry-last-posts.php:38
+msgid "More posts"
+msgstr ""
+
 #: template-parts/entry/entry-article-categories.php:13
 #, php-format
 msgid "View all posts in %s"

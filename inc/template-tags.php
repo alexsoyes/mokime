@@ -73,11 +73,7 @@ function mokime_the_ads( $setting_name ) {
  *
  * @return int[]|WP_Post[]
  */
-function mokime_get_the_last_posts( $limit = -1 ) {
-
-	if ( -1 === $limit ) {
-		$limit = get_option( 'posts_per_page' );
-	}
+function mokime_get_the_last_posts( $limit = 3 ) {
 
 	return get_posts(
 		array(

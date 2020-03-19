@@ -8,6 +8,6 @@ $header_class = ' has-text-align-center';
 $header_image = get_theme_mod( 'header_image' );
 $header_title = sprintf( '<span class="has-text-weight-bold">' . __( 'Searching for', 'mokime' ) . '</span> "%s"', get_search_query() );
 
-get_template_part( 'template-parts/content/content-404' );
+get_template_part( 'template-parts/content/content-search' );
 
 get_footer();
