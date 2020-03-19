@@ -1,14 +1,10 @@
 #!/bin/bash
 set -e
 
-OUTPUT_FILE="versions/mokime.zip"
+OUTPUT_FILE="mokime/versions/mokime.zip"
 
 if [ ! -d  "versions" ]; then
   mkdir -v "versions"
-fi
-
-if [ -e "${OUTPUT_FILE}" ]; then
-  rm -v "${OUTPUT_FILE}"
 fi
 
 echo "# Optimizing JS..."
@@ -21,7 +17,9 @@ find "assets/img" -regex '\(.*jpeg\|.*.jpg\)' -exec node_modules/jpegoptim-bin/v
 find "assets/img" -iname "*.png" -exec node_modules/optipng-bin/vendor/optipng -o7 -strip all {} \;
 find "assets/img" -iname "*.svg" -exec node_modules/svgo/bin/svgo {} \;
 
-zip -9 -rqq "${OUTPUT_FILE}" ../mokime \
+cd ..
+
+zip -9 -rqq "${OUTPUT_FILE}" mokime \
     -x="*docs/*" \
     -x="*README.md*" \
     -x="*.json*" \
