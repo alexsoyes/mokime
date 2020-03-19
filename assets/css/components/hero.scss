@@ -1,4 +1,23 @@
 .hero {
+
+  &-title {
+    position: relative;
+    background: 0 0;
+    display: inline-block;
+    z-index: 0;
+  }
+
+  &-title::before {
+    content: '';
+    position: absolute;
+    opacity: 0.5;
+    left: 0;
+    right: -2px;
+    bottom: 2px;
+    height: 16px;
+    z-index: -1;
+  }
+
   &-body {
     padding-top: 10rem;
     padding-bottom: 5rem;

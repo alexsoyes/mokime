@@ -110,7 +110,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 				),
 				array(
 					'type'     => 'background-color',
-					'elements' => '.button, button, input[type="button"], input[type="reset"], input[type="submit"]',
+					'elements' => '.button, button, input[type="button"], input[type="reset"], input[type="submit"], .hero-title::before',
 					'prefix'   => '',
 					'suffix'   => '',
 				),
