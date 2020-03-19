@@ -43,6 +43,7 @@ $column_width = is_active_sidebar( 'sidebar-single' ) ? 70 : 100; ?>
 				<footer class="section-inner post-metadata">
 					<?php
 					get_template_part( 'template-parts/entry/entry-article-dates' );
+					mokime_the_ads( 'advertising_post_comments_top' );
 					if ( (bool) get_theme_mod( 'single_post_nav_posts', true ) ) {
 						get_template_part( 'template-parts/navigation' );
 					}
