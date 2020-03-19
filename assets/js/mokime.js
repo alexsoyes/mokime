@@ -1,6 +1,9 @@
 /**
+ * Display the menu for mobile device.
  *
+ * @package mokime
  */
+
 var $navbar       = document.getElementById( 'navbar' );
 var $navbarButton = document.getElementById( 'navbar-button' );
 
@@ -33,6 +36,9 @@ function menuClose() {
 	$navbarButton.classList.remove( 'is-active' )
 }
 
+/**
+ * Add Google Fonts asynchronously.
+ */
 WebFontConfig = {
 	google: { families: [ 'Roboto:300,500,900:latin' ] }
 };
