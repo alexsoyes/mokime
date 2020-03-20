@@ -1,3 +1,33 @@
+
+/* Alignment Classes ------------------------- */
+
+.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+  max-width: 58rem;
+  width: calc(100% - 4rem);
+}
+
+[class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+  max-width: 58rem;
+  width: 100%;
+}
+
+.alignnone,
+.aligncenter,
+.alignleft,
+.alignright,
+.alignwide {
+  margin-top: 4rem;
+  margin-right: auto;
+  margin-bottom: 4rem;
+  margin-left: auto;
+}
+
+[class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 /* =WordPress Core
 -------------------------------------------------------------- */
 .alignnone {

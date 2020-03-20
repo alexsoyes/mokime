@@ -475,3 +475,7 @@ msgstr ""
 #: classes/class-mokime-walker-comment.php:90
 msgid "Your comment is awaiting moderation."
 msgstr ""
+
+#: templates/template-full-width.php
+msgid "Full Width Template"
+msgstr ""

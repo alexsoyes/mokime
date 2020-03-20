@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-03-19 10:30+0000\n"
+"PO-Revision-Date: 2020-03-20 16:32+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -483,3 +483,7 @@ msgstr "Les widgets dans cette zone apparaîtront juste avant le pied de page."
 #: classes/class-mokime-walker-comment.php:90
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en cours de validation..."
+
+#: templates/template-full-width.php
+msgid "Full Width Template"
+msgstr "Page pleine"

@@ -243,7 +243,7 @@ add_filter( 'get_avatar', 'mokime_get_gravatar' );
  */
 function mokime_performance_gutenberg_block_style() {
 
-	if ( (bool) get_theme_mod( 'performance_disable_gutenberg_style', true ) ) {
+	if ( (bool) get_theme_mod( 'performance_disable_gutenberg_style', false ) ) {
 		wp_dequeue_style( 'wp-block-library' );
 	}
 }
@@ -454,6 +454,18 @@ function mokime_register_styles_pre() {
 }
 
 add_action( 'wp_head', 'mokime_register_styles_pre', 5 );
+
+/**
+ *  Register customs styles for template pages.
+ */
+function mokime_template_style() {
+	$theme_version = wp_get_theme()->get( 'Version' );
+	wp_enqueue_style( 'mokime-template-full-width', get_template_directory_uri() . '/assets/css/template/template-full-with.css', array(), $theme_version );
+
+	// requires Gutenberg style anyway.
+	wp_enqueue_style( 'wp-block-library' );
+}
+
 
 define( 'DEFAULT_IMAGE_URI', mokime_get_the_asset( 'image', 'mokime-custom-header.jpg' ) );
 
