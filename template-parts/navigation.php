@@ -66,7 +66,7 @@ if ( $next_post || $prev_post ) {
 					</a>
 					<div class="excerpt">
 						<span class="excerpt-inner has-text-overflowed is-overflowed-3">
-							<?php echo wp_kses_post( get_the_excerpt( $prev_post->ID ) ); ?>
+							<?php echo wp_kses_post( get_the_excerpt( $next_post->ID ) ); ?>
 						</span>
 					</div>
 				</div>
