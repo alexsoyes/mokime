@@ -14,7 +14,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 			parent::__construct(
 				'mokime_widget_cta_post', // Base ID
 				esc_html__( 'MokiMe : CTA for Single Posts', 'mokime' ), // Name
-				array( 'description' => __( 'Create a beautiful call-to-action for your single posts.', 'mokime' ), ) // Args
+				array( 'description' => __( 'Create a beautiful call-to-action for your single posts.', 'mokime' ) ) // Args
 			);
 		}
 
@@ -25,7 +25,6 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @param array $instance Saved values from database.
 		 *
 		 * @see WP_Widget::widget()
-		 *
 		 */
 		public function widget( $args, $instance ) {
 			extract( $args );
@@ -42,28 +41,40 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 
 					<div class="card">
 
-						<div
-                                class="card-image"<?php if ( $post_image ): ?> style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ) ?>"<?php endif ?>></div>
+						<div class="card-image"
+						<?php
+						if ( $post_image ) :
+							?>
+							 style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ); ?>"<?php endif ?>></div>
 
-                        <div class="card-content">
-
-                            <p class="h3 card-title">
-                                <a href="<?php echo esc_html( get_the_permalink( $id ) ); ?>">
+						<div class="card-content">
+							<?php
+							/** @see https://support.google.com/analytics/answer/1033867?hl=fr */
+							$post_link = sprintf(
+								'%s?utm_source=%s&utm_medium=%s&utm_campaign=%s',
+								get_the_permalink( $id ),
+								get_post()->post_name,
+								'blog',
+								gmdate( 'Y' )
+							);
+							?>
+							<p class="h3 card-title">
+								<a href="<?php echo esc_html( $post_link ); ?>">
 									<?php echo esc_html( $post->post_title ); ?>
-                                </a>
-                            </p>
+								</a>
+							</p>
 
-                            <p class="description has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( $post->post_excerpt ); ?></p>
+							<p class="description has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( $post->post_excerpt ); ?></p>
 
-                            <div class="card-actions">
+							<div class="card-actions">
 
-                                <a href="<?php echo esc_html( get_the_permalink( $id ) ); ?>"
-                                   class="button"
-                                   title="<?php echo esc_html__( 'Read now', 'mokime' ) . " : " . wp_kses_post( $post->post_title ); ?>">
-									<?php esc_html_e( 'Read now', 'mokime' ) ?>
-                                </a>
+								<a href="<?php echo esc_html( $post_link ); ?>"
+								   class="button"
+								   title="<?php echo esc_html__( 'Read now', 'mokime' ) . ' : ' . wp_kses_post( $post->post_title ); ?>">
+									<?php esc_html_e( 'Read now', 'mokime' ); ?>
+								</a>
 
-                            </div><!-- .card-actions -->
+							</div><!-- .card-actions -->
 
 						</div><!--.card-content -->
 
@@ -85,7 +96,6 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @param array $instance Previously saved values from database.
 		 *
 		 * @see WP_Widget::form()
-		 *
 		 */
 		public function form( $instance ) {
 			if ( isset( $instance['id'] ) ) {
@@ -98,8 +108,8 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 				<label
 					for="<?php echo esc_html( $this->get_field_name( 'id' ) ); ?>"><?php esc_html_e( 'Single Post Id:', 'mokime' ); ?></label>
 				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'id' ) ); ?>"
-				       name="<?php echo esc_html( $this->get_field_name( 'id' ) ); ?>" type="text"
-				       value="<?php echo esc_attr( $id ); ?>"/>
+					   name="<?php echo esc_html( $this->get_field_name( 'id' ) ); ?>" type="text"
+					   value="<?php echo esc_attr( $id ); ?>"/>
 			</p>
 			<?php
 		}
@@ -112,11 +122,10 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 *
 		 * @return array Updated safe values to be saved.
 		 * @see WP_Widget::update()
-		 *
 		 */
 		public function update( $new_instance, $old_instance ) {
-			$instance          = array();
-			$instance['id'] = ( ! empty( $new_instance['id'] ) && is_numeric($new_instance['id']) ) ? sanitize_text_field( $new_instance['id'] ) : '';
+			$instance       = array();
+			$instance['id'] = ( ! empty( $new_instance['id'] ) && is_numeric( $new_instance['id'] ) ) ? sanitize_text_field( $new_instance['id'] ) : '';
 
 			return $instance;
 		}
