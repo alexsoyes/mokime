@@ -44,5 +44,5 @@ function loadCSS(d, src) {
 }
 
 (function(d) {
-	loadCSS( d, 'https://fonts.googleapis.com/css?family=Roboto:300,500,900&display=swap' );
+	loadCSS( d, 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,900&display=swap' );
 })( document );
