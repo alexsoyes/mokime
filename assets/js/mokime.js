@@ -36,14 +36,6 @@ function menuClose() {
 	$navbarButton.classList.remove( 'is-active' )
 }
 
-
-function loadJS(d, src) {
-	var wf   = d.createElement( 'script' ), s = d.scripts[0];
-	wf.src   = src;
-	wf.async = true;
-	s.parentNode.insertBefore( wf, s );
-}
-
 function loadCSS(d, src) {
 	var wf  = d.createElement( 'link' ), s = d.scripts[0];
 	wf.href = src;
