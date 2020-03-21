@@ -36,16 +36,21 @@ function menuClose() {
 	$navbarButton.classList.remove( 'is-active' )
 }
 
-/**
- * Add Google Fonts asynchronously.
- */
-WebFontConfig = {
-	google: { families: [ 'Roboto:300,500,900:latin' ] }
-};
 
-(function(d) {
+function loadJS(d, src) {
 	var wf   = d.createElement( 'script' ), s = d.scripts[0];
-	wf.src   = '/wp-content/themes/mokime/assets/js/webfontloader.js?ver=1.6.28';
+	wf.src   = src;
 	wf.async = true;
 	s.parentNode.insertBefore( wf, s );
+}
+
+function loadCSS(d, src) {
+	var wf  = d.createElement( 'link' ), s = d.scripts[0];
+	wf.href = src;
+	wf.rel  = "stylesheet";
+	s.parentNode.insertBefore( wf, s );
+}
+
+(function(d) {
+	loadCSS( d, 'https://fonts.googleapis.com/css?family=Roboto:300,500,900&display=swap' );
 })( document );
