@@ -33,7 +33,7 @@ if ( has_post_thumbnail() ) {
 	?>
 	<style>
 		body {
-			background-image: url("<?php echo esc_url( get_the_post_thumbnail_url() ); ?>"):
+			background-image: url("<?php echo esc_url( get_the_post_thumbnail_url() ); ?>");
 		}
 	</style>
 	<?php
