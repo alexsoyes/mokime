@@ -37,7 +37,11 @@
 
 <main>
 	<div class="entry-content">
-		<h1 class="has-text-align-center"><?php the_title(); ?></h1>
+		<div class="hero">
+			<div class="has-text-align-center ">
+				<h1 class="hero-title"><?php the_title(); ?></h1>
+			</div>
+		</div>
 		<?php the_content(); ?>
 	</div>
 </main>
