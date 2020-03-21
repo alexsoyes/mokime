@@ -15,6 +15,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="profile" href="https://gmpg.org/xfn/11"/>
 	<?php
+
+	if ( (bool) get_theme_mod( 'performance_enable_only_page_contact_form_7', false ) ) {
+
+		if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
+			wpcf7_enqueue_scripts();
+		}
+
+		if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
+			wpcf7_enqueue_styles();
+		}
+	}
 	wp_head();
 	$body_class = array();
 	array_push( $body_class, 'template-full-width' );
