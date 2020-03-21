@@ -7,6 +7,8 @@ if [ ! -d  "versions" ]; then
   mkdir -v "versions"
 fi
 
+npm install
+
 echo "# Optimizing JS..."
 
 node_modules/uglify-js/bin/uglifyjs assets/js/mokime.js --output=assets/js/mokime.min.js --compress --mangle
