@@ -403,7 +403,7 @@ msgid "Default Header Image"
 msgstr "Image de l'en-tête par défaut"
 
 #: classes/class-mokime-widget-cta-post.php:83
-msgid "Single Post Id:"
+msgid "Post Id:"
 msgstr "ID de l'article :  "
 
 #: classes/class-mokime-customize.php:206
