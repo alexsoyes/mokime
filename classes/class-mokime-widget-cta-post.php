@@ -59,18 +59,27 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 							);
 							?>
 							<p class="h3 card-title">
-								<a href="<?php echo esc_html( $post_link ); ?>">
-									<?php echo esc_html( $post->post_title ); ?>
+								<a href="<?php echo esc_url( $post_link ); ?>">
+									<?php echo wp_kses_post( $post->post_title ); ?>
 								</a>
 							</p>
 
+							<?php if ( $post->post_excerpt ) : ?>
 							<p class="description has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( $post->post_excerpt ); ?></p>
+							<?php else : ?>
+								<?php
+								$meta_description = get_post_meta( $post->ID, '_yoast_wpseo_metadesc', true );
+								if ( $meta_description ) :
+									?>
+									<p class="description has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( $meta_description ); ?></p>
+								<?php endif; ?>
+							<?php endif; ?>
 
 							<div class="card-actions">
 
-								<a href="<?php echo esc_html( $post_link ); ?>"
+								<a href="<?php echo esc_url( $post_link ); ?>"
 								   class="button"
-								   title="<?php echo esc_html__( 'Read now', 'mokime' ) . ' : ' . wp_kses_post( $post->post_title ); ?>">
+								   title="<?php echo esc_html__( 'Read now', 'mokime' ) . ' : ' . wp_strip_all_tags( $post->post_title ); ?>">
 									<?php esc_html_e( 'Read now', 'mokime' ); ?>
 								</a>
 
