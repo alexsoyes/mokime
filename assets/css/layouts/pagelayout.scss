@@ -124,12 +124,6 @@ a.button {
   margin-bottom: 3rem;
 }
 
-/* Breadcrumb
-   ========================================================================== */
-
-.breadcrumbs {
-  margin-bottom: 2rem;
-}
 
 /* Images
    ========================================================================== */
@@ -141,4 +135,9 @@ a.button {
 
   display: inline-block;
   vertical-align: middle;
+}
+
+figcaption {
+  font-size: 1.5rem;
+  font-style: italic;
 }
