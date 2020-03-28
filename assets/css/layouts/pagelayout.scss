@@ -34,7 +34,8 @@
     font-size: 1.7rem;
   }
 
-  > pre {
+  > pre,
+  > pre[class*="language-"] {
     margin-bottom: 2rem;
   }
 
