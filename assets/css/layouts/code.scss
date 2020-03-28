@@ -19,13 +19,7 @@ code {
   margin: 0 .3rem;
   padding: 0 1rem;
   display: inline-block;
-  background-color: $color-dark;
-  color: $color-light;
-}
-
-pre code {
-  background-color: transparent;
-  color: $color-dark;
+  background-color: $color-light;
 }
 
 code br {

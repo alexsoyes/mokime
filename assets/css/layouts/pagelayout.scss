@@ -28,10 +28,14 @@
 
 .post-inner {
   p {
-    color: $color-dark;
+    color: $color-darker;
     line-height: 2.5rem;
     margin-bottom: 2rem;
     font-size: 1.7rem;
+  }
+
+  > pre {
+    margin-bottom: 2rem;
   }
 
   h2, h3, h4, h5, h6 {
@@ -99,7 +103,7 @@ a.button {
 
 .widget-cta-single {
   .card-title a {
-    color: $color-dark;
+    color: $color-darker;
   }
 }
 

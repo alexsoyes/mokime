@@ -234,7 +234,7 @@ msgstr "Rendre la barre latérale fixe"
 #. The text inside the span with the class nav-short will be hidden on small screens.
 #: template-parts/pagination.php:22
 msgid "Newer <span class=\"nav-short\">Posts</span>"
-msgstr "Articles <span class=\"nav-short\">Récents</span>"
+msgstr "Articles <span class=\"nav-short\">suivants</span>"
 
 #: comments.php:42
 msgid "Newer Comments"
@@ -246,7 +246,7 @@ msgstr "Nombre d'articles à afficher : "
 
 #: template-parts/pagination.php:26
 msgid "Older <span class=\"nav-short\">Posts</span>"
-msgstr "Anciens articles"
+msgstr "Articles <span class=\"nav-short\">précédents</span>"
 
 #: comments.php:43
 msgid "Older Comments"
