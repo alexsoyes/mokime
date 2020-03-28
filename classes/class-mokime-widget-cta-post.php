@@ -95,7 +95,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 
 						<div class="card-actions">
 
-							<a href="<?php echo esc_url( $post_link ); ?>"
+							<a href="<?php echo esc_url( $post_link ); ?>#cta"
 							   class="button"
 							   title="<?php echo esc_html__( 'Read now', 'mokime' ) . ' : ' . wp_strip_all_tags( $post->post_title ); ?>">
 								<?php esc_html_e( 'Read now', 'mokime' ); ?>
