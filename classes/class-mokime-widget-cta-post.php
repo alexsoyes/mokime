@@ -42,8 +42,6 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 
 			if ( $post ) {
 				$this->the_widget( $post, $post_image );
-			} else {
-				printf( esc_html__( 'The following post id (%d) does not exist.' ), esc_html( $post_id ) );
 			}
 		}
 
@@ -97,7 +95,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 
 							<a href="<?php echo esc_url( $post_link ); ?>#cta"
 							   class="button"
-							   title="<?php echo esc_html__( 'Read now', 'mokime' ) . ' : ' . wp_strip_all_tags( $post->post_title ); ?>">
+							   title="<?php echo esc_html__( 'Read now', 'mokime' ) . ' : ' . esc_html( wp_strip_all_tags( $post->post_title ) ); ?>">
 								<?php esc_html_e( 'Read now', 'mokime' ); ?>
 							</a>
 
