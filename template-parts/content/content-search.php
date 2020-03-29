@@ -27,6 +27,7 @@ if ( $wp_query->found_posts ) {
 	</header><!-- .article-header -->
 
 	<div class="entry-content">
+        <?php get_template_part( 'template-parts/entry/entry-breadcrumb' ); ?>
 		<?php
 		if ( ! $wp_query->found_posts ) {
 			get_template_part( 'template-parts/entry/entry-last-posts' );
