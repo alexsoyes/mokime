@@ -294,7 +294,7 @@ function mokime_sidebar_registration() {
 		array_merge(
 			$shared_args,
 			array(
-				'before_title' => '<p class="h4 is-uppercase has-text-weight-bold">',
+				'before_title' => '<p class="has-text-weight-bold">',
 				'after_title'  => '</p>',
 				'name'         => __( 'Single post', 'mokime' ),
 				'id'           => 'sidebar-single',

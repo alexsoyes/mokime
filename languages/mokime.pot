@@ -441,6 +441,10 @@ msgstr ""
 msgid "View all posts in %s"
 msgstr ""
 
+#: archive.php:28
+msgid "Child categories"
+msgstr ""
+
 #: template-parts/entry/entry-author-bio.php:18
 msgid "View Archive <span aria-hidden=\"true\">&rarr;</span>"
 msgstr ""

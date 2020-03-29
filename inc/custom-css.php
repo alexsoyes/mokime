@@ -184,7 +184,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'header_textcolor'                   => array(
 				array(
 					'type'     => 'color',
-					'elements' => 'a.navbar-item, .navbar-link, .navbar-dropdown .navbar-item, a.navbar-item.is-active, .navbar-link.is-active, .navbar-item, .navbar-link, .navbar-burger, .logo-text',
+					'elements' => '.hero-body ul, .hero-body a, a.navbar-item, .navbar-link, .navbar-dropdown .navbar-item, a.navbar-item.is-active, .navbar-link.is-active, .navbar-item, .navbar-link, .navbar-burger, .logo-text',
 					'prefix'   => '#',
 					'suffix'   => '',
 				),
