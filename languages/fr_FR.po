@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-03-29 09:10+0000\n"
+"PO-Revision-Date: 2020-03-29 09:53+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -447,9 +447,13 @@ msgstr "Encore plus d'articles"
 msgid "View all posts in %s"
 msgstr "Voir tous les articles dans %s"
 
-#: archive.php:28
+#: inc/template-tags.pĥp:61
 msgid "Child categories"
 msgstr "Sous-catégories"
+
+#: inc/template-tags.pĥp:30
+msgid "Child pages"
+msgstr "Sous-pages"
 
 #: template-parts/entry/entry-author-bio.php:18
 msgid "View Archive <span aria-hidden=\"true\">&rarr;</span>"

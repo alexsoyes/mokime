@@ -441,8 +441,12 @@ msgstr ""
 msgid "View all posts in %s"
 msgstr ""
 
-#: archive.php:28
+#: inc/template-tags.pĥp:61
 msgid "Child categories"
+msgstr ""
+
+#: inc/template-tags.pĥp:30
+msgid "Child pages"
 msgstr ""
 
 #: template-parts/entry/entry-author-bio.php:18

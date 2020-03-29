@@ -7,7 +7,7 @@ global $header_class, $header_image, $header_title, $header_description, $has_ba
 $header_image        = get_theme_mod( 'header_image' );
 $header_title        = get_the_archive_title();
 $header_description  = get_the_archive_description();
-$header_description .= mokime_the_child_categories();
+$header_description .= mokime_get_the_child_categories();
 
 get_template_part( 'template-parts/content/content-archive' );
 

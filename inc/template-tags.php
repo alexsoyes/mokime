@@ -9,11 +9,42 @@
  */
 
 /**
+ * Get the child pages from a page type.
+ *
+ * @return string the generated list of pages.
+ */
+function mokime_get_the_child_pages() {
+
+	/** @var WP_Post $post */
+	$post = get_post();
+
+	$child_pages_options = array(
+		'sort_column' => 'menu_order',
+		'exclude'     => $post->ID,
+		'title_li'    => false,
+		'echo'        => 0,
+		'child_of'    => $post->ID,
+	);
+
+	$child_pages = wp_list_pages( $child_pages_options );
+
+	if ( ! empty( $child_pages ) ) {
+		return sprintf(
+			'<h2>%s</h2><ul>%s</ul>',
+			esc_html__( 'Child pages', 'mokime' ),
+			$child_pages
+		);
+	}
+
+	return '';
+}
+
+/**
  * Get the child categories from a category page.
  *
  * @return string the generated list of categories.
  */
-function mokime_the_child_categories() {
+function mokime_get_the_child_categories() {
 
 	/** @var int $id */
 	$id = get_query_var( 'cat' );
@@ -38,6 +69,7 @@ function mokime_the_child_categories() {
 					'title_li' => false,
 					'orderby'  => 'name',
 					'include'  => $category_ids,
+					'exclude'  => $id,
 				)
 			)
 		);
