@@ -2,7 +2,7 @@
 
 <footer role="contentinfo">
 
-    <?php mokime_the_ads( 'advertising_global_bottom' ); ?>
+	<?php mokime_the_ads( 'advertising_global_bottom' ); ?>
 
 	<?php if ( is_active_sidebar( 'sidebar-pre-footer' ) ) : ?>
 		<div id="prefooter" class="entry-content">
@@ -14,6 +14,7 @@
 
 		<?php get_template_part( 'template-parts/footer/menus-widgets' ); ?>
 
+		<?php if ( get_site_url() !== 'https://www.security-helpzone.com' ) : ?>
 		<div class="section-inner">
 
 			<div class="footer-credits">
@@ -31,6 +32,7 @@
 			</div><!-- .footer-credits -->
 
 		</div><!-- .section-inner -->
+        <?php endif; ?>
 
 	</div><!-- .header-footer-group  -->
 
