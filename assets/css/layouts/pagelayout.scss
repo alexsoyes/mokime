@@ -49,10 +49,16 @@
 }
 
 blockquote {
-  border-left: .3rem solid $color-quaternary;
+  border-left: .3rem solid $color-link;
+  background-color: $color-blue;
   margin-left: 0;
   margin-right: 0;
-  padding: 1rem 1.5rem;
+  padding: 2rem 1.5rem;
+
+  p {
+    font-size: 1.5rem;
+    font-style: italic;
+  }
 
   *:last-child {
     margin-bottom: 0 !important;
