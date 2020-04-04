@@ -252,7 +252,8 @@ a.navbar-item,
   span.navbar-item
     padding-left: 1.5rem
     padding-right: 1.5rem
-    color: $color-dark
+    +from($navbar-breakpoint)
+      color: $color-dark
 
 .navbar-divider
   background-color: $navbar-divider-background-color
