@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-03-29 09:53+0000\n"
+"PO-Revision-Date: 2020-04-04 09:36+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -225,6 +225,10 @@ msgstr "créé par"
 #: inc/menu.php:16
 msgid "Main menu"
 msgstr "Menu principal"
+
+#: classes/class-mokime-customize.php:330
+msgid "Display category links in header."
+msgstr "Afficher les liens vers les catégories."
 
 #: classes/class-mokime-customize.php:266
 msgid "Make the sidebar sticky."

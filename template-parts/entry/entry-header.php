@@ -42,7 +42,12 @@ $has_background_image = isset( $header_image ) && ( $header_image && 'remove-hea
 					   && (bool) get_theme_mod( 'homepage_header_search', true ) ) ) {
 					get_template_part( 'template-parts/header/search-form' );
 				} elseif ( is_single() ) {
-					get_template_part( 'template-parts/entry/entry-article-categories' );
+
+					if ( (bool) get_theme_mod( 'single_post_category_links', false ) ) {
+						get_template_part( 'template-parts/entry/entry-article-categories' );
+					} else {
+						get_template_part( 'template-parts/entry/entry-article-categories-no-link' );
+					}
 					the_tags( '<ul><li class="hashtag">', '</li><li class="hashtag">', '</li></ul>' );
 				}
 				?>

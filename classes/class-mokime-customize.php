@@ -107,10 +107,12 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		}
 
 		/**
-		 * @param WP_Customize_Manager                            $wp_customize Theme Customizer object.
-		 * @param $id string The id of the color
-		 * @param $label string The displaying label in customizer
-		 * @param $default string The default color bound
+		 * Add a color in the customizer for a specific area.
+		 *
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 * @param string               $id The id of the color.
+		 * @param string               $label The displaying label in customizer.
+		 * @param string               $default The default color bound.
 		 */
 		public static function add_section_color( &$wp_customize, $id, $label, $default ) {
 			$wp_customize->add_setting(
@@ -254,6 +256,15 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				)
 			);
 
+			$wp_customize->add_setting(
+				'single_post_category_links',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => false,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
 			// Add control
 			$wp_customize->add_control(
 				'single_post_featured_image',
@@ -309,9 +320,21 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 					'label'    => __( 'Make the sidebar sticky.', 'mokime' ),
 				)
 			);
+
+			$wp_customize->add_control(
+				'single_post_category_links',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options_single',
+					'settings' => 'single_post_category_links',
+					'label'    => __( 'Display category links in header.', 'mokime' ),
+				)
+			);
 		}
 
 		/**
+		 * Add custom section for ads.
+		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		public static function add_section_advertising( &$wp_customize ) {

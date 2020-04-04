@@ -224,6 +224,10 @@ msgstr ""
 msgid "Main menu"
 msgstr ""
 
+#: classes/class-mokime-customize.php:330
+msgid "Display category links in header."
+msgstr ""
+
 #: classes/class-mokime-customize.php:266
 msgid "Make the sidebar sticky."
 msgstr ""

@@ -11,13 +11,7 @@
 		<div class="card-content">
 
 			<ul class="tags">
-				<?php
-				$categories = get_the_category();
-
-				foreach ( $categories as $category ) {
-					echo wp_kses_post( sprintf( '<li class="tag">%s</li>', $category->name ) );
-				}
-				?>
+				<?php get_template_part( 'template-parts/entry/entry-article-categories-no-link' ); ?>
 			</ul>
 
 			<h2 class="card-title h3 has-text-weight-bold">

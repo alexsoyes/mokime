@@ -401,6 +401,7 @@ add_action( 'wp_body_open', 'mokime_skip_link', 5 );
  * Triggered just after theme activation
  */
 function mokime_setup_options() {
+	set_theme_mod( 'single_post_category_links', false );
 	set_theme_mod( 'single_post_sidebar_sticky', true );
 	set_theme_mod( 'single_post_nav_posts', true );
 	set_theme_mod( 'single_post_author_bio', true );
