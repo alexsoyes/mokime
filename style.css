@@ -749,6 +749,9 @@ a.button:hover {
   margin-top: 3rem;
   margin-bottom: 3rem; }
 
+.widget-cta-categories li > a {
+  font-size: 1.45rem; }
+
 /* Images
    ========================================================================== */
 .icon {
