@@ -31,13 +31,10 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 		 */
 		protected function html5_comment( $comment, $depth, $args ) {
 
-			$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+			$tag            = ( 'div' === $args['style'] ) ? 'div' : 'li';
+			$comment_author = get_comment_author( $comment );
 
-			$comment_author_url = get_comment_author_url( $comment );
-			$comment_author     = get_comment_author( $comment );
-
-			?>
-			<<?php echo $tag; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
+			echo '<' . $tag; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 
 			<article itemscope itemtype="https://schema.org/Comment" id="div-comment-<?php comment_ID(); ?>"
 					 class="media comment-body">
@@ -59,7 +56,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 					$by_post_author = mokime_is_comment_by_post_author( $comment );
 
 					if ( $by_post_author ) {
-						$post_author = ' <span class="by-post-author tag">' . __( 'Post Author', 'mokime' ) . '</span>';
+						$post_author = ' <span class="by-post-author tag tag-primary">' . __( 'Post Author', 'mokime' ) . '</span>';
 					}
 
 					/* Translators: 1 = comment date, 2 = comment time */
@@ -81,9 +78,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 
 					printf(
 						'<p><span itemprop="name">%1$s</span><span >%2$s</span> %3$s</p>',
-						! ( $comment_author_url ) ?
-							esc_html( $comment_author ) :
-							sprintf( '<a target="_blank" href="%s" rel="external nofollow" class="url">%s</a>', esc_html( $comment_author_url ), esc_html( $comment_author ) ),
+						esc_html( $comment_author ),
 						//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						$output,
 						//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

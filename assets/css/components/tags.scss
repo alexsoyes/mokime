@@ -2,15 +2,21 @@
   margin-bottom: 0.8rem;
 }
 
-.tag:not(body):not(span) {
-  font-size: 1.5rem;
-  background-color: $color-light;
-  color: $color-dark;
-  padding: 0.4rem 1rem;
-  border-radius: 0.4rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  display: inline-block;
+.tag {
+
+  &-primary  {
+    color: $color-white;
+  }
+
+  &:not(body) {
+    font-size: 1.5rem;
+    background-color: $color-light;
+    padding: 0.4rem 1rem;
+    border-radius: 0.4rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
 }
 
 .hashtag {

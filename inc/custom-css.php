@@ -93,9 +93,11 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 	function mokime_get_colors_array() {
 
 		/**
+		 * Display inline-style color to customize WordPress front with customizer.
+		 *
 		 * @var $colors array
 		 *
-		 * key: the theme_mod key containing the choosen color from editor
+		 * key: the theme_mod key containing the chosen color from editor
 		 * value: array of
 		 * - Type: the type value (color, background-color)
 		 * - CSS elements: that must be generated with the current item
@@ -103,14 +105,8 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 		$colors = array(
 			'primary_color'                      => array(
 				array(
-					'type'     => 'color',
-					'elements' => '.color-primary',
-					'prefix'   => '',
-					'suffix'   => '',
-				),
-				array(
 					'type'     => 'background-color',
-					'elements' => '.button, button, input[type="button"], input[type="reset"], input[type="submit"], .hero-title::before',
+					'elements' => '.button, button, input[type="button"], input[type="reset"], input[type="submit"], .hero-title::before, .tag-primary',
 					'prefix'   => '',
 					'suffix'   => '',
 				),
@@ -168,7 +164,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 					'prefix'   => '',
 					'suffix'   => '',
 				),
-                array(
+				array(
 					'type'     => 'color',
 					'elements' => '.site-footer p, .site-footer a, .site-footer li, .site-footer input[type="text"], .site-footer input[type="search"]',
 					'prefix'   => '',
@@ -184,7 +180,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'header_textcolor'                   => array(
 				array(
 					'type'     => 'color',
-					'elements' => '.hero-body ul, .hero-body a, a.navbar-item, .navbar-link, .navbar-dropdown .navbar-item, a.navbar-item.is-active, .navbar-link.is-active, .navbar-item, .navbar-link, .navbar-burger, .logo-text',
+					'elements' => '.hero-body ul, .hero-body a:not(.tag), a.navbar-item, .navbar-link, .navbar-dropdown .navbar-item, a.navbar-item.is-active, .navbar-link.is-active, .navbar-item, .navbar-link, .navbar-burger, .logo-text',
 					'prefix'   => '#',
 					'suffix'   => '',
 				),

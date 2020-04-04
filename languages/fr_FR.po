@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-04-04 09:36+0000\n"
+"PO-Revision-Date: 2020-04-04 09:57+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -287,7 +287,7 @@ msgstr "Article"
 
 #: classes/class-mokime-walker-comment.php:59
 msgid "Post Author"
-msgstr "Auteur de l'article"
+msgstr "Auteur(e) de l'article"
 
 #: template-parts/content/content-single.php:31
 msgid "Go to comments"
