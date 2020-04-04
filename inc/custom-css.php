@@ -106,7 +106,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			'primary_color'                      => array(
 				array(
 					'type'     => 'background-color',
-					'elements' => '.button, button, input[type="button"], input[type="reset"], input[type="submit"], .hero-title::before, .tag-primary',
+					'elements' => '.button, button, input[type="button"], input[type="reset"], input[type="submit"], .hero-title::before, .tag.tag-primary',
 					'prefix'   => '',
 					'suffix'   => '',
 				),
