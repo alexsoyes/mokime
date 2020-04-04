@@ -69,8 +69,8 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 						$post_link = sprintf(
 							'%s?utm_source=%s&utm_medium=%s&utm_campaign=%s',
 							get_the_permalink( $post->ID ),
-							get_post()->post_name,
-							'blog',
+							wp_strip_all_tags( $post->post_title ),
+							get_bloginfo( 'name' ),
 							gmdate( 'Y' )
 						);
 						?>
