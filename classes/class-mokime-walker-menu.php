@@ -239,9 +239,18 @@ if ( ! class_exists( 'MokiMe_Walker_Nav_Menu' ) ) {
 
 			$item_output .= $args->before;
 
+			// this is the current page, do not use link.
 			if ( $item->current ) {
-				$item_output .= '<span role="menuitem" class="navbar-item has-text-weight-bold">' . $title . '</span>';
-			} elseif ( $this->has_children ) {
+
+				$item_classes = 'navbar-item has-text-weight-bold';
+				if ( $this->has_children ) {
+					$item_classes .= ' navbar-link';
+				}
+
+				$item_output .= '<span role="menuitem" class="' . $item_classes . '">' . $title . '</span>';
+			}
+			// some pages in the menu.
+			elseif ( $this->has_children ) {
 				$item_output .= '<a class="navbar-link" ' . $attributes . '>';
 			} else {
 				$item_output .= '<a role="menuitem" class="navbar-item" ' . $attributes . '>';
