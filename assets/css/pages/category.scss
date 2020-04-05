@@ -7,6 +7,10 @@
   }
   .hero-desc {
 
+    a {
+      text-decoration: underline;
+    }
+
     @media (min-width: 782px) {
       text-align: justify;
       width: 70%;
