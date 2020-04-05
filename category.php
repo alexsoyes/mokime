@@ -5,7 +5,7 @@ get_header();
 global $header_class, $header_image, $header_title, $header_description, $has_background_image;
 
 $header_image = get_theme_mod( 'header_image' );
-$header_title = get_the_archive_title();
+$header_title = single_cat_title( '', false );
 
 if ( ! is_paged() ) {
 	$header_description  = get_the_archive_description();

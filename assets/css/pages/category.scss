@@ -1,0 +1,15 @@
+.category {
+  .hero-body {
+    @media (min-width: 600px) {
+      padding-top: 15rem;
+      padding-bottom: 8rem;
+    }
+  }
+  .hero-desc {
+
+    @media (min-width: 782px) {
+      text-align: justify;
+      width: 70%;
+    }
+  }
+}
