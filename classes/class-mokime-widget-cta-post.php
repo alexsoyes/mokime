@@ -28,8 +28,6 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 */
 		public function widget( $args, $instance ) {
 			extract( $args );
-
-			$post_id = apply_filters( 'widget_title', $instance['post_id'] );
 			$post_id = isset( $instance['post_id'] ) ? $instance['post_id'] : false;
 
 			if ( ! $post_id ) {
@@ -40,18 +38,21 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 			$post            = get_post( $post_id );
 			$post_image      = mokime_get_post_thumbnail_url( $post );
 
+			$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : $post->post_title;
+
 			if ( $post ) {
-				$this->the_widget( $post, $post_image );
+				$this->the_widget( $title, $post, $post_image );
 			}
 		}
 
 		/**
 		 * Display the widget on the page.
 		 *
-		 * @param WP_Post $post the post that will be shown on the widget.
-		 * @param string  $post_image the image URL.
+		 * @param $title string Custom title if choosen, post title otherwise
+		 * @param WP_Post                                                    $post the post that will be shown on the widget.
+		 * @param string                                                     $post_image the image URL.
 		 */
-		private function the_widget( $post, $post_image ) {
+		private function the_widget( $title, $post, $post_image ) {
 			?>
 			<div class="widget-cta-single">
 
@@ -69,14 +70,14 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 						$post_link = sprintf(
 							'%s?utm_source=%s&utm_medium=%s&utm_campaign=%s',
 							get_the_permalink( $post->ID ),
-							wp_strip_all_tags( $post->post_title ),
+							wp_strip_all_tags( $title ),
 							get_bloginfo( 'name' ),
 							gmdate( 'Y' )
 						);
 						?>
 						<p class="h3 card-title">
 							<a href="<?php echo esc_url( $post_link ); ?>">
-								<?php echo wp_kses_post( $post->post_title ); ?>
+								<?php echo wp_kses_post( $title ); ?>
 							</a>
 						</p>
 
@@ -117,9 +118,18 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @see WP_Widget::form()
 		 */
 		public function form( $instance ) {
+			$title           = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 			$post_id         = isset( $instance['post_id'] ) ? $instance['post_id'] : '';
 			$style_landscape = isset( $instance['style_landscape'] ) ? (bool) $instance['style_landscape'] : false;
 			?>
+			<p>
+				<label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>">
+					<?php esc_html_e( 'Title:', 'mokime' ); ?>
+				</label>
+				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"
+					   name="<?php echo wp_kses_post( $this->get_field_name( 'title' ) ); ?>" type="text"
+					   value="<?php echo wp_kses_post( $title ); ?>"/>
+			</p>
 			<p>
 				<label
 					for="<?php echo esc_html( $this->get_field_name( 'post_id' ) ); ?>"><?php esc_html_e( 'Post Id:', 'mokime' ); ?></label>
@@ -149,6 +159,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 */
 		public function update( $new_instance, $old_instance ) {
 			$instance                    = array();
+			$instance['title']           = sanitize_text_field( $new_instance['title'] );
 			$instance['post_id']         = ( ! empty( $new_instance['post_id'] ) && is_numeric( $new_instance['post_id'] ) ) ? sanitize_text_field( $new_instance['post_id'] ) : '';
 			$instance['style_landscape'] = isset( $new_instance['style_landscape'] ) ? (bool) $new_instance['style_landscape'] : false;
 
