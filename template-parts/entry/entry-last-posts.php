@@ -29,14 +29,13 @@ if ( $recent_posts ) {
 
 	$blog_url = get_permalink( get_option( 'page_for_posts' ) );
 
-	if ( ( ! $blog_url ) || ( get_option( 'show_on_front' ) === 'posts' ) ) {
-		$blog_url = get_home_url();
+	if ( ( ! $blog_url ) ) {
+		echo sprintf(
+			'<div class="more-posts has-text-align-center"><a href="%1$s" class="button">%2$s</a></div>',
+			esc_url( $blog_url ),
+			esc_html__( 'More posts', 'mokime' )
+		);
 	}
-	echo sprintf(
-		'<div class="more-posts has-text-align-center"><a href="%1$s" class="button">%2$s</a></div>',
-		esc_url( $blog_url ),
-		esc_html__( 'More posts', 'mokime' )
-	);
 }
 
 wp_reset_postdata();
