@@ -65,11 +65,12 @@ function mokime_get_the_child_categories() {
 			esc_html__( 'Child categories', 'mokime' ),
 			wp_list_categories(
 				array(
-					'echo'     => false,
-					'title_li' => false,
-					'orderby'  => 'name',
-					'include'  => $category_ids,
-					'exclude'  => $id,
+					'echo'               => false,
+					'title_li'           => false,
+					'orderby'            => 'name',
+					'include'            => $category_ids,
+					'exclude'            => $id,
+					'use_desc_for_title' => false,
 				)
 			)
 		);

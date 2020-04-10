@@ -1834,6 +1834,9 @@ a.navbar-item,
     padding-top: 15rem;
     padding-bottom: 8rem; } }
 
+.category .hero-desc a {
+  text-decoration: underline; }
+
 @media (min-width: 782px) {
   .category .hero-desc {
     text-align: justify;
