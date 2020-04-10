@@ -1,20 +1,19 @@
 <?php
+/**
+ * Display a beautiful CTA Post.
+ *
+ * @package mokime
+ */
 
 if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 
-	/**
-	 * Adds MokiMe_Widget_CTA widget.
-	 */
 	class MokiMe_Widget_CTA_Post extends WP_Widget {
 
-		/**
-		 * Register widget with WordPress.
-		 */
 		public function __construct() {
 			parent::__construct(
-				'mokime_widget_cta_post', // Base ID
-				esc_html__( 'MokiMe : CTA for Single Posts', 'mokime' ), // Name
-				array( 'description' => __( 'Create a beautiful call-to-action for your single posts.', 'mokime' ) ) // Args
+				'mokime_widget_cta_post',
+				esc_html__( 'MokiMe : CTA for Single Posts', 'mokime' ),
+				array( 'description' => __( 'Create a beautiful call-to-action for your single posts.', 'mokime' ) )
 			);
 		}
 
@@ -52,7 +51,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @param WP_Post                                                    $post the post that will be shown on the widget.
 		 * @param string                                                     $post_image the image URL.
 		 */
-		private function the_widget( $title, $post, $post_image ) {
+		public function the_widget( $title, $post, $post_image ) {
 			?>
 			<div class="widget-cta-single">
 

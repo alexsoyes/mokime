@@ -332,6 +332,7 @@ require get_template_directory() . '/classes/class-mokime-widget-cta-post.php';
 require get_template_directory() . '/classes/class-mokime-widget-recent-posts.php';
 require get_template_directory() . '/classes/class-mokime-script-loader.php';
 
+require get_template_directory() . '/inc/shortcode.php';
 /**
  * Custom logo link class
  */
