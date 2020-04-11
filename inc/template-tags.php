@@ -99,7 +99,7 @@ function mokime_the_asset( $type, $file ) {
  */
 function mokime_get_the_asset( $type, $file ) {
 
-	$types = array( 'icon', 'image', 'javascript' );
+	$types = array( 'icon', 'image', 'javascript', 'style' );
 
 	if ( ! in_array( strtolower( $type ), $types, true ) ) {
 		return '';
@@ -117,6 +117,9 @@ function mokime_get_the_asset( $type, $file ) {
 		case 'javascript':
 			$uri .= '/assets/js/';
 			break;
+        case 'style':
+            $uri .= '/assets/css/';
+            break;
 	}
 
 	return $uri . $file;

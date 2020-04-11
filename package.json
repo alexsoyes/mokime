@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "css-size": "du -hs style.css",
-    "sass-dev": "./node_modules/node-sass/bin/node-sass --watch ./assets/css/main.scss style.css --source-map-embed",
+    "sass-dev": "bash ./scripts/make-sass-dev.sh",
     "release": "bash ./scripts/make-sass.sh && bash ./scripts/make-release.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

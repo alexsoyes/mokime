@@ -294,7 +294,7 @@ function mokime_sidebar_registration() {
 		array_merge(
 			$shared_args,
 			array(
-                'before_title' => '<p class="h4 is-uppercase has-text-weight-bold">',
+				'before_title' => '<p class="h4 is-uppercase has-text-weight-bold">',
 				'after_title'  => '</p>',
 				'name'         => __( 'Single post', 'mokime' ),
 				'id'           => 'sidebar-single',
@@ -462,7 +462,7 @@ add_action( 'wp_head', 'mokime_register_styles_pre', 5 );
  */
 function mokime_template_style() {
 	$theme_version = wp_get_theme()->get( 'Version' );
-	wp_enqueue_style( 'mokime-template-full-width', get_template_directory_uri() . '/assets/css/template/template-full-with.css', array(), $theme_version );
+	wp_enqueue_style( 'mokime-template-full-width', mokime_get_the_asset( 'style', 'template/template-full-with.css' ), array(), $theme_version );
 
 	// requires Gutenberg style anyway.
 	wp_enqueue_style( 'wp-block-library' );
