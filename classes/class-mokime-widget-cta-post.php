@@ -117,23 +117,23 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 
 				<div class="hero-body hero-body--medium hero-body--filtered">
 
-                    <div class="hero-container">
-                        <p>
-                            <a href="<?php echo esc_url( $post_link ); ?>" class="hero-title h2">
-                                <?php echo wp_kses_post( $title ); ?>
-                            </a>
-                        </p>
+					<div class="hero-container">
+						<p>
+							<a href="<?php echo esc_url( $post_link ); ?>" class="hero-title h2">
+								<?php echo wp_kses_post( $title ); ?>
+							</a>
+						</p>
 
-                        <?php if ( $post_description ) : ?>
-                            <p class="hero-desc"><?php echo wp_kses_post( $post_description ); ?></p>
-                        <?php endif; ?>
-                    </div>
+						<?php if ( $post_description ) : ?>
+							<p class="hero-desc"><?php echo wp_kses_post( $post_description ); ?></p>
+						<?php endif; ?>
+					</div><!-- .hero-container -->
 
 					<a href="<?php echo esc_url( $post_link ); ?>#cta" class="button button-outline-white">
 						<?php esc_html_e( 'Read now', 'mokime' ); ?>
 					</a>
 
-				</div>
+				</div><!-- .hero-body--medium -->
 
 			</div><!-- .widget-landscape -->
 			<?php
