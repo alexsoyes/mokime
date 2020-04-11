@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-04-04 09:57+0000\n"
+"PO-Revision-Date: 2020-04-11 07:10+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -439,8 +439,12 @@ msgid "Theme Options"
 msgstr "Options du thème"
 
 #: classes/class-mokime-widget-recent-posts.php:170
-msgid "Title:"
-msgstr "Titre : "
+msgid "Title (optional):"
+msgstr "Titre (optionnel) :"
+
+#: classes/class-mokime-widget-recent-posts.php:152
+msgid "Only child of category ID (optional):"
+msgstr "Afficher seulement si catégorie parente (optionnel):"
 
 #: template-parts/entry/entry-last-posts.php:38
 msgid "More posts"

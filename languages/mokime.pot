@@ -433,7 +433,11 @@ msgid "Theme Options"
 msgstr ""
 
 #: classes/class-mokime-widget-recent-posts.php:170
-msgid "Title:"
+msgid "Title (optional):"
+msgstr ""
+
+#: classes/class-mokime-widget-recent-posts.php:152
+msgid "Only child of category ID (optional):"
 msgstr ""
 
 #: template-parts/entry/entry-last-posts.php:38

@@ -185,7 +185,7 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 				<label for="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>">
 					<?php esc_html_e( 'Number of posts to show:', 'mokime' ); ?>
 				</label>
-				<input class="tiny-text" id="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>"
+				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>"
 					   name="<?php echo esc_html( $this->get_field_name( 'number' ) ); ?>" type="number" step="1"
 					   min="1"
 					   value="<?php echo esc_html( $number ); ?>" size="3"/>
