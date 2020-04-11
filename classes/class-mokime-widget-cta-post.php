@@ -23,10 +23,11 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @param array $args Widget arguments.
 		 * @param array $instance Saved values from database.
 		 *
+		 * @return string|void
 		 * @see WP_Widget::widget()
 		 */
 		public function widget( $args, $instance ) {
-			extract( $args );
+
 			$post_id = isset( $instance['post_id'] ) ? $instance['post_id'] : false;
 
 			if ( ! $post_id ) {
