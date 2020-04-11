@@ -70,6 +70,25 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @param string                                                     $post_image the image URL.
 		 */
 		public function the_widget( $title, $post, $post_image ) {
+			/** @see https://support.google.com/analytics/answer/1033867?hl=fr */
+			$post_link = sprintf(
+				'%s?utm_source=%s&utm_medium=%s&utm_campaign=%s',
+				get_the_permalink( $post->ID ),
+				wp_strip_all_tags( $title ),
+				get_bloginfo( 'name' ),
+				gmdate( 'Y' )
+			);
+
+			$post_description = $post->post_excerpt;
+
+			if ( ! $post_description ) {
+
+				$meta_description = get_post_meta( $post->ID, '_yoast_wpseo_metadesc', true );
+
+				if ( $meta_description ) {
+					$post_description = $meta_description;
+				}
+			}
 			?>
 			<div class="widget-cta-single">
 
@@ -82,31 +101,15 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 							style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ); ?>"<?php endif ?>></div>
 
 					<div class="card-content">
-						<?php
-						/** @see https://support.google.com/analytics/answer/1033867?hl=fr */
-						$post_link = sprintf(
-							'%s?utm_source=%s&utm_medium=%s&utm_campaign=%s',
-							get_the_permalink( $post->ID ),
-							wp_strip_all_tags( $title ),
-							get_bloginfo( 'name' ),
-							gmdate( 'Y' )
-						);
-						?>
+						
 						<p class="h3 card-title">
 							<a href="<?php echo esc_url( $post_link ); ?>">
 								<?php echo wp_kses_post( $title ); ?>
 							</a>
 						</p>
 
-						<?php if ( $post->post_excerpt ) : ?>
-							<p class="description has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( $post->post_excerpt ); ?></p>
-						<?php else : ?>
-							<?php
-							$meta_description = get_post_meta( $post->ID, '_yoast_wpseo_metadesc', true );
-							if ( $meta_description ) :
-								?>
-								<p class="description has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( $meta_description ); ?></p>
-							<?php endif; ?>
+						<?php if ( $post_description ) : ?>
+							<p class="description has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( $post_description ); ?></p>
 						<?php endif; ?>
 
 						<div class="card-actions">
