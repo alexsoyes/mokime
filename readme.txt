@@ -61,6 +61,11 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 1.3.0 =
+* Lots of SEO improvements
+* Bugs fixed
+* New landscape style for Widget CTA Post
+
 = 1.2.2 =
 * Add new page template "full width template"
 * Track clicks on widget CTAs
