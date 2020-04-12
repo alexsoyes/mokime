@@ -10,9 +10,7 @@
 
 		<div class="card-content">
 
-			<ul class="tags">
-				<?php get_template_part( 'template-parts/entry/entry-article-categories-no-link' ); ?>
-			</ul>
+			<?php get_template_part( 'template-parts/entry/entry-article-categories-no-link' ); ?>
 
 			<h2 class="card-title h3 has-text-weight-bold">
 				<a href="<?php the_permalink(); ?>" class="color-secondary">
