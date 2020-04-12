@@ -444,6 +444,10 @@ msgstr ""
 msgid "CTA Text (optional):"
 msgstr ""
 
+#: classes/class-mokime-widget-recent-posts.php:240
+msgid "Landscape style"
+msgstr ""
+
 #: template-parts/entry/entry-last-posts.php:38
 msgid "More posts"
 msgstr ""

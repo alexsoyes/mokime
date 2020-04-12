@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mokime\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-22 08:43+0000\n"
-"PO-Revision-Date: 2020-04-12 07:20+0000\n"
+"PO-Revision-Date: 2020-04-12 11:06+0000\n"
 "Last-Translator: root <a.soyer@outlook.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -449,6 +449,10 @@ msgstr "Afficher seulement si catégorie parente (optionnel):"
 #: classes/class-mokime-widget-recent-posts.php:240
 msgid "CTA Text (optional):"
 msgstr "Texte d' appel à l'action (optionnel) :"
+
+#: classes/class-mokime-widget-recent-posts.php:240
+msgid "Landscape style"
+msgstr "Style paysage"
 
 #: template-parts/entry/entry-last-posts.php:38
 msgid "More posts"
