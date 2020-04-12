@@ -50,7 +50,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 				}
 
 				// Now all cat IDs are in a array.
-				if ( is_array( $only_parent_cat_ids ) ) {
+				if ( is_array( $only_parent_cat_ids ) && ! empty( $is_array ) ) {
 
 					/** @var array $categories */
 					$categories = get_the_category();
@@ -67,10 +67,11 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 				}
 			}
 
-			$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : $post->post_title;
+			$title    = ( ! empty( $instance['title'] ) ) ? $instance['title'] : $post->post_title;
+			$cta_text = ( ! empty( $instance['cta_text'] ) ) ? esc_attr( $instance['cta_text'] ) : null;
 
 			if ( $post ) {
-				$this->the_widget( $title, $post, $post_image, $style_landscape );
+				$this->the_widget( $title, $post, $post_image, $style_landscape, $cta_text );
 			}
 		}
 
@@ -82,7 +83,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @param string  $post_image the image URL.
 		 * @param bool    $style_landscape If the style is landscape mode.
 		 */
-		public function the_widget( $title, $post, $post_image, $style_landscape ) {
+		public function the_widget( $title, $post, $post_image, $style_landscape, $cta_text ) {
 
 			/** @see https://support.google.com/analytics/answer/1033867?hl=fr */
 			$post_link = sprintf(
@@ -105,9 +106,9 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 			}
 
 			if ( $style_landscape ) {
-				$this->the_widget_landscape( $title, $post_description, $post_image, $post_link );
+				$this->the_widget_landscape( $title, $post_description, $post_image, $post_link, $cta_text );
 			} else {
-				$this->the_widget_card( $title, $post_description, $post_image, $post_link );
+				$this->the_widget_card( $title, $post_description, $post_image, $post_link, $cta_text );
 			}
 		}
 
@@ -118,8 +119,9 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @param string $post_description The excerpt or meta description.
 		 * @param string $post_image The featured image URL.
 		 * @param string $post_link The post link.
+		 * @param string $cta_text The custom text for CTA button.
 		 */
-		private function the_widget_landscape( $title, $post_description, $post_image, $post_link ) {
+		private function the_widget_landscape( $title, $post_description, $post_image, $post_link, $cta_text ) {
 			?>
 			<div class="landscape hero has-text-align-center"
 				<?php
@@ -142,7 +144,13 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 					</div><!-- .hero-container -->
 
 					<a href="<?php echo esc_url( $post_link ); ?>#cta" class="button button-outline-white">
-						<?php esc_html_e( 'Read now', 'mokime' ); ?>
+						<?php
+						if ( $cta_text ) {
+							echo esc_html( $cta_text );
+						} else {
+							esc_html_e( 'Read now', 'mokime' );
+						}
+						?>
 					</a>
 
 				</div><!-- .hero-body--medium -->
@@ -158,8 +166,9 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @param string $post_description The excerpt or meta description.
 		 * @param string $post_image The featured image URL.
 		 * @param string $post_link The post link.
+		 * @param string $cta_text The custom text for CTA button.
 		 */
-		private function the_widget_card( $title, $post_description, $post_image, $post_link ) {
+		private function the_widget_card( $title, $post_description, $post_image, $post_link, $cta_text ) {
 			?>
 			<div class="widget-cta-single">
 
@@ -186,7 +195,13 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 						<div class="card-actions">
 
 							<a href="<?php echo esc_url( $post_link ); ?>#cta" class="button">
-								<?php esc_html_e( 'Read now', 'mokime' ); ?>
+								<?php
+								if ( $cta_text ) {
+									echo esc_html( $cta_text );
+								} else {
+									esc_html_e( 'Read now', 'mokime' );
+								}
+								?>
 							</a>
 
 						</div><!-- .card-actions -->
@@ -211,6 +226,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 			$post_id             = isset( $instance['post_id'] ) ? absint( $instance['post_id'] ) : '';
 			$style_landscape     = isset( $instance['style_landscape'] ) ? (bool) $instance['style_landscape'] : false;
 			$only_parent_cat_ids = isset( $instance['only_parent_cat_ids'] ) ? esc_attr( $instance['only_parent_cat_ids'] ) : false;
+			$cta_text            = isset( $instance['cta_text'] ) ? esc_attr( $instance['cta_text'] ) : '';
 			?>
 			<p>
 				<label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>">
@@ -234,6 +250,14 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'post_id' ) ); ?>"
 					   name="<?php echo esc_html( $this->get_field_name( 'post_id' ) ); ?>" type="number"
 					   value="<?php echo esc_attr( $post_id ); ?>"/>
+			</p>
+			<p>
+				<label for="<?php echo esc_html( $this->get_field_id( 'cta_text' ) ); ?>">
+					<?php esc_html_e( 'CTA Text (optional):', 'mokime' ); ?>
+				</label>
+				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'cta_text' ) ); ?>"
+					   name="<?php echo esc_html( $this->get_field_name( 'cta_text' ) ); ?>" type="text"
+					   value="<?php echo wp_kses_post( $cta_text ); ?>"/>
 			</p>
 			<p>
 				<input class="checkbox" type="checkbox"<?php checked( $style_landscape ); ?>
@@ -261,6 +285,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 			$instance['post_id']             = ( ! empty( $new_instance['post_id'] ) && is_numeric( $new_instance['post_id'] ) ) ? absint( $new_instance['post_id'] ) : '';
 			$instance['style_landscape']     = isset( $new_instance['style_landscape'] ) ? (bool) $new_instance['style_landscape'] : false;
 			$instance['only_parent_cat_ids'] = sanitize_text_field( $new_instance['only_parent_cat_ids'] );
+			$instance['cta_text']            = sanitize_text_field( $new_instance['cta_text'] );
 
 			return $instance;
 		}

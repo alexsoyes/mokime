@@ -440,6 +440,10 @@ msgstr ""
 msgid "Only child of category IDs (optional):"
 msgstr ""
 
+#: classes/class-mokime-widget-recent-posts.php:240
+msgid "CTA Text (optional):"
+msgstr ""
+
 #: template-parts/entry/entry-last-posts.php:38
 msgid "More posts"
 msgstr ""
