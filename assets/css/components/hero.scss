@@ -28,16 +28,6 @@
     }
   }
 
-  &-body--medium {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-
-    @media (min-width: 600px) {
-      padding-top: 7rem;
-      padding-bottom: 7rem;
-    }
-  }
-
   &-body--medium .hero-container {
     width: 80%;
     @media (min-width: 600px) {

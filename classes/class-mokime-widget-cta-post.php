@@ -129,7 +129,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 					?>
 					style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ); ?>"<?php endif ?>>
 
-				<div class="hero-body hero-body--medium hero-body--filtered">
+				<div class="hero-body hero-body--filtered">
 
 					<div class="hero-container">
 						<h2>
