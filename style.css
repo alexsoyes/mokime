@@ -1125,10 +1125,10 @@ ul ul {
       padding-top: 20rem;
       padding-bottom: 15rem; } }
 
-.hero-body--medium .hero-container {
+.hero-container {
   width: 80%; }
   @media (min-width: 600px) {
-    .hero-body--medium .hero-container {
+    .hero-container {
       width: 60%;
       margin: auto; } }
 

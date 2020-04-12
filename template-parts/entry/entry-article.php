@@ -47,7 +47,7 @@
 
 				<div class="metadata">
 
-					<img src="<?php mokime_the_asset( 'icon', '/chatbox-ellipses-outline.svg' ); ?>"
+					<img src="<?php mokime_the_asset( 'icon', 'chatbox-ellipses-outline.svg' ); ?>"
 						 class="card-icons icon" aria-hidden="true"
 						 alt="<?php esc_html_e( 'Comments number', 'mokime' ); ?>">
 
