@@ -50,7 +50,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 				}
 
 				// Now all cat IDs are in a array.
-				if ( is_array( $only_parent_cat_ids ) && ! empty( $is_array ) ) {
+				if ( is_array( $only_parent_cat_ids ) && ! empty( $only_parent_cat_ids ) ) {
 
 					/** @var array $categories */
 					$categories = get_the_category();
@@ -82,6 +82,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @param WP_Post $post the post that will be shown on the widget.
 		 * @param string  $post_image the image URL.
 		 * @param bool    $style_landscape If the style is landscape mode.
+		 * @param string  $cta_text The custom button text.
 		 */
 		public function the_widget( $title, $post, $post_image, $style_landscape, $cta_text ) {
 
