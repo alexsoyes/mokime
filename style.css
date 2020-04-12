@@ -1033,7 +1033,8 @@ ul ul {
     margin-bottom: 2rem; }
   .card .card-title {
     margin-bottom: 0.5rem;
-    margin-top: 0; }
+    margin-top: 0;
+    font-size: 2.8rem; }
   .card .card-image {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
@@ -1058,6 +1059,9 @@ ul ul {
     .card .card-metadata .metadata {
       display: inline-block;
       margin-right: 1.5rem; }
+  .card .card-description {
+    line-height: 1.6;
+    margin-bottom: 0.5rem; }
   .card .card-actions {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem; }
@@ -1829,8 +1833,8 @@ a.navbar-item,
 /* ==========================================================================
    WordPress core classes
    ========================================================================== */
-/* =WordPress Core
--------------------------------------------------------------- */
+/* WordPress Core
+   ========================================================================== */
 .alignnone {
   margin: 5px 20px 20px 0; }
 
@@ -1937,3 +1941,9 @@ a img.aligncenter {
 
 .bypostauthor .comment-footer-meta .by-post-author {
   display: block; }
+
+/* Gutenberg Core
+   ========================================================================== */
+.entry-content .wp-block-button__link {
+  padding: 8px 24px;
+  transition: 0.5s all; }

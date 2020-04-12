@@ -437,7 +437,7 @@ msgid "Title (optional):"
 msgstr ""
 
 #: classes/class-mokime-widget-recent-posts.php:152
-msgid "Only child of category ID (optional):"
+msgid "Only child of category IDs (optional):"
 msgstr ""
 
 #: template-parts/entry/entry-last-posts.php:38

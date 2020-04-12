@@ -28,29 +28,41 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 */
 		public function widget( $args, $instance ) {
 
-			$post_id = isset( $instance['post_id'] ) ? $instance['post_id'] : 0;
+			$post_id = isset( $instance['post_id'] ) ? absint( $instance['post_id'] ) : 0;
 
 			if ( ! $post_id || 0 === $post_id ) {
 				return;
 			}
 
-			$style_landscape    = isset( $instance['style_landscape'] ) ? (bool) $instance['style_landscape'] : false;
-			$post               = get_post( $post_id );
-			$post_image         = mokime_get_post_thumbnail_url( $post );
-			$only_parent_cat_id = isset( $instance['only_parent_cat_id'] ) ? absint( $instance['only_parent_cat_id'] ) : 0;
+			$style_landscape     = isset( $instance['style_landscape'] ) ? (bool) $instance['style_landscape'] : false;
+			$post                = get_post( $post_id );
+			$post_image          = mokime_get_post_thumbnail_url( $post );
+			$only_parent_cat_ids = isset( $instance['only_parent_cat_ids'] ) ? esc_attr( $instance['only_parent_cat_ids'] ) : null;
 
-			if ( 0 !== $only_parent_cat_id ) {
+			if ( null !== $only_parent_cat_ids ) {
 
-				/** @var array $categories */
-				$categories = get_the_category();
+				$only_parent_cat_ids = str_replace( ' ', '', $only_parent_cat_ids );
+				$only_parent_cat_ids = explode( ',', $only_parent_cat_ids );
 
-				if ( is_array( $categories ) && ! empty( $categories ) ) {
+				// Could be either 128 or [ 158, 1024, 1567 ].
+				if ( is_numeric( $only_parent_cat_ids ) ) {
+					$only_parent_cat_ids = array( $only_parent_cat_ids );
+				}
 
-					/** @var WP_Term $category */
-					$category = $categories[0];
+				// Now all cat IDs are in a array.
+				if ( is_array( $only_parent_cat_ids ) ) {
 
-					if ( $only_parent_cat_id !== $category->term_id ) {
-						return '';
+					/** @var array $categories */
+					$categories = get_the_category();
+
+					if ( is_array( $categories ) && ! empty( $categories ) ) {
+
+						/** @var WP_Term $category */
+						$category = $categories[0];
+
+						if ( ! in_array( $category->term_id, $only_parent_cat_ids ) ) {
+							return '';
+						}
 					}
 				}
 			}
@@ -110,19 +122,19 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		private function the_widget_landscape( $title, $post_description, $post_image, $post_link ) {
 			?>
 			<div class="landscape hero has-text-align-center"
-			<?php
-			if ( $post_image ) :
-				?>
-							style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ); ?>"<?php endif ?>>
+				<?php
+				if ( $post_image ) :
+					?>
+					style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ); ?>"<?php endif ?>>
 
 				<div class="hero-body hero-body--medium hero-body--filtered">
 
 					<div class="hero-container">
-						<p>
+						<h2>
 							<a href="<?php echo esc_url( $post_link ); ?>" class="hero-title h2">
 								<?php echo wp_kses_post( $title ); ?>
 							</a>
-						</p>
+						</h2>
 
 						<?php if ( $post_description ) : ?>
 							<p class="hero-desc"><?php echo wp_kses_post( $post_description ); ?></p>
@@ -161,14 +173,14 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 
 					<div class="card-content">
 
-						<p class="h3 card-title">
+						<h2 class="h3 card-title">
 							<a href="<?php echo esc_url( $post_link ); ?>">
 								<?php echo wp_kses_post( $title ); ?>
 							</a>
-						</p>
+						</h2>
 
 						<?php if ( $post_description ) : ?>
-							<p class="description has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( $post_description ); ?></p>
+							<p class="card-description has-text-overflowed is-overflowed-3"><?php echo wp_kses_post( $post_description ); ?></p>
 						<?php endif; ?>
 
 						<div class="card-actions">
@@ -195,10 +207,10 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @see WP_Widget::form()
 		 */
 		public function form( $instance ) {
-			$title              = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
-			$post_id            = isset( $instance['post_id'] ) ? absint( $instance['post_id'] ) : '';
-			$style_landscape    = isset( $instance['style_landscape'] ) ? (bool) $instance['style_landscape'] : false;
-			$only_parent_cat_id = isset( $instance['only_parent_cat_id'] ) ? absint( $instance['only_parent_cat_id'] ) : false;
+			$title               = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
+			$post_id             = isset( $instance['post_id'] ) ? absint( $instance['post_id'] ) : '';
+			$style_landscape     = isset( $instance['style_landscape'] ) ? (bool) $instance['style_landscape'] : false;
+			$only_parent_cat_ids = isset( $instance['only_parent_cat_ids'] ) ? esc_attr( $instance['only_parent_cat_ids'] ) : false;
 			?>
 			<p>
 				<label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>">
@@ -209,12 +221,12 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 					   value="<?php echo wp_kses_post( $title ); ?>"/>
 			</p>
 			<p>
-				<label for="<?php echo esc_html( $this->get_field_id( 'only_parent_cat_id' ) ); ?>">
-					<?php esc_html_e( 'Only child of category ID (optional):', 'mokime' ); ?>
+				<label for="<?php echo esc_html( $this->get_field_id( 'only_parent_cat_ids' ) ); ?>">
+					<?php esc_html_e( 'Only child of category IDs (optional):', 'mokime' ); ?>
 				</label>
-				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'only_parent_cat_id' ) ); ?>"
-					   name="<?php echo esc_html( $this->get_field_name( 'only_parent_cat_id' ) ); ?>" type="number"
-					   value="<?php echo absint( $only_parent_cat_id ); ?>"/>
+				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'only_parent_cat_ids' ) ); ?>"
+					   name="<?php echo esc_html( $this->get_field_name( 'only_parent_cat_ids' ) ); ?>" type="text"
+					   value="<?php echo esc_html( $only_parent_cat_ids ); ?>"/>
 			</p>
 			<p>
 				<label
@@ -244,11 +256,11 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 		 * @see WP_Widget::update()
 		 */
 		public function update( $new_instance, $old_instance ) {
-			$instance                       = array();
-			$instance['title']              = sanitize_text_field( $new_instance['title'] );
-			$instance['post_id']            = ( ! empty( $new_instance['post_id'] ) && is_numeric( $new_instance['post_id'] ) ) ? absint( $new_instance['post_id'] ) : '';
-			$instance['style_landscape']    = isset( $new_instance['style_landscape'] ) ? (bool) $new_instance['style_landscape'] : false;
-			$instance['only_parent_cat_id'] = ( ! empty( $new_instance['only_parent_cat_id'] ) && is_numeric( $new_instance['only_parent_cat_id'] ) ) ? absint( $new_instance['only_parent_cat_id'] ) : '';
+			$instance                        = array();
+			$instance['title']               = sanitize_text_field( $new_instance['title'] );
+			$instance['post_id']             = ( ! empty( $new_instance['post_id'] ) && is_numeric( $new_instance['post_id'] ) ) ? absint( $new_instance['post_id'] ) : '';
+			$instance['style_landscape']     = isset( $new_instance['style_landscape'] ) ? (bool) $new_instance['style_landscape'] : false;
+			$instance['only_parent_cat_ids'] = sanitize_text_field( $new_instance['only_parent_cat_ids'] );
 
 			return $instance;
 		}
