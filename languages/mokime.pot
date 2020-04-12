@@ -29,6 +29,18 @@ msgstr ""
 msgid "Articles from the same category"
 msgstr ""
 
+#: classes/class-mokime-widget-table-of-contents.php:15
+msgid "MokiMe : Table of contents"
+msgstr ""
+
+#: classes/class-mokime-widget-table-of-contents.php:16
+msgid "Creates a table of contents (TOC)."
+msgstr ""
+
+#: classes/class-mokime-widget-table-of-contents.php:52
+msgid " Title:"
+msgstr ""
+
 #: classes/class-mokime-widget-recent-posts.php:116
 msgid "(no title)"
 msgstr ""
@@ -89,7 +101,7 @@ msgid "Continue reading"
 msgstr ""
 
 #: classes/class-mokime-widget-cta-post.php:17
-msgid "Create a beautiful call-to-action for your single posts."
+msgid "Creates a beautiful call-to-action for your single posts."
 msgstr ""
 
 # classes/class-mokime-customize.php:322
@@ -169,7 +181,7 @@ msgid "Display previous / next posts."
 msgstr ""
 
 #: classes/class-mokime-widget-recent-posts.php:25
-msgid "Display the last posts from the current category (SEO power)."
+msgid "Displays the last posts from the current category (SEO power)."
 msgstr ""
 
 #: classes/class-mokime-walker-comment.php:112

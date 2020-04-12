@@ -1,4 +1,9 @@
 <?php
+/**
+ *
+ * @package mokime
+ */
+
 /** @var int $column_width */
 $column_width = is_active_sidebar( 'sidebar-single' ) ? 70 : 100; ?>
 

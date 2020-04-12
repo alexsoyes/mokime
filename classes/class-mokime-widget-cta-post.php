@@ -13,7 +13,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 			parent::__construct(
 				'mokime_widget_cta_post',
 				esc_html__( 'MokiMe : CTA for Single Posts', 'mokime' ),
-				array( 'description' => esc_html__( 'Create a beautiful call-to-action for your single posts.', 'mokime' ) )
+				array( 'description' => esc_html__( 'Creates a beautiful call-to-action for your single posts.', 'mokime' ) )
 			);
 		}
 

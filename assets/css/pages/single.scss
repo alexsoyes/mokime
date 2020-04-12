@@ -1,5 +1,26 @@
 .single-post {
 
+  .toc {
+    ol { counter-reset: item }
+    ol > li {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    ol > li:before {
+      content: counters(item, ".") " ";
+      counter-increment: item;
+      font-weight: bold;
+      color: #0072a9;
+      margin-right: 0.5rem;
+    }
+
+    &_title {
+      margin-bottom: 1rem !important;
+    }
+  }
+
   .author-image {
     margin-bottom: 1rem;
   }

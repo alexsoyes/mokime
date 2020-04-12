@@ -22,7 +22,7 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 				esc_html__( 'MokiMe : Recent posts per cat', 'mokime' ),
 				array(
 					'classname'                   => 'mokime_widget_recent_entries',
-					'description'                 => __( 'Display the last posts from the current category (SEO power).', 'mokime' ),
+					'description'                 => __( 'Displays the last posts from the current category (SEO power).', 'mokime' ),
 					'customize_selective_refresh' => true,
 				)
 			);

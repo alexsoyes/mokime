@@ -310,6 +310,7 @@ add_action( 'widgets_init', 'mokime_sidebar_registration' );
 function mokime_widgets_registration() {
 	register_widget( 'MokiMe_Widget_CTA_Post' );
 	register_widget( 'MokiMe_Widget_Recent_Posts' );
+	register_widget( 'MokiMe_Widget_TOC' );
 }
 
 add_action( 'widgets_init', 'mokime_widgets_registration' );
@@ -319,11 +320,13 @@ add_action( 'widgets_init', 'mokime_widgets_registration' );
  * REQUIRED FILES
  * Include required files.
  */
+require get_template_directory() . '/inc/table-of-contents.php';
 require get_template_directory() . '/inc/menu.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/svg-icons.php';
 require get_template_directory() . '/inc/custom-css.php';
 
+require get_template_directory() . '/classes/class-mokime-widget-table-of-contents.php';
 require get_template_directory() . '/classes/class-mokime-svg-icons.php';
 require get_template_directory() . '/classes/class-mokime-walker-comment.php';
 require get_template_directory() . '/classes/class-mokime-customize.php';
