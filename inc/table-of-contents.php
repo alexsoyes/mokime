@@ -126,18 +126,25 @@ class Mokime_Table_Of_Contents {
 				continue;
 			}
 
-			if ( $level > $level_previous ) { // the previous title is higher h2 > h3.
+			$levels_to_close = $level_previous - $level;
+
+			if ( $level > $level_previous ) {
+				// the previous title is higher h2 > h3.
 				$html .= "\n<ol class='toc_sublist'><li class='toc_$level'>$link";
-				$levels_to_close ++;
-			} elseif ( $level_previous > $level ) { // the previous title is lower h4 > h2.
+			} elseif ( $level_previous > $level ) {
+				// the previous title is lower h4 > h2.
+
+				// close all opened li before closing the list.
 				for ( $l = 0; $l < $levels_to_close; $l++ ) {
 					$html .= '</li></ol>';
 				}
-				$html           .= "</li>\n<li class='toc_$level'>$link";
-				$levels_to_close = 0;
-			} else { // the previous title is the same h2 = h2.
+
+				$html .= "</li>\n<li class='toc_$level'>$link";
+			} else {
+				// the previous title is the same h2 = h2.
 				$html .= "</li>\n<li class='toc_$level'>$link";
 			}
+
 			$level_previous = $level;
 		}
 
