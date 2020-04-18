@@ -30,12 +30,17 @@ if ( ! class_exists( 'MokiMe_Widget_TOC' ) ) {
 
 			$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : null;
 
-			if ( $title ) {
-				echo "<p class='h2 toc_title'>$title</p>";
-			}
-
 			global $post;
-			echo wp_kses_post( $post->post_toc );
+			$post_toc = $post->post_toc;
+
+			if ( $post_toc ) {
+
+				if ( $title ) {
+					echo wp_kses_post( "<p class='h2 toc_title'>$title</p>" );
+				}
+
+				echo wp_kses_post( $post_toc );
+			}
 		}
 
 		/**

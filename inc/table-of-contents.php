@@ -96,6 +96,10 @@ class Mokime_Table_Of_Contents {
 		$level_previous  = 10;
 		$levels_to_close = 0;
 
+		if ( 0 === $toc_count ) {
+			return '';
+		}
+
 		for ( $i = 0; $i < $toc_count; $i ++ ) {
 
 			list($pagenum, $level, $tocid, $text) = $this->toc[ $i ];
