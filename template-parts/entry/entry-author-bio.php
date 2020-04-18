@@ -49,9 +49,9 @@
 		<p itemprop="name" class="h3 has-text-weight-bold"><?php echo esc_html( get_the_author() ); ?></p>
 
 		<div class="author-description">
-				<span itemprop="description">
-					<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
-				</span>
+            <div itemprop="description">
+                <?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
+            </div>
 			<a class="author-link"
 			   itemprop="url"
 			   href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"
