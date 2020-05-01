@@ -18,7 +18,7 @@
 			get_the_author_meta( 'ID' ),
 			96,
 			'',
-			get_the_author(),
+			get_the_author()
 		);
 		?>
 	</figure><!-- .author-image -->
