@@ -172,29 +172,6 @@ function mokime_performance_setup() {
 		add_filter( 'rest_enabled', '__return_false' );
 		add_filter( 'rest_jsonp_enabled', '__return_false' );
 	}
-	if ( (bool) get_theme_mod( 'performance_disable_embed_posts', false ) ) {
-		// Remove the REST API lines from the HTML Header.
-		remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
-		remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
-
-		// Remove the REST API endpoint.
-		remove_action( 'rest_api_init', 'wp_oembed_register_route' );
-
-		// Turn off oEmbed auto discovery.
-		add_filter( 'embed_oembed_discover', '__return_false' );
-
-		// Don't filter oEmbed results.
-		remove_filter( 'oembed_dataparse', 'wp_filter_oembed_result', 10 );
-
-		// Remove oEmbed discovery links.
-		remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
-
-		// Remove oEmbed-specific JavaScript from the front-end and back-end.
-		remove_action( 'wp_head', 'wp_oembed_add_host_js' );
-
-		// Remove all embeds rewrite rules.
-		add_filter( 'rewrite_rules_array', 'disable_embeds_rewrites' );
-	}
 	if ( (bool) get_theme_mod( 'performance_remove_wc_generator_tag', false ) ) {
 		remove_action( 'wp_head', 'wc_generator_tag' );
 	}

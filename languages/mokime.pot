@@ -144,10 +144,6 @@ msgstr ""
 msgid "Make sure that the contrast is high enough so that the text is readable."
 msgstr ""
 
-#: classes/class-mokime-customize.php:162
-msgid "Disable embed posts."
-msgstr ""
-
 #: classes/class-mokime-customize.php:160
 msgid "Disable Gravatar."
 msgstr ""

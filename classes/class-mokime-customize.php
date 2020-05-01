@@ -161,7 +161,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 			self::add_section_performance_control( $wp_customize, 'enable_only_page_contact_form_7', __( 'Only enable Contact Form 7 on page type.', 'mokime' ), false );
 			self::add_section_performance_control( $wp_customize, 'disable_gravatar', __( 'Disable Gravatar.', 'mokime' ), false );
 			self::add_section_performance_control( $wp_customize, 'disable_json_api', __( 'Disable JSON API.', 'mokime' ), false );
-			self::add_section_performance_control( $wp_customize, 'disable_embed_posts', __( 'Disable embed posts.', 'mokime' ), false );
 			self::add_section_performance_control( $wp_customize, 'disable_gutenberg_style', __( 'Disable Gutenberg block style.', 'mokime' ), false );
 			self::add_section_performance_control( $wp_customize, 'remove_xmlrpc', __( 'Disable WordPress XML-RPC.', 'mokime' ), false );
 
@@ -169,6 +168,8 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 		}
 
 		/**
+		 * Add section "Performance" in customizer.
+		 *
 		 * @param WP_Customize_Manager                             $wp_customize Theme Customizer object.
 		 * @param $id string the id of the setting & control
 		 * @param $label string displayed label in customizer

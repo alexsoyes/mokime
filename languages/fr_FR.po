@@ -146,10 +146,6 @@ msgstr ""
 "Si vos images sont lumineuses, assurez-vous d'avoir suffisamment mis de "
 "contraste."
 
-#: classes/class-mokime-customize.php:162
-msgid "Disable embed posts."
-msgstr "Désactiver les articles intégrés."
-
 #: classes/class-mokime-customize.php:160
 msgid "Disable Gravatar."
 msgstr "Désactiver les images Gravatar."
