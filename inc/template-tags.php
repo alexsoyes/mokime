@@ -117,9 +117,9 @@ function mokime_get_the_asset( $type, $file ) {
 		case 'javascript':
 			$uri .= '/assets/js/';
 			break;
-		case 'style':
-			$uri .= '/assets/css/';
-			break;
+        case 'style':
+            $uri .= '/assets/css/';
+            break;
 	}
 
 	return $uri . $file;
@@ -135,7 +135,8 @@ function mokime_the_ads( $setting_name ) {
 	$ad_content = get_theme_mod( $setting_name, false );
 
 	if ( (bool) $ad_content ) {
-		echo wp_kses( sprintf( '<div class="entry-content"><div class="ads">%s</div><!-- .ads --></div><!-- .entry-content -->', $ad_content ), true, 'javascript' );
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo ( sprintf( '<div class="entry-content"><div class="ads">%s</div><!-- .ads --></div><!-- .entry-content -->', $ad_content ) );
 	}
 }
 
