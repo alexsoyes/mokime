@@ -12,14 +12,13 @@ if ( $recent_posts ) {
 	echo '<h2 class="custom-title">' . esc_html__( 'Our last posts', 'mokime' ) . '</h2>';
 	echo '<div class="wp-block-columns">';
 
-    // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-	foreach ( $recent_posts as $index => $post ) {
+	foreach ( $recent_posts as $index => $recent_post ) {
 
 		if ( 0 !== $index && 0 === ( $index % 3 ) ) {
 			echo '</div><!-- .wp-block-columns --><div class="wp-block-columns">';
 		}
 
-		setup_postdata( $post );
+		setup_postdata( $recent_post );
 		get_template_part( 'template-parts/entry/entry-article' );
 	}
 
