@@ -391,12 +391,12 @@ function mokime_setup_options() {
 	set_theme_mod( 'homepage_header_search', true );
 	set_theme_mod( 'homepage_last_posts', false );
 
-	set_theme_mod( 'primary_color', '#53257F' );
-	set_theme_mod( 'secondary_color', '#49516f' );
+	set_theme_mod( 'primary_color', '#8a6be8' );
+	set_theme_mod( 'secondary_color', '#273770' );
 	set_theme_mod( 'header_textcolor', 'fff' );
 	set_theme_mod( 'footer_text_color', '#dcdcdd' );
-	set_theme_mod( 'footer_background_color', '#222222' );
-	set_theme_mod( 'header_background_color', '#49516f' );
+	set_theme_mod( 'footer_background_color', '#2d2d2d' );
+	set_theme_mod( 'header_background_color', '#273770' );
 	set_theme_mod( 'header_hero_text_color', '#fff' );
 }
 
