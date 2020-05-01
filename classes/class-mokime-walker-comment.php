@@ -36,8 +36,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 
 			echo '<' . $tag; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 
-			<article itemscope itemtype="https://schema.org/Comment" id="div-comment-<?php comment_ID(); ?>"
-					 class="media comment-body">
+			<article id="div-comment-<?php comment_ID(); ?>" class="media comment-body">
 
 				<?php $avatar = get_avatar( $comment, 48, '', $comment_author ); ?>
 				<?php if ( 0 !== $args['avatar_size'] ) : ?>
@@ -66,7 +65,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 
 					?>
 					<small class="tag">
-						<time itemprop="dateCreated" datetime="<?php comment_time( 'c' ); ?>">
+						<time datetime="<?php comment_time( 'c' ); ?>">
 							<?php echo esc_html( $comment_timestamp ); ?>
 						</time>
 					</small>
@@ -77,7 +76,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 					ob_get_clean();
 
 					printf(
-						'<p><span itemprop="name">%1$s</span><span >%2$s</span> %3$s</p>',
+						'<p><span>%1$s</span><span >%2$s</span> %3$s</p>',
 						esc_html( $comment_author ),
 						//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						$output,
@@ -86,7 +85,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 					);
 
 					?>
-					<span itemprop="text">
+					<span>
 						<?php comment_text(); ?>
 					</span>
 
@@ -130,7 +129,7 @@ if ( ! class_exists( 'MokiMe_Walker_Comment' ) ) {
 							}
 
 							echo sprintf(
-								' &bull; <a itemprop="url"  href="%1$s" class="has-regular-font-size">%2$s</a>',
+								' &bull; <a href="%1$s" class="has-regular-font-size">%2$s</a>',
 								esc_url( get_comment_link( $comment, $args ) ),
 								esc_html__( 'Link to the comment', 'mokime' )
 							);

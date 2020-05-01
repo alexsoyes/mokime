@@ -3,12 +3,12 @@
 $categories = get_the_category();
 
 if ( $categories ) {
-	echo '<div class="tags categories" itemscope itemtype =http://schema.org/CreativeWork>';
+	echo '<div class="tags categories">';
 }
 
 foreach ( $categories as $category ) {
 	$category_link = sprintf(
-		'<a href="%1$s" title="%2$s" itemprop="about" class="tag">%3$s</a>',
+		'<a href="%1$s" title="%2$s" class="tag">%3$s</a>',
 		esc_url( get_category_link( $category->term_id ) ),
 		sprintf(
 		/* translators: %s: name of the category */

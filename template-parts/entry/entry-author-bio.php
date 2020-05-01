@@ -6,16 +6,7 @@
  */
 
 ?>
-<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-	<?php if ( has_custom_logo() ) : ?>
-	<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-		<meta itemprop="url" content="<?php echo esc_html( mokime_get_custom_logo_url() ); ?>">
-	</div>
-	<meta itemprop="name" content="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>">
-	<?php endif; ?>
-</div>
-
-<div itemprop="author" itemscope itemtype="https://schema.org/Person" class="author-box has-text-align-center
+<div class="author-box has-text-align-center
 	 <?php
 		if ( ! (bool) get_theme_mod( 'single_post_author_bio', true ) ) :
 			?>
@@ -28,9 +19,6 @@
 			96,
 			'',
 			get_the_author(),
-			array(
-				'itemprop' => 'image',
-			)
 		);
 		?>
 	</figure><!-- .author-image -->
@@ -46,14 +34,13 @@
 
 	<div class="media-content-center content">
 
-		<p itemprop="name" class="h3 has-text-weight-bold"><?php echo esc_html( get_the_author() ); ?></p>
+		<p class="h3 has-text-weight-bold"><?php echo esc_html( get_the_author() ); ?></p>
 
 		<div class="author-description">
-            <div itemprop="description">
+            <div>
                 <?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
             </div>
 			<a class="author-link"
-			   itemprop="url"
 			   href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"
 			   rel="author<?php if ( $index_author_page ) :?> nofollow<?php endif; ?>">
 				<?php

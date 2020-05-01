@@ -21,23 +21,21 @@ if ( $next_post || $prev_post ) {
 	} ?>
 
 	<nav class="pagination-single section-inner<?php echo esc_attr( $pagination_classes ); ?>"
-		 itemscope itemtype="http://schema.org/SiteNavigationElement"
 		 aria-label="<?php esc_attr_e( 'Post', 'mokime' ); ?>" role="navigation">
 
-		<hr aria-hidden="true"/>
+		<hr aria-hidden="true" />
 
 		<div class="pagination-single-inner wp-block-columns">
 
 			<?php
 			if ( $prev_post ) {
 				?>
-
 				<div class="wp-block-column">
 					<p class="title-navigation h4 has-text-weight-bold">
 						<span class="arrow"
 							  aria-hidden="true">&larr;</span> <?php esc_html_e( 'Previous post', 'mokime' ); ?>
 					</p>
-					<a itemprop="url" class="previous-post h4" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
+					<a class="previous-post h4" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
 						<span class="title">
 							<span class="title-inner"><?php echo wp_kses_post( get_the_title( $prev_post->ID ) ); ?></span>
 						</span>
@@ -48,7 +46,6 @@ if ( $next_post || $prev_post ) {
 						</span>
 					</div>
 				</div>
-
 				<?php
 			}
 
@@ -59,7 +56,7 @@ if ( $next_post || $prev_post ) {
 					<p class="title-navigation h4 has-text-weight-bold"><?php esc_html_e( 'Next post', 'mokime' ); ?>
 						<span class="arrow" aria-hidden="true">&rarr;</span>
 					</p>
-					<a itemprop="url" class="next-post h4" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
+					<a class="next-post h4" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
 						<span class="title">
 							<span class="title-inner"><?php echo wp_kses_post( get_the_title( $next_post->ID ) ); ?></span>
 						</span>

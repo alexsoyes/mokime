@@ -20,20 +20,12 @@ $has_background_image = isset( $header_image ) && ( $header_image && 'remove-hea
 
 			<div class="hero-body<?php echo esc_html( $header_class ); ?>">
 				<?php if ( isset( $header_title ) && $header_title ) : ?>
-				<h1
-					<?php
-					if ( is_single() ) :
-						?>
-						itemprop="name headline"<?php endif; ?> class="hero-title has-text-weight-bold">
+				<h1 class="hero-title has-text-weight-bold">
 					<?php echo wp_kses_post( $header_title ); ?>
 				</h1>
 				<?php endif; ?>
 				<?php if ( isset( $header_description ) && $header_description ) : ?>
-				<div
-					<?php
-					if ( is_single() ) :
-						?>
-					 itemprop="description"<?php endif; ?> class="hero-desc">
+				<div class="hero-desc">
 					<?php echo wp_kses_post( $header_description ); ?>
 				</div><!-- .hero-desc -->
 				<?php endif; ?>

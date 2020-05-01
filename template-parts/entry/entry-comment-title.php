@@ -2,14 +2,11 @@
 
 <div class="comments-header section-inner">
 
-	<meta itemprop="commentCount" content="<?php echo esc_html( $comments_number ); ?>">
-
 	<p class="h2 comment-reply-title">
 		<?php
 		if ( ! have_comments() ) {
 			esc_html_e( 'Leave a comment', 'mokime' );
 		} else {
-			echo wp_kses_post( sprintf( '<meta itemprop="commentCount" content="%s">', $comments_number ) );
 			echo wp_kses_post(
 				sprintf(
 				/* translators: 1: number of comments, 2: post title */
