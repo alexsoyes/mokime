@@ -61,6 +61,15 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 1.3.2 =
+* Remove Schema.org
+* Theme review corrections
+* Styling
+
+= 1.3.1 =
+* New feature: ToC
+* CTA enhancements
+
 = 1.3.0 =
 * Lots of SEO improvements
 * Bugs fixed
@@ -101,3 +110,11 @@ Just install the theme :)
 == Demo ==
 
 If you need to see a real-world example website with MokiMe theme in it, you can check security-helpzone.com.
+
+== Copyright ==
+
+MokiMe bundles the following third-party resources:
+
+Image for theme screenshot, Copyright Felix Mittermeier
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://unsplash.com/photos/L4-16dmZ-1c
