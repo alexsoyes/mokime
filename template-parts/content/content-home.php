@@ -8,7 +8,6 @@
 
 	<div class="entry-content">
 		<?php
-
 		/**
 		 * Display the content from the static page
 		 */
