@@ -76,6 +76,9 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 			// second level, loop into the classes for the given mod id.
 			foreach ( $color as $color_values ) {
 				$hex_color = get_theme_mod( $theme_mod_id );
+				if ( 'blank' === $hex_color ) {
+					$hex_color = 'FFF';
+				}
 				mokime_generate_css( $color_values['elements'], $color_values['type'], $hex_color, $color_values['prefix'], $color_values['suffix'] );
 			}
 		}
