@@ -26,7 +26,7 @@
 
 					<img src="<?php mokime_the_asset( 'icon', 'calendar-outline.svg' ); ?>"
 						 class="card-icons icon" aria-hidden="true"
-						 alt="<?php esc_html_e( 'Published date', 'mokime' ); ?>" />
+						 alt="<?php esc_attr_e( 'Published date', 'mokime' ); ?>" />
 
 					<span class="card-date">
 						<?php $have_no_title = '' === get_the_title(); ?>
@@ -47,7 +47,7 @@
 
 					<img src="<?php mokime_the_asset( 'icon', 'chatbox-ellipses-outline.svg' ); ?>"
 						 class="card-icons icon" aria-hidden="true"
-						 alt="<?php esc_html_e( 'Comments number', 'mokime' ); ?>">
+						 alt="<?php esc_attr_e( 'Comments number', 'mokime' ); ?>">
 
 					<small class="card-comments color-secondary">
 						<?php

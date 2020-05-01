@@ -6,11 +6,11 @@
 
 		<img src="<?php mokime_the_asset('icon', 'chatbox-ellipses-outline.svg' ); ?>"
 		     class="icon" aria-hidden="true"
-		     alt="<?php esc_html_e( 'Comments number', 'mokime' ); ?>">
+		     alt="<?php esc_attr_e( 'Comments number', 'mokime' ); ?>">
 
 		<?php
 		if ( 0 === $comments_number ) {
-			esc_html_e( 'Add a comment', 'mokime' );
+            esc_attr_e( 'Add a comment', 'mokime' );
 		} else {
 			echo wp_kses_post(
 				sprintf(

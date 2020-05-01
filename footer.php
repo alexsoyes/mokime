@@ -20,19 +20,19 @@
 			<div class="footer-credits">
 
 				<p class="footer-copyright has-text-align-center">
-					<small class="is-white">
+					<small>
 						<a href="https://moki.me" title="Theme MokiMe" rel="noopener" target="_blank" class="is-white">
 							<?php esc_html_e( 'High performance theme', 'mokime' ); ?>
 						</a>
 						<?php esc_html_e( 'made by ', 'mokime' ); ?>
 						<a href="https://www.security-helpzone.com" title="Security-HelpZone" rel="noopener" target="_blank" class="is-white">SHZ</a>.
 					</small>
-				</p>
+				</p><!-- .footer-copyright -->
 
 			</div><!-- .footer-credits -->
 
 		</div><!-- .section-inner -->
-        <?php endif; ?>
+		<?php endif; ?>
 
 	</div><!-- .header-footer-group  -->
 
