@@ -437,7 +437,7 @@ function mokime_register_scripts() {
 		wp_script_add_data( 'comment-reply', 'async', true );
 	}
 
-	wp_enqueue_script( 'mokime-js', mokime_get_the_asset( 'javascript', 'mokime.min.js' ), array(), $theme_version, true );
+	wp_enqueue_script( 'mokime-js', mokime_get_the_asset( 'javascript', 'mokime.js' ), array(), $theme_version, true );
 	wp_script_add_data( 'mokime-js', 'async', true );
 }
 
@@ -452,7 +452,7 @@ function mokime_register_styles_pre() {
 	echo sprintf(
 		'<link rel="preload" as="script" type="text/javascript" media="all" href="%s" />',
 		esc_html(
-			mokime_get_the_asset( 'javascript', 'mokime.min.js' ) . '?ver=' . wp_get_theme()->get( 'Version' )
+			mokime_get_the_asset( 'javascript', 'mokime.js' ) . '?ver=' . wp_get_theme()->get( 'Version' )
 		)
 	);
 }

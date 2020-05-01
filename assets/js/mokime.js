@@ -9,6 +9,9 @@ var $navbarButton = document.getElementById( 'navbar-button' );
 
 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
+/**
+ * Only creates a listener on burger menu when visible.
+ */
 if (width <= 1023) {
 	$navbarButton.addEventListener(
 		'click',
@@ -16,8 +19,21 @@ if (width <= 1023) {
 			menuToggle();
 		}
 	);
+
+	var $navbarItems    = document.querySelectorAll( '.navbar-end .navbar-item' );
+	var $navbarItemLast = $navbarItems[$navbarItems.length - 1];
+
+	$navbarItemLast.addEventListener(
+		'focusout',
+		function() {
+			menuClose()
+		}
+	);
 }
 
+/**
+ * Open/Close burger menu.
+ */
 function menuToggle() {
 	if ($navbarButton.classList.contains( 'is-active' )) {
 		menuClose();
@@ -36,6 +52,12 @@ function menuClose() {
 	$navbarButton.classList.remove( 'is-active' )
 }
 
+/**
+ * Load CSS asynchronously.
+ *
+ * @param d HTML element.
+ * @param src the source to load.
+ */
 function loadCSS(d, src) {
 	var wf  = d.createElement( 'link' ), s = d.scripts[0];
 	wf.href = src;

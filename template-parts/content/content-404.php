@@ -1,4 +1,9 @@
 <?php
+/**
+ * 404 not found page.
+ *
+ * @package mokime
+ */
 global $header_description;
 
 $header_description = esc_html__( 'We could not find any results for your search. You can give it another try through the search form below.', 'mokime' );

@@ -4,7 +4,9 @@
  * @package mokime
  */
 
-/** @var int $column_width */
+/**
+ * The column width if sidebar exists.
+ */
 $column_width = is_active_sidebar( 'sidebar-single' ) ? 70 : 100; ?>
 
 <article itemscope itemtype="https://schema.org/Article"
