@@ -1,10 +1,10 @@
 === mokime ===
 Contributors: alexsoyer
 Donate link: https://moki.me
-Tags: performance, seo, fast, blog
+Tags: one-column, two-columns, right-sidebar, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, blog, theme-options
 Requires at least: 4.0
 Tested up to: 5.2
-Stable tag: 1.0
+Stable tag: 1.3.2
 Requires PHP: 5.2.4
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html

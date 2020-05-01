@@ -9,10 +9,6 @@ fi
 
 npm install
 
-echo "# Optimizing JS..."
-
-node_modules/uglify-js/bin/uglifyjs assets/js/mokime.js --output=assets/js/mokime.min.js --compress --mangle
-
 echo "# Optimizing assets..."
 
 find "assets/img" -regex '\(.*jpeg\|.*.jpg\)' -exec node_modules/jpegoptim-bin/vendor/jpegoptim -m90 --strip-all {} \;
@@ -23,6 +19,7 @@ cd ..
 
 zip -9 -rqq "${OUTPUT_FILE}" mokime \
     -x="*docs/*" \
+    -x="*assets/scss/*" \
     -x="*README.md*" \
     -x="*.json*" \
     -x="*.idea*" \
