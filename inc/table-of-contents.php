@@ -60,11 +60,8 @@ class Mokime_Table_Of_Contents {
 	 * @return string
 	 */
 	function get_tocid( $text ) {
-		$search  = explode( ',', 'ç,æ,œ,á,é,í,ó,ú,à,è,ì,ò,ù,ä,ë,ï,ö,ü,ÿ,â,ê,î,ô,û,å,e,i,ø,u' );
-		$replace = explode( ',', 'c,ae,oe,a,e,i,o,u,a,e,i,o,u,a,e,i,o,u,y,a,e,i,o,u,a,e,i,o,u' );
-		$chaine  = str_replace( $search, $replace, $text );
-		$tocid   = sanitize_title_with_dashes( $chaine );
-		$count   = 0;
+		$tocid = sanitize_title_with_dashes( remove_accents( $text ) );
+		$count = 0;
 
 		while ( isset( $this->tocmap[ $tocid ] ) ) {
 			$tocid = $text . strval( ++ $count );
