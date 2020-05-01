@@ -163,7 +163,7 @@ if ( ! function_exists( 'mokime_get_customizer_css' ) ) {
 				),
 				array(
 					'type'     => 'background-color',
-					'elements' => ' .site-footer a[target=_blank]::before',
+					'elements' => ' .site-footer a[target=_blank]::after',
 					'prefix'   => '',
 					'suffix'   => '',
 				),

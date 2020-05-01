@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 }
 
-@media (min-width: 782px) {
+@media (min-width: 1024px) {
   .wp-block-columns {
     flex-wrap: nowrap
   }
@@ -37,7 +37,7 @@
   }
 }
 
-@media (min-width: 782px) {
+@media (min-width: 1024px) {
   .wp-block-column:not(:first-child) {
     margin-left: 32px
   }
@@ -59,7 +59,7 @@
 
   flex-basis: 100%;
 
-  @media (min-width: 782px) {
+  @media (min-width: 1024px) {
     flex-basis: 30%
   }
 }
@@ -68,7 +68,7 @@
 
   flex-basis: 100%;
 
-  @media (min-width: 782px) {
+  @media (min-width: 1024px) {
     flex-basis: 70%;
     margin-right: 32px;
   }

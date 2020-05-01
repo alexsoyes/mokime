@@ -13,6 +13,10 @@
   background-repeat: no-repeat;
 }
 
+.article-header {
+  margin-bottom: 3rem;
+}
+
 /* Footer
    ========================================================================== */
 
@@ -29,9 +33,13 @@
 .post-inner {
   p {
     color: $color-darker;
-    line-height: 160%;
     margin-bottom: 2rem;
     font-size: 1.7rem;
+  }
+
+  p,
+  ul {
+    line-height: 2;
   }
 
   > pre,
@@ -41,62 +49,15 @@
 
   h2, h3, h4, h5, h6 {
     margin-top: 4rem;
+    color: $color-dark;
   }
 
   table {
     margin-bottom: 2rem;
   }
-}
 
-blockquote {
-  border-left: .3rem solid $color-link;
-  background-color: $color-blue;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 2rem 1.5rem;
+  color: $color-darker;
 
-  p {
-    font-size: 1.5rem;
-    font-style: italic;
-  }
-
-  *:last-child {
-    margin-bottom: 0 !important;
-  }
-}
-
-/* Global
-   ========================================================================== */
-
-body {
-  background-color: $color-white;
-}
-
-a:focus {
-  text-decoration: underline;
-}
-
-a[target=_blank]::before {
-  content: '';
-  background-color: $color-link;
-  -webkit-mask:  url("/wp-content/themes/mokime/assets/img/icons/exit-outline.svg") no-repeat 50% 50%;
-  mask: url("/wp-content/themes/mokime/assets/img/icons/exit-outline.svg") no-repeat 50% 50%;
-  -webkit-mask-size: cover;
-  mask-size: cover;
-  width: 1.5rem;
-  height: 1.5rem;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0.3rem;
-}
-
-a.button {
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-.post-inner {
   a:visited {
     color: $color-primary;
   }
@@ -106,6 +67,10 @@ a.button {
   a[target=_blank]::before {
     width: 1.8rem;
     height: 1.8rem;
+  }
+  ul {
+    list-style: disc;
+    margin-left: 3rem;
   }
 }
 
@@ -153,7 +118,6 @@ a.button {
   vertical-align: middle;
 }
 
-figcaption {
-  font-size: 1.5rem;
-  font-style: italic;
+.wp-caption {
+  width: auto !important;
 }

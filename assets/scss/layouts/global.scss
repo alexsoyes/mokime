@@ -10,7 +10,8 @@ html {
 }
 
 body {
-  color: $color-darker;
+  color: $color-dark;
+  background-color: $color-white;
   font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 300;
@@ -41,6 +42,47 @@ a {
   }
 }
 
+a:focus {
+  text-decoration: underline;
+}
+
+a[target=_blank]::after {
+  content: '';
+  background-color: $color-link;
+  -webkit-mask:  url("/wp-content/themes/mokime/assets/img/icons/exit-outline.svg") no-repeat 50% 50%;
+  mask: url("/wp-content/themes/mokime/assets/img/icons/exit-outline.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.3rem;
+}
+
+a.button {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+blockquote {
+  border-left: .3rem solid $color-link;
+  background-color: $color-blue;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 2rem 1.5rem;
+
+  p {
+    font-size: 1.5rem;
+    font-style: italic;
+  }
+
+  *:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
 figure,
 img,
 video {
@@ -52,6 +94,8 @@ hr {
   opacity: 0.5;
 }
 
-.wp-caption {
-  width: auto !important;
+figcaption {
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 500;
 }
