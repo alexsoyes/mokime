@@ -128,10 +128,6 @@ msgstr ""
 msgid "Ads at the top of the \"comments\" block."
 msgstr ""
 
-# classes/class-mokime-customize.php:413
-msgid "Ads at the bottom of the \"comments\" block."
-msgstr ""
-
 # classes/class-mokime-customize.php:375
 msgid "Ad script goes here."
 msgstr ""

@@ -75,8 +75,6 @@ if ( comments_open() || pings_open() ) {
 		echo '<hr class="styled-separator is-style-wide" aria-hidden="true" />';
 	}
 
-	mokime_the_ads( 'advertising_post_comments_bottom' );
-
 	comment_form(
 		array(
 			'class_form'         => 'section-inner thin max-percentage',

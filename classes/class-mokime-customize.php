@@ -376,15 +376,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 				)
 			);
 
-			$wp_customize->add_setting(
-				'advertising_post_comments_bottom',
-				array(
-					'capability'        => 'edit_theme_options',
-					'sanitize_callback' => null,
-					'default'           => null,
-				)
-			);
-
 			// Add control.
 			$wp_customize->add_control(
 				'advertising_global_top',
@@ -421,19 +412,6 @@ if ( ! class_exists( 'MokiMe_Customize' ) ) {
 					'priority'    => 10,
 					'label'       => esc_html__( 'Posts', 'mokime' ),
 					'description' => esc_html__( 'Ads at the top of the "comments" block.', 'mokime' ),
-					'input_attrs' => array(
-						'placeholder' => sprintf( '<!-- %s -->', esc_html__( 'Ad script goes here.', 'mokime' ) ),
-					),
-				)
-			);
-
-			$wp_customize->add_control(
-				'advertising_post_comments_bottom',
-				array(
-					'type'        => 'textarea',
-					'section'     => 'options_advertising',
-					'priority'    => 10,
-					'description' => esc_html__( 'Ads at the bottom of the "comments" block.', 'mokime' ),
 					'input_attrs' => array(
 						'placeholder' => sprintf( '<!-- %s -->', esc_html__( 'Ad script goes here.', 'mokime' ) ),
 					),
