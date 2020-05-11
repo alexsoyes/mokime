@@ -224,6 +224,10 @@ msgstr ""
 msgid "made by "
 msgstr ""
 
+#: footer.php:28
+msgid "SHZ"
+msgstr ""
+
 #: inc/menu.php:16
 msgid "Main menu"
 msgstr ""

@@ -21,11 +21,11 @@
 
 				<p class="footer-copyright has-text-align-center">
 					<small>
-						<a href="https://moki.me" title="Theme MokiMe" rel="noopener" target="_blank">
+						<a href="https://moki.me" rel="noopener" target="_blank">
 							<?php esc_html_e( 'High performance theme', 'mokime' ); ?>
 						</a>
 						<?php esc_html_e( 'made by ', 'mokime' ); ?>
-						<a href="https://www.security-helpzone.com" title="Security-HelpZone" rel="noopener" target="_blank">SHZ</a>.
+						<a href="https://www.security-helpzone.com" title="Security-HelpZone" rel="noopener" target="_blank"><?php esc_html_e( 'SHZ', 'mokime' ); ?></a>.
 					</small>
 				</p><!-- .footer-copyright -->
 

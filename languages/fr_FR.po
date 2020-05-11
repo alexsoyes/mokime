@@ -226,6 +226,10 @@ msgstr "Lien vers le commentaire"
 msgid "made by "
 msgstr "créé par"
 
+#: footer.php:28
+msgid "SHZ"
+msgstr "SHZ"
+
 #: inc/menu.php:16
 msgid "Main menu"
 msgstr "Menu principal"
