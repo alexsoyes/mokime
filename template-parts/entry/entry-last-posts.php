@@ -12,13 +12,13 @@ if ( $recent_posts ) {
 	echo '<h2 class="custom-title">' . esc_html__( 'Our last posts', 'mokime' ) . '</h2>';
 	echo '<div class="wp-block-columns">';
 
-	foreach ( $recent_posts as $index => $recent_post ) {
+	foreach ( $recent_posts as $index => $post ) {
 
 		if ( 0 !== $index && 0 === ( $index % 3 ) ) {
 			echo '</div><!-- .wp-block-columns --><div class="wp-block-columns">';
 		}
 
-		setup_postdata( $recent_post );
+		setup_postdata( $post );
 		get_template_part( 'template-parts/entry/entry-article' );
 	}
 
