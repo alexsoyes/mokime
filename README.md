@@ -30,6 +30,7 @@ MokiMe is a simple theme with *minimalist* and *material design* supercharged fo
 * [Installation guide](docs/install.md)
 * [Production build](docs/production.md)
 * [Todo list](docs/todo.md)
+* [readme.txt](readme.txt)
 
 ## MokiMe is build on top of
 
