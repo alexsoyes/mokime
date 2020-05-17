@@ -117,6 +117,7 @@ If you need to see a real-world example website with MokiMe theme in it, you can
 
 MokiMe bundles the following third-party resources:
 
-Image for theme screenshot, Copyright Felix Mittermeier
+Image for theme screenshot, Copyright Macro Mama
 License: CC0 1.0 Universal (CC0 1.0)
-Source: https://unsplash.com/photos/L4-16dmZ-1c
+Source: https://stocksnap.io/photo/snow-flake-DPPBWTSVDN
+
