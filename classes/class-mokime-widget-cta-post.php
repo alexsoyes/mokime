@@ -50,7 +50,7 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 				}
 
 				// Now all cat IDs are in a array.
-				if ( is_array( $only_parent_cat_ids ) && ! empty( $only_parent_cat_ids ) ) {
+				if ( is_array( $only_parent_cat_ids ) && ! empty( $only_parent_cat_ids ) && ( $only_parent_cat_ids[0] !== '' ) ) {
 
 					/** @var array $categories */
 					$categories = get_the_category();
@@ -230,42 +230,42 @@ if ( ! class_exists( 'MokiMe_Widget_CTA_Post' ) ) {
 			$cta_text            = isset( $instance['cta_text'] ) ? esc_attr( $instance['cta_text'] ) : '';
 			?>
 			<p>
-				<label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>">
-					<?php esc_html_e( 'Title:', 'mokime' ); ?>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
+					<?php esc_attr_e( 'Title:', 'mokime' ); ?>
 				</label>
-				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"
-					   name="<?php echo esc_html( $this->get_field_name( 'title' ) ); ?>" type="text"
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+					   name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text"
 					   value="<?php echo wp_kses_post( $title ); ?>"/>
 			</p>
 			<p>
-				<label for="<?php echo esc_html( $this->get_field_id( 'only_parent_cat_ids' ) ); ?>">
-					<?php esc_html_e( 'Only child of category IDs (optional):', 'mokime' ); ?>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'only_parent_cat_ids' ) ); ?>">
+					<?php esc_attr_e( 'Only child of category IDs (optional):', 'mokime' ); ?>
 				</label>
-				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'only_parent_cat_ids' ) ); ?>"
-					   name="<?php echo esc_html( $this->get_field_name( 'only_parent_cat_ids' ) ); ?>" type="text"
-					   value="<?php echo esc_html( $only_parent_cat_ids ); ?>"/>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'only_parent_cat_ids' ) ); ?>"
+					   name="<?php echo esc_attr( $this->get_field_name( 'only_parent_cat_ids' ) ); ?>" type="text"
+					   value="<?php echo esc_attr( $only_parent_cat_ids ); ?>"/>
 			</p>
 			<p>
 				<label
-						for="<?php echo esc_html( $this->get_field_name( 'post_id' ) ); ?>"><?php esc_html_e( 'Post Id:', 'mokime' ); ?></label>
-				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'post_id' ) ); ?>"
-					   name="<?php echo esc_html( $this->get_field_name( 'post_id' ) ); ?>" type="number"
+						for="<?php echo esc_attr( $this->get_field_name( 'post_id' ) ); ?>"><?php esc_attr_e( 'Post Id:', 'mokime' ); ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'post_id' ) ); ?>"
+					   name="<?php echo esc_attr( $this->get_field_name( 'post_id' ) ); ?>" type="number"
 					   value="<?php echo esc_attr( $post_id ); ?>"/>
 			</p>
 			<p>
-				<label for="<?php echo esc_html( $this->get_field_id( 'cta_text' ) ); ?>">
-					<?php esc_html_e( 'CTA Text (optional):', 'mokime' ); ?>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'cta_text' ) ); ?>">
+					<?php esc_attr_e( 'CTA Text (optional):', 'mokime' ); ?>
 				</label>
-				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'cta_text' ) ); ?>"
-					   name="<?php echo esc_html( $this->get_field_name( 'cta_text' ) ); ?>" type="text"
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'cta_text' ) ); ?>"
+					   name="<?php echo esc_attr( $this->get_field_name( 'cta_text' ) ); ?>" type="text"
 					   value="<?php echo wp_kses_post( $cta_text ); ?>"/>
 			</p>
 			<p>
 				<input class="checkbox" type="checkbox"<?php checked( $style_landscape ); ?>
-					   id="<?php echo esc_html( $this->get_field_id( 'style_landscape' ) ); ?>"
-					   name="<?php echo esc_html( $this->get_field_name( 'style_landscape' ) ); ?>"/>
-				<label for="<?php echo esc_html( $this->get_field_id( 'style_landscape' ) ); ?>">
-					<?php esc_html_e( 'Landscape style', 'mokime' ); ?>
+					   id="<?php echo esc_attr( $this->get_field_id( 'style_landscape' ) ); ?>"
+					   name="<?php echo esc_attr( $this->get_field_name( 'style_landscape' ) ); ?>"/>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'style_landscape' ) ); ?>">
+					<?php esc_attr_e( 'Landscape style', 'mokime' ); ?>
 				</label>
 			</p>
 			<?php
