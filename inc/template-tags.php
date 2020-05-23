@@ -198,7 +198,7 @@ function mokime_get_post_thumbnail_url( $post, $size = 'full' ) {
 		$post_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), $size );
 
 		if ( $post_image ) {
-			return $post_image[0];
+			return esc_url( $post_image[0] );
 		}
 	}
 

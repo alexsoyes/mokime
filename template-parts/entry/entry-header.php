@@ -18,7 +18,7 @@ $has_background_image = isset( $header_image ) && ( $header_image && 'remove-hea
 
 		<div class="hero">
 
-			<div class="hero-body<?php echo esc_html( $header_class ); ?>">
+			<div class="hero-body<?php echo esc_attr( $header_class ); ?>">
 				<?php if ( isset( $header_title ) && $header_title ) : ?>
 				<h1 class="hero-title has-text-weight-bold">
 					<?php echo wp_kses_post( $header_title ); ?>

@@ -2,7 +2,7 @@
 
 	<?php $comments_number = absint( get_comments_number() ); ?>
 
-	<a href="#<?php echo $comments_number > 0 ? 'comments' : 'respond'; ?>" title="<?php esc_html_e( 'Go to comments', 'mokime' ); ?>">
+	<a href="#<?php echo $comments_number > 0 ? 'comments' : 'respond'; ?>" title="<?php esc_attr_e( 'Go to comments', 'mokime' ); ?>">
 
 		<img src="<?php mokime_the_asset('icon', 'chatbox-ellipses-outline.svg' ); ?>"
 		     class="icon" aria-hidden="true"

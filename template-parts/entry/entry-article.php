@@ -6,7 +6,7 @@
 			<?php
 			if ( $post_image ) :
 				?>
-				style="<?php echo sprintf( " background-image: url('%s')", esc_html( $post_image ) ); ?>"<?php endif ?>></div>
+				style="<?php echo sprintf( " background-image: url('%s')", $post_image ); ?>"<?php endif ?>></div>
 
 		<div class="card-content">
 

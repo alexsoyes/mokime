@@ -97,7 +97,7 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 				?>
 
 				<nav class="widget-cta-categories"
-					 aria-label="<?php esc_html_e( 'Articles from the same category', 'mokime' ); ?>" role="navigation">
+					 aria-label="<?php esc_attr_e( 'Articles from the same category', 'mokime' ); ?>" role="navigation">
 
 					<?php
 
@@ -174,28 +174,28 @@ if ( ! class_exists( 'MokiMe_Widget_Recent_Posts' ) ) {
 			$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
 			?>
 			<p>
-				<label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>">
-					<?php esc_html_e( 'Title:', 'mokime' ); ?>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
+					<?php esc_attr_e( 'Title:', 'mokime' ); ?>
 				</label>
-				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
 					   name="<?php echo wp_kses_post( $this->get_field_name( 'title' ) ); ?>" type="text"
 					   value="<?php echo wp_kses_post( $title ); ?>"/>
 			</p>
 			<p>
-				<label for="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>">
-					<?php esc_html_e( 'Number of posts to show:', 'mokime' ); ?>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>">
+					<?php esc_attr_e( 'Number of posts to show:', 'mokime' ); ?>
 				</label>
-				<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'number' ) ); ?>"
-					   name="<?php echo esc_html( $this->get_field_name( 'number' ) ); ?>" type="number" step="1"
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"
+					   name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="number" step="1"
 					   min="1"
-					   value="<?php echo esc_html( $number ); ?>" size="3"/>
+					   value="<?php echo esc_attr( $number ); ?>" size="3"/>
 			</p>
 			<p>
 				<input class="checkbox" type="checkbox"<?php checked( $show_date ); ?>
-					   id="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>"
-					   name="<?php echo esc_html( $this->get_field_name( 'show_date' ) ); ?>"/>
-				<label for="<?php echo esc_html( $this->get_field_id( 'show_date' ) ); ?>">
-					<?php esc_html_e( 'Display post date?', 'mokime' ); ?>
+					   id="<?php echo esc_attr( $this->get_field_id( 'show_date' ) ); ?>"
+					   name="<?php echo esc_attr( $this->get_field_name( 'show_date' ) ); ?>"/>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'show_date' ) ); ?>">
+					<?php esc_attr_e( 'Display post date?', 'mokime' ); ?>
 				</label>
 			</p>
 			<?php
