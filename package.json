@@ -34,7 +34,7 @@
   "devDependencies": {
     "autoprefixer": "^9.7.4",
     "jpegoptim-bin": "^5.1.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "npm-check-updates": "^4.0.4",
     "optipng-bin": "^6.0.0",
     "postcss-cli": "^7.1.0",
